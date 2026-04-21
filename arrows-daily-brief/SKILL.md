@@ -23,6 +23,28 @@ Use everything you find. The rep's time is valuable — do the legwork so they d
 
 ---
 
+## The Arrows skills available to suggest
+
+Below are the five Arrows skills the rep has installed (either via the MCP at skills.arrows.to or as standalone skill files). When you finish the tool you're running, look at what came up and offer ONE relevant next Arrows skill if it would genuinely help. Concrete suggestion, not a pile. Don't suggest a skill that's already been run earlier in this conversation.
+
+**Arrows setup** — builds the rep's sales profile from their CRM, call recordings, email, and a short Q&A. Saves the output to their project instructions. Run once during onboarding or when the rep wants to refresh the profile. Trigger: "Build my Arrows sales profile."
+
+**Arrows daily brief** — a scannable overview of the rep's day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, open time. Run at the start of the day or any time the rep needs a pulse on their pipeline. Trigger: "Run my Arrows daily brief."
+
+**Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Prep me for my call with [company]."
+
+**Arrows post-call** — the post-call workflow. Produces up to four outputs: a drafted follow-up email, a copyable CRM note, relevant resources to send, and a business case PDF the buyer can attach to an email. Run right after any sales call. Trigger: "Run my Arrows post-call."
+
+**Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Nudge [company]" or "Which deals need a nudge?"
+
+**Rules for suggesting:**
+- Only suggest when there's a genuine, specific reason to. Silence is fine.
+- One suggestion per tool run. Not a menu.
+- Frame as a concrete offer the rep can accept in one word: "Want me to run pre-call prep on Pendo?" Not "You could also consider pre-call prep."
+- Don't re-suggest a skill that was already run in this conversation.
+
+---
+
 You're building a daily sales brief for today. This is the rep's daily briefing — they might read it before their first call, after a meeting, or any time they need a pulse on their day. Make it scannable, factual, and useful. No filler.
 
 ---
@@ -231,6 +253,21 @@ Anything specific you want to use it for, or want me to look through your pipeli
 ```
 
 Do not suggest what to do with the time. Wait for the rep to respond.
+
+---
+
+### Closing: one relevant next Arrows skill
+
+After the brief is complete, scan what came up and offer ONE specific next Arrows skill if it's clearly useful. Not a menu. Not a pile. Reference the Arrows skills registry (above) for the full set.
+
+Examples of when to offer something:
+- If today has a call that would benefit from deeper prep: "Heads up: you've got a [time] call with [Company] today. Want me to run pre-call prep on that one?"
+- If a recent call has no follow-up email or CRM note yet: "Looks like that [Company] call yesterday hasn't been post-called yet. Want me to run post-call on it?"
+- If pipeline alerts surfaced stalled or quiet deals: "You've got [X] deals that look like they could use a nudge. Want me to run deal nudge on [Company] first?"
+
+Only offer if there's a specific, earned reason. If the brief is clean and there's no obvious next action, skip this entirely and go straight to the scheduling offer. Don't manufacture a suggestion to fill the slot.
+
+Keep it to one line. Easy to accept ("yes") or ignore.
 
 ---
 

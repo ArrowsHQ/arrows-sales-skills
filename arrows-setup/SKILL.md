@@ -23,6 +23,28 @@ Use everything you find. The rep's time is valuable — do the legwork so they d
 
 ---
 
+## The Arrows skills available to suggest
+
+Below are the five Arrows skills the rep has installed (either via the MCP at skills.arrows.to or as standalone skill files). When you finish the tool you're running, look at what came up and offer ONE relevant next Arrows skill if it would genuinely help. Concrete suggestion, not a pile. Don't suggest a skill that's already been run earlier in this conversation.
+
+**Arrows setup** — builds the rep's sales profile from their CRM, call recordings, email, and a short Q&A. Saves the output to their project instructions. Run once during onboarding or when the rep wants to refresh the profile. Trigger: "Build my Arrows sales profile."
+
+**Arrows daily brief** — a scannable overview of the rep's day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, open time. Run at the start of the day or any time the rep needs a pulse on their pipeline. Trigger: "Run my Arrows daily brief."
+
+**Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Prep me for my call with [company]."
+
+**Arrows post-call** — the post-call workflow. Produces up to four outputs: a drafted follow-up email, a copyable CRM note, relevant resources to send, and a business case PDF the buyer can attach to an email. Run right after any sales call. Trigger: "Run my Arrows post-call."
+
+**Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Nudge [company]" or "Which deals need a nudge?"
+
+**Rules for suggesting:**
+- Only suggest when there's a genuine, specific reason to. Silence is fine.
+- One suggestion per tool run. Not a menu.
+- Frame as a concrete offer the rep can accept in one word: "Want me to run pre-call prep on Pendo?" Not "You could also consider pre-call prep."
+- Don't re-suggest a skill that was already run in this conversation.
+
+---
+
 You're running the Arrows Sales Skills setup. The goal is to build a complete picture of this seller — who they are, what they sell, how they talk, what they're best at — so we can create project instructions for a Claude project they'll use to work their deals. Every future skill reads these instructions. If the instructions are thin, every skill underperforms. If they're detailed and specific, every skill just works.
 
 **The conversation should be short and efficient. The output should be long and exhaustive.** Don't ask more questions than you need to, but extract every useful detail from the data and make sure the final instructions capture all of it.
@@ -140,6 +162,13 @@ This is the most important step. The quality of the project instructions depends
 
 **Cross-reference everything.** A CRM note that says "discussed pricing" plus a call transcript where they actually walk through pricing plus an email where they follow up on pricing — that's three data points that together tell you exactly how this rep handles pricing conversations. That level of detail is what belongs in the instructions.
 
+**Seller's website:**
+Look up the rep's company website. A quick web search for their company name usually surfaces it (e.g. "Arrows" → arrows.to). If you can find it confidently, note the URL. If the company has a separate resources or case studies page (e.g. arrows.to/resources, help.company.com, docs.company.com), capture that too.
+
+The website URL goes into the project instructions so downstream skills (especially post-call) can search it for case studies and other resources to send to buyers.
+
+If you can't find the website with confidence, ask the rep directly: "What's your company's main website URL? And do you have a separate resources or case studies page?" Keep it one question.
+
 Then present a concise summary of what you found (keep the conversation short):
 
 "Based on your [CRM], here's what I can see: You're working [X] active deals, average size around $[Y]. Your sales cycle looks like [Z] weeks. You've been most active with [companies]. Your recent emails are [casual/formal/etc.] in tone. Does that look right? Anything off?"
@@ -249,6 +278,8 @@ Role: [their role and company]
 [If they manage a team, list the team members by name, role, and what they handle]
 
 WHAT WE SELL
+Website: [main website URL]
+Resources: [separate resources/case studies/docs URL if it exists, otherwise omit this line]
 Product: [detailed description of the product/service — not one line. What does it actually do? What's the core value prop? What integrations or technical details matter?]
 Pricing: [actual price points, tiers, or ranges observed from deals. e.g. "$3,600-$24,000/year, most deals land $5K-$15K. Enterprise tier starts at $20K."]
 Differentiator: [what makes this different from alternatives — be specific, not "best in class"]
@@ -337,6 +368,17 @@ Do NOT list a tool if it isn't connected — just skip it.
 [List anything the rep mentioned using for sales that isn't on the connected list — e.g. "Proposify (proposal tool, not connected)", "Crayon (competitive intel, not connected)". This tells future skills these tools exist even though we can't read from them.]
 
 Do NOT include suggestions to connect missing tools — that was handled during the setup conversation, not here.]
+
+AVAILABLE ARROWS SKILLS
+When I ask for something one of these skills does, use the matching Arrows skill rather than handling it from scratch. They have specific workflows tuned to my context:
+
+- **Arrows daily brief** — for a pulse on today's calls, messages, and pipeline. Trigger: "Run my Arrows daily brief."
+- **Arrows pre-call prep** — for a focused brief on one specific upcoming call. Trigger: "Prep me for my call with [company]."
+- **Arrows post-call** — for a follow-up email, CRM note, resources, and business case PDF after a call. Trigger: "Run my Arrows post-call."
+- **Arrows deal nudge** — for reactivating a stalled deal or scanning the pipeline for ones that need attention. Trigger: "Nudge [company]" or "Which deals need a nudge?"
+- **Arrows setup** — to refresh this profile. Trigger: "Build my Arrows sales profile."
+
+Always prefer these skills when applicable. If I ask for something one of them does, run the skill.
 ```
 
 ---
@@ -347,7 +389,7 @@ After generating the instructions, walk the rep through saving them. They should
 
 "Your project instructions are ready. Now let's save them so every future conversation in this project has this context.
 
-1. Copy the entire block of instructions above (everything from ARROWS SALES SKILLS to the end of CONNECTED TOOLS).
+1. Copy the entire block of instructions above (everything from ARROWS SALES SKILLS to the end of AVAILABLE ARROWS SKILLS).
 2. Go back to your **My Deals** project.
 3. Find **Instructions** in the top right.
 4. Click the **pencil icon**, paste in your instructions, and save.
