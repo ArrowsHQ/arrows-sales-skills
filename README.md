@@ -13,6 +13,7 @@ One folder per skill. Each folder has a `SKILL.md` file with the instructions an
 Current skills:
 - **arrows-setup** — Arrows Sales Skills setup.
 - **arrows-daily-brief** — Arrows daily brief.
+- **arrows-pre-call-prep** — Arrows pre-call prep.
 - **arrows-post-call** — Arrows post-call workflow.
 
 ## How to use these

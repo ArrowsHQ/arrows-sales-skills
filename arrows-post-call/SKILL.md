@@ -143,7 +143,7 @@ Look up the rep's company website from project instructions, then fall back to a
 
 ---
 
-## STEP 2: DECIDE WHICH OUTPUTS TO GENERATE
+## STEP 3: DECIDE WHICH OUTPUTS TO GENERATE
 
 The tool has four capabilities. Not every call needs all four. Based on what happened on the call and the data you gathered, decide which to produce:
 
@@ -156,7 +156,7 @@ If it's unclear which outputs are appropriate, ask the rep briefly: "This looked
 
 ---
 
-## STEP 3: GENERATE EACH OUTPUT
+## STEP 4: GENERATE EACH OUTPUT
 
 Produce each chosen output as its own clearly labeled section so the rep can copy-paste each one independently.
 
@@ -206,7 +206,7 @@ Do not recommend resources just to fill space. Reps trust this tool more when it
 
 Generate an actual downloadable .pdf file using Claude's pdf skill (or equivalent file-generation capability). Save it to the output folder so the rep can download and attach it to their follow-up email. **Every section must be built from verifiable information only.**
 
-**If this is a follow-up call (prior activity detected in STEP 1):** the PDF is cumulative, not a fresh standalone document. Use a consistent filename like `[buyer-company-slug]-summary.pdf` so repeat runs overwrite the same file.
+**If this is a follow-up call (prior activity detected in STEP 2):** the PDF is cumulative, not a fresh standalone document. Use a consistent filename like `[buyer-company-slug]-summary.pdf` so repeat runs overwrite the same file.
 - What we heard: accumulates across all calls. Preserve prior direct quotes that still reflect the buyer's stated position. Add new quotes and context from today.
 - ROI: preserve prior calculations. Update only what the buyer updated today.
 - Timeline: update with new milestones or dates from today. Keep prior milestones that are still valid.
@@ -251,7 +251,7 @@ After generating the PDF, include its filename and download path in your output 
 
 ---
 
-## STEP 4: HANDLE DROPPED SECTIONS
+## STEP 5: HANDLE DROPPED SECTIONS
 
 If any PDF sections were dropped because the data wasn't there, tell the rep clearly in your chat response (not in the PDF). For each dropped section:
 
@@ -275,7 +275,7 @@ Keep it direct. The rep should see this as a discovery-quality signal, not a sco
 
 ---
 
-## STEP 5: SUGGEST RELEVANT NEXT ARROWS SKILLS
+## STEP 6: SUGGEST RELEVANT NEXT ARROWS SKILLS
 
 After presenting all the outputs, scan what came up on the call and in the rep's broader context. If another Arrows skill would genuinely help next, surface it as ONE concrete offer (not five):
 
