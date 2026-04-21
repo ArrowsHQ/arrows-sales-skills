@@ -89,6 +89,16 @@ Once installed, trigger a skill by typing one of these phrases into your AI tool
 - **Post-call:** "Run my Arrows post-call" or "Run post-call on [company]"
 - **Deal nudge:** "Nudge [company]" or "Which deals need a nudge?"
 
+You can also invoke skills directly:
+
+```
+/arrows-setup
+/arrows-daily-brief
+/arrows-pre-call-prep
+/arrows-post-call
+/arrows-deal-nudge
+```
+
 ---
 
 ## About
