@@ -15,6 +15,7 @@ Current skills:
 - **arrows-daily-brief** — Arrows daily brief.
 - **arrows-pre-call-prep** — Arrows pre-call prep.
 - **arrows-post-call** — Arrows post-call workflow.
+- **arrows-deal-nudge** — Arrows deal nudge.
 
 ## How to use these
 
