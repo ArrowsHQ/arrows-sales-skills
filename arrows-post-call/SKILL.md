@@ -29,9 +29,66 @@ This is what the rep does right after hanging up. The tool produces up to four o
 
 ---
 
-## STEP 1: GATHER EVERYTHING FIRST
+## STEP 1: IDENTIFY THE CALL + CONFIRM WITH THE REP
 
-Before generating a single output, do all the research. Do not start drafting until you've worked through this.
+Before pulling any deep data or drafting any outputs, figure out WHICH call the rep means. Never proceed past this step until the rep has explicitly confirmed. Running post-call on the wrong deal breaks trust fast.
+
+**Find candidates:**
+- If the rep pasted a transcript in the input above, treat that as the source — skip the candidate search and go straight to confirmation by stating what you can see in the transcript (company, attendees, approximate date).
+- Otherwise, search the call recorder for recent calls with the buyer in the last 48 hours (extend to 7 days if nothing found in the last 48).
+- Match each candidate call to an active CRM deal.
+- Note attendees, call duration, start time, and the matched deal (name, amount, stage).
+
+**Decide how to respond based on what you found:**
+
+**Case A — Exactly one matching recent call:**
+Present a brief confirmation and wait. Do not proceed to STEP 2 until the rep says yes (or tells you what to change).
+
+Format:
+```
+Before I start, confirming:
+
+📅 Call: [date] at [time] ([duration] from [call recorder name])
+👥 Attendees: [Name] ([Title]), [Name] ([Title])
+💼 Deal: [deal name] · $[amount] · [stage] ([CRM system])
+
+Right call? Say "yes" to proceed, or tell me what to change.
+```
+
+**Case B — Multiple candidates:**
+List each with distinguishing details. Ask the rep to pick.
+
+Format:
+```
+I found multiple recent calls with [company]. Which one?
+
+Option 1 · [date] [time] · with [attendee] · [deal name] ($[amount], [stage])
+Option 2 · [date] [time] · with [attendee] · [deal name] ($[amount], [stage])
+
+Reply with the option number or tell me more specifically which one.
+```
+
+**Case C — No match found:**
+Say so explicitly. Suggest why and let the rep clarify.
+
+Format:
+```
+I couldn't find a recent call with [company] in your call recorder, or an active deal in your CRM. A few possibilities:
+
+- The company name is different in your CRM (e.g. "Pendo Inc." vs "Pendo")
+- No call recording captured this one
+- The call isn't logged in a system I have access to
+
+You can paste the transcript directly, tell me the exact deal name, or correct the company name.
+```
+
+**Never invent a call. Never proceed past STEP 1 until the rep confirms.**
+
+---
+
+## STEP 2: GATHER EVERYTHING
+
+Once the rep confirms the call, do all the research before drafting any outputs. Do not start writing until you've worked through this.
 
 **Call content:**
 - If the rep pasted a transcript above, treat it as the source of truth. Skip the recording pull.
