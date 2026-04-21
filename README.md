@@ -2,7 +2,7 @@
 
 **Built for Claude. Works with any AI.**
 
-Sales workflows that handle the work around every deal — morning briefs, pre-call prep, post-call execution, deal nudges — so you can focus on the human part of selling.
+Sales workflows that handle the work around every deal — daily briefs, pre-call prep, post-call execution, deal nudges — so you can focus on the human part of selling.
 
 These are the same workflows as the Arrows Sales Skills MCP ([skills.arrows.to](https://skills.arrows.to)), packaged as plain markdown so they work anywhere.
 
@@ -12,7 +12,8 @@ One folder per skill. Each folder has a `SKILL.md` file with the instructions an
 
 Current skills:
 - **arrows-setup** — Arrows Sales Skills setup.
-- **arrows-morning-brief** — Arrows daily sales briefing.
+- **arrows-daily-brief** — Arrows daily brief.
+- **arrows-post-call** — Arrows post-call workflow.
 
 ## How to use these
 
@@ -24,13 +25,13 @@ If you can't install MCPs (admin-blocked, company policy, etc.), use this repo i
 
 1. In Claude Desktop, open Settings and find Skills (location varies by version — if you don't see it, check under Capabilities or contact your admin).
 2. Upload the `SKILL.md` file for each skill you want.
-3. Start a new chat. Claude will load the skill when you say something that matches its description (e.g. "run my morning brief").
+3. Start a new chat. Claude will load the skill when you say something that matches its description (e.g. "run my daily brief").
 
 ### If you use ChatGPT, Copilot, Gemini, or anything else
 
 The content inside each SKILL.md is plain markdown. It works anywhere.
 
-1. Open the SKILL.md file you want (e.g. `arrows-morning-brief/SKILL.md`).
+1. Open the SKILL.md file you want (e.g. `arrows-daily-brief/SKILL.md`).
 2. Copy everything **after** the frontmatter block (skip the `---` lines and the `name:` / `description:` fields).
 3. Paste it into your tool's equivalent of "instructions":
    - **ChatGPT:** Create a Custom GPT and paste into Instructions. Or paste into a Project's Instructions.

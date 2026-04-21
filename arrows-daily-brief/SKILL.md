@@ -1,6 +1,6 @@
 ---
-name: arrows-morning-brief
-description: "Arrows daily sales briefing. Run this every morning to get a complete picture of your day: who you're meeting (with LinkedIn profiles), where every deal stands, emails needing a reply, pipeline alerts, and open time. Pulls your calendar, CRM, call recordings, and email automatically. Say 'Run my Arrows morning brief' to start."
+name: arrows-daily-brief
+description: "Arrows daily brief. Run this any time you need a complete picture of your day: who you're meeting (with LinkedIn profiles), where every deal stands, messages needing a reply, pipeline alerts, and open time. Pulls your calendar, CRM, call recordings, email, and chat automatically. Say 'Run my Arrows daily brief' to start."
 ---
 
 ## Before you start
@@ -23,7 +23,7 @@ Use everything you find. The rep's time is valuable — do the legwork so they d
 
 ---
 
-You're building a morning sales brief for today. This is the rep's daily briefing — they'll read it before their first call, probably on their phone or while getting coffee. Make it scannable, factual, and useful. No filler.
+You're building a daily sales brief for today. This is the rep's daily briefing — they might read it before their first call, after a meeting, or any time they need a pulse on their day. Make it scannable, factual, and useful. No filler.
 
 ---
 
@@ -95,75 +95,167 @@ Chat is often where deal activity actually happens. A rep can look inactive in t
 
 ## STEP 2: WRITE THE BRIEF
 
-Now write the brief. Follow this structure exactly.
+Follow this structure exactly. Use the exact emoji headers shown below. They are visual anchors that make the brief scannable.
 
 ### Header
-Start with a one-line summary: how many calls today, how many deals need attention, any urgent flags.
 
-Example: "3 calls today. 2 pipeline alerts. 1 overdue follow-up."
+Start with a date header and a one-line stats summary. Format:
+
+```
+# Daily Brief: [Day of week], [Month] [Date], [Year]
+
+[X calls] · [Y priority actions] · [Z messages waiting] · [N pipeline alerts]
+```
+
+If a category is zero, still mention it (e.g. "0 pipeline alerts"). Keep the stats line to one line, dot-separated.
 
 ---
 
-### Today's Calls
+### ⭐ Priority Actions
+
+**This section synthesizes the rest of the brief.** Pull the 2-5 most important things the rep should do today, in the order they should do them, from across all the data you gathered: today's call flags, overdue commitments, messages awaiting a reply, pipeline alerts, contract stalls.
+
+Format:
+
+```
+## ⭐ Priority Actions
+
+Tackle these first, in order.
+
+1. **[Short action title.]** [One or two sentences: the specific thing to do and why it matters today.]
+2. **[Short action title.]** [Context.]
+3. **[Short action title.]** [Context.]
+```
+
+Rules for this section:
+- Rank by time sensitivity. If something is blocking a meeting today, it goes first.
+- Each item is concrete. "Reply to Sarah on Slack about pricing" not "Follow up with Acme."
+- Reference the underlying flag where useful ("You committed to this Friday", "She asked yesterday").
+- Limit to 5 items. If everything is a priority, nothing is. Cut the weakest ones.
+- If there are genuinely no priority actions today (clean pipeline, no overdue commitments, no urgent messages), say "Nothing urgent today — just show up to your calls." and move on.
+
+---
+
+### 📅 Today's Calls
 
 For each call, in chronological order:
 
-**[Time] — [Company Name]**
-Attendees: [Name, Title] ([LinkedIn URL]) | [Name, Title] ([LinkedIn URL])
-Deal: [Stage] · $[Amount] · Close date [Date] · Last activity [X days ago, on which channel]
+```
+### [Time] · [Company Name] · [One-word call type: Discovery / Demo / Pricing / Recap / etc.]
 
-[1-2 sentences max. What is this call about? What happened last time — specifics, not "you had a good conversation." State any open commitments or unresolved issues. If the most recent activity was on chat (Slack/Teams), say so — that's easy to forget and often where the real pulse of the deal lives.]
+**Attendees:** [Name] ([Title], [LinkedIn URL]) · [Name] ([Title], [LinkedIn URL])
+**Deal:** [Stage] · $[Amount] · Close [Date] · Last activity [X days ago] ([channel])
 
-Flags:
-- [Only include flags if they exist. Examples:]
+[1-2 sentences max. What is this call about? What happened last time, specifics, not "you had a good conversation." State any open commitments or unresolved issues. If the most recent activity was on chat, say so — that's easy to forget and often where the real pulse of the deal lives.]
+
+**Flags:**
+- 🚨 [Urgent flag: blocking or time-sensitive for today]. → [Suggested action.]
+- ⚠️ [Attention flag: needs action soon but not blocking]. → [Suggested action.]
+- [Info flag: noteworthy but no action required, like "First call with this buyer" or "Jane is new on this invite."]
+```
+
+Flag rules:
+- Use 🚨 for urgent flags — something blocking the call today or needing immediate action.
+- Use ⚠️ for attention flags — needs action soon, not blocking.
+- No emoji for info flags — just the fact, no action needed.
+- Every urgent or attention flag MUST end with a suggested action after a → arrow. Concrete and specific. "Send the case study now, before the call" not "follow up."
+- Info flags don't need a suggested action.
+- If there are no flags, don't include the Flags heading. Don't invent flags.
+
+Examples of flags:
+- 🚨 Sarah DM'd yesterday asking for pricing. You haven't replied. → Reply with pricing before the 2pm call.
+- ⚠️ You said you'd send the case study by Friday. Not sent yet. → Send now, before the call.
+- 23 days since your last conversation across CRM, email, and chat. Last touchpoint was the pricing discussion on Slack.
 - First call with this buyer.
-- [Name] is new on this invite — not on previous calls.
-- 23 days since your last conversation (across CRM, email, and chat). Last touchpoint was [topic, on which channel].
-- Competitor mentioned on last call or in chat: [competitor name] — [what was said].
-- You said you'd send [deliverable]. [Sent/Not sent yet].
-- Contract sitting unsigned since [date] (if contracts tool is connected).
-
-If there are no flags, don't include a flags section. Don't invent flags.
+- Mike (CFO) is new on this invite. Not on previous calls.
+- ⚠️ Contract sitting unsigned since April 11 (if contracts tool is connected). → Check in with whoever owns sign-off.
+- Competitor mentioned on last call: [name] — [what was said]. → [Action only if relevant.]
 
 ---
 
-### Messages Needing a Reply
+### 💬 Messages Needing a Reply
 
 List any sales-related emails OR chat messages where a buyer, prospect, or contact sent something and the rep hasn't responded. Keep it tight:
 
-- **[Sender Name] ([Company])** — [Channel: Email / Slack DM / Teams DM / etc.] — [One line: what they asked/said] — received [date/time]
+```
+- 🚨 [Sender Name] ([Company]) · [Channel: Email / Slack DM / Teams DM / etc.] · "[One line: what they asked/said]" · received [date/time]
+- ⚠️ [Sender Name] ([Company]) · [Channel] · "[Quote or paraphrase]" · received [date/time]
+- [Sender Name] ([Company]) · [Channel] · "[Quote]" · received [date/time]
+```
+
+Severity rules:
+- 🚨 if they're blocking today's work or have been waiting more than 24 hours on something time-sensitive.
+- ⚠️ if they've been waiting less than 24 hours or it's not time-sensitive.
+- No emoji for informational replies (e.g. a "thanks" that doesn't require a response).
 
 Only include messages that actually need a response. Skip newsletters, automated notifications, internal threads, and group channel messages not addressed to the rep. If there are none, skip this section entirely.
 
 ---
 
-### Pipeline Alerts
+### 📍 Pipeline Alerts
 
-Only include deals that genuinely need attention. Don't pad this list.
+Only include deals that genuinely need attention. Don't pad this list. Every alert ends with a suggested action after a → arrow.
 
+```
 **Overdue follow-ups:**
-- [Company]: You said you'd [specific commitment] on [date]. Not done yet.
+- 🚨 [Company] · You said you'd [specific commitment] on [date]. Not done yet. → [Suggested action.]
 
 **Gone quiet:**
-- [Company]: No activity across CRM, chat, or email in [X] days. Last touchpoint was [what happened, on which channel]. Deal is in [stage] at $[amount].
+- ⚠️ [Company] · No activity across CRM, chat, or email in [X] days. Last touchpoint was [what happened] ([channel]). Deal is in [stage] at $[amount]. → [Suggested action.]
 
 **Close dates passed or this week:**
-- [Company]: Close date was [date]. Deal is in [stage]. [One line on current state.]
+- 🚨 [Company] · Close date was [date]. Deal is in [stage]. [One line on current state.] → [Suggested action.]
 
 **Contracts waiting (if contracts tool is connected):**
-- [Company]: Contract sent [date], unsigned for [X] days. [One line: who needs to sign, any recent movement.]
+- ⚠️ [Company] · Contract sent [date], unsigned for [X] days. [One line: who needs to sign, any recent movement.] → [Suggested action.]
+```
+
+Severity rules here mirror the flag rules:
+- 🚨 if the alert is blocking or significantly time-sensitive (overdue commitment, close date already passed).
+- ⚠️ if it needs attention soon but isn't immediately blocking.
 
 If there are no pipeline alerts, say "No pipeline alerts today." and move on.
 
 ---
 
-### Open Time
+### 🆓 Open Time
 
 List open slots of 30 minutes or more.
 
-"You have open time from [start] to [end]. Anything specific you want to use it for, or want me to look through your pipeline and figure out where to focus?"
+```
+## 🆓 Open Time
+
+[Start] to [End] · [Start] to [End]
+
+Anything specific you want to use it for, or want me to look through your pipeline and figure out where to focus?
+```
 
 Do not suggest what to do with the time. Wait for the rep to respond.
+
+---
+
+### Final section: offer to schedule the brief
+
+After the Open Time section, add this closing block to the output so the rep knows they can automate this:
+
+```
+---
+
+**Want this delivered automatically every weekday?**
+
+Claude Desktop can run this as a scheduled task, so you get your brief in a fresh conversation at whatever time works best. Here's how:
+
+1. Just say: "Schedule this daily brief to run every weekday at 7am"
+   (Adjust the time and days to whatever works — for example, "every Monday to Thursday at 6:30am".)
+2. I'll create the scheduled task for you and confirm when it's set.
+3. At your scheduled time, you'll get a new conversation with your brief already generated, waiting for you.
+
+To change or cancel the schedule later, say "show my scheduled tasks" or find it under Scheduled Tasks in your Claude Desktop settings.
+```
+
+If the rep confirms they want to schedule it, use Claude's native scheduled tasks feature to create a recurring task that runs the arrows_daily_brief tool at the time and days they specified. Default to 7:00 AM local time, weekdays only, if they don't specify. Confirm once when the task is created, then stop.
+
+Do not re-offer scheduling in the same session if they've already declined or already scheduled it.
 
 ---
 
@@ -171,7 +263,7 @@ Do not suggest what to do with the time. Wait for the rep to respond.
 
 1. **Never guess.** If you don't have data on something, say "No CRM data found for this contact" or "No recent calls recorded." Don't fill in gaps with assumptions.
 
-2. **Never editorialize.** Don't say "This is a big day!" or "You've got this!" The brief is a document, not a coach. Neutral, factual, concise.
+2. **Never editorialize.** Don't say "This is a big day!" or "You've got this!" The brief is a document, not a coach. Neutral, factual, concise. Note: suggested actions after a → arrow (e.g. "Send the case study now") are NOT editorializing — they're concrete, specific next steps. Cheerleading phrases are the thing to avoid.
 
 3. **Never pad.** If a call has nothing notable to flag, don't manufacture flags. If the pipeline is clean, say so. Shorter is better.
 
@@ -184,6 +276,17 @@ Do not suggest what to do with the time. Wait for the rep to respond.
 7. **Tone:** Write like a concise internal memo. Short sentences. No adjectives. No enthusiasm. Just the facts and what needs to happen.
 
 8. **Length:** The entire brief should be scannable in 1-2 minutes. This is a summary, not a report. Each call section should be 4-6 lines max including flags. Pipeline alerts are one line each. If the rep wants to go deeper on a specific call or deal, they can ask — but the initial brief is a quick scan. Ruthlessly cut anything that doesn't help the rep walk into their day prepared.
+
+9. **Emojis are functional, not decorative.** Use only the specific emojis defined in this prompt:
+   - ⭐ for the Priority Actions section header only
+   - 📅 for the Today's Calls section header only
+   - 💬 for the Messages Needing a Reply section header only
+   - 📍 for the Pipeline Alerts section header only
+   - 🆓 for the Open Time section header only
+   - 🚨 for urgent flags, urgent messages, and urgent pipeline alerts
+   - ⚠️ for attention flags, attention messages, and attention pipeline alerts
+
+   Do NOT add any other emojis anywhere in the output. No celebratory emojis, no decorative emojis, no emojis in body text. The emoji set is intentionally small so each one carries meaning. If you add more, the signal gets lost.
 
 ---
 

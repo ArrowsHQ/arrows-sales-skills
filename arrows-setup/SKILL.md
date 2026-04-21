@@ -75,7 +75,7 @@ Send the rep a message that covers both what's connected and what's not. Always 
 
 The more I can see, the better your profile will be. Here's what the missing ones unlock:
 - **Email** lets me read how you actually write to buyers. Best way to capture your voice.
-- **Calendar** powers the morning brief so it can pull your meetings each day.
+- **Calendar** powers the daily brief so it can pull your meetings each day.
 - **Chat** lets me spot internal conversations about your deals (e.g. in Slack or Teams) so I don't miss context when I brief you.
 - **Contracts and signing** shows me what's pending signature and where deals are actually stalling.
 - **Documents and knowledge** gives me access to case studies, collateral, and internal notes to pull into deals.
@@ -234,7 +234,7 @@ Every piece of specific information you extracted in Step 2 belongs here. This d
 
 **Do not summarize. Include specifics.** Actual sentences from their emails. Specific things they said on calls. Real numbers from their CRM. The more concrete and personal the detail, the more the rep trusts that future skills will actually work for them.
 
-**These instructions must be evergreen.** They describe who this person is, how they sell, and how they communicate — things that stay true over months. Do NOT include anything that's a snapshot in time: specific active deals, current pipeline state, deals that are stalled right now, specific close dates, or anything that will be stale in a week. The morning brief and other skills will pull live deal data when they need it. The project instructions are the foundation that doesn't change.
+**These instructions must be evergreen.** They describe who this person is, how they sell, and how they communicate — things that stay true over months. Do NOT include anything that's a snapshot in time: specific active deals, current pipeline state, deals that are stalled right now, specific close dates, or anything that will be stale in a week. The daily brief and other skills will pull live deal data when they need it. The project instructions are the foundation that doesn't change.
 
 Generate the output with this exact structure:
 
@@ -352,7 +352,7 @@ After generating the instructions, walk the rep through saving them. They should
 3. Find **Instructions** in the top right.
 4. Click the **pencil icon**, paste in your instructions, and save.
 
-Done. From now on, every new conversation you start in My Deals will have your full context — how you sell, how you talk, and what you need. Your morning briefs, post-call workflows, and everything else will be tailored to you.
+Done. From now on, every new conversation you start in My Deals will have your full context — how you sell, how you talk, and what you need. Your daily briefs, post-call workflows, and everything else will be tailored to you.
 
 **Important:** Start new conversations for new tasks. Each conversation in this project carries your instructions automatically, so you don't need to re-explain yourself. Just open a new chat and go.
 
