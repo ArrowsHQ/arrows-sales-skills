@@ -55,31 +55,47 @@ You're running the Arrows Sales Skills setup. The goal is to build a complete pi
 
 ---
 
-## STEP 1: CHECK CONNECTIONS (do not skip this)
+## STEP 1: UNDERSTAND THE REP'S TOOL STACK (do not skip this)
 
-**You MUST complete this step and report the results to the rep before moving to Step 2.** This is not optional. Do not silently skip it. Do not fold it into the scan. The rep needs to see what's connected and what's missing so they can fix it before you start pulling data.
+**You MUST complete this step before moving to Step 2.** The rep needs to see you understand their tool stack so they can fix anything missing before you start building the profile.
 
-Before asking anything, check what tools and data sources are actually available to you right now. **Only report tools you can confirm are connected by attempting to use them or by checking your available tools list.** Do NOT guess, assume, or infer what the rep might use. Do NOT name specific tools (Fathom, Gong, Salesforce, etc.) unless you have verified access to them.
+This step has TWO paths. Figure out which applies to your environment and follow that path. Do not do both.
 
-Check for these categories by looking at what tools you actually have. Group them as "Core" and "Extras" when you report back to the rep.
+---
 
-**Core (what every profile needs):**
-- **CRM** — Do you have tools that can access deals, contacts, or companies?
-- **Call recorder** — Do you have tools that can search call recordings or transcripts?
-- **Email** — Do you have tools that can read email threads?
-- **Calendar** — Do you have tools that can see their schedule?
+### Which path am I on?
 
-**Extras (make the profile richer when connected):**
-- **Chat** — Do you have tools that can search Slack, Teams, or similar?
-- **Contracts and signing** — Do you have tools for DocuSign, PandaDoc, or similar?
-- **Documents and knowledge** — Do you have tools for Notion, Google Drive, Confluence, or similar?
-- **Quoting** — Do you have tools for CPQ systems, proposal software, or quote generation?
+**Path A: I can programmatically see what tools the rep has connected.** You're running in an environment that exposes connector or MCP tool information directly — typically Claude Desktop with the Arrows MCP installed, Claude with native connectors (HubSpot, Gmail, etc.), or any host that shows you an active tools list. You can attempt tool calls and see which succeed.
 
-**Your very first message to the rep must be this connection check.** Do not start scanning data, do not start asking questions, do not present any findings until you have completed this step and gotten a response.
+**Path B: I cannot programmatically see what the rep has connected.** You're running in a host that doesn't expose connector status to you — Gemini, ChatGPT without connectors, Microsoft Copilot, or any environment where you're operating purely from the conversation with no live tool access. Mechanical ✅/❌ reports would be wrong because you can't actually verify anything.
+
+If in doubt, try one tool call. If it works and you get real data, you're on Path A. If there's no tool to call or nothing responds, you're on Path B.
+
+---
+
+### Categories to cover (both paths)
+
+**Core:**
+- **CRM** (HubSpot, Salesforce, Pipedrive, etc.)
+- **Call recorder** (Fathom, Gong, Fireflies, Grain, etc.)
+- **Email** (Gmail, Outlook, etc.)
+- **Calendar** (Google Calendar, Outlook, etc.)
+
+**Extras:**
+- **Chat** (Slack, Teams, etc.)
+- **Contracts and signing** (DocuSign, PandaDoc, etc.)
+- **Documents and knowledge** (Notion, Google Drive, Confluence, etc.)
+- **Quoting or proposals** (CPQ tools, Proposify, etc.)
+
+---
+
+### Path A — Mechanical check
+
+Check what you can actually access. **Only report tools you can verify by attempting to use them or by seeing them in your available tools list.** Do NOT guess, assume, or infer what the rep might use. Do NOT name specific tools (Fathom, Gong, Salesforce, etc.) unless you have verified access.
 
 **Critical: If you cannot confirm a tool is connected, say you don't see it. Never say "I can see you have [tool]" unless you have actually verified it. Getting this wrong breaks trust immediately.**
 
-Send the rep a message that covers both what's connected and what's not. Always tell them explicitly what they could connect, even if everything looks good. Example:
+Send the rep a message covering both what's connected and what's missing. Example:
 
 "Before I start, let me check what I can see.
 
@@ -107,27 +123,41 @@ You can connect most of these in Claude under Settings > Connectors. Want to add
 
 Also: are there other tools you use regularly for sales work that aren't on this list? Proposal platforms, case study libraries, competitive intel tools, anything else. If any of them can connect to Claude, I'll show you how. Otherwise I'll note them in your profile so future skills know they exist."
 
-If all the Core ones are connected, still list everything so the rep can confirm:
+If all the Core ones are connected, still list everything so the rep can confirm, then ask about other tools they use.
 
-"Here's what I have access to:
+---
 
-**Core:**
-✅ CRM: [HubSpot]
-✅ Call recorder: [Grain]
-✅ Email: [Gmail]
-✅ Calendar: [Google Calendar]
+### Path B — Ask the rep directly
 
-**Extras:**
-✅ Chat: [Slack]
-❌ Contracts and signing: not connected
-❌ Documents and knowledge: not connected
-❌ Quoting: not connected
+You can't verify connections, so don't assert. Ask. This works in any AI tool and gives the rep more agency.
 
-Core is covered, so we can build a strong profile. The extras would make it even richer. Quick question before we dive in: are there other tools you use regularly for sales work (proposal platforms, case study libraries, competitive intel tools, anything else)? If any of them can connect to Claude, I'll show you how. Otherwise I'll note them in your profile so future skills know they exist.
+Send the rep this message:
 
-Ready when you are. Let me scan your data — this'll take a minute."
+"Before I start, tell me what you use for each of these. Short answers are fine — name or brand is enough, or 'none' if you don't use one.
 
-**Wait for the rep to respond before moving on.** If they want to connect something, wait for them to do it. If they say they can't or want to skip it, that's fine — continue with what you have. But the rep must see this list and respond to it.
+**Core tools:**
+- CRM? (e.g. HubSpot, Salesforce, Pipedrive, other)
+- Call recorder? (e.g. Fathom, Gong, Fireflies, Grain, other)
+- Email? (e.g. Gmail, Outlook, other)
+- Calendar? (e.g. Google Calendar, Outlook, other)
+
+**Extras that help if you have them:**
+- Chat? (e.g. Slack, Teams, other)
+- Contracts and signing? (e.g. DocuSign, PandaDoc, other)
+- Documents and knowledge? (e.g. Notion, Google Drive, Confluence, other)
+- Quoting or proposals? (e.g. CPQ tools, Proposify, other)
+
+Any other sales tools you use? Proposal platforms, case study libraries, competitive intel, anything else worth noting.
+
+I'll note all of these in your profile so future skills know what you're working with, even if I can't read from them directly from here."
+
+**Do NOT reference "Claude Settings > Connectors" on this path.** The rep may not be in Claude, and pointing them there would be confusing or wrong.
+
+---
+
+### Both paths: wait for the rep
+
+After sending the appropriate message, wait for the rep to respond before moving to STEP 2. If they want to connect something (Path A), wait for them to do it. If they give you their tool list (Path B), use it as context for the rest of the setup. Either way, the rep must see your message and respond to it.
 
 ---
 
@@ -196,9 +226,19 @@ The principle here: **always lead with what you found, let them react.** Reactin
 
 Keep it short. Let them correct or confirm, then move on.
 
-**If you have NO data at all:** Ask one open question:
+**If you have NO data at all:** Ask the rep a short list of specific questions they can skim and answer quickly. Do NOT ask one big open-ended question — it puts too much cognitive load on a rep who's cold. Walk them through it in one message, like this:
 
-"Tell me the basics: what do you sell, who do you sell to, and how does a deal typically happen from first touch to close?"
+"To build your profile, I need a few specifics. Short answers are fine, bullets work:
+
+- What's the product or service you sell? One line on what it does.
+- What titles do you usually sell to? (e.g. VP Sales, Director of CS, CFO)
+- What types of companies? Industry and rough size if relevant. (e.g. B2B SaaS, 50-500 employees)
+- Typical sales cycle length? (days, weeks, months)
+- Typical deal size? Ballpark is fine.
+- How do leads usually come to you? (inbound demos, outbound, referrals, events)
+- Anything distinct about how you sell or rules you follow that I should know?"
+
+Wait for their response, then move on.
 
 **SECTION 2: What makes you you**
 ██████████░░░░░░░░░░ Step 2 of 4
@@ -217,9 +257,14 @@ Use everything you scanned: emails AND call recordings AND CRM notes. Emails sho
 
 Does that feel right? Anything I'm missing, or anything you'd want me to always do (or never do) when writing as you?"
 
-**If email and calls are NOT available:**
+**If email and calls are NOT available:** Ask structured specific questions so the rep knows exactly what to give you. Do NOT ask one open-ended question. Walk them through it:
 
-"What would a prospect say about you after a call? And can you paste me a couple recent emails you sent to buyers? That's the fastest way for me to pick up your voice."
+"To capture your voice, a few quick things:
+
+- In a couple words, how would a prospect describe you after a call? (direct, warm, technical, funny, etc.)
+- Paste a recent email you sent to a buyer. Any one works.
+- If you have one handy, paste another from a different situation (e.g. a cold follow-up vs a post-demo email).
+- Anything you always do, or never do, when writing to buyers?"
 
 Wait for their response. Then **put the full detail into the output** — all the email examples, formatting patterns, call quotes, phrases they repeat. The conversation confirms the vibe. The output captures the specifics.
 
