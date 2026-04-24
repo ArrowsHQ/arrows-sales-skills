@@ -25,7 +25,7 @@ Use everything you find. The rep's time is valuable — do the legwork so they d
 
 ## The Arrows skills available to suggest
 
-Below are the six Arrows skills the rep has installed (either via the MCP at skills.arrows.to or as standalone skill files). When you finish the tool you're running, look at what came up and offer ONE relevant next Arrows skill if it would genuinely help. Concrete suggestion, not a pile. Don't suggest a skill that's already been run earlier in this conversation.
+Below are the Arrows skills the rep has installed (either via the MCP at skills.arrows.to or as standalone skill files). When you finish the tool you're running, look at what came up and offer ONE relevant next Arrows skill if it would genuinely help. Concrete suggestion, not a pile. Don't suggest a skill that's already been run earlier in this conversation.
 
 **Arrows setup** — builds the rep's sales profile from their CRM, call recordings, email, and a short Q&A. Saves the output to their project instructions. Run once during onboarding or when the rep wants to refresh the profile. Trigger: "Build my Arrows sales profile."
 
@@ -38,6 +38,8 @@ Below are the six Arrows skills the rep has installed (either via the MCP at ski
 **Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Nudge [company]" or "Which deals need a nudge?"
 
 **Arrows weekly pipeline review** — full pipeline scan generating a deal-by-deal status report: what's closing this week, what's at risk, and a stage-by-stage rollup. Designed to share before a manager 1:1. Can also generate a live visual artifact. Trigger: "Run my weekly pipeline review" or "Show me my pipeline."
+
+**Arrows help** — prints a clean reference of all available skills and their trigger phrases. Useful when the rep forgets what's available. Trigger: "Arrows help" or "What can you do?"
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.
@@ -162,6 +164,7 @@ Look up the rep's company website from project instructions, then fall back to a
 **Rep's voice:**
 - Project instructions usually have the rep's voice captured. Use that.
 - If not, pull recent sent emails from the rep (from connected email) to read their tone, phrasing, greeting, and sign-off.
+- **If neither exists** — no voice profile in project instructions AND no sent emails available — pause before drafting the follow-up email and ask: "I don't have a sample of how you write to buyers. Paste a recent email you sent to a prospect (any one is fine) so I can match your tone." Wait for their reply before drafting. Do not generate a generic email and call it done — a generic email defeats the purpose of this tool.
 
 **Hard rule: never guess.** If data is missing, flag it explicitly in your output. "No CRM record found for this contact" beats making something up.
 
@@ -228,7 +231,9 @@ Do not recommend resources just to fill space. Reps trust this tool more when it
 
 ### OUTPUT 4: Business Case PDF
 
-Generate an actual downloadable .pdf file using Claude's pdf skill (or equivalent file-generation capability). Save it to the output folder so the rep can download and attach it to their follow-up email. **Every section must be built from verifiable information only.**
+Generate a business case document the rep can attach to their follow-up email. **Every section must be built from verifiable information only.**
+
+**Format:** Generate a PDF if you have access to a pdf skill or file-generation capability in your current environment (e.g. Cowork). If not, generate a clean, well-formatted markdown document the rep can copy, paste into a Google Doc or Word, and share. Either way, the content and structure are identical — only the format differs. Tell the rep clearly what you generated and how to share it. Do not skip this output or silently fail; always produce something in one format or the other.
 
 **If this is a follow-up call (prior activity detected in STEP 2):** the PDF is cumulative, not a fresh standalone document. Use a consistent filename like `[buyer-company-slug]-summary.pdf` so repeat runs overwrite the same file.
 - What we heard: accumulates across all calls. Preserve prior direct quotes that still reflect the buyer's stated position. Add new quotes and context from today.

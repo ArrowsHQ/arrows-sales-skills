@@ -22,15 +22,17 @@ Setup takes about 5 minutes. Do it once, and the rest of the skills get smarter 
 
 ---
 
-## The 5 skills
+## The skills
 
 | Skill | What it does |
 |-------|--------------|
 | **Arrows setup** (run first) | Builds your sales profile by scanning your CRM, call recordings, and email. Captures how you sell, your voice, your typical buyers, and your sales process. Every other skill uses this context. |
 | **Arrows daily brief** | A scannable overview of your day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, and open time. Pulls from your calendar, CRM, email, chat, and call recordings. |
 | **Arrows pre-call prep** | Before a specific meeting, gives you what you need in 60 seconds: who you're meeting, what they want to solve, what happened last time, what to push on, what might go sideways, and open discovery questions. |
-| **Arrows post-call** | Right after a call, produces up to four things: a follow-up email draft, a copyable CRM note, relevant resources to send, and a business case PDF you can attach. Every fact comes from the actual call. |
+| **Arrows post-call** | Right after a call, produces up to four things: a follow-up email draft, a copyable CRM note, relevant resources to send, and a business case document you can attach. Every fact comes from the actual call. |
 | **Arrows deal nudge** | Finds a stalled deal and drafts a specific play to reactivate it (send a resource, tap into something mentioned before, loop in a stakeholder, own a broken commitment). Scans your whole pipeline and surfaces candidates, or nudges a specific deal you name. |
+| **Arrows weekly pipeline review** | Full pipeline scan for your manager 1:1 or weekly planning: what's closing this week, what's at risk, and a deal-by-deal rollup grouped by stage. Can also generate a live visual you can share. |
+| **Arrows help** | Prints a reference of every available Arrows skill and its trigger phrase. Useful when you forget what's installed or what to say. |
 
 ---
 
@@ -50,7 +52,7 @@ Each skill knows about the others. When you finish post-call, it offers to prep 
 
 ### Option 1: Easiest (if you use Claude)
 
-This is the recommended path. One URL, about 30 seconds. All five skills appear in Claude automatically, and updates ship automatically too, so you always have the latest version.
+This is the recommended path. One URL, about 30 seconds. All the skills appear in Claude automatically, and updates ship automatically too, so you always have the latest version.
 
 1. Open Claude Desktop and click your name in the bottom left corner.
 2. Click **Settings**.
@@ -66,7 +68,7 @@ Done. Start a new chat and type "run the Arrows setup" to begin.
 
 If your company doesn't allow custom connectors, or you use ChatGPT, Copilot, Gemini, or another AI tool, you can download the skills directly and upload them.
 
-1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge) each contain a SKILL.md file.
+1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge, arrows-weekly-pipeline-review, arrows-help) each contain a SKILL.md file.
 2. Click into the folder, then click on the SKILL.md file.
 3. Click the **Raw** button at the top right to see the plain text, or click **Download raw file** to save it.
 4. Upload it to your AI tool:
@@ -88,6 +90,8 @@ Once installed, trigger a skill by typing one of these phrases into your AI tool
 - **Pre-call prep:** "Prep me for my call with [company]" or "Pre-call prep on [company]"
 - **Post-call:** "Run my Arrows post-call" or "Run post-call on [company]"
 - **Deal nudge:** "Nudge [company]" or "Which deals need a nudge?"
+- **Weekly pipeline review:** "Run my weekly pipeline review" or "Show me my pipeline"
+- **Help:** "Arrows help" or "What can you do?"
 
 You can also invoke skills directly:
 
@@ -97,6 +101,8 @@ You can also invoke skills directly:
 /arrows-pre-call-prep
 /arrows-post-call
 /arrows-deal-nudge
+/arrows-weekly-pipeline-review
+/arrows-help
 ```
 
 ---
