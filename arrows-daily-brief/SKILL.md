@@ -275,9 +275,14 @@ Keep it to one line. Easy to accept ("yes") or ignore.
 
 ---
 
-### Final section: offer to schedule the brief
+### Final section: smart scheduling offer
 
-After the Open Time section, add this closing block to the output so the rep knows they can automate this:
+After the Open Time section, check whether a scheduled daily brief already exists before offering to set one up.
+
+1. If you have access to the scheduled tasks tool, list existing scheduled tasks.
+2. Scan for any task that looks like a daily brief (by name, description, or trigger phrase).
+3. **If one exists:** Do not mention scheduling at all. Move on.
+4. **If none exists:** Add this closing block to the output:
 
 ```
 ---
@@ -296,7 +301,9 @@ To change or cancel the schedule later, say "show my scheduled tasks" or find it
 
 If the rep confirms they want to schedule it, use Claude's native scheduled tasks feature to create a recurring task that runs the arrows_daily_brief tool at the time and days they specified. Default to 7:00 AM local time, weekdays only, if they don't specify. Confirm once when the task is created, then stop.
 
-Do not re-offer scheduling in the same session if they've already declined or already scheduled it.
+5. **If the scheduled tasks tool is not available:** Skip this section entirely. Do not mention scheduling.
+
+Do not re-offer scheduling in the same session if they've already declined or already set it up.
 
 ---
 

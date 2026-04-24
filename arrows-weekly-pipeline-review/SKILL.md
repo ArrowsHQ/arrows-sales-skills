@@ -207,31 +207,81 @@ If nothing closed this period, skip this section entirely.
 
 ---
 
-## STEP 3: OFFER A LIVE VISUAL
+## STEP 3: GENERATE THE LIVE ARTIFACT
 
-After the written review, offer to generate a visual artifact the rep can share directly with their manager:
+After the written review, generate a persistent HTML artifact immediately — do not ask first. This is the shareable version designed for manager 1:1s: clean, white, scannable in 30 seconds. It updates automatically via a weekly scheduled task (see STEP 4).
 
-```
+**What this artifact is NOT:** Do not recreate a CRM pipeline view. No kanban board. No deal cards arranged by stage. The rep already has a CRM — this replaces nothing there. This is a weekly snapshot designed to be glanced at, shared, or screenshotted before a 1:1.
+
+**Structure:**
+
+**Header row:**
+- Left: rep name (if known) + "Week of [date]"
+- Right: "Last updated [date at time]" in small gray text
+
+**Stats bar — 4 numbers across the top, large type:**
+- Active Deals
+- Pipeline Value
+- Closing This Week
+- At Risk
+
+Each stat: number at 48px semi-bold, label below at 12px uppercase gray. Generous spacing between them.
+
+**Section 1 — This Week:**
+Heading: "CLOSING THIS WEEK" in 11px uppercase gray, letter-spaced.
+One row per deal with a close date in the next 7 days. Layout:
+- Left: colored status dot + company name (bold) + deal value
+- Right: close date + "X days since last touch"
+Status dot colors: green (#22c55e) = on track, orange (#f97316) = needs attention, red (#ef4444) = at risk or blocked.
+If nothing closing this week: "No deals with close dates this week."
+
+**Section 2 — Needs Attention:**
+Heading: "NEEDS ATTENTION" in 11px uppercase gray, letter-spaced.
+One row per at-risk deal. Layout:
+- Left: red dot + company name (bold) + deal value
+- Right: one-phrase reason ("22 days quiet", "close date passed", "contract unsigned 9 days")
+If nothing at risk: "Pipeline looks clean this week."
+
+**Section 3 — Pipeline Summary:**
+Heading: "FULL PIPELINE" in 11px uppercase gray, letter-spaced.
+Not individual deals — just a compact stage-by-stage count:
+[Stage name] · [X deals] · [$Y total]
+One line per stage. Nothing more. This section is a reference, not a drill-down.
+
+**HTML specs:**
+- Self-contained: no external dependencies
+- Max width 800px, centered, system font stack (-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif)
+- Background: #ffffff, page background: #f5f5f5
+- Section padding: 32px between sections
+- Status dots: 10px solid circles, inline with company name
+- Section headings: 11px, uppercase, letter-spacing 0.08em, color #999
+- Deal rows: 16px company name, 14px everything else, color #333
+- Stats numbers: 48px, font-weight 600, color #111
+- Stats labels: 12px, uppercase, letter-spacing 0.05em, color #888
+- Subtle horizontal rule between sections: 1px solid #eee
+
 ---
 
-**Want a visual version to share with your manager?**
+## STEP 4: SMART SCHEDULING OFFER
 
-Say "Generate the pipeline artifact" and I'll create a live dashboard with your deals laid out by stage — something you can open in your browser, share as a link, or screenshot for your 1:1.
-```
+After generating the artifact, check whether a scheduled weekly pipeline review already exists before offering to set one up.
 
-If the rep says yes, generate an HTML artifact using Claude's artifact capability. The artifact should show:
-- A header with the rep's name, the review period, and the four key stats (active deals, total pipeline, closing this week, at risk)
-- Deals grouped by stage in columns or cards
-- Color coding: red for at-risk, orange for closing this week, green for recently active (activity in last 7 days), gray for everything else
-- Clean, readable, shareable — not a dashboard with 40 filters
+1. If you have access to the scheduled tasks tool, list existing scheduled tasks.
+2. Scan for any task that looks like a weekly pipeline review (by name, description, or trigger phrase).
+3. **If one exists:** Do not mention scheduling. Move on to STEP 5.
+4. **If none exists:** Add this single line at the end of your output:
 
-The artifact should be self-contained HTML/CSS with no external dependencies so it renders anywhere.
+"Want me to schedule this for Monday mornings so it's ready before your week starts?"
+
+If they confirm: create a scheduled task using Claude's native scheduled tasks feature — weekly, every Monday, 7:00 AM local time (ask if they want a different time), running arrows_weekly_pipeline_review. Confirm once when created, then stop.
+
+5. **If the scheduled tasks tool is not available:** Skip this section entirely. Do not mention scheduling.
 
 ---
 
-## STEP 4: ONE NEXT ARROWS SKILL
+## STEP 5: ONE NEXT ARROWS SKILL
 
-After the review (and after the artifact offer), look at what came up and offer ONE relevant next Arrows skill if it genuinely fits:
+After the review (and after the artifact and scheduling steps), look at what came up and offer ONE relevant next Arrows skill if it genuinely fits:
 - If multiple deals are quiet and need reactivation: "Want me to run deal nudge on [company] — looks like the best candidate to move this week?"
 - If a deal is closing this week and the rep hasn't had a recent call: "Want me to run pre-call prep on [company] before you talk to them?"
 - If a deal closed lost: "Want me to run a win/loss debrief on [company]?"
