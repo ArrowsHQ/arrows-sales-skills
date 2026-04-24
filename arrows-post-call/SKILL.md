@@ -233,7 +233,7 @@ Do not recommend resources just to fill space. Reps trust this tool more when it
 
 Generate a business case document the rep can attach to their follow-up email. **Every section must be built from verifiable information only.**
 
-**Format:** Generate a PDF if you have access to a pdf skill or file-generation capability in your current environment (e.g. Cowork). If not, generate a clean, well-formatted markdown document the rep can copy, paste into a Google Doc or Word, and share. Either way, the content and structure are identical — only the format differs. Tell the rep clearly what you generated and how to share it. Do not skip this output or silently fail; always produce something in one format or the other.
+**Format:** Generate a PDF if you have access to a pdf skill or file-generation capability in your current environment. If not, skip this output entirely — do not produce markdown, plain text, or any other format as a substitute. Tell the rep briefly: "I wasn't able to generate the business case PDF in this environment. To get the PDF, run post-call from Cowork."
 
 **If this is a follow-up call (prior activity detected in STEP 2):** the PDF is cumulative, not a fresh standalone document. Use a consistent filename like `[buyer-company-slug]-summary.pdf` so repeat runs overwrite the same file.
 - What we heard: accumulates across all calls. Preserve prior direct quotes that still reflect the buyer's stated position. Add new quotes and context from today.
@@ -241,32 +241,51 @@ Generate a business case document the rep can attach to their follow-up email. *
 - Timeline: update with new milestones or dates from today. Keep prior milestones that are still valid.
 - Next steps: fully replaced by today's. Prior next steps are stale.
 
-Structure:
+**Visual design — this is a slide deck, not a document:**
 
-**Cover**
-- [Buyer company] + [Seller company]
-- One-line subtitle pulled from what the buyer actually said on the call (e.g. "Cutting CS onboarding from 6 weeks to 2" — use their words). Do NOT label the document "Business Case" on the cover.
-- Prepared by: [Rep name] · [Date of call]
-- Seller's logo and brand colors if available from the seller's website or project instructions.
+Before generating the HTML, fetch the seller's website to extract:
+- Primary brand color (used for backgrounds, headings, and accents)
+- Secondary/neutral color if present
+- Logo URL (use as an `<img>` tag — hotlink directly from the seller's site)
+- General aesthetic (clean/minimal, bold, etc.) — use this to inform font weight and spacing choices
 
-**What we heard**
-- 3 to 5 bullets capturing the buyer's situation, problems, and stated goals in their own language.
-- Direct quotes where possible, attributed to the person who said them.
-- No interpretation or extrapolation. Only what they actually said on the call.
+Each section of the PDF is its own full-page slide. Use CSS `@page` and `page-break-after: always` to enforce pagination. Every slide should fill a full page (use `min-height: 100vh` with print-safe equivalents).
 
-**ROI** (produce only if verifiable math is possible)
-- Use numbers the buyer shared on the call and numbers from the rep's CRM.
-- If the rep needs to supply an internal number you don't have (e.g. loaded CSM cost), **ask the rep for that number before generating the section**.
-- If the rep can't provide it, **drop the ROI section entirely**. Do not use placeholders, do not flag assumptions, do not estimate.
-- Show the calculation's inputs explicitly. Current state cost vs proposed investment vs expected return.
+Slide design rules:
+- Page size: US Letter (8.5 × 11in), landscape or portrait — use portrait.
+- Font: system font stack. Headings at 36–48px, body at 18–22px. Never smaller than 16px.
+- White space: generous. Each slide has at most one key idea. Do not cram.
+- Color: use the seller's primary brand color for slide headers, cover background, and accent elements. Body copy on white or very light background.
+- Logo: top-right corner on every slide at ~80px height.
+- No borders, no shadows, no clip art. Clean and flat.
 
-**Timeline** (produce only if real timeline content exists)
-- Specific milestones with dates or week numbers discussed on the call or committed to in CRM.
-- If the call didn't cover a real timeline, **drop the Timeline section entirely**.
+Slide-by-slide layout:
 
-**Next steps** (produce only if next steps were explicitly agreed)
-- Specific action, owner, and date.
-- If next steps weren't explicitly agreed on the call, **drop the Next Steps section entirely**.
+**Cover slide:**
+- Full-bleed background in seller's primary brand color
+- Buyer company name + seller company name in large white type (40px+)
+- One-line headline pulled from what the buyer actually said (their words, not yours) — this is the most important line on the page. Large, bold, white.
+- Bottom: "Prepared by [Rep name] · [Date]" in smaller white text
+- Do NOT label it "Business Case" anywhere
+
+**"What we heard" slide(s):**
+- One quote per slide. Large blockquote treatment — the quote at 28–32px, attributed below in lighter text.
+- If there are 3–5 quotes, they each get their own slide. Do not stack them.
+- Slide header: "What we heard" in seller's brand color, top of page, smaller type (16px uppercase)
+
+**ROI slide** (only if verifiable math exists):
+- One slide. Header: "The numbers" or similar plain language.
+- Present the calculation visually — current state vs. proposed state, large type, side by side or stacked.
+- No tables. No formulas. Just the result in plain English with the inputs shown.
+
+**Timeline slide** (only if real milestones exist):
+- One slide. A horizontal or vertical timeline with milestone labels and dates.
+- Only milestones that were actually discussed on the call.
+
+**Next steps slide:**
+- One slide. Clean three-column layout: Owner · Action · When
+- Large enough to read across a table. Minimum 20px font.
+- Bottom of slide: rep's email or contact info in small text.
 
 **Rules for every PDF section:**
 - Use the rep's voice. Match how they actually write and talk.
