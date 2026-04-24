@@ -33,7 +33,7 @@ Below are the Arrows skills the rep has installed (either via the MCP at skills.
 
 **Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Prep me for my call with [company]."
 
-**Arrows post-call** — the post-call workflow. Produces up to four outputs: a drafted follow-up email, a copyable CRM note, relevant resources to send, and a business case PDF the buyer can attach to an email. Run right after any sales call. Trigger: "Run my Arrows post-call."
+**Arrows post-call** — the post-call workflow. Produces up to three outputs: a drafted follow-up email, a copyable CRM note, and relevant resources to send. Run right after any sales call. Trigger: "Run my Arrows post-call."
 
 **Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Nudge [company]" or "Which deals need a nudge?"
 

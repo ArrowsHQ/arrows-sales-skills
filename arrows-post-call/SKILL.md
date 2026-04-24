@@ -1,6 +1,6 @@
 ---
 name: arrows-post-call
-description: "Arrows post-call workflow. Run this right after any sales call. Reads your call recording, CRM, email, and the seller's website to generate up to four things: a follow-up email draft, a copyable CRM note (no CRM writes), relevant resources to send, and a business case PDF the buyer can forward. Only includes sections that can be filled with verifiable information — drops any section where data is missing and flags the discovery gap. Say 'Run my Arrows post-call' or 'Run post-call on [company]' to start."
+description: "Arrows post-call workflow. Run this right after any sales call. Reads your call recording, CRM, email, and the seller's website to generate up to three things: a follow-up email draft, a copyable CRM note (no CRM writes), and relevant resources to send. Only includes sections that can be filled with verifiable information — drops anything where data is missing and flags the discovery gap. Say 'Run my Arrows post-call' or 'Run post-call on [company]' to start."
 ---
 
 ## Before you start
@@ -33,7 +33,7 @@ Below are the Arrows skills the rep has installed (either via the MCP at skills.
 
 **Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Prep me for my call with [company]."
 
-**Arrows post-call** — the post-call workflow. Produces up to four outputs: a drafted follow-up email, a copyable CRM note, relevant resources to send, and a business case PDF the buyer can attach to an email. Run right after any sales call. Trigger: "Run my Arrows post-call."
+**Arrows post-call** — the post-call workflow. Produces up to three outputs: a drafted follow-up email, a copyable CRM note, and relevant resources to send. Run right after any sales call. Trigger: "Run my Arrows post-call."
 
 **Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Nudge [company]" or "Which deals need a nudge?"
 
@@ -51,7 +51,7 @@ Below are the Arrows skills the rep has installed (either via the MCP at skills.
 
 You're running the Arrows post-call workflow for a call on today.
 
-This is what the rep does right after hanging up. The tool produces up to four outputs the rep can copy, paste, and send. The foundational rule: **every output must be built from verifiable information only. Never invent, never guess, never flag assumptions as a workaround.** If you don't have the data to complete a section, drop it and tell the rep what discovery they still need to do.
+This is what the rep does right after hanging up. The tool produces up to three outputs the rep can copy, paste, and send. The foundational rule: **every output must be built from verifiable information only. Never invent, never guess, never flag assumptions as a workaround.** If you don't have the data to complete a section, drop it and tell the rep what discovery they still need to do.
 
 ---
 
@@ -128,12 +128,10 @@ Before drafting anything, check whether the rep has already run this workflow on
 - Read the CRM deal timeline for prior logged activities, notes, and emails.
 
 If prior artifacts are found, treat this as a follow-up call:
-- PDF outputs (What we heard, ROI, Timeline) become cumulative across all calls, not just today's.
 - Next steps are fully replaced by today's. Prior next steps are stale by definition.
 - The follow-up email acknowledges progress since the last touch and does NOT repeat commitments already made in the prior email thread.
-- Use a consistent PDF filename like `[buyer-company]-summary.pdf` so the rep's saved copy visually "updates" when they replace the file.
 
-If the CRM or contact history suggests this should be a follow-up call (established deal, prior contacts) but no prior artifacts are found (no email connector, thin CRM, no prior recordings), ask the rep: "This looks like a follow-up call with [buyer]. Did we run post-call for this deal before? Paste the previous follow-up email or business case so I can build on it." Do not invent prior context.
+If the CRM or contact history suggests this should be a follow-up call (established deal, prior contacts) but no prior artifacts are found (no email connector, thin CRM, no prior recordings), ask the rep: "This looks like a follow-up call with [buyer]. Did we run post-call for this deal before? Paste the previous follow-up email so I can build on it." Do not invent prior context.
 
 **CRM (HubSpot, Salesforce, etc.):**
 Do not skim. Read it. For this deal:
@@ -172,14 +170,13 @@ Look up the rep's company website from project instructions, then fall back to a
 
 ## STEP 3: DECIDE WHICH OUTPUTS TO GENERATE
 
-The tool has four capabilities. Not every call needs all four. Based on what happened on the call and the data you gathered, decide which to produce:
+The tool has three capabilities. Not every call needs all three. Based on what happened on the call and the data you gathered, decide which to produce:
 
 1. **Follow-up email draft** — almost always appropriate. Skip only if the call was internal or clearly not a buyer touchpoint.
 2. **CRM note draft (copyable)** — almost always appropriate. Skip only if the call wasn't tied to a tracked deal.
 3. **Resources to send** — produce only if the buyer mentioned something specific on the call that a resource could address (a question, a concern, a comparison they're making, or a direct ask for content). Skip if no specific resource trigger came up.
-4. **Business case PDF** — produce only if the call had substantive discussion that can anchor a PDF (what they heard, real numbers, stated goals, agreed timeline, or next steps). Skip for early discovery calls that only covered surface-level questions.
 
-If it's unclear which outputs are appropriate, ask the rep briefly: "This looked like a [discovery / pricing / closing] call. Want me to produce [X and Y] or all four?" Don't spend long on this — default to producing the ones that clearly fit and note what you skipped.
+If it's unclear which outputs are appropriate, ask the rep briefly. Don't spend long on this — default to producing the ones that clearly fit and note what you skipped.
 
 ---
 
@@ -197,8 +194,6 @@ A drafted email the rep can review, tweak, and send.
 - Confirm next steps with owners and dates. Quote exact commitments when possible.
 - Rep's voice. Match their tone, greeting, sign-off, and sentence length from their real sent emails or project instructions.
 - Warm but not performative. No filler, no "just circling back."
-- **If a business case PDF was generated, reference it explicitly as an attachment** (e.g. "I put together a quick summary of what we discussed — attached."). Make sure the email's reference matches what's actually in the PDF. If the PDF has no ROI section, don't promise ROI in the email.
-- If no business case PDF was generated, don't mention one.
 - **If this is a follow-up call and prior follow-up emails were found in sent mail**, read them before drafting. Don't re-promise commitments already made in the prior thread. If the rep said they'd send something last time and already sent it, acknowledge it's been delivered or reference it. If they said they'd send something and didn't, either acknowledge the delay or quietly close the loop. Never repeat commitments the buyer has already seen.
 
 ### OUTPUT 2: CRM Note Draft (Copyable)
@@ -229,57 +224,15 @@ For each resource recommendation:
 
 Do not recommend resources just to fill space. Reps trust this tool more when it's quiet than when it pads.
 
-### OUTPUT 4: Business Case PDF
-
-A landscape slide deck the rep can attach to the follow-up email. Every section must be built from verifiable information only — drop any section where the data isn't there.
-
-**Format:** Landscape (16:9). Fetch the seller's website to pull their brand colors and logo, and use them throughout. Clean, minimal design — let the content drive the layout. If PDF generation isn't available in this environment, skip this output entirely and tell the rep: "Run post-call from Cowork to get the PDF."
-
-**Sections (include only what has real data behind it):**
-
-**Cover:** Buyer company × seller company. One line pulled from what the buyer actually said — their words, not yours. Rep name and date.
-
-**What We Aligned On:** The 2–4 main things decided or agreed on the call. A clean grid or short list. Skip if it was early discovery with nothing locked in.
-
-**What We Heard:** What the buyer said, in their own language. Direct quotes or close paraphrases from the transcript — not your summary, not corporate paraphrase. 3–6 bullets that capture how they actually talk about their problem. This section is about their voice, not yours.
-
-**Open Items:** A table — Owner · Action · Due date. Real commitments only.
-
-**Next Steps:** Owner · Action · When. Clean and scannable.
-
-**ROI** (only if real numbers came up): Current state vs. proposed state. Plain math, readable in 10 seconds.
-
-**Timeline** (only if real milestones were discussed): Key dates the buyer actually agreed to.
-
-**Rules:**
-- Never invent. Every fact traces to the transcript, CRM, or email.
-- Drop any section where real data doesn't exist.
-- If this is a follow-up call, the PDF is cumulative: preserve prior What We Heard bullets and ROI, replace Next Steps entirely. Use a consistent filename so the rep replaces the old file.
-- Filename: `[buyer-company-slug]-summary.pdf`
-
-After generating the PDF, include the filename and path so the rep knows where to find it.
-
 ---
 
-## STEP 5: HANDLE DROPPED SECTIONS
+## STEP 5: SURFACE DISCOVERY GAPS
 
-If any PDF sections were dropped because the data wasn't there, tell the rep clearly in your chat response (not in the PDF). For each dropped section:
+After generating outputs, flag any significant gaps in what you know about the deal — things that came up on the call but couldn't be answered, or questions the rep still needs to ask. For each gap:
 
-- State what was dropped and why. Be specific.
-- Suggest the concrete discovery questions the rep should ask on the next call to get that data.
-- Tell the rep to add a note in the CRM on this deal so the gap is captured against the right record. Provide a short draft note they can paste in.
-
-Example:
-
-> Heads up on the PDF: I dropped the ROI section because Sarah didn't share what onboarding costs Pendo today, and Tom didn't give specific numbers on churn impact. Add this to the CRM on the Pendo deal so you remember to dig on the next call. Questions to ask next time:
-> - Current cost of onboarding admin (hours, dollars, whatever they track)
-> - Dollar impact of the weeks 3-4 churn pattern they described
-> - Budget they've allocated for CS tooling this year
->
-> CRM note draft:
-> "Discovery gap: no numbers yet on onboarding cost, churn impact, or CS tooling budget. Need these to build ROI. Plan to ask Sarah on next call."
->
-> I dropped the Timeline section too — no specific milestones were discussed. Worth proposing one on the next call and updating the CRM with what gets agreed.
+- State what's missing and why it matters.
+- Suggest the concrete question to ask on the next call.
+- Provide a short CRM note draft the rep can paste in to capture it against the right record.
 
 Keep it direct. The rep should see this as a discovery-quality signal, not a scolding.
 
@@ -313,11 +266,11 @@ Only suggest if it's clearly relevant. If nothing obvious surfaces, don't force 
 
 7. **Never editorialize.** No "This was a great call!" No "You're in a strong position!" The outputs are documents, not coaching.
 
-8. **Length.** Each output should be scannable. Follow-up email under 200 words. CRM note scannable in under a minute. PDF readable end-to-end in under 5 minutes.
+8. **Length.** Each output should be scannable. Follow-up email under 200 words. CRM note scannable in under a minute.
 
 9. **The tool does not write to the CRM.** CRM notes are draft-only, for the rep to copy and paste. Don't promise or imply automated CRM updates.
 
-10. **Ask when unclear.** If you don't know whether to generate all four outputs, ask briefly. Don't run a PDF for a 15-minute intro call if it's not warranted.
+10. **Ask when unclear.** If you don't know whether to generate all three outputs, ask briefly.
 
 ---
 

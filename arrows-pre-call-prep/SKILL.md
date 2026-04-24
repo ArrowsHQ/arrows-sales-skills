@@ -33,7 +33,7 @@ Below are the Arrows skills the rep has installed (either via the MCP at skills.
 
 **Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Prep me for my call with [company]."
 
-**Arrows post-call** — the post-call workflow. Produces up to four outputs: a drafted follow-up email, a copyable CRM note, relevant resources to send, and a business case PDF the buyer can attach to an email. Run right after any sales call. Trigger: "Run my Arrows post-call."
+**Arrows post-call** — the post-call workflow. Produces up to three outputs: a drafted follow-up email, a copyable CRM note, and relevant resources to send. Run right after any sales call. Trigger: "Run my Arrows post-call."
 
 **Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Nudge [company]" or "Which deals need a nudge?"
 
@@ -309,7 +309,7 @@ Format:
 Examples:
 - **What's the budget range they've approved?** Needed to size the deal and frame pricing on the next call.
 - **Who else is in the decision committee?** You've met Sarah but the buyer mentioned "our exec team" on the last call without naming them.
-- **What does success look like in 90 days?** Needed for the business case PDF post-call.
+- **What does success look like in 90 days?** Worth capturing for post-call context.
 
 Drop this section if discovery is complete and there are no open questions.
 
@@ -319,7 +319,7 @@ Drop this section if discovery is complete and there are no open questions.
 
 After the brief, end with exactly one concrete next-step offer:
 
-"After the call, run `Run post-call on [company]` and I'll generate the follow-up email, CRM note, and business case PDF using the same deal context."
+"After the call, run `Run post-call on [company]` and I'll generate the follow-up email, CRM note, and resources using the same deal context."
 
 Don't stack suggestions. One offer, then stop.
 
