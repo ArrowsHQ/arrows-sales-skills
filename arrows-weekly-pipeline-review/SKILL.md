@@ -62,7 +62,8 @@ The foundational rule: **every fact must trace back to a real source. Never inve
 Before writing a single line of output, gather everything.
 
 **CRM (HubSpot, Salesforce, etc.) — this is the primary source:**
-- Pull every active deal. No filtering. If it's open, it goes in.
+- Pull every active deal from the **sales pipeline only**. CRMs often have multiple pipelines (sales, onboarding, CS, renewals, etc.) — do not pull from any pipeline other than the sales pipeline. If the rep has multiple sales pipelines, ask which one to use before proceeding.
+- No filtering within the sales pipeline. If it's open, it goes in.
 - For each deal, read all of:
   - Deal name, stage, amount, close date, create date, deal owner
   - Primary contact(s): name, title, email
@@ -225,40 +226,44 @@ After the written review, generate a persistent HTML artifact immediately — do
 - Closing This Week
 - At Risk
 
-Each stat: number at 48px semi-bold, label below at 12px uppercase gray. Generous spacing between them.
+Each stat: number at 48px semi-bold, label below at 12px uppercase gray. Generous spacing between them. "At Risk" number renders in red (#e24b4a) if greater than zero.
 
-**Section 1 — This Week:**
-Heading: "CLOSING THIS WEEK" in 11px uppercase gray, letter-spaced.
-One row per deal with a close date in the next 7 days. Layout:
-- Left: colored status dot + company name (bold) + deal value
-- Right: close date + "X days since last touch"
-Status dot colors: green (#22c55e) = on track, orange (#f97316) = needs attention, red (#ef4444) = at risk or blocked.
-If nothing closing this week: "No deals with close dates this week."
+**Color legend — directly below the stats bar:**
+Three items in a row: green dot + "On track" · orange dot + "Needs attention" · red dot + "At risk"
+Small text (12px), muted color. Always visible, never hidden or collapsed.
+
+**Section 1 — Closing This Week:**
+Section header has a light green tinted background (#f0faf4), heading text "CLOSING THIS WEEK" in 11px uppercase green (#3b6d11), letter-spaced.
+One row per deal with a close date falling within the current calendar week (Monday–Sunday). This must match the "Closing This Week" stat above exactly — the same deals, the same count. Layout per row:
+- Left: colored status dot + company name (bold, 15px) + deal value (13px, muted) + owner chip (11px, pill-shaped, light gray background)
+- Right: close date + one-line status note ("Active", "No next step", "Contract unsigned", etc.)
+Status dot colors: green (#3b6d11) = on track, orange (#ba7517) = needs attention or no next step, red (#a32d2d) = at risk or blocked.
+If nothing closing this week: "No deals closing this week."
 
 **Section 2 — Needs Attention:**
-Heading: "NEEDS ATTENTION" in 11px uppercase gray, letter-spaced.
-One row per at-risk deal. Layout:
-- Left: red dot + company name (bold) + deal value
-- Right: one-phrase reason ("22 days quiet", "close date passed", "contract unsigned 9 days")
+Section header has a light red tinted background (#fef2f2), heading text "NEEDS ATTENTION" in 11px uppercase red (#a32d2d), letter-spaced.
+One row per at-risk deal. Layout per row:
+- Left: red or orange dot + company name (bold, 15px) + deal value (13px, muted) + owner chip
+- Right: a short, specific note explaining why this deal needs attention — not just the metric, but what it means. Examples: "62 days quiet — no response since March" not just "62d quiet". "Close date passed Apr 15, still open" not just "close date passed". "105 days in this stage — hasn't progressed since January" not just "no stage progress". One sentence max. Red dot for likely dead or critically overdue; orange dot for needs a nudge or soft flag.
 If nothing at risk: "Pipeline looks clean this week."
 
-**Section 3 — Pipeline Summary:**
-Heading: "FULL PIPELINE" in 11px uppercase gray, letter-spaced.
-Not individual deals — just a compact stage-by-stage count:
-[Stage name] · [X deals] · [$Y total]
-One line per stage. Nothing more. This section is a reference, not a drill-down.
+**Section 3 — Pipeline by Stage:**
+Heading: "FULL PIPELINE" in 11px uppercase gray (#999), letter-spaced. No tinted background — plain white card.
+Not individual deals. One row per stage showing: stage name (13px, muted) · a proportional horizontal bar (6px tall, gray fill, width relative to total pipeline value) · deal count + value (12px, right-aligned, muted).
+Bar widths are proportional: a stage with 67% of total pipeline value gets a bar 67% of the available width. Minimum visible bar width: 2% so no stage disappears entirely.
 
 **HTML specs:**
 - Self-contained: no external dependencies
 - Max width 800px, centered, system font stack (-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif)
-- Background: #ffffff, page background: #f5f5f5
-- Section padding: 32px between sections
-- Status dots: 10px solid circles, inline with company name
-- Section headings: 11px, uppercase, letter-spacing 0.08em, color #999
-- Deal rows: 16px company name, 14px everything else, color #333
-- Stats numbers: 48px, font-weight 600, color #111
-- Stats labels: 12px, uppercase, letter-spacing 0.05em, color #888
-- Subtle horizontal rule between sections: 1px solid #eee
+- Page background: #f5f5f5, card backgrounds: #ffffff
+- Cards: white background, 0.5px border (#e5e7eb), border-radius 12px, overflow hidden
+- Section padding: 24px between cards
+- Stats bar: gray card background (#f9f9f9), no outer border
+- Status dots: 8px solid circles, inline with company name
+- Section headings: 11px, uppercase, letter-spacing 0.08em
+- Deal rows: separated by 0.5px border (#f3f4f6), padding 13px 16px
+- Stats numbers: 30px, font-weight 500
+- Owner chips: 11px, background #f3f4f6, padding 2px 8px, border-radius 6px
 
 ---
 

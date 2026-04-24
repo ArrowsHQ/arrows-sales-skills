@@ -231,71 +231,33 @@ Do not recommend resources just to fill space. Reps trust this tool more when it
 
 ### OUTPUT 4: Business Case PDF
 
-Generate a business case document the rep can attach to their follow-up email. **Every section must be built from verifiable information only.**
+A landscape slide deck the rep can attach to the follow-up email. Every section must be built from verifiable information only — drop any section where the data isn't there.
 
-**Format:** Generate a PDF if you have access to a pdf skill or file-generation capability in your current environment. If not, skip this output entirely — do not produce markdown, plain text, or any other format as a substitute. Tell the rep briefly: "I wasn't able to generate the business case PDF in this environment. To get the PDF, run post-call from Cowork."
+**Format:** Landscape (16:9). Fetch the seller's website to pull their brand colors and logo, and use them throughout. Clean, minimal design — let the content drive the layout. If PDF generation isn't available in this environment, skip this output entirely and tell the rep: "Run post-call from Cowork to get the PDF."
 
-**If this is a follow-up call (prior activity detected in STEP 2):** the PDF is cumulative, not a fresh standalone document. Use a consistent filename like `[buyer-company-slug]-summary.pdf` so repeat runs overwrite the same file.
-- What we heard: accumulates across all calls. Preserve prior direct quotes that still reflect the buyer's stated position. Add new quotes and context from today.
-- ROI: preserve prior calculations. Update only what the buyer updated today.
-- Timeline: update with new milestones or dates from today. Keep prior milestones that are still valid.
-- Next steps: fully replaced by today's. Prior next steps are stale.
+**Sections (include only what has real data behind it):**
 
-**Visual design — this is a slide deck, not a document:**
+**Cover:** Buyer company × seller company. One line pulled from what the buyer actually said — their words, not yours. Rep name and date.
 
-Before generating the HTML, fetch the seller's website to extract:
-- Primary brand color (used for backgrounds, headings, and accents)
-- Secondary/neutral color if present
-- Logo URL (use as an `<img>` tag — hotlink directly from the seller's site)
-- General aesthetic (clean/minimal, bold, etc.) — use this to inform font weight and spacing choices
+**What We Aligned On:** The 2–4 main things decided or agreed on the call. A clean grid or short list. Skip if it was early discovery with nothing locked in.
 
-Each section of the PDF is its own full-page slide. Use CSS `@page` and `page-break-after: always` to enforce pagination. Every slide should fill a full page (use `min-height: 100vh` with print-safe equivalents).
+**What We Heard:** What the buyer said, in their own language. Direct quotes or close paraphrases from the transcript — not your summary, not corporate paraphrase. 3–6 bullets that capture how they actually talk about their problem. This section is about their voice, not yours.
 
-Slide design rules:
-- Page size: US Letter (8.5 × 11in), landscape or portrait — use portrait.
-- Font: system font stack. Headings at 36–48px, body at 18–22px. Never smaller than 16px.
-- White space: generous. Each slide has at most one key idea. Do not cram.
-- Color: use the seller's primary brand color for slide headers, cover background, and accent elements. Body copy on white or very light background.
-- Logo: top-right corner on every slide at ~80px height.
-- No borders, no shadows, no clip art. Clean and flat.
+**Open Items:** A table — Owner · Action · Due date. Real commitments only.
 
-Slide-by-slide layout:
+**Next Steps:** Owner · Action · When. Clean and scannable.
 
-**Cover slide:**
-- Full-bleed background in seller's primary brand color
-- Buyer company name + seller company name in large white type (40px+)
-- One-line headline pulled from what the buyer actually said (their words, not yours) — this is the most important line on the page. Large, bold, white.
-- Bottom: "Prepared by [Rep name] · [Date]" in smaller white text
-- Do NOT label it "Business Case" anywhere
+**ROI** (only if real numbers came up): Current state vs. proposed state. Plain math, readable in 10 seconds.
 
-**"What we heard" slide(s):**
-- One quote per slide. Large blockquote treatment — the quote at 28–32px, attributed below in lighter text.
-- If there are 3–5 quotes, they each get their own slide. Do not stack them.
-- Slide header: "What we heard" in seller's brand color, top of page, smaller type (16px uppercase)
+**Timeline** (only if real milestones were discussed): Key dates the buyer actually agreed to.
 
-**ROI slide** (only if verifiable math exists):
-- One slide. Header: "The numbers" or similar plain language.
-- Present the calculation visually — current state vs. proposed state, large type, side by side or stacked.
-- No tables. No formulas. Just the result in plain English with the inputs shown.
+**Rules:**
+- Never invent. Every fact traces to the transcript, CRM, or email.
+- Drop any section where real data doesn't exist.
+- If this is a follow-up call, the PDF is cumulative: preserve prior What We Heard bullets and ROI, replace Next Steps entirely. Use a consistent filename so the rep replaces the old file.
+- Filename: `[buyer-company-slug]-summary.pdf`
 
-**Timeline slide** (only if real milestones exist):
-- One slide. A horizontal or vertical timeline with milestone labels and dates.
-- Only milestones that were actually discussed on the call.
-
-**Next steps slide:**
-- One slide. Clean three-column layout: Owner · Action · When
-- Large enough to read across a table. Minimum 20px font.
-- Bottom of slide: rep's email or contact info in small text.
-
-**Rules for every PDF section:**
-- Use the rep's voice. Match how they actually write and talk.
-- Use real language from the call transcript. Quote the buyer directly where it helps.
-- No jargon the buyer didn't use. If they said "ramp time," don't call it "onboarding velocity."
-- **Never invent information.** Every fact must trace back to the call transcript, CRM, email, chat, or the rep's direct input.
-- No "assumptions to confirm." Either the data is real or the section is dropped.
-- Forward-able: a CFO who wasn't on the call should understand every included section in 30 seconds.
-
-After generating the PDF, include its filename and download path in your output so the rep knows where to find it.
+After generating the PDF, include the filename and path so the rep knows where to find it.
 
 ---
 
