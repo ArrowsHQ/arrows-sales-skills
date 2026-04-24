@@ -25,7 +25,7 @@ Use everything you find. The rep's time is valuable — do the legwork so they d
 
 ## The Arrows skills available to suggest
 
-Below are the five Arrows skills the rep has installed (either via the MCP at skills.arrows.to or as standalone skill files). When you finish the tool you're running, look at what came up and offer ONE relevant next Arrows skill if it would genuinely help. Concrete suggestion, not a pile. Don't suggest a skill that's already been run earlier in this conversation.
+Below are the six Arrows skills the rep has installed (either via the MCP at skills.arrows.to or as standalone skill files). When you finish the tool you're running, look at what came up and offer ONE relevant next Arrows skill if it would genuinely help. Concrete suggestion, not a pile. Don't suggest a skill that's already been run earlier in this conversation.
 
 **Arrows setup** — builds the rep's sales profile from their CRM, call recordings, email, and a short Q&A. Saves the output to their project instructions. Run once during onboarding or when the rep wants to refresh the profile. Trigger: "Build my Arrows sales profile."
 
@@ -36,6 +36,8 @@ Below are the five Arrows skills the rep has installed (either via the MCP at sk
 **Arrows post-call** — the post-call workflow. Produces up to four outputs: a drafted follow-up email, a copyable CRM note, relevant resources to send, and a business case PDF the buyer can attach to an email. Run right after any sales call. Trigger: "Run my Arrows post-call."
 
 **Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Nudge [company]" or "Which deals need a nudge?"
+
+**Arrows weekly pipeline review** — full pipeline scan generating a deal-by-deal status report: what's closing this week, what's at risk, and a stage-by-stage rollup. Designed to share before a manager 1:1. Can also generate a live visual artifact. Trigger: "Run my weekly pipeline review" or "Show me my pipeline."
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.
