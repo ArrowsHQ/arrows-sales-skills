@@ -117,7 +117,7 @@ Connect Claude to your sales tools (CRM, email, calendar, call recorder), then i
 
 ### How do I use ChatGPT (or Copilot, or Gemini) for sales?
 
-Same workflows, different install. Each skill in this repo is a plain text file. Paste it into a Custom GPT (ChatGPT), a custom Agent (Copilot), or a Gem (Gemini) and trigger it the same way. See "Two ways to install" above.
+Same workflows, different install. Each skill in this repo is a plain text file. Paste it into a Custom GPT (ChatGPT), a custom Agent (Copilot), or a Gem (Gemini) and trigger it the same way. See "Two ways to install" above. For the full ChatGPT walkthrough: [How to set up ChatGPT for sales in 15 minutes](https://arrows.to/guide/how-to-set-up-chatgpt-for-sales-in-15-minutes).
 
 ### What's the difference between the connector and this repo?
 
