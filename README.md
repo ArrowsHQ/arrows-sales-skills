@@ -2,9 +2,9 @@
 
 **Free AI sales skills for Claude, ChatGPT, Copilot, and Gemini.**
 
-Turn the AI you already have into a sales assistant that knows your deals. These skills run your daily sales work — morning briefs, meeting prep, follow-up emails, deal nudges, and pipeline reviews — using what's in your CRM, email, calendar, and call recordings.
+Turn the AI you already have into a sales assistant that knows your deals. These skills run your daily sales work using what's in your CRM, email, calendar, and call recordings: morning briefs, meeting prep, follow-up emails, deal nudges, and pipeline reviews.
 
-Built by the team at [Arrows](https://arrows.to). If you use Claude, the easiest install is the [Arrows Sales Skills connector](https://skills.arrows.to) — one URL, two minutes. This repo has the same workflows as plain files, so they also work with ChatGPT, Copilot, Gemini, or any other AI tool.
+Built by the team at [Arrows](https://arrows.to). If you use Claude, the easiest install is the [Arrows Sales Skills connector](https://skills.arrows.to): one URL, two minutes. This repo has the same workflows as plain files, so they also work with ChatGPT, Copilot, Gemini, or any other AI tool.
 
 ---
 
@@ -117,15 +117,15 @@ Connect Claude to your sales tools (CRM, email, calendar, call recorder), then i
 
 ### How do I use ChatGPT (or Copilot, or Gemini) for sales?
 
-Same workflows, different install. Each skill in this repo is a plain text file — paste it into a Custom GPT (ChatGPT), a custom Agent (Copilot), or a Gem (Gemini) and trigger it the same way. See "Two ways to install" above.
+Same workflows, different install. Each skill in this repo is a plain text file. Paste it into a Custom GPT (ChatGPT), a custom Agent (Copilot), or a Gem (Gemini) and trigger it the same way. See "Two ways to install" above.
 
 ### What's the difference between the connector and this repo?
 
-The [connector](https://skills.arrows.to) is for Claude: install once, every skill shows up automatically, and updates ship to you. This repo is the same skills as portable files for every other AI tool — or for Claude users whose company blocks custom connectors.
+The [connector](https://skills.arrows.to) is for Claude: install once, every skill shows up automatically, and updates ship to you. This repo is the same skills as portable files for every other AI tool, or for Claude users whose company blocks custom connectors.
 
 ### Is it really free?
 
-Yes — no signup, no email gate. We build [Arrows](https://arrows.to), a sales execution platform that takes this much further. If these skills are useful, you're who we built Arrows for.
+Yes. No signup, no email gate. We build [Arrows](https://arrows.to), a sales execution platform that takes this much further. If these skills are useful, you're who we built Arrows for.
 
 ---
 
