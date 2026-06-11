@@ -1,6 +1,6 @@
 ---
 name: arrows-help
-description: "Arrows help. Lists all available Arrows skills and their trigger phrases. Say 'Arrows help' or 'What can you do?' to see what's available."
+description: "Arrows help. Lists all available Arrows skills and their trigger phrases. Say 'Arrows help' to see what's available. Also responds to 'what can you do?'"
 ---
 
 ## Before you start
@@ -31,15 +31,15 @@ Below are the Arrows skills the rep has installed (either via the MCP at skills.
 
 **Arrows daily brief** — a scannable overview of the rep's day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, open time. Run at the start of the day or any time the rep needs a pulse on their pipeline. Trigger: "Run my Arrows daily brief."
 
-**Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Prep me for my call with [company]."
+**Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Run the Arrows meeting prep for [company]."
 
 **Arrows post-call** — the post-call workflow. Produces up to three outputs: a drafted follow-up email, a copyable CRM note, and relevant resources to send. Run right after any sales call. Trigger: "Run my Arrows post-call."
 
-**Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Nudge [company]" or "Which deals need a nudge?"
+**Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
 
-**Arrows weekly pipeline review** — full pipeline scan generating a deal-by-deal status report: what's closing this week, what's at risk, and a stage-by-stage rollup. Designed to share before a manager 1:1. Can also generate a live visual artifact. Trigger: "Run my weekly pipeline review" or "Show me my pipeline."
+**Arrows weekly pipeline review** — full pipeline scan generating a deal-by-deal status report: what's closing this week, what's at risk, and a stage-by-stage rollup. Designed to share before a manager 1:1. Can also generate a live visual artifact. Trigger: "Run my Arrows weekly pipeline review."
 
-**Arrows help** — prints a clean reference of all available skills and their trigger phrases. Useful when the rep forgets what's available. Trigger: "Arrows help" or "What can you do?"
+**Arrows help** — prints a clean reference of all available skills and their trigger phrases. Useful when the rep forgets what's available. Trigger: "Arrows help."
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.
@@ -65,8 +65,8 @@ Scans your CRM, call recordings, and email to build project instructions tailore
 Trigger: `Run my Arrows daily brief`
 A pulse on your day: today's calls with full context, messages waiting for a reply, pipeline alerts, and open time. Run at the start of the day or any time you need a quick read on where things stand.
 
-**Pre-call prep**
-Trigger: `Prep me for my call with [company]`
+**Meeting prep**
+Trigger: `Run the Arrows meeting prep for [company]`
 Focused brief on one specific upcoming meeting — who you're talking to, what they want, what happened last time, what to push on, what might go sideways. Scannable in 60 seconds.
 
 **Post-call**
@@ -74,12 +74,12 @@ Trigger: `Run my Arrows post-call`
 The post-call workflow. Produces a follow-up email draft, a CRM note to paste in, and relevant resources to send. Run right after any sales call.
 
 **Deal nudge**
-Trigger: `Nudge [company]` — for a specific deal
-Trigger: `Which deals need a nudge?` — to scan your pipeline
+Trigger: `Run the Arrows deal nudge on [company]` — for a specific deal
+Trigger: `Run the Arrows deal nudge on my pipeline` — to scan for deals that need attention
 Strategizes a play to reactivate a stalled deal and drafts a send-ready message. Two modes: target one deal by name, or let it scan your pipeline and surface the best candidates.
 
 **Weekly pipeline review**
-Trigger: `Run my weekly pipeline review`
+Trigger: `Run my Arrows weekly pipeline review`
 Full pipeline scan: what's closing this week, what's at risk, and a stage-by-stage rollup of every active deal. Designed to share before a manager 1:1. Can also generate a visual artifact.
 
 ---

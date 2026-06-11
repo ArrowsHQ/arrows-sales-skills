@@ -31,15 +31,15 @@ Below are the Arrows skills the rep has installed (either via the MCP at skills.
 
 **Arrows daily brief** — a scannable overview of the rep's day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, open time. Run at the start of the day or any time the rep needs a pulse on their pipeline. Trigger: "Run my Arrows daily brief."
 
-**Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Prep me for my call with [company]."
+**Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Run the Arrows meeting prep for [company]."
 
 **Arrows post-call** — the post-call workflow. Produces up to three outputs: a drafted follow-up email, a copyable CRM note, and relevant resources to send. Run right after any sales call. Trigger: "Run my Arrows post-call."
 
-**Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Nudge [company]" or "Which deals need a nudge?"
+**Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
 
-**Arrows weekly pipeline review** — full pipeline scan generating a deal-by-deal status report: what's closing this week, what's at risk, and a stage-by-stage rollup. Designed to share before a manager 1:1. Can also generate a live visual artifact. Trigger: "Run my weekly pipeline review" or "Show me my pipeline."
+**Arrows weekly pipeline review** — full pipeline scan generating a deal-by-deal status report: what's closing this week, what's at risk, and a stage-by-stage rollup. Designed to share before a manager 1:1. Can also generate a live visual artifact. Trigger: "Run my Arrows weekly pipeline review."
 
-**Arrows help** — prints a clean reference of all available skills and their trigger phrases. Useful when the rep forgets what's available. Trigger: "Arrows help" or "What can you do?"
+**Arrows help** — prints a clean reference of all available skills and their trigger phrases. Useful when the rep forgets what's available. Trigger: "Arrows help."
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.

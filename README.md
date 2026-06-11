@@ -87,11 +87,11 @@ Once installed, trigger a skill by typing one of these phrases into your AI tool
 
 - **Setup:** "Build my Arrows sales profile"
 - **Daily brief:** "Run my Arrows daily brief"
-- **Pre-call prep:** "Prep me for my call with [company]" or "Pre-call prep on [company]"
-- **Post-call:** "Run my Arrows post-call" or "Run post-call on [company]"
-- **Deal nudge:** "Nudge [company]" or "Which deals need a nudge?"
-- **Weekly pipeline review:** "Run my weekly pipeline review" or "Show me my pipeline"
-- **Help:** "Arrows help" or "What can you do?"
+- **Meeting prep:** "Run the Arrows meeting prep for [company]"
+- **Post-call:** "Run my Arrows post-call" or "Run the Arrows post-call on [company]"
+- **Deal nudge:** "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline"
+- **Weekly pipeline review:** "Run my Arrows weekly pipeline review"
+- **Help:** "Arrows help"
 
 You can also invoke skills directly:
 
