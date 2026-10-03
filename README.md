@@ -142,6 +142,12 @@ Yes. No signup, no email gate. We build [Arrows](https://arrows.to), a sales exe
 
 ---
 
+## License
+
+Apache 2.0. See [LICENSE](LICENSE). You're free to use, change, and share these skills. The license doesn't give rights to the Arrows name or logo.
+
+---
+
 ## About
 
 Built by the team at [Arrows](https://arrows.to), an AI-powered selling platform that does all this for you automatically across every deal so you can focus on closing.

@@ -8,5 +8,6 @@
     "url": "https://arrows.to"
   },
   "homepage": "https://skills.arrows.to",
+  "license": "Apache-2.0",
   "repository": "https://github.com/ArrowsHQ/arrows-sales-skills"
 }
