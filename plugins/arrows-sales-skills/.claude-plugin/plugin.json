@@ -2,12 +2,16 @@
   "name": "arrows-sales-skills",
   "displayName": "Sales Skills by Arrows",
   "version": "1.0.0",
-  "description": "Free sales skills for Claude: daily briefs, pre-call prep, post-call follow-ups, deal nudges, and weekly pipeline reviews, built from your CRM, email, calendar, and call recordings.",
+  "description": "Learns how you sell from your own calls, emails, and CRM, then runs your daily brief, pre-call prep, and post-call follow-ups in your voice. Free, from Arrows.",
   "author": {
     "name": "Arrows",
     "url": "https://arrows.to"
   },
   "homepage": "https://skills.arrows.to",
   "license": "Apache-2.0",
-  "repository": "https://github.com/ArrowsHQ/arrows-sales-skills"
+  "repository": "https://github.com/ArrowsHQ/arrows-sales-skills",
+  "documentationUrl": "https://github.com/ArrowsHQ/arrows-sales-skills#readme",
+  "supportUrl": "https://arrows.to/contact-us/",
+  "privacyPolicyUrl": "https://arrows.to/privacy/",
+  "termsOfServiceUrl": "https://arrows.to/terms/"
 }
