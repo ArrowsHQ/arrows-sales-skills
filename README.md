@@ -123,6 +123,10 @@ Same workflows, different install. Each skill in this repo is a plain text file.
 
 The [connector](https://skills.arrows.to) is for Claude: install once, every skill shows up automatically, and updates ship to you. This repo is the same skills as portable files for every other AI tool, or for Claude users whose company blocks custom connectors.
 
+### Can my whole sales team use this?
+
+Yes. Each rep installs the skills and runs them in their own AI account. They still prompt it themselves, and setups drift between reps over time. When you want one playbook running on every deal for the whole team without anyone prompting, see [how Arrows compares to Claude for sales teams](https://arrows.to/arrows-vs-claude/).
+
 ### Is it really free?
 
 Yes. No signup, no email gate. We build [Arrows](https://arrows.to), a sales execution platform that takes this much further. If these skills are useful, you're who we built Arrows for.
