@@ -1,0 +1,15 @@
+{
+  "name": "arrows",
+  "description": "Free sales skills for Claude from Arrows.",
+  "owner": {
+    "name": "Arrows",
+    "url": "https://arrows.to"
+  },
+  "plugins": [
+    {
+      "name": "arrows-sales-skills",
+      "source": "./plugins/arrows-sales-skills",
+      "description": "Free sales skills for Claude: daily briefs, pre-call prep, post-call follow-ups, deal nudges, and weekly pipeline reviews, built from your CRM, email, calendar, and call recordings."
+    }
+  ]
+}

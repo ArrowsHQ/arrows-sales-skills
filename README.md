@@ -1,10 +1,12 @@
-# Arrows Sales Skills
+# Sales Skills by Arrows
 
-**Free AI sales skills for Claude, ChatGPT, Copilot, and Gemini.**
+**Free Claude sales skills, plus the same skills for ChatGPT, Copilot, and Gemini.**
 
 Turn the AI you already have into a sales assistant that knows your deals. These skills run your daily sales work using what's in your CRM, email, calendar, and call recordings: morning briefs, meeting prep, follow-up emails, deal nudges, and pipeline reviews.
 
-Built by the team at [Arrows](https://arrows.to). If you use Claude, the easiest install is the [Arrows Sales Skills connector](https://skills.arrows.to): one URL, two minutes. This repo has the same workflows as plain files, so they also work with ChatGPT, Copilot, Gemini, or any other AI tool.
+Built by the team at [Arrows](https://arrows.to). If you use Claude, the easiest install is the [Arrows Sales Skills connector](https://skills.arrows.to): one URL, two minutes. This repo has the same workflows as plain files, so they also work with ChatGPT, Copilot, Gemini, or any other AI tool. It's also a Claude plugin marketplace, so you can add every skill to Claude as one plugin.
+
+If these skills help you, star this repo so other sellers can find it.
 
 ---
 
@@ -65,6 +67,13 @@ This is the recommended path. One URL, about 30 seconds. All the skills appear i
 7. Click **Add** and restart Claude Desktop.
 
 Done. Start a new chat and type "run the Arrows setup" to begin.
+
+### Or: add them as a Claude plugin
+
+This repo is also a Claude plugin marketplace. Adding the plugin installs all seven skills at once, and they update when this repo does.
+
+- **Claude (web or desktop):** go to **Customize**, then **Plugins**, then **Add**, then **Add marketplace**, and enter `ArrowsHQ/arrows-sales-skills`. Then add the **Sales Skills by Arrows** plugin.
+- **Claude Code:** run `claude plugin marketplace add ArrowsHQ/arrows-sales-skills`, then `claude plugin install arrows-sales-skills@arrows`.
 
 ### Option 2: If your admin blocked that, or you use a different AI
 
