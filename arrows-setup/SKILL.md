@@ -1,6 +1,348 @@
 ---
 name: arrows-setup
-description: "Arrows Sales Skills setup. Scans your CRM, call recordings, and email to learn how you sell, then asks a few quick questions to fill gaps. Builds project instructions that personalize every Arrows skill to you. Takes about 5 minutes. Say 'Build my Arrows sales profile' to start."
+description: "Setup for Sales Skills by Arrows. Reads the person's CRM, call recordings, email and calendar, then builds the sales profile every Sales Skill uses: their voice (how they write and talk, with real examples by situation), their sales process (stages, methodology, why they win and lose), their buyers and competitors, and how they work. Sales leaders also get team files their reps can add. About 5–10 minutes, two quick replies. Use this whenever someone says 'Build my sales profile', 'Refresh my sales profile' or 'Set up Sales Skills by Arrows', asks how to get Claude set up for themselves or their sales team, asks Claude to learn how they sell or write to buyers, wants the sales skills personalized to them or their team, or wants their team's sales process captured for Claude."
+---
+
+
+Builds the profile that makes every Sales Skill write like this person and run deals the way their team does. Four files (five for sales leaders), built from their real data:
+
+| File | What's in it | Personal or team |
+|---|---|---|
+| `arrows-voice.md` | How they write and talk: tone, structure, greeting and sign-off, phrases that are theirs, what gets replies, and real examples for each situation (first follow-up, post-demo recap, nudge, pricing, scheduling) | Personal |
+| `arrows-sales-process.md` | Why they win and lose, every stage and what has to be true to move on, methodology, the basic numbers | Team |
+| `arrows-buyers-and-competitors.md` | What they sell and who buys, pricing, each competitor in a line or two | Team |
+| `arrows-how-i-work.md` | What they do on their best deals, where their time goes, what slips, their rules, their tools | Personal |
+| `arrows-how-we-work.md` (leaders only) | The team, handoffs, what every rep does on every deal, what the leader wants to see weekly | Team |
+
+Each skill reads the files it needs: email drafts lean on voice; pipeline reviews lean on process. Reps on a team add the leader's team files, so everyone follows one process while writing in their own voice. Some skills add their own `arrows-*.md` files later for deeper work; setup doesn't build those.
+
+The person replies twice: once to name their best deals, once to confirm what you found. Everything else comes from the data.
+
+## Progress
+
+Start each setup message with a progress line:
+
+```
+Sales Skills by Arrows · Setup  ■■■□□  Reading your calls
+```
+
+Squares by stage: `Starting` □□□□□ · `Reading your CRM` / `Reading your calls` / `Reading your email` ■□□□□ · `Studying your best deals` ■■□□□ · `Here's what I learned` ■■■□□ · `Building your profile` ■■■■□ · `Saved` ■■■■■. Show the bar once at the top of each message, not on every scan line. As each source finishes, post one line with a real number:
+
+```
+✓ CRM: 46 open deals, 112 closed in the last 6 months
+✓ Calls: read your last 10 calls
+✓ Email: 28 emails you sent to buyers, and their replies
+– Calendar: not connected (skipping meeting context)
+```
+
+## Step 1: Ask for their best deals
+
+Before reading anything, one question. Everyone can answer it, and it tells you what good looks like for this person:
+
+```
+Sales Skills by Arrows · Setup  □□□□□  Starting
+
+I'm going to read your CRM, calls and email to learn how you sell. That takes a few minutes. One question first:
+
+Name one or two deals you (or your team) really nailed. Won or lost, big or small, just ones where the deal was worked the way you'd want every deal worked.
+Or say "skip" and I'll find your best wins myself.
+```
+
+If they asked for something narrower (for example, "learn how I write"), say in one line that voice is one of four short files and the rest takes no extra effort from them, then continue.
+
+If they're already inside a project that has `arrows-*.md` team files, say so here ("I see your team's process files, so I'll focus on your voice and how you work.") and follow "Team files already in the project" under Special cases.
+
+## Step 2: Read everything
+
+Check sources by trying them: CRM, call recorder, email, calendar, then chat and documents. Name only what you verified. Look back up to six months, or as far as the reading budget allows; the budget wins (extend to 12 months only if data is thin).
+
+**Reading budget.** Stay inside this so setup finishes in one chat:
+- **CRM:** filtered queries and totals, not record-by-record reads. At most 200 deal records; notes only on best deals, 10 recent wins and 10 recent losses. Skip notes that are long digests (pasted Slack threads, logs).
+- **Calls:** summaries that come back in a list are free to use (often 20 at once); fetch full transcripts for at most 3 (best-deal calls first).
+- **Email:** up to 25 sent threads, reading only what you need.
+- **Best deals:** full threads for at most 2.
+- **Leaders:** per-rep totals (deal count, conversion, time in stage), plus full notes on one deal per rep.
+
+If a source is bigger, sample the most recent records and say so ("read 200 of about 1,400 deals").
+
+**Scope.** Rep: only deals they own. Leader: only deals owned by their team (from team or role data, or the owners of deals they're involved in over the last 90 days). Never report company-wide numbers as theirs; if company-wide is all you can see, label it "company-wide".
+
+Missing, failing or thin sources don't stop setup; see Special cases at the end.
+
+### CRM: the process
+
+Open deals (stage, amount, close date, age in stage, last activity, owner); won and lost deals from the last six months; stage names for every pipeline; contact titles and company types; amounts and products; notes.
+
+- **The real motion:** lead sources, what happens on the first call, when pricing comes up, who gets pulled in, what triggers a close.
+- **Stages:** conversion between stages, typical time in each (if stage-entry dates aren't available, use created-to-closed time and say so), and what actually happens before a deal moves (from notes, calls and emails). That becomes the exit criteria.
+- **Methodology:** MEDDIC, MEDDPICC, SPICED, BANT or their own, from fields, notes and call language. What's consistently captured and what's usually missing.
+- **Won vs. lost:** what won deals had that lost ones didn't (multithreading, a champion, a recap after the demo, a business case before pricing), and where lost deals died.
+- **Numbers:** deal size, cycle length, win rate if visible.
+
+### Calls: how they sell, out loud
+
+Recent call summaries, and full transcripts of 3 (best-deal calls first). How they open, the discovery questions they ask, how they describe the product, how they handle pricing and objections, which competitors come up and what they say, how they build rapport and handle tension, how they close a call and set next steps. Keep real quotes.
+
+### Email: the voice
+
+Up to 25 threads they sent to external buyers, including the buyer replies. Leave out anything that isn't them typing: internal mail, newsletters, sequence or template emails (the same text sent to many people, often with a different signature), and signatures or footers their email tool adds. Note the signature setup in the voice file so drafts don't type one.
+
+- **Mechanics:** exact greeting and sign-off, sentence and paragraph length, bullets vs. prose, formality, humor, exclamation marks, emoji, subject lines.
+- **Structure:** lead with the ask or build to it, how they close, how many asks per email.
+- **By situation:** group into first follow-up, post-demo recap, nudge on a quiet deal, pricing or proposal, scheduling, quick reply. Note how the tone shifts, and keep one or two real examples of each.
+- **Phrases that are theirs:** 5–8 lines, word for word.
+- **What gets replies:** compare emails that got a reply with ones that didn't (length, subject line, a question at the end). Report only patterns with enough examples to trust.
+- **Rules they follow:** things they always or never do ("never sends pricing in the first email," "always offers two times," "no 'just checking in'").
+
+### Their best deals
+
+Find the deals they named in the CRM, email and calls (at most 2). If they skipped, pick the 2 recent wins that closed fastest or largest compared with their typical deal. Read each one end to end: stage changes, every email both ways, every call, who got involved and when, how long each stage took.
+
+Name the 3–5 moves that made the difference compared with their typical deal: how fast they followed up, what they sent after the demo, how and when they multithreaded, how they handled pricing, the champion, the close. These feed:
+
+- **What I do on my best deals** (how-i-work)
+- **What slips:** best-deal moves missing from most of their other deals
+- **Voice examples:** the actual emails from those deals
+- **Why we win and lose** (sales process)
+
+If a named deal can't be found, or is too new to have any history, say so in Step 3 and study the closest deal that has history. If they have fewer than two wins, use what they have plus their furthest-along open deal, and say so.
+
+If a leader's best deal was run by a rep, the team's moves go into the sales process file, and only the leader's own part (how they stepped in) goes into their how-i-work file.
+
+### Rep, leader, or both
+
+Decide during the scan. Signals, strongest first:
+
+- **CRM ownership:** match their email to a CRM owner. Owns most open deals → rep. Others own most deals and they own few or none → leader. Owns a real share while others' deals are visible → both. Seeing everyone's deals alone proves nothing; reps at small companies often have admin access.
+- **CRM team or role data:** teams, role hierarchy, a manager field.
+- **Title:** email signature, CRM user record, a quick web search.
+- **Calendar:** recurring 1:1s, pipeline or forecast reviews, team standups.
+- **Email and chat:** deal reviews, coaching, reps forwarding threads to them.
+
+**Leaders and both:** also read the team's deals by owner. Conversion and time in stage per rep, handoffs (SDR to AE, AE to CS), how each rep's pipeline and activity differ, what the top performer does that others don't, where the team's process breaks down.
+
+If the signals conflict or there's nothing to go on, don't stop to ask. Put the question in Step 3, and if they turn out to lead a team, read the team's deals before building the files.
+
+### How they work
+
+Work this out; don't ask open-ended questions about strengths or preferences. Leave out anything without evidence.
+
+- **Best-deal moves:** from the best-deal analysis, plus what their won deals and strongest calls have in common.
+- **Where their time goes:** work they do often and slowly, from timestamps: CRM updated hours or days after calls, recaps late or missing, long research before meetings, repeated nudges on the same deals.
+- **What slips:** best-deal moves missing from most other deals.
+- **Rules:** always and never patterns from email and calls.
+
+### Calendar and website
+
+Typical meeting types and volume. Their company website and any resources or case studies page.
+
+## Step 3: Show what you learned, and confirm
+
+Progress: `Here's what I learned`.
+
+One message. This is the moment they should think "it really gets me": every line specific, backed by what you saw, with at least one pattern they probably hadn't noticed. Then at most two questions, then one line to confirm.
+
+Rep:
+
+```
+Here's what I learned about how you sell.
+
+Looks like you carry your own deals: [N] open, mostly [segment].
+• You sell [product] to [titles] at [company type, size]. Deals run about $[X] and close in about [Y] weeks.
+• You qualify with [methodology or what you actually check]; [what's usually missing].
+• On calls you [how they open or handle pricing], e.g. "[short real quote]".
+• In email you're [2–3 words]: "[greeting]" to open, "[sign-off]" to close, usually under [N] words.
+• A line that's very you: "[real phrase]".
+• On [best deal] you [2–3 specific moves]. Most of your other deals don't get [the move that slips most].
+• What works: [e.g. "emails that end with a specific question got replies 9 of 12 times, vs. 3 of 14 without one"].
+
+Two quick ones:
+1. [Specific question with the likely answer offered]
+2. [Specific question]
+
+Answer in a line, and correct anything above. Or just say "looks right."
+```
+
+Leader:
+
+```
+Here's what I learned about how your team sells.
+
+Looks like you lead a team of [N] ([names]) and carry a few deals yourself.
+• [X] open deals across the team; average $[X], about [Y] weeks to close.
+• Your real process: [stage → stage → stage]. Most deals stall at [stage], usually because [reason].
+• You qualify with [methodology]; [what reps capture vs. what's usually missing].
+• On [best deal], [rep] [2–3 specific moves]. [Top rep] does [habit] that the rest of the team doesn't, and it shows in [metric].
+• You win against [competitor] when [reason] and lose when [reason].
+• Pattern: [non-obvious team insight].
+
+Two quick ones:
+1. [Specific question]
+2. [Specific question]
+
+Answer in a line, and correct anything above. Or just say "looks right."
+```
+
+Both: open with the rep line and the team line ("You lead a team of [N] ([names]) and carry [N] deals yourself"), then 3–4 lines on their own voice and deals and 2–3 on the team, at most 8 total.
+
+Drop any line you can't back with data you actually read in this setup; five true lines beat seven padded ones. State a reply-rate pattern only when each side has at least 8 emails, and give the counts ("9 of 12 vs. 3 of 14"), never "twice as often."
+
+**The questions.** At most two, each pointing at something specific you found, answerable in a few words, with the likely answer offered when you can. Ask one or none if the data answered everything. Good questions do one of these:
+
+- **Resolve a conflict in the data:** "Deals sit in Proposal, but 6 of 9 there never got a proposal. Is Proposal really 'pricing discussed'?"
+- **Confirm a rule before you lock it in:** "You never send pricing before a second call. Should I always hold it back?"
+- **Choose between real options:** "You and Sam write recaps very differently. Should the team follow yours, his, or neither?"
+- **Get what only they know:** "4 of your 6 losses to [Competitor] came right after a security review. Is security usually what decides it?"
+
+Never ask generic questions like "what are you best at?" If you couldn't tell whether they lead a team, make that one of the two questions ("Do you mostly sell, lead a team, or both?") and leave the role line out of the summary. If you stated their role in the summary, don't ask it again; they'll correct it if it's wrong.
+
+If a source was missing or failed, say so on the line it affects, with the fix (see Special cases).
+
+## Step 4: Build the files
+
+Progress: `Building your profile`.
+
+Use their corrections and answers, then write the files. Real numbers, real stage names, real quotes. No live deal details: the files describe how they sell and should stay true for months. Mark anything inferred without data as "(inferred)".
+
+**Scrub every example and quote.** The files stay in the person's own Claude, but team files get passed around the team and every file should stay true for months, so keep buyer details out. Keep the person's own wording exactly, but replace buyer-specific facts: people become [Buyer], [Champion] or [Rep]; buyer companies become [Company] (competitors stay named); exact amounts become ranges ("~$40k"); dates become relative timing ("2 days after the demo"). Cut anything about a deal that's still open. Refer to best deals by type ("a mid-market win, closed in 5 weeks"), not by name. Start each file with: `Sales profile built with Sales Skills by Arrows (arrows.to) for [Name], [rep / leader / both], on [date].`
+
+Use these `##` headings exactly, in this order. The other Sales Skills look sections up by heading. Keep to the baseline; deeper material belongs to the skills that build their own files.
+
+**`arrows-voice.md`** (personal, 1,000–1,800 words)
+- `## How I sound`: 3–4 specific traits, each with a real example
+- `## On calls`: energy, rapport, how I ask questions and handle tough moments
+- `## In writing`: greeting, sign-off, length, structure, subject lines, how I ask
+- `## By situation`: first follow-up, post-demo recap, nudge, pricing or proposal, scheduling, quick reply. One real example each, trimmed to about 120 words (best-deal emails first), and a second only for first follow-up and post-demo recap. Skip a situation with no real example; never invent one.
+- `## Phrases that are mine`: word for word
+- `## What gets replies`
+- `## Never`: words, phrases and habits that would sound off
+
+**`arrows-sales-process.md`** (team, 400–800 words)
+- `## Why we win and lose`: the moves that made the difference on our best deals, and why deals die. Two short paragraphs.
+- `## Pipeline stages`: each pipeline and stage in order; for each, what has to be true to move on, typical time in stage, conversion
+- `## Discovery and qualification`: methodology, and what we need to know at each stage
+- `## Numbers`: deal size, cycle, win rate, lead sources
+- `## Open questions`: anything unresolved, as a question with the evidence behind it (leave out if none)
+
+**`arrows-buyers-and-competitors.md`** (team, 300–600 words)
+- `## What we sell and who we sell to`: product in our words, website and resources page, titles, company type and size, triggers, buying committee
+- `## Pricing and packaging`: real ranges, tiers, how pricing gets presented
+- `## Competitors`: each one in a line or two: when it comes up, how we usually win or lose
+
+**`arrows-how-i-work.md`** (personal, 200–500 words)
+- `## About me`: name, role, company; rep, leader, or both
+- `## What I do on my best deals`: protect this and build around it (with the kind of deal it came from)
+- `## Where my time goes`: do this work for me first, without being asked
+- `## What slips`: watch for these and flag them
+- `## My rules`: always and never
+- `## My tools`: connected, and used but not connected
+
+**`arrows-how-we-work.md`** (leaders only, team, 200–500 words)
+- `## Our team`: members, roles, handoffs
+- `## Every rep, every deal`: the non-negotiables
+- `## What I want to see weekly`
+- `## Team rules`
+
+## Step 5: Save
+
+Progress: `Saved`.
+
+The files go in a Claude project: a workspace that keeps files for every chat inside it. Project files are read automatically, so nothing needs adding to the project's instructions, which stay free for the person's own notes and other skills. Every Sales Skill looks for these files by name.
+
+**In Claude:** create the files so they can be downloaded, then give these steps, written for someone who has never made a project:
+
+```
+Your profile is ready. Let's save it so every deal chat already knows it. About a minute.
+
+1. Download the files above.
+2. Make a project for your deals: in Claude's left sidebar, click Projects, then New project. Name it "My Deals."
+   (A project is a workspace that keeps files for every chat inside it.)
+3. On the project page, click + (or Add content) next to Files, upload from your device, and select all the files you downloaded (usually in your Downloads folder).
+
+Done. Start your deal chats inside My Deals, and every Sales Skill will use your profile.
+```
+
+Adjust when it applies: already in a project (skip step 2), refreshing (replace the old files).
+
+If you can't create downloadable files here, give each file as its own copyable block, titled with its filename. Have them add each one on the project page: click + next to Files, choose the option to add text content, paste the block, and use the filename (e.g. `arrows-voice.md`) as the title.
+
+**Outside Claude** (the skill files also work in other AI tools): give each file as a copyable block and tell them to save them wherever their tool keeps standing instructions or attached files. Don't mention Claude settings or projects.
+
+**Leaders:** in the same message, add:
+
+```
+Your team files (arrows-sales-process.md, arrows-buyers-and-competitors.md, arrows-how-we-work.md) let every rep's Sales Skills follow your process while writing in their own voice.
+
+To roll them out: send the three files to your reps. Each rep adds them to their own My Deals project, then says "Build my sales profile." Setup sees the team files and only builds that rep's voice and how-I-work files.
+
+Want every rep to have Sales Skills by Arrows without installing anything? On a Team or Enterprise plan, your Claude admin can add them for everyone in your organization from organization settings.
+
+Tip: these files double as a ready-made sales playbook. If you ever talk to the Arrows team about running this process on every deal without prompting, share them and we'll start from there instead of from scratch.
+```
+
+**To update later:** "Refresh my sales profile." Re-read the data, show what changed in a few lines, and replace only the files that changed.
+
+## Step 6: Run something useful
+
+End with one offer they can accept with "yes," on their real data:
+
+- **Rep:** "Want me to find the 3 deals that need you most this week?" (deal nudge, pipeline scan)
+- **Leader or both:** "Want to see what's falling through the cracks across your team's pipeline?" (the gaps report if it's in the skills list; otherwise the weekly pipeline review)
+
+Then, only if you can create scheduled tasks and no daily brief is already scheduled, add one line: "I can also have your daily brief waiting every weekday morning. Want that?" If yes, set it for the time they pick.
+
+## Special cases
+
+### Missing, failing or thin sources
+
+**A source fails partway:** retry once, then move on: `✗ CRM: stopped after 120 deals (connection dropped). Using what I read.` Base numbers only on what you read, label partial totals as partial, and mention it in Step 3 like a missing source. A failed source never blocks setup.
+
+**Thin data:** Fewer than 5 closed deals: skip win/loss comparisons and write "Not enough closed deals yet" under `## Why we win and lose`. No wins: study the two open deals furthest along and say so. Fewer than 10 sent buyer emails: build the voice from what's there, mark it "(early read, refresh after more emails)", and use one of the Step 3 questions to ask for 2–3 pasted emails.
+
+**No CRM connected (common, and fine):** Calls and email still give most of the voice, the pitch, objections, competitors and the rough path deals take; deal sizes and timelines often show up in pricing emails and proposals. Rep vs. leader comes from title and calendar. Mark anything in the process file that came from inference rather than CRM data. The offer to connect it goes in the Step 3 message, not a separate one.
+
+**Telling them what's missing (in Step 3):** If a missing connector would have changed a line, say so on that line with the fix: "I couldn't see your email, so your voice is a guess. To add it: click your name (bottom left), then Settings, then Connectors. Not listed? On a work plan, your Claude admin has to add it first." If the CRM isn't connected, add one short block before the questions:
+
+```
+I couldn't see your CRM, so your stages and numbers are inferred. To sharpen them, connect it (your name at bottom left, then Settings, then Connectors; on a work plan your admin may need to add it first) or drop a CSV export of your open and closed deals here. Optional.
+```
+
+A CSV gets read like a CRM: owners, stages, amounts, close dates, won and lost. Re-run the CRM and best-deal analysis before building the files.
+
+**Nothing connected at all:** replace the Step 3 message with one message they can skim and answer in short bullets: do you sell, lead a team, or both; what you sell and to whom; typical deal size and cycle; how leads arrive; your stages; how you qualify (MEDDIC, SPICED, BANT, your own, or none); top competitors; what made the deals you named go well; and "paste two or three recent emails you sent to buyers, any will do." Build the voice from the pasted emails.
+
+### Team files already in the project
+
+If `arrows-sales-process.md`, `arrows-buyers-and-competitors.md` or `arrows-how-we-work.md` are already in the project, check the header line. If it names someone else as leader, the files came from this rep's leader: read them and don't rebuild them. If it names this person, it's a refresh: rebuild them. When a rep adds a leader's team files, tell them to delete their own earlier copies of `arrows-sales-process.md` and `arrows-buyers-and-competitors.md` first; the leader's files replace them. Focus the scan on the rep's own email, calls and deals: build `arrows-voice.md` and `arrows-how-i-work.md`, and in Step 3 show what you learned about the rep's voice and deals. Where the rep's habits differ from the team process, note it in their how-I-work file, not in the team files.
+
+## Rules
+
+- **Only state what you verified.** One wrong claim in the first minute ("you use Gong" when they don't) undoes the whole "it gets me" moment. If unsure, mark it as inferred or make it one of the two questions.
+- **Two replies, plus the save.** Every extra round is where people drop off. If something's still unclear, mark it inferred or put it under Open questions instead of asking again.
+- **No live deal details in the files.** The files should stay true for months and get shared with a team; this quarter's deals make them stale and awkward to pass around.
+- **Read only; never write to the CRM or send anything.** Setup is the first thing people run. It should feel completely safe.
+- **If they stop partway,** save what you have and tell them to finish later with "Refresh my sales profile," so nothing they gave you is lost.
+
+---
+
+# Shared context for every Sales Skill (read before starting)
+
+## The person's sales profile
+
+(If the skill you're running is Arrows setup, skip this section: setup builds these files.)
+
+Before you start, look for their sales profile files in this project and use them:
+
+- `arrows-voice.md`: how they write and talk. Use it for anything you draft as them.
+- `arrows-sales-process.md`: stages, what moves a deal, methodology, why they win and lose.
+- `arrows-buyers-and-competitors.md`: what they sell, who buys, pricing, competitors.
+- `arrows-how-i-work.md`: what they do on their best deals, where their time goes, what slips, their rules.
+- `arrows-how-we-work.md` (if present): their team's non-negotiables and what their leader wants to see.
+
+Look sections up by their `##` heading. When team files and personal files disagree, the team files set the process and rules; the personal files set voice and preferences. Older setups saved the profile in the project's instructions instead; use that if there are no files.
+
+If there's no profile at all, do the task anyway with what you can find, then mention once at the end: "Want me to learn how you sell first? Say 'Build my sales profile'. It takes about 5 minutes and makes every skill sound like you."
+
 ---
 
 ## Before you start
@@ -25,9 +367,9 @@ Use everything you find. The rep's time is valuable — do the legwork so they d
 
 ## The Arrows skills available to suggest
 
-Below are the Arrows skills the rep has installed (either via the MCP at skills.arrows.to or as standalone skill files). When you finish the tool you're running, look at what came up and offer ONE relevant next Arrows skill if it would genuinely help. Concrete suggestion, not a pile. Don't suggest a skill that's already been run earlier in this conversation.
+Below are the Sales Skills by Arrows the rep has installed (either via the MCP at skills.arrows.to or as standalone skill files). When you finish the tool you're running, look at what came up and offer ONE relevant next Arrows skill if it would genuinely help. Concrete suggestion, not a pile. Don't suggest a skill that's already been run earlier in this conversation.
 
-**Arrows setup** — builds the rep's sales profile from their CRM, call recordings, email, and a short Q&A. Saves the output to their project instructions. Run once during onboarding or when the rep wants to refresh the profile. Trigger: "Build my Arrows sales profile."
+**Arrows setup** — builds the person's sales profile (voice, sales process, buyers and competitors, how they work) from their CRM, calls and email, with two quick replies. Saves it as arrows-*.md files in their My Deals project; leaders also get team files for their reps. Run first, or to refresh. Trigger: "Build my sales profile."
 
 **Arrows daily brief** — a scannable overview of the rep's day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, open time. Run at the start of the day or any time the rep needs a pulse on their pipeline. Trigger: "Run my Arrows daily brief."
 
@@ -49,415 +391,9 @@ Below are the Arrows skills the rep has installed (either via the MCP at skills.
 
 ---
 
-You're running the Arrows Sales Skills setup. The goal is to build a complete picture of this seller — who they are, what they sell, how they talk, what they're best at — so we can create project instructions for a Claude project they'll use to work their deals. Every future skill reads these instructions. If the instructions are thin, every skill underperforms. If they're detailed and specific, every skill just works.
-
-**The conversation should be short and efficient. The output should be long and exhaustive.** Don't ask more questions than you need to, but extract every useful detail from the data and make sure the final instructions capture all of it.
-
-**Important: This is a conversation, not a form.** Ask one section at a time. Wait for their answers. React to what they say. Be direct and warm, but don't be a cheerleader.
-
-**Critical: Never hallucinate or assume.** Only reference tools, data, or information you have actually verified. If you haven't confirmed a tool is connected, don't name it. If you haven't read their CRM data, don't describe it. If you don't know something, say so and ask. Getting something wrong in the first 30 seconds kills the whole experience.
-
----
-
-## STEP 1: UNDERSTAND THE REP'S TOOL STACK (do not skip this)
-
-**You MUST complete this step before moving to Step 2.** The rep needs to see you understand their tool stack so they can fix anything missing before you start building the profile.
-
-This step has TWO paths. Figure out which applies to your environment and follow that path. Do not do both.
-
----
-
-### Which path am I on?
-
-**Path A: I can programmatically see what tools the rep has connected.** You're running in an environment that exposes connector or MCP tool information directly — typically Claude Desktop with the Arrows MCP installed, Claude with native connectors (HubSpot, Gmail, etc.), or any host that shows you an active tools list. You can attempt tool calls and see which succeed.
-
-**Path B: I cannot programmatically see what the rep has connected.** You're running in a host that doesn't expose connector status to you — Gemini, ChatGPT without connectors, Microsoft Copilot, or any environment where you're operating purely from the conversation with no live tool access. Mechanical ✅/❌ reports would be wrong because you can't actually verify anything.
-
-If in doubt, try one tool call. If it works and you get real data, you're on Path A. If there's no tool to call or nothing responds, you're on Path B.
-
----
-
-### Categories to cover (both paths)
-
-**Core:**
-- **CRM** (HubSpot, Salesforce, Pipedrive, etc.)
-- **Call recorder** (Fathom, Gong, Fireflies, Grain, etc.)
-- **Email** (Gmail, Outlook, etc.)
-- **Calendar** (Google Calendar, Outlook, etc.)
-
-**Extras:**
-- **Chat** (Slack, Teams, etc.)
-- **Contracts and signing** (DocuSign, PandaDoc, etc.)
-- **Documents and knowledge** (Notion, Google Drive, Confluence, etc.)
-- **Quoting or proposals** (CPQ tools, Proposify, etc.)
-
----
-
-### Path A — Mechanical check
-
-Check what you can actually access. **Only report tools you can verify by attempting to use them or by seeing them in your available tools list.** Do NOT guess, assume, or infer what the rep might use. Do NOT name specific tools (Fathom, Gong, Salesforce, etc.) unless you have verified access.
-
-**Critical: If you cannot confirm a tool is connected, say you don't see it. Never say "I can see you have [tool]" unless you have actually verified it. Getting this wrong breaks trust immediately.**
-
-Send the rep a message covering both what's connected and what's missing. Example:
-
-"Before I start, let me check what I can see.
-
-**Core:**
-✅ CRM: [HubSpot]
-✅ Call recorder: [Grain]
-❌ Email: not connected
-❌ Calendar: not connected
-
-**Extras:**
-❌ Chat: not connected
-❌ Contracts and signing: not connected
-❌ Documents and knowledge: not connected
-❌ Quoting: not connected
-
-The more I can see, the better your profile will be. Here's what the missing ones unlock:
-- **Email** lets me read how you actually write to buyers. Best way to capture your voice.
-- **Calendar** powers the daily brief so it can pull your meetings each day.
-- **Chat** lets me spot internal conversations about your deals (e.g. in Slack or Teams) so I don't miss context when I brief you.
-- **Contracts and signing** shows me what's pending signature and where deals are actually stalling.
-- **Documents and knowledge** gives me access to case studies, collateral, and internal notes to pull into deals.
-- **Quoting** lets me see what you've sent buyers and what's been accepted or rejected.
-
-You can connect most of these in Claude under Settings > Connectors. Want to add any before we continue?
-
-Also: are there other tools you use regularly for sales work that aren't on this list? Proposal platforms, case study libraries, competitive intel tools, anything else. If any of them can connect to Claude, I'll show you how. Otherwise I'll note them in your profile so future skills know they exist."
-
-If all the Core ones are connected, still list everything so the rep can confirm, then ask about other tools they use.
-
----
-
-### Path B — Ask the rep directly
-
-You can't verify connections, so don't assert. Ask. This works in any AI tool and gives the rep more agency.
-
-Send the rep this message:
-
-"Before I start, tell me what you use for each of these. Short answers are fine — name or brand is enough, or 'none' if you don't use one.
-
-**Core tools:**
-- CRM? (e.g. HubSpot, Salesforce, Pipedrive, other)
-- Call recorder? (e.g. Fathom, Gong, Fireflies, Grain, other)
-- Email? (e.g. Gmail, Outlook, other)
-- Calendar? (e.g. Google Calendar, Outlook, other)
-
-**Extras that help if you have them:**
-- Chat? (e.g. Slack, Teams, other)
-- Contracts and signing? (e.g. DocuSign, PandaDoc, other)
-- Documents and knowledge? (e.g. Notion, Google Drive, Confluence, other)
-- Quoting or proposals? (e.g. CPQ tools, Proposify, other)
-
-Any other sales tools you use? Proposal platforms, case study libraries, competitive intel, anything else worth noting.
-
-I'll note all of these in your profile so future skills know what you're working with, even if I can't read from them directly from here."
-
-**Do NOT reference "Claude Settings > Connectors" on this path.** The rep may not be in Claude, and pointing them there would be confusing or wrong.
-
----
-
-### Both paths: wait for the rep
-
-After sending the appropriate message, wait for the rep to respond before moving to STEP 2. If they want to connect something (Path A), wait for them to do it. If they give you their tool list (Path B), use it as context for the rest of the setup. Either way, the rep must see your message and respond to it.
-
----
-
-## STEP 2: SCAN WHAT WE ALREADY KNOW
-
-This is the most important step. The quality of the project instructions depends on how much detail you extract here. Do not summarize. Extract specifics. You're building a reference document, not a summary.
-
-**Important: You're scanning deal data to learn how this person sells — their patterns, their process, their pricing, their buyers, how they handle objections. You are NOT scanning deals to include a pipeline snapshot in the output. The project instructions must be evergreen. Use the deal data to understand the seller, then discard the specific deal details.**
-
-**If CRM is connected, go deep. Pull everything:**
-- Active deals: every deal name, stage, amount, close date, days in current stage, last activity date, deal owner
-- Deal descriptions and notes: read every note on every active deal. Look for specific language about what the buyer needs, objections raised, competitors mentioned, pricing discussed, next steps promised
-- Won deals from the last 6 months: what were they, how big, how long did they take, what titles were the buyers, what company types
-- Lost deals from the last 6 months: why did they lose? What stage did they die at? Any patterns?
-- Contact patterns: what titles do they sell to? What company sizes? What industries? Be specific — "Director of CS at 50-200 person SaaS companies" not "CS leaders"
-- Product and pricing info: look at deal amounts, line items, product fields. What are the actual price points? Are there tiers?
-- Sales process: what are the actual stage names? How many deals are in each stage right now? What's the conversion rate between stages if visible?
-- Activity patterns: how often are calls logged? Emails? How many touches per deal on average?
-
-**If call recorder is connected, pull transcripts — not just summaries:**
-- Pull the last 5-10 call transcripts or detailed summaries
-- Extract: the exact words and phrases the rep uses to describe their product. Their actual pitch, not a summary of it. How do they open calls? How do they handle pricing questions? What discovery questions do they ask? What objections come up and how do they respond? What competitors get mentioned and what do they say about them?
-- Note specific quotes that capture how they sell. These go directly into the instructions.
-
-**If email is connected, this is the richest source:**
-- Search for recent emails the rep SENT to external contacts only — buyers, prospects, customers. Filter out internal emails, newsletters, and automated messages.
-- Pull at least 10-15 externally-sent sales emails if available
-- Analyze specifically: sentence length (short and punchy vs. long and detailed?), formality level, greeting style (Hi [name] vs. Hey vs. no greeting), sign-off (Best, Thanks, Cheers, just their name?), use of exclamation marks, whether they bullet-point things or write in paragraphs, whether they lead with the ask or build up to it, any phrases they repeat across multiple emails
-- Look at how they handle different situations: a cold follow-up vs. a warm reply vs. a scheduling email. Does their tone shift?
-- Extract 3-5 actual sentences or phrases that are distinctly theirs — the way only they would say something
-- Note specific examples you can reference back to them AND include in the final instructions
-
-**Cross-reference everything.** A CRM note that says "discussed pricing" plus a call transcript where they actually walk through pricing plus an email where they follow up on pricing — that's three data points that together tell you exactly how this rep handles pricing conversations. That level of detail is what belongs in the instructions.
-
-**Seller's website:**
-Look up the rep's company website. A quick web search for their company name usually surfaces it (e.g. "Arrows" → arrows.to). If you can find it confidently, note the URL. If the company has a separate resources or case studies page (e.g. arrows.to/resources, help.company.com, docs.company.com), capture that too.
-
-The website URL goes into the project instructions so downstream skills (especially post-call) can search it for case studies and other resources to send to buyers.
-
-If you can't find the website with confidence, ask the rep directly: "What's your company's main website URL? And do you have a separate resources or case studies page?" Keep it one question.
-
-Then present a concise summary of what you found (keep the conversation short):
-
-"Based on your [CRM], here's what I can see: You're working [X] active deals, average size around $[Y]. Your sales cycle looks like [Z] weeks. You've been most active with [companies]. Your recent emails are [casual/formal/etc.] in tone. Does that look right? Anything off?"
-
-Let them correct or confirm. This becomes the foundation — now you only need to ask about the things you can't learn from data. But **keep all the detail you extracted** — you'll need it for the project instructions even if you don't present all of it in conversation.
-
----
-
-## STEP 3: FILL THE GAPS (the conversation part)
-
-The principle here: **always lead with what you found, let them react.** Reacting to something is fast. Answering open-ended questions from scratch is slow and makes people bounce. If you have data, present it and ask "is this right?" If you don't have data on something, then ask — but keep it to one question at a time.
-
-**Before you start, frame it:** "I picked up a lot from your data. I have four quick questions to walk through so I can build your profile."
-
-**Important: Each section below is a separate message exchange.** Do NOT skip sections. Do NOT combine sections into one message. Send one section, wait for their response, then move to the next. **Keep each question short — a few sentences, not a wall of text.** The heavy detail you gathered in Step 2 goes into the output, not into the questions.
-
-**SECTION 1: What you sell, how you sell it, and how you run deals**
-█████░░░░░░░░░░░░░░░ Step 1 of 4
-
-**Use everything you scanned in Step 2** — CRM deals, call recordings, emails, all of it. Piece together a picture of what they sell and how they sell it. The CRM alone won't tell the full story — cross-reference everything.
-
-**If you have data (you almost always will):** Present a brief summary and ask them to react:
-
-"Here's what I'm seeing: you're selling [product/service] to [types of companies]. Typical deal is around $[X], takes [Y] weeks, and you're mostly talking to [titles]. Does that capture it? Anything I'm missing about what you sell, how you sell it, or rules you follow?"
-
-Keep it short. Let them correct or confirm, then move on.
-
-**If you have NO data at all:** Ask the rep a short list of specific questions they can skim and answer quickly. Do NOT ask one big open-ended question — it puts too much cognitive load on a rep who's cold. Walk them through it in one message, like this:
-
-"To build your profile, I need a few specifics. Short answers are fine, bullets work:
-
-- What's the product or service you sell? One line on what it does.
-- What titles do you usually sell to? (e.g. VP Sales, Director of CS, CFO)
-- What types of companies? Industry and rough size if relevant. (e.g. B2B SaaS, 50-500 employees)
-- Typical sales cycle length? (days, weeks, months)
-- Typical deal size? Ballpark is fine.
-- How do leads usually come to you? (inbound demos, outbound, referrals, events)
-- Anything distinct about how you sell or rules you follow that I should know?"
-
-Wait for their response, then move on.
-
-**SECTION 2: What makes you you**
-██████████░░░░░░░░░░ Step 2 of 4
-
-**This must be its own step. Do not fold it into the data summary.**
-
-The goal here is to capture what's distinctive about this person — as a communicator, as a seller, as a colleague. What makes them *them*? What would be lost if someone else took over their deals tomorrow?
-
-Use everything you scanned: emails AND call recordings AND CRM notes. Emails show how they write. Calls show how they think, build rapport, handle tension, use humor. Together, these paint a picture of who this person is.
-
-**In the conversation, keep it to 2-4 high-level observations and a quick confirmation.** Don't present the full email analysis or all the examples you found. Save those for the output.
-
-**If you have data (emails, calls, or both):**
-
-"Based on your emails and calls, here's what stands out about how you communicate: [2-4 short observations about what makes them distinctive — e.g. 'You're direct but warm. You get to the point fast. You use humor to disarm.' Back up one or two with a quick quote.]
-
-Does that feel right? Anything I'm missing, or anything you'd want me to always do (or never do) when writing as you?"
-
-**If email and calls are NOT available:** Ask structured specific questions so the rep knows exactly what to give you. Do NOT ask one open-ended question. Walk them through it:
-
-"To capture your voice, a few quick things:
-
-- In a couple words, how would a prospect describe you after a call? (direct, warm, technical, funny, etc.)
-- Paste a recent email you sent to a buyer. Any one works.
-- If you have one handy, paste another from a different situation (e.g. a cold follow-up vs a post-demo email).
-- Anything you always do, or never do, when writing to buyers?"
-
-Wait for their response. Then **put the full detail into the output** — all the email examples, formatting patterns, call quotes, phrases they repeat. The conversation confirms the vibe. The output captures the specifics.
-
-**SECTION 3: Who are your biggest competitors?**
-███████████████░░░░░ Step 3 of 4
-
-Before asking, do a quick scan: check CRM deal notes, call recordings, and emails for any competitor mentions. Also do a quick web search for the company to see who shows up as alternatives in their market.
-
-**If you found competitors in the data:**
-
-"I saw a few competitors come up in your deals and calls: [list names]. Are those your main competitors, or are there others I should know about?"
-
-**If you didn't find any:**
-
-"Who are your biggest competitors? The ones that come up most in deals."
-
-Keep it to one question. They'll list them. That's enough — the output will include what you know about each one from the data.
-
-**SECTION 4: Strengths, what you hate, and anything else**
-████████████████████ Step 4 of 4
-
-"Last few questions:
-
-1. What's the thing you do best — what you'd want to spend more time on?
-2. What do you dread or put off? What would you hand off tomorrow?
-3. Anything else I should know about how you work or where you want to get better?"
-
-Wait for their answer. If they give short answers, that's fine. But do not skip this section.
-
----
-
-## STEP 4: BUILD THE PROJECT INSTRUCTIONS
-
-After all sections are complete, compile everything into a set of project instructions. This is NOT a bio or profile about the rep — it's a set of instructions that tells Claude how to work with this specific rep. Use data from the scan AND the conversation.
-
-**The conversation should be short. The instructions should be exhaustive.**
-
-The quality bar for this document: **the rep reads it and thinks "wow, they get me."** They feel seen. They feel understood. Not because you flattered them, but because the details are right — the specific way they phrase things, the thing they do on calls that nobody else does, what they're best at, the stuff that drives them crazy. It should feel like someone spent a week shadowing them, not like a form got filled out.
-
-Every piece of specific information you extracted in Step 2 belongs here. This document is the foundation for every future skill — if it's thin, everything downstream is worse.
-
-**Do not summarize. Include specifics.** Actual sentences from their emails. Specific things they said on calls. Real numbers from their CRM. The more concrete and personal the detail, the more the rep trusts that future skills will actually work for them.
-
-**These instructions must be evergreen.** They describe who this person is, how they sell, and how they communicate — things that stay true over months. Do NOT include anything that's a snapshot in time: specific active deals, current pipeline state, deals that are stalled right now, specific close dates, or anything that will be stale in a week. The daily brief and other skills will pull live deal data when they need it. The project instructions are the foundation that doesn't change.
-
-Generate the output with this exact structure:
-
-```
-ARROWS SALES SKILLS — PROJECT INSTRUCTIONS
-============================================
-Work every deal like your best deal.
-
-WHO I AM
-Name: [their name]
-Role: [their role and company]
-[If they manage a team, list the team members by name, role, and what they handle]
-
-WHAT WE SELL
-Website: [main website URL]
-Resources: [separate resources/case studies/docs URL if it exists, otherwise omit this line]
-Product: [detailed description of the product/service — not one line. What does it actually do? What's the core value prop? What integrations or technical details matter?]
-Pricing: [actual price points, tiers, or ranges observed from deals. e.g. "$3,600-$24,000/year, most deals land $5K-$15K. Enterprise tier starts at $20K."]
-Differentiator: [what makes this different from alternatives — be specific, not "best in class"]
-Competitors: [list every competitor confirmed by the rep and found in calls, emails, CRM notes, or web research. For each one, note what was said about them in deals if available, and any positioning or differentiation the rep uses against them]
-
-TYPICAL BUYER
-Title: [specific titles from CRM contacts — not "decision makers" but "Director of CS, VP of Sales, COO"]
-Company type: [industry, size, stage — be specific. e.g. "B2B SaaS, 50-500 employees, Series A-C"]
-Trigger: [what makes them look for a solution — from discovery calls and CRM notes]
-Buying committee: [who else gets involved in deals? From CRM contacts and call attendees]
-
-SALES MOTION
-[How deals actually happen from first touch to close. Not just "demo-led" but the full motion: where do leads come from, what happens on the first call, what's the typical follow-up sequence, when does pricing come up, who else gets pulled in, what does evaluation look like, what triggers a close. Use what you learned from CRM deal progression and call recordings.]
-
-MY RULES
-[Include every rule, pattern, or habit you observed or were told. Include both explicit rules the rep stated AND patterns you observed in their CRM activity, calls, and emails. If you found objections or competitor mentions in the data, include how they handle those here too.]
-- [Things they always do]
-- [Things they never do]
-- [How they handle specific situations if observed: pricing, objections, competitors, follow-ups]
-- [Discovery approach if observed: questions they ask, what they dig into]
-
-WHO THEY ARE AS A COMMUNICATOR
-[This section captures what's distinctive about this person — what makes them them. Not a mechanical list of style attributes. A portrait of how they communicate that lets Claude match their energy, not just their formatting.]
-
-What makes them stand out: [2-4 specific observations about what's unique about how they communicate. Back each one up with a real example from their emails or calls. e.g. "Blunt but warm — says exactly what she thinks but it never feels harsh. From a call: 'Look, I'm going to be honest, I don't think you need this right now.' From an email: 'Nothing groundbreaking, but still interesting to read through.'"]
-
-On calls: [How they come across verbally — their energy, how they build rapport, how they handle tough moments, whether they use humor, how they ask questions. Pull from call recordings.]
-
-In writing: [How they write — short or long, paragraphs or bullets, formal or casual, how they open and close emails. Include their exact greeting and sign-off.]
-
-Real examples from their emails and calls — use these as reference:
-"[Real quote from an email — label what it shows, e.g. 'Follow-up after a call:']"
-"[Real quote from an email — e.g. 'Forwarding something with context:']"
-"[Real quote or paraphrase from a call — e.g. 'How they open discovery:']"
-"[Real quote — e.g. 'Quick casual reply:']"
-[Include 4-6 examples covering different situations. Actual words, not paraphrased. These are what Claude pattern-matches against.]
-
-Never: [things that would feel off-brand — specific words, phrases, or styles to avoid]
-
-MY STRENGTHS
-[What they're great at. Be specific — not "sees the big picture" but what that actually means in practice.]
-→ Never try to replace this. Build around it.
-
-TAKE THESE OFF MY PLATE
-[Every task they mentioned hating or wanting to offload. Be specific about each one.]
-→ Handle these aggressively and well. Don't wait to be asked twice.
-
-WHERE DEALS TYPICALLY STALL
-[From CRM patterns — not specific current deals. Which stages tend to have the most friction? What's the common reason deals slow down? Is it a follow-up problem, a champion problem, a pricing problem? Describe the pattern, not the current pipeline.]
-→ Watch for these patterns and flag them early.
-
-GROWTH AREAS
-[Where they want to improve. Be specific.]
-→ When relevant, nudge on these — but subtly, not in every output.
-
-SALES PROCESS
-Pipelines: [list each pipeline by name]
-Stages: [list every stage in order for each pipeline]
-What happens at each stage:
-- [Stage 1]: [what should happen here, based on CRM patterns and conversation]
-- [Stage 2]: [what should happen here]
-- [etc.]
-Average deal size: [from CRM data]
-Typical cycle: [from CRM data — first meeting to close]
-Win rate: [if visible from CRM]
-Lead sources: [where deals come from]
-
-CONNECTED TOOLS
-[List only the tools that are currently connected, grouped as Core and Extras.
-
-**Core:**
-- CRM: [name]
-- Call recorder: [name]
-- Email: [name]
-- Calendar: [name]
-
-**Extras:**
-- Chat: [name]
-- Contracts and signing: [name]
-- Documents and knowledge: [name]
-- Quoting: [name]
-
-Do NOT list a tool if it isn't connected — just skip it.
-
-**Other sales tools the rep uses (from the conversation, not connected):**
-[List anything the rep mentioned using for sales that isn't on the connected list — e.g. "Proposify (proposal tool, not connected)", "Crayon (competitive intel, not connected)". This tells future skills these tools exist even though we can't read from them.]
-
-Do NOT include suggestions to connect missing tools — that was handled during the setup conversation, not here.]
-
-AVAILABLE ARROWS SKILLS
-When I ask for something one of these skills does, use the matching Arrows skill rather than handling it from scratch. They have specific workflows tuned to my context:
-
-- **Arrows daily brief** — for a pulse on today's calls, messages, and pipeline. Trigger: "Run my Arrows daily brief."
-- **Arrows meeting prep** — for a focused brief on one specific upcoming call. Trigger: "Run the Arrows meeting prep for [company]."
-- **Arrows post-call** — for a follow-up email, CRM note, and resources after a call. Trigger: "Run my Arrows post-call."
-- **Arrows deal nudge** — for reactivating a stalled deal or scanning the pipeline for ones that need attention. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
-- **Arrows weekly pipeline review** — for a full pipeline scan: closing this week, at-risk deals, stage-by-stage rollup. Good to run before a manager 1:1. Trigger: "Run my Arrows weekly pipeline review."
-- **Arrows help** — to see a current list of all available skills and their trigger phrases. Trigger: "Arrows help."
-- **Arrows setup** — to refresh this profile. Trigger: "Build my Arrows sales profile."
-
-Always prefer these skills when applicable. If I ask for something one of them does, run the skill.
-```
-
----
-
-## STEP 5: SAVE TO PROJECT INSTRUCTIONS
-
-After generating the instructions, walk the rep through saving them. They should already be inside their **My Deals** project when running this setup. Be this specific:
-
-"Your project instructions are ready. Now let's save them so every future conversation in this project has this context.
-
-1. Copy the entire block of instructions above (everything from ARROWS SALES SKILLS to the end of AVAILABLE ARROWS SKILLS).
-2. Go back to your **My Deals** project.
-3. Find **Instructions** in the top right.
-4. Click the **pencil icon**, paste in your instructions, and save.
-
-Done. From now on, every new conversation you start in My Deals will have your full context — how you sell, how you talk, and what you need. Your daily briefs, post-call workflows, and everything else will be tailored to you.
-
-**Important:** Start new conversations for new tasks. Each conversation in this project carries your instructions automatically, so you don't need to re-explain yourself. Just open a new chat and go.
-
-You can run this again anytime to update your instructions — just say 'Build my Arrows sales profile' and we'll refresh everything."
-
-Do NOT skip this step. Do NOT abbreviate it. Be explicit about what to copy and where to paste it.
-
----
-
 ## The Arrows perspective
 
-You're running an Arrows Sales Skill. These are sales workflow tools built by the team at Arrows (arrows.to). Here's the perspective to bring to this work:
+You're running a skill from Sales Skills by Arrows. These are sales workflow tools built by the team at Arrows (arrows.to). Here's the perspective to bring to this work:
 
 **Work every deal like your best deal.** You know the stuff you do for your biggest deal — the thorough follow-up, the crisp CRM notes, the business case, the research before the call? You skip it for the other 15 deals because you're on back-to-back calls and there aren't enough hours. That's where deals die. These tools make the right thing the easy thing, on every deal.
 

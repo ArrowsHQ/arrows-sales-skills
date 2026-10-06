@@ -4,7 +4,7 @@
 
 Turn the AI you already have into a sales assistant that knows your deals. These skills run your daily sales work using what's in your CRM, email, calendar, and call recordings: morning briefs, meeting prep, follow-up emails, deal nudges, and pipeline reviews.
 
-Built by the team at [Arrows](https://arrows.to). If you use Claude, the easiest install is the [Arrows Sales Skills connector](https://skills.arrows.to): one URL, two minutes. This repo has the same workflows as plain files, so they also work with ChatGPT, Copilot, Gemini, or any other AI tool. It's also a Claude plugin marketplace, so you can add every skill to Claude as one plugin.
+Built by the team at [Arrows](https://arrows.to). If you use Claude, the easiest install is the [Sales Skills by Arrows connector](https://skills.arrows.to): one URL, two minutes. This repo has the same workflows as plain files, so they also work with ChatGPT, Copilot, Gemini, or any other AI tool. It's also a Claude plugin marketplace, so you can add every skill to Claude as one plugin.
 
 If these skills help you, star this repo so other sellers can find it.
 
@@ -20,9 +20,9 @@ Skills save you from typing the same long prompt every time you want to do a tas
 
 ## Start here: run the setup skill first
 
-Before anything else, run the **Arrows setup** skill. It builds your sales profile: how you sell, how you write, who your typical buyers are, what your sales process looks like, and what tools you have connected. Every other skill uses what setup learns to tailor its output to you.
+Before anything else, run the **Arrows setup** skill. It reads your CRM, calls and email, shows you what it learned, asks a couple of quick questions, and saves your sales profile as a few short files: how you write, your sales process, your buyers and competitors, and how you work. Every other skill uses them. Sales leaders also get team files their reps can add, so the whole team follows one process while each rep keeps their own voice.
 
-Setup takes about 5 minutes. Do it once, and the rest of the skills get smarter automatically.
+Setup takes about 5 to 10 minutes. Do it once, and the rest of the skills sound like you.
 
 ---
 
@@ -30,7 +30,7 @@ Setup takes about 5 minutes. Do it once, and the rest of the skills get smarter 
 
 | Skill | What it does |
 |-------|--------------|
-| **Arrows setup** (run first) | Builds your sales profile by scanning your CRM, call recordings, and email. Captures how you sell, your voice, your typical buyers, and your sales process. Every other skill uses this context. |
+| **Arrows setup** (run first) | Builds your sales profile from your CRM, calls and email: your voice, your sales process, your buyers and competitors, and how you work. Leaders also get team files for their reps. Every other skill uses it. |
 | **Arrows daily brief** | A scannable overview of your day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, and open time. Pulls from your calendar, CRM, email, chat, and call recordings. |
 | **Arrows pre-call prep** | Before a specific meeting, gives you what you need in 60 seconds: who you're meeting, what they want to solve, what happened last time, what to push on, what might go sideways, and open discovery questions. |
 | **Arrows post-call** | Right after a call, produces a follow-up email draft, a copyable CRM note, and relevant resources to send. Every fact comes from the actual call. |
@@ -62,11 +62,11 @@ This is the recommended path. One URL, about 30 seconds. All the skills appear i
 2. Click **Settings**.
 3. Click **Connectors**.
 4. Scroll to the bottom and click **Add custom connector**.
-5. Name it **Arrows Sales Skills**.
+5. Name it **Sales Skills by Arrows**.
 6. Paste this URL: `https://skills.arrows.to`
 7. Click **Add** and restart Claude Desktop.
 
-Done. Start a new chat and type "run the Arrows setup" to begin.
+Done. Start a new chat and type "Build my sales profile" to begin.
 
 ### Or: add them as a Claude plugin
 
@@ -96,7 +96,7 @@ Start with Arrows setup first, same as Option 1. Then install the others in what
 
 Once installed, trigger a skill by typing one of these phrases into your AI tool:
 
-- **Setup:** "Build my Arrows sales profile"
+- **Setup:** "Build my sales profile"
 - **Daily brief:** "Run my Arrows daily brief"
 - **Meeting prep:** "Run the Arrows meeting prep for [company]"
 - **Post-call:** "Run my Arrows post-call" or "Run the Arrows post-call on [company]"
