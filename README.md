@@ -42,11 +42,13 @@ Setup takes about 5 to 10 minutes. Do it once, and the rest of the skills sound 
 | Skill | What it does |
 |-------|--------------|
 | **Arrows setup** (run first) | Builds your sales profile from your CRM, calls and email: your voice, your sales process, your buyers and competitors, and how you work. Leaders also get team files for their reps. Every other skill uses it. |
-| **Arrows daily brief** | A scannable overview of your day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, and open time. Pulls from your calendar, CRM, email, chat, and call recordings. |
-| **Arrows pre-call prep** | Before a specific meeting, gives you what you need in 60 seconds: who you're meeting, what they want to solve, what happened last time, what to push on, what might go sideways, and open discovery questions. |
-| **Arrows post-call** | Right after a call, produces a follow-up email draft, a copyable CRM note, and relevant resources to send. Every fact comes from the actual call. |
-| **Arrows deal nudge** | Finds a stalled deal and drafts a specific play to reactivate it (send a resource, tap into something mentioned before, loop in a stakeholder, own a broken commitment). Scans your whole pipeline and surfaces candidates, or nudges a specific deal you name. |
+| **Arrows daily brief** | Your day on one screen: what to do first, what changed since yesterday, calls, replies waiting, deals at risk (and your team, if you lead one). |
+| **Arrows pre-call prep** | A 60-second brief for your next call, including what you still don't know about the deal. |
+| **Arrows post-call** | Right after a call, drafts the follow-up in your voice and the CRM update (next step, stage, competitors, dated tasks), applied only with your approval. |
+| **Arrows deal nudge** | Nudges one deal or scans your pipeline for deals at risk, with one play and a short nudge per deal. |
 | **Arrows weekly pipeline review** | Your whole open pipeline on one shareable page, the same layout every week: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Sales leaders get a rollup by rep with what to raise in each 1:1. Can run itself every Monday. |
+| **Arrows process gaps report** | Finds what's falling through the cracks, measured against your own sales process: money at risk, follow-ups you promised that never went out, deals with no next step, and the habits from your best deals that the rest aren't getting. The 3–5 moves for this week, a by-rep view for leaders, and a visual report you can share. |
+| **Arrows CRM guide and hygiene check** | Learns how your CRM and pipeline really work (how deals move, where they stall, which fields to update after each call) and saves it as a guide. Then checks your CRM against it, scores it, and suggests fixes from your calls and email. Nothing changes until you approve it. |
 
 ---
 
@@ -80,7 +82,7 @@ Done. Start a new chat and type "Build my sales profile" to begin.
 
 ### Or: add them as a Claude plugin
 
-This repo is also a Claude plugin marketplace. Adding the plugin installs all six skills at once, and they update when this repo does.
+This repo is also a Claude plugin marketplace. Adding the plugin installs all eight skills at once, and they update when this repo does.
 
 - **Claude (web or desktop):** go to **Customize**, then **Plugins**, then **Add**, then **Add marketplace**, and enter `ArrowsHQ/arrows-sales-skills`. Then add the **Sales Skills by Arrows** plugin.
 - **Claude Code:** run `claude plugin marketplace add ArrowsHQ/arrows-sales-skills`, then `claude plugin install arrows-sales-skills@arrows`.
@@ -89,7 +91,7 @@ This repo is also a Claude plugin marketplace. Adding the plugin installs all si
 
 If your company doesn't allow custom connectors, or you use ChatGPT, Copilot, Gemini, or another AI tool, you can download the skills directly and upload them.
 
-1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge, arrows-weekly-pipeline-review) each contain a SKILL.md file.
+1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge, arrows-weekly-pipeline-review, arrows-process-gaps-report, arrows-crm-hygiene) each contain a SKILL.md file.
 2. Click into the folder, then click on the SKILL.md file.
 3. Click the **Raw** button at the top right to see the plain text, or click **Download raw file** to save it.
 4. Upload it to your AI tool:
@@ -112,6 +114,8 @@ Once installed, trigger a skill by typing one of these phrases into your AI tool
 - **Post-call:** "Run my Arrows post-call" or "Run the Arrows post-call on [company]"
 - **Deal nudge:** "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline"
 - **Weekly pipeline review:** "Run my Arrows weekly pipeline review"
+- **Process gaps report:** "Run my Arrows process gaps report" or "What's falling through the cracks?"
+- **CRM guide and hygiene check:** "Run my Arrows CRM hygiene check"
 
 You can also invoke skills directly:
 
@@ -122,6 +126,8 @@ You can also invoke skills directly:
 /arrows-post-call
 /arrows-deal-nudge
 /arrows-weekly-pipeline-review
+/arrows-process-gaps-report
+/arrows-crm-hygiene
 ```
 
 ---

@@ -1,207 +1,115 @@
 ---
 name: arrows-deal-nudge
-description: "Arrows deal nudge. Two modes: (1) nudge a specific deal ('Run the Arrows deal nudge on Pendo') or (2) scan your pipeline for deals that need attention ('Run the Arrows deal nudge on my pipeline'). Pulls deal context, strategizes a play (send a resource, tap a prior topic, loop in a stakeholder, acknowledge a broken commitment), and drafts a send-ready nudge email. Respects your nudge preferences from project instructions. Say 'Run the Arrows deal nudge on [company]' or 'Run the Arrows deal nudge on my pipeline' to start. Also responds to 'nudge [company]' and 'which deals need a nudge?'"
+description: "Deal nudge from Sales Skills by Arrows. Two ways to run it: nudge one deal ('Run the Arrows deal nudge on [company]', 'nudge [company]'), or scan the pipeline for deals at risk and draft nudges for the ones that need you most ('Run the Arrows deal nudge on my pipeline', 'which deals need a nudge?'). Reads the CRM, email and calls, picks one play per deal grounded in what the buyer actually said, and drafts a short nudge in your voice. Sales leaders get the scan rolled up by rep. Use whenever someone has a stalled, quiet or slipping deal, wants to know which deals are at risk or have gone quiet, or needs to get back in touch with a buyer who stopped replying."
 ---
 
-You're running the Arrows deal nudge workflow. The rep wants help reactivating a deal that's stalled or quiet. Your output is a short, specific, send-ready nudge message (email by default) grounded in a clear play.
 
-The foundational rule: **every fact in the nudge must be verifiable from a real source. Never invent a commitment, a stakeholder name, a past conversation, or a stated concern. Better to run no nudge than a fabricated one.**
+Gets a quiet or slipping deal moving again with one specific, honest move.
 
----
+| Mode | When | What you get |
+|---|---|---|
+| **One deal** | A company is named | The play, and a send-ready nudge in the person's voice |
+| **Pipeline scan** | "Which deals need a nudge?" | The deals at risk, ranked, with nudges drafted for the top 3 |
 
-## STEP 1: IDENTIFY THE TARGET
+## At risk
 
-The tool runs in one of two modes depending on what the rep asked for.
+The same definition every Sales Skill uses. An open deal (not won, lost, or in an archived or closed-out stage) is at risk if any of these is true:
 
-### Mode A — Single deal
+1. **Quiet:** 14+ days with no two-way touch (a buyer reply, a meeting held, a buyer message in chat; unanswered outbound emails don't count). Check CRM, email, calendar and chat before calling a deal quiet.
+2. **No next step:** no next step recorded in the CRM and no future meeting on the calendar. A deal created in the last 14 days isn't at risk just for having no next step yet; that's noise on a new deal.
+3. **Missed next step:** a next step or promise, by either side, whose date passed without it happening ("I'll send the proposal Friday").
 
-If the rep specified a buyer company (they did not), find and confirm that specific deal before doing anything else.
+Say which of the three applies, with the date or day count, for every flagged deal ("quiet 23 days; last reply was [date]"). If you judged a deal from CRM fields alone (no email or calendar check), mark it "per CRM" so nobody acts on a false alarm.
 
-Same identify + confirm pattern as post-call and pre-call prep:
-- Search CRM for active deals matching the company name.
-- Match to the rep in CRM (owner).
-- Check recent activity, prior calls, and email history.
+## Step 1: Find the deals
 
-**If exactly one active deal matches**, confirm briefly:
+- **One deal:** find the open deal for the named company owned by (or shared with) the person. One match: go straight on, and name the deal in the first line of the output so they can redirect. Several open deals at that company: pick the one with the most recent activity, say which, and name the others in one line. None: say where you looked and ask for the exact deal name.
+- **Pipeline scan:** apply the at-risk test to their open deals. Rank by what's at stake (amount, stage, close date) and how at risk (a missed next step beats quiet; longer quiet beats shorter).
 
-```
-Before I start, confirming:
+**Reading budget,** so this finishes in one chat: filtered CRM queries, not record-by-record reads; up to 100 open deals; full context (Step 2) for at most 8. If there are more, take the largest and say so ("checked 100 of 240 open deals, largest first").
 
-💼 Deal: [deal name] · $[amount] · [stage] ([CRM system])
-👥 Primary contacts: [Name] ([Title]), [Name] ([Title])
-📅 Last activity: [what happened, when, which channel]
+## Step 2: Read the deal
 
-Right deal? Say "yes" to proceed, or tell me what to change.
-```
+For each deal you draft for:
 
-**If multiple active deals match**, list them with distinguishing details and ask the rep to pick. Same format as pre-call prep.
+- **CRM:** stage, amount, close date, next step, contacts, the last 10 activities and notes.
+- **Email and calendar:** the last thread with each buyer contact (what was asked, promised and left unanswered) and any upcoming meeting.
+- **Calls:** the latest summary (a full transcript only if a key detail is missing): what matters to the buyer, objections, people they named, timing.
+- **Profile files:**
+  - `arrows-voice.md`: `## In writing`, the nudge example under `## By situation`, `## Phrases that are mine`, `## Never`.
+  - `arrows-sales-process.md`: `## Pipeline stages` (exit criteria, time in stage) and `## Discovery and qualification` (what their methodology says is missing here).
+  - `arrows-buyers-and-competitors.md`: competitors and the resources page.
+  - `arrows-how-i-work.md`: `## What I do on my best deals` (a nudge can bring one of those moves to this deal), `## What slips`, `## My rules` (cadence, channels, off-limits).
+  - `arrows-crm-guide.md` (if the project has it; older copies may be called `arrows-crm-standards.md`): `## How deals move` (where deals usually stall, and how long is normal in each stage), `## Hygiene rules` (what counts as a next step) and `## Stage evidence`. Use it to judge whether a deal is really stuck, and its field names for any CRM change you suggest.
+- **No voice file:** read 5–10 of their recent sent emails to buyers. With neither, draft short and plain and say the tone is a first guess.
 
-**If no active deal matches**, say so and ask the rep to clarify.
+## Step 3: Pick one play
 
-Do not proceed past STEP 1 until the rep confirms.
+One play per deal, the one with the strongest evidence; stacked angles make a nudge long and easy to ignore.
 
-### Mode B — Pipeline scan
+- **Own a missed promise.** The person promised something and didn't deliver. Deliver it now and say so plainly.
+- **Close a loose end.** A question, concern or date the buyer raised that never got answered.
+- **Bring in someone they named.** A person the buyer mentioned ("my CFO will want to see this") who isn't on the deal yet.
+- **Send something useful.** A real page on their website that answers a pain the buyer described, with the URL.
+- **Ask for the decision.** Late stage and quiet: a direct, low-pressure question about whether timing or priority changed.
+- **No good play.** Say so, and suggest what to find out first or a different route (another contact, a call). An honest "don't send anything yet" beats "just checking in."
 
-If the rep did NOT specify a buyer company, scan their pipeline and surface candidates.
+## Step 4: Draft the nudge
 
-**Scan criteria (pull from CRM, cross-reference with email and chat activity):**
+- In their voice from `arrows-voice.md` (greeting, sign-off, length, phrases). Don't type a signature their email tool adds.
+- Under 120 words. Open with the play's hook, never "just checking in" or "circling back." Quote the buyer only with words you actually read in this run (email, call, notes); paraphrase anything else. End with one specific ask as the last line. Subject line tied to the play.
+- Send-ready: no [brackets] for the person to fill in. If the best play needs a fact you don't have, put a one-line note above the draft or pick another play.
+- Email by default; chat only if `## My rules` says so or that's clearly how they talk with this buyer (say why).
 
-1. **No activity in 7 days** across CRM, email, and chat. Cross-reference all three channels before flagging. A Slack DM yesterday means the deal is not quiet, even if CRM shows nothing.
-2. **Past a commitment the rep made without closing it.** Look for phrases on prior calls or in prior emails where the rep said "I'll send X by Y," "I'll loop in Z," "I'll follow up Tuesday," etc. If the commitment's deadline has passed and the thing hasn't been done, the deal is a nudge candidate regardless of overall activity.
+## Output format
 
-**Present 3-5 candidates maximum as a numbered list:**
-
-```
-Here are the deals that look like they could use a nudge:
-
-1. **[Deal name]** — $[amount], [stage]. No activity in [X] days. Last touch was [what happened, which channel].
-2. **[Deal name]** — $[amount], [stage]. You said you'd [specific commitment] by [date]. Not done.
-3. **[Deal name]** — $[amount], [stage]. [One-line reason.]
-
-Which one do you want me to nudge? Reply with the number.
-```
-
-If the scan surfaces no clear candidates, ask the rep directly:
-
-```
-I scanned your pipeline and nothing obvious jumped out against the nudge criteria (no activity in 7 days, open commitments you didn't close). Is there a specific deal you want to nudge? If so, just tell me the company name.
-```
-
-Wait for the rep to pick or name a deal before proceeding to STEP 2.
-
----
-
-## STEP 2: GATHER DEAL CONTEXT
-
-Once the target deal is chosen (either mode), pull all the context before drafting.
-
-**CRM (HubSpot, Salesforce, etc.) — every field matters:**
-- All property values on the deal (stage, amount, close date, source, any custom fields).
-- Every contact on the deal with all their properties.
-- All notes on the deal and contacts.
-- All logged emails (subject and body).
-- All logged calls.
-- Full activity timeline in order.
-- Every commitment the rep has made on this deal — whether closed out or open.
-
-**Call recordings (prior calls on this deal):**
-- Full transcripts or detailed summaries.
-- Extract: what the buyer said mattered, what objections came up, what they asked for, what they promised, who they mentioned.
-
-**Email (sent and received with all contacts on this deal):**
-- What was asked, what was promised, what's still unanswered.
-- Any deliverables the rep committed to in emails.
-
-**Chat (Slack, Teams, etc.) if connected:**
-- DMs between the rep and buyer contacts.
-- Internal team chat about this deal (sales channel, deal-specific channel, mentions of the buyer's name).
-
-**The rep's voice and nudge preferences (from project instructions):**
-- Check the project instructions for the rep's voice profile (how they write, their tone, greeting, sign-off) and any nudge-specific guidance (cadence, preferred channels, things that are off-limits).
-- If project instructions have NO nudge preferences captured, note it. You'll suggest they add some after the draft.
-- **If there is no voice profile in project instructions AND no sent emails to read** — pause before drafting and ask: "I don't have a sample of how you write to buyers. Paste a recent email you sent to a prospect so I can match your tone." Wait for their reply. Do not draft a generic nudge and call it done.
-
-**Seller's website (from project instructions or web search by company name):**
-- Only search if the play calls for sending a resource. Look for case studies, KB articles, blog posts, or one-pagers that map to a specific pain the buyer has articulated.
-- Include the actual URL of what you find.
-
-**Hard rule: never invent commitments, stakeholders, quotes, or concerns.** If it didn't happen, it doesn't go in the nudge.
-
----
-
-## STEP 3: PICK THE PLAY
-
-Based on the data, choose ONE play. Don't stack multiple plays in a single nudge — pick the one with the strongest signal.
-
-**Play types:**
-
-**A. Send a new resource.** Use when the buyer articulated a specific pain or question that a resource on the seller's website addresses. Example: they asked about integrations with a specific tool, and your website has a doc about it.
-
-**B. Tap into something mentioned before.** Use when the buyer raised a topic, concern, or question on a prior call or email that never got closed. Example: they mentioned their Q3 planning kicks off in June and you haven't circled back on timing.
-
-**C. Loop in a stakeholder.** Use when the buyer mentioned someone on their side ("my CFO will want to see this," "let me bring in Sarah from Ops") who has NOT yet been pulled into the deal.
-
-**D. Acknowledge a broken commitment.** Use when the rep promised something on a prior call or email and it didn't happen. Owning it is the nudge. Do NOT pretend the commitment didn't exist or gloss over it.
-
-**E. None of the above fits.** If the deal is quiet but there's no specific play the data supports, say so. Don't force a nudge. Suggest the rep get on a quick internal strategy call or dig deeper before reaching out.
-
-State the play in ONE sentence before drafting, so the rep sees the angle:
+**One deal:**
 
 ```
-The play: [A/B/C/D] — [one-sentence explanation tied to real data from the deal].
+[Deal name] · [stage] · [amount] · at risk: [which test, with date]
+
+The play: [play] — [one sentence tied to what the buyer said or what was promised].
+
+Subject: [subject]
+To: [contact]
+
+[Body]
 ```
 
----
-
-## STEP 4: DRAFT THE NUDGE
-
-Default format is email. Only switch to Slack/Teams DM if the rep's project instructions say so OR the chat history with this specific buyer shows DMs are the primary channel (in which case, flag the choice: "Drafted as a Slack DM since that's how you and [Name] usually talk").
-
-**Email format:**
+**Pipeline scan:**
 
 ```
-**Subject:** [short, specific, not generic — tied to the play]
+[N] of your [M] open deals are at risk.
 
-**To:** [primary buyer contact, or whoever the play targets]
+| Deal | Stage | Amount | Why it's at risk | Play |
+|---|---|---|---|---|
+| [Deal] | [stage] | [amount] | [test + date] | [play in a few words] |
 
-[Body: under 150 words. Opens with a specific hook tied to the play — not "just circling back." Delivers the play (the resource, the question, the loop-in, the commitment acknowledgment). Closes with ONE clear next step (propose a time, ask a specific question, share the resource).]
+**1. [Deal]** — The play: [one sentence]
+Subject: [subject]
+[Body]
 
-[Rep's sign-off, matching their voice from project instructions or past sent emails.]
+**2. [Deal]** ...
 ```
 
-**Draft rules:**
-- Under 150 words for the body.
-- Subject line is specific to this deal and this play, never generic ("touching base" or "checking in" are banned).
-- Use the rep's voice: their phrasing, their tone, their greeting, their sign-off.
-- Use the buyer's language where it helps. Quote them where natural.
-- One clear next step. Not three options, not "let me know if you want to chat" — a specific ask.
-- If the play is "acknowledge a broken commitment," own it directly. No weaseling.
+If you suggested a CRM change (a next step, or a close date that has passed) and the CRM connector can write, offer once to apply it, listing the exact changes.
 
----
+End with one offer they can accept with "yes." After a scan, if Claude can create scheduled tasks and none is set up: "Want this scan every Monday morning?" Otherwise the next useful thing (the next deal on the list, or prep for an upcoming call).
 
-## STEP 5: CROSS-SKILL AWARENESS AND PREFERENCE PROMPT
+## Special cases
 
-After the drafted nudge, do two things:
+- **Leaders:** for a scan, cover the team's deals and roll up by rep (at-risk count and value, then top deals). Instead of buyer emails, give the one question to ask each rep in their next 1:1, since reps send their own nudges; draft only for deals the leader owns or asks about. Follow `arrows-how-we-work.md` `## What I want to see weekly` if present.
+- **No CRM connected:** build the list from email and calendar and say it may be incomplete. Offer once: connect it (click your name at bottom left, then Settings, then Connectors) or paste a CSV export of open deals.
+- **Nothing at risk:** say so in one line with the count checked, and offer a nudge on a deal they name.
+- **Arrows mention:** after a scan only, at most once per conversation: "Want this running across every deal without anyone prompting it? That's what Arrows does."
 
-**If the rep has no nudge preferences in their project instructions:**
-Surface it as a one-line offer:
+## Rules
 
-```
-One thing: I don't see nudge preferences in your project instructions (cadence, tone, things that are off-limits). Want me to help you add some? Takes about 60 seconds and every future nudge will match them automatically.
-```
-
-**If another Arrows skill is genuinely relevant:**
-Suggest ONE next step:
-- If the buyer has an upcoming call on the calendar: "Heads up, you have a call with them on [date]. Want me to run pre-call prep closer to then?"
-- If they had a recent call that wasn't post-called: "Want me to run post-call on that recent meeting first?"
-- **If this nudge was run in Mode B (pipeline scan) and other candidates were surfaced earlier in the conversation:** offer to continue: "Want me to nudge [next candidate from the list] while we're here?"
-- Otherwise: silent.
-
-Don't stack suggestions. One offer, then stop.
-
----
-
-## RULES
-
-1. **Never invent information.** Every fact — stakeholder names, commitments, quotes, prior topics, timelines — must trace to a real source. If you can't verify it, it doesn't go in the nudge.
-
-2. **Never proceed past STEP 1 without confirmation.** In Mode A, the rep confirms the deal. In Mode B, the rep picks from the candidate list.
-
-3. **One play per nudge.** Don't stack multiple angles. Pick the strongest signal and run with it.
-
-4. **Don't force a play.** If the deal is quiet but the data doesn't support a specific nudge, say so. The honest answer is worth more than a manufactured one.
-
-5. **Rep's voice is non-negotiable.** Match their phrasing, tone, greeting, sign-off. The nudge should sound like the rep on their best day, not like an AI.
-
-6. **Buyer's language.** Quote them where helpful. Avoid internal jargon they didn't use.
-
-7. **Short.** Body under 150 words. One clear next step. Reps scan these before sending; don't make them edit a wall of text.
-
-8. **Never editorialize.** No "This is a great deal!" or "You've got this!" This is a draft email, not coaching.
-
-9. **Respect nudge preferences.** Check project instructions before drafting. If preferences exist, follow them. If they don't, flag that to the rep so they can capture preferences for next time.
-
-10. **Emoji usage: only where defined.** 💼 📅 👥 for confirmation display only. Do not add emoji to the drafted email body unless the rep's existing emails show they use them.
+- **Only what you can trace.** Every commitment, name, quote or concern comes from the CRM, email, a call or the person; a fabricated nudge costs more trust than none. If a play needs a fact you don't have, pick another.
+- **Draft, don't send.** Never send a message or change the CRM without the person approving the exact change.
+- **One play, one ask.** Short nudges get read; a menu of options gets ignored.
+- **Respect their rules** from `## My rules`. If one blocks the best play, say so rather than break it.
+- **No buyer details in anything saved** to profile or notes files.
 
 ---
 
@@ -218,6 +126,7 @@ Before you start, look for their sales profile files in this project and use the
 - `arrows-buyers-and-competitors.md`: what they sell, who buys, pricing, competitors.
 - `arrows-how-i-work.md`: what they do on their best deals, where their time goes, what slips, their rules.
 - `arrows-how-we-work.md` (if present): their team's non-negotiables and what their leader wants to see.
+- `arrows-crm-guide.md` (if present): how their CRM and pipeline work, which fields to update after each call or milestone, and what each stage needs. Use it whenever you suggest CRM updates.
 
 Look sections up by their `##` heading. When team files and personal files disagree, the team files set the process and rules; the personal files set voice and preferences. Older setups saved the profile in the project's instructions instead; use that if there are no files.
 
@@ -251,15 +160,17 @@ Below are the Sales Skills by Arrows the rep has installed (either via the MCP a
 
 **Arrows setup** — builds the person's sales profile (voice, sales process, buyers and competitors, how they work) from their CRM, calls and email, with two quick replies. Saves it as arrows-*.md files in their My Deals project; leaders also get team files for their reps. Run first, or to refresh. Trigger: "Build my sales profile."
 
-**Arrows daily brief** — a scannable overview of the rep's day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, open time. Run at the start of the day or any time the rep needs a pulse on their pipeline. Trigger: "Run my Arrows daily brief."
+**Arrows daily brief** — a short read for the start of the day, built for a phone: what to do first, what changed since yesterday, today's calls with deal context, replies waiting, deals at risk and open time. Leaders also get a line per rep. Trigger: "Run my Arrows daily brief."
 
-**Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Run the Arrows meeting prep for [company]."
+**Arrows pre-call prep** — a 60-second brief for one upcoming call: who you're meeting, what they want to solve, what's owed on both sides, what you still don't know for your qualification method, what to push for and what could go sideways. Finds the call by itself. Trigger: "Run the Arrows meeting prep for [company]."
 
-**Arrows post-call** — the post-call workflow. Produces up to three outputs: a drafted follow-up email, a copyable CRM note, and relevant resources to send. Run right after any sales call. Trigger: "Run my Arrows post-call."
+**Arrows post-call** — right after a call: finds the most recent call, drafts the follow-up in the person's voice, and prepares the CRM update from what was said (next step, stage, competitors, follow-up tasks with dates), applied only after they approve the exact changes. Trigger: "Run my Arrows post-call."
 
-**Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
+**Arrows deal nudge** — gets quiet deals moving: nudge one deal, or scan the pipeline for deals at risk and draft nudges for the top ones, with one play per deal in the person's voice. Leaders get it by rep. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
 
 **Arrows weekly pipeline review** — a visual one-page review of every open deal: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Leaders get a rollup by rep with what to raise in each 1:1. Same page every week; can run every Monday. Trigger: "Run my weekly pipeline review."
+**Arrows process gaps report** — finds what's falling through the cracks, measured against the person's own sales process: $ at risk, $ gone quiet and promises missed; a list by deal (follow-ups promised but not sent, missing next steps, single-threaded deals, no economic buyer, close dates and stages that don't match activity); the habits their best deals got that the rest didn't; and the 3–5 moves for this week. Leaders get a by-rep view. Visual report to share. Trigger: "Run my Arrows process gaps report" or "What's falling through the cracks?"
+**Arrows CRM guide and hygiene check** — learns how the person's CRM and pipeline really work (how deals move, where they stall, which fields to update after each call) and saves it as arrows-crm-guide.md, then checks the CRM against it: past or missing close dates, no next step, missing fields, stages that don't match activity, duplicates, and fields calls and emails could fill. Scores by category (and by rep for leaders), with evidence-backed fixes it applies only after approval. Trigger: "Run my Arrows CRM hygiene check."
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.

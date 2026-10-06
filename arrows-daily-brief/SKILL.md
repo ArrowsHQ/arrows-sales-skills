@@ -1,294 +1,385 @@
 ---
 name: arrows-daily-brief
-description: "Arrows daily brief. Run this any time you need a complete picture of your day: who you're meeting (with LinkedIn profiles), where every deal stands, messages needing a reply, pipeline alerts, and open time. Pulls your calendar, CRM, call recordings, email, and chat automatically. Say 'Run my Arrows daily brief' to start."
+description: "Arrows daily brief. A short read for the start of the day, built for a phone: what to do first, what changed since yesterday (new replies, stage changes), today's calls with deal context, messages waiting on a reply, deals at risk, and open time. Sales leaders also get a line per rep. Pulls calendar, CRM, call recordings, email and chat, and uses the person's sales profile. Use whenever someone says 'Run my Arrows daily brief', asks what's on today, what they missed overnight, what needs them this morning, or wants a rundown of their day and pipeline, even if they don't say 'brief'."
 ---
 
-You're building a daily sales brief for today. This is the rep's daily briefing — they might read it before their first call, after a meeting, or any time they need a pulse on their day. Make it scannable, factual, and useful. No filler.
 
----
+A daily brief for today, short enough to read on a phone before the first call:
 
-## STEP 1: GATHER EVERYTHING FIRST
+| Section | What's in it |
+|---|---|
+| Do first | The 2–5 things that matter most today, in order |
+| Since yesterday | Buyer replies, stage changes, wins, losses, signed contracts |
+| Today's calls | Each external call: who, where the deal stands, what's open |
+| Replies waiting | Buyers who are waiting on the person |
+| At risk | Deals that are going quiet or slipping |
+| Team (leaders) | One line per rep: what's at risk, what's closing, what needs the leader |
+| Open time | Free blocks of 30+ minutes |
 
-Before you write a single word of the brief, do all of your research. Do not start writing until you've completed this checklist.
+## Step 1: Read the profile
 
+Use the profile files (see the shared context) to decide what matters, not just to describe it:
 
-**Calendar:**
-- Pull every meeting/call on the calendar for today
-- For each meeting: who's on the invite, what time, any description or agenda in the invite
-- Identify open time slots (30+ minutes with no meetings)
+- `arrows-how-i-work.md`: `## What slips` is the person's own list of things to flag; check today's calls and deals for each one. `## Where my time goes` tells you which prep to do for them. `## My rules` apply to every suggested action.
+- `arrows-sales-process.md`: stage names, what has to be true to move on, and the methodology under `## Discovery and qualification`. Use them to judge whether a deal is stuck.
+- `arrows-buyers-and-competitors.md`: competitor names, so you recognize them when they come up.
+- `arrows-how-we-work.md` or a leader role in `## About me`: turn on the Team section (Step 3).
 
-**CRM (HubSpot, Salesforce, etc.):**
-This is critical. Do not skim. For every person and company on today's calendar:
-- Pull the full deal record: stage, amount, close date, deal owner, create date, last activity date
-- Pull ALL contact properties: title, role, phone, email, lifecycle stage, last contacted date
-- Pull ALL company properties: industry, size, revenue, location, owner
-- Read every note on the deal and contact records
-- Read every logged email (subject lines AND body content)
-- Read every logged call (notes, outcomes, durations)
-- Read the full activity timeline — every touchpoint, in order
-- Check for any tasks or follow-ups that are overdue or due today
-- Look at what was promised in the last interaction — commitments the rep made
+No profile, or it doesn't say: they lead a team if other people own most deals they're involved in (as a contact, follower or meeting attendee), or their calendar has recurring 1:1s with reps. If so, turn on Team.
 
-Do not summarize the CRM. Read it. The details matter.
+No profile: run the brief anyway and use the CRM's stage names.
 
-**If the CRM is missing information** — thin contact records, no company details, no deal history — use web search to fill in the gaps. Search for the company (what they do, size, recent news only if deal-relevant), search for the people on the call (role, background, LinkedIn). The rep should never walk into a call with less context than a 30-second Google search would give them. The CRM is the starting point, not the ceiling.
+## Step 2: Gather
 
-**Call recordings (Fathom, Gong, Fireflies, etc.):**
-- Search for recent calls with each company and contact on today's calendar
-- Pull transcripts or summaries from the last 2-3 calls
-- Look for: what was discussed, what was promised, objections raised, competitor mentions, next steps agreed on
+Read everything before writing. Stay inside this budget so the brief finishes quickly:
 
-**Email:**
-- Check for recent email threads with the contacts on today's calendar
-- Look for: unanswered emails, promised deliverables, scheduling threads, any context about the meeting
-- ALSO scan the inbox for any sales-related emails that need a reply — threads where a buyer, prospect, or contact has sent something and the rep hasn't responded yet. These go in a separate "needs reply" section.
+- **Calendar:** every meeting on today. Sort them into sales calls (with a buyer, prospect or customer: a CRM deal or contact, or a booking from a prospect), other external meetings (vendors, partners, agencies, recruiting) and internal ones. Note open blocks of 30+ minutes.
+- **Each sales call:** the matching CRM deal (stage, amount, close date, next step), the last 3–5 activities, the most recent call summary, and the latest email or chat thread with the attendees. Look for what was promised and whether it happened. If CRM is thin on a new contact, a quick web search for their role is enough. Deeper research belongs to pre-call prep.
+- **Since yesterday:** everything since the start of the previous working day (on Monday, since Friday morning): buyer emails and chat messages received, deal stage changes, deals created, won or lost, contracts signed or viewed. Use CRM activity or stage history where it exists; otherwise compare last-modified dates and say the stage change is inferred.
+- **Replies waiting:** buyer or prospect emails and direct messages from the last 7 days where the buyer wrote last and the person hasn't answered. Skip newsletters, automated mail, internal threads, group channels, and replies to a mass email (a webinar or newsletter) unless they ask the person something.
+- **Pipeline:** open deals the person owns (for leaders, their team's), up to 150, using filtered queries rather than reading each record. Read notes only on deals that look at risk. If there are more, say how many you read.
 
-**Chat (Slack, Teams, or similar — if connected):**
-Chat is often where deal activity actually happens. A rep can look inactive in the CRM but have had a live conversation with a buyer yesterday. Treat chat as a first-class activity signal, not an afterthought.
-- For each person and company on today's calendar: search DMs and channels for recent messages involving that contact, that company name, or relevant deal references
-- Search for internal deal conversations — sales channels, deal-specific channels, anywhere the rep or their team has discussed these deals recently
-- Pull any direct messages between the rep and buyer/prospect contacts
-- When calculating "days since last activity" for any deal, chat messages count. If the rep DM'd the buyer yesterday, that deal is not dormant even if the CRM shows no activity in 30 days.
-- ALSO scan for chat messages where a buyer, prospect, or contact has pinged the rep and the rep hasn't responded yet. These go into the "messages needing a reply" section alongside emails.
+**At risk** means any of: no two-way touch (a buyer reply, call or meeting) in 14+ days, no next step on the deal, or a promised next step that didn't happen (a date passed, a deliverable not sent, a meeting that never got booked). Check email, chat and call history before calling a deal quiet: a buyer reply in chat yesterday means it isn't quiet, even if the CRM says otherwise. A passed close date on its own is "slipped", not at risk: mention it in the deal's `why` when the deal is at risk for another reason. A contract unsigned for 7+ days counts as a promised next step that didn't happen. Deals with no activity in 60+ days (often in an old pipeline) go in `closeOut` by name instead of `atRisk`, so the at-risk list stays about deals that can still be saved. A deal created in the last 14 days isn't at risk just for having no next step yet; that's noise on a new deal.
 
-**Contracts and signing (DocuSign, PandaDoc, or similar — if connected):**
-- For each deal on today's calendar or in the active pipeline: check if there are pending contracts, unsigned documents, or recent signature activity
-- Flag anything that's been sitting unsigned for more than 7 days — that's usually where deals quietly die
-- Note recent signature events (within 24-48 hours) that the rep should acknowledge on today's calls
+## Step 3: Write the brief
 
-**Web search (LinkedIn + company research):**
-- Search for each person on today's calls: "[Name] [Company] LinkedIn"
-- Grab the LinkedIn profile URL for each person — these go directly in the call briefing next to their name
-- Only note something from their LinkedIn profile if it's directly relevant to the deal (e.g., they just changed jobs, they posted about a problem your product solves)
-- If CRM data was thin on a company, search for basic company info: what they do, size, industry
+The brief is a report page with a fixed design. Copy the template under `## Report template` at the end of this file exactly and replace only the `DATA` object. Don't restyle it, add or drop sections, or write your own HTML: the person should find everything in the same place every morning, scheduled runs included. Empty lists show a short "nothing here" line, which is right on a quiet day.
 
-**Pipeline scan:**
-- Pull all active deals from the CRM
-- Flag: deals with no activity in the last 14 days — but cross-reference chat and email before flagging. If the rep had a Slack DM or email thread with the buyer in the last 14 days, the deal is not dormant. Only flag deals that are quiet across ALL channels.
-- Flag: deals with close dates that have already passed
-- Flag: deals with close dates this week
-- Flag: overdue tasks or follow-ups the rep committed to
-- Flag: contracts sitting unsigned for 7+ days (if contracts/signing is connected)
-- Check the last interaction on each flagged deal — what was promised, what happened, across CRM, chat, and email
+Show it as an artifact. If you can't, save the filled template as `daily-brief.html` and share the file. Only if you can't show or save HTML at all, write the same sections in the same order as Markdown (below). On someone's first run, add one chat line: "You'll get the same page every morning; 'How this report works' at the bottom explains each section."
 
----
+**Filling `DATA`.** Rows are a few words; the full story goes in `detail` (a list of dated facts with their source, for example "Sep 30 call: asked for the security doc"). Amounts are plain numbers (24000); leave them out when they're 0 or unknown. Use first names for people, including in `owner`. Never write "you" or "your" in `DATA`: use the person's first name ("Dana owes this"), reps' first names, or "the team", since the page gets forwarded and "you" means nothing to the next reader. Quoted text (email subjects, call quotes) can keep it; the chat message can still speak to the person directly. Use company names, not CRM deal names.
 
-## STEP 2: WRITE THE BRIEF
+| Field | What goes in it | Limit |
+|---|---|---|
+| `name`, `company`, `date`, `view`, `updated` | First name; their company (from the profile, CRM or email domain; titles the page when there's a Team section, "Sales team" if unknown); "Tuesday, October 6"; "My day" or "My day + team · 3 reps"; when this ran | |
+| `numbers` | `calls` (sales calls today), `replies`, `atRisk` (the full count, even if fewer are listed), `changes` (items in New since yesterday) | numbers |
+| `doFirst` | `deal` (the company, shown in bold so the eye finds the account first), `amount`, `owner` (leaders: whose deal), `action` (starts with a verb and names who to contact, "Email Dana to book the security review"), `why`, `steps` (required: 2–3 numbered steps, who, how, by when), optional `context` (date and source) | 2–5 items; action 8 words, why 12 |
+| `sinceYesterday` | `kind` ("good": moved forward, won, signed; "bad": lost, slipped; "" for a reply or neutral news), `deal`, optional `amount` and `owner`, `what`, `detail` | 6 items; what 10 words |
+| `atRisk` | Every at-risk deal, worst first (up to about 40; the page shows the top 5, or the 6 biggest team-wide for leaders, and groups the rest by rep): `deal`, `amount`, `owner`, `stage`, `quietDays` (number, or null if no touch is logged), `channel` of the last touch, `why` (which at-risk reason), `next` (one action), `detail` | why 12 words |
+| `calls` | `time`, `company`, `type`, `people` ("Name (title) · Name (title)"), `deal` ("Stage · $24k · close Nov 16 · last two-way touch 6 days ago"), `open` (what happened last time and what's still open), optional `prep` (one action), `detail` | sales calls only; open 25 words |
+| `otherMeetings` | One line for vendor, partner and internal meetings | 15 words |
+| `closeOut` | Names of deals with no activity in 60+ days, shown as one line | names only |
+| `replies` | `name`, `company`, `channel`, `ask`, `waitingDays` (number), `detail` | 5 items |
+| `team` | Leaders only, one per rep, most at risk first: `name` (exactly as in `owner`, since opening a rep lists their at-risk deals), `atRiskCount`, `closingCount` (this week), `ask` (the one thing that needs the leader), optional `detail` | ask 15 words |
+| `openTime` | `start`, `end`, `length` for blocks of 30+ minutes | |
+| `howBuilt` | What was read, any sampling, anything that failed or isn't connected | 40 words |
 
-Follow this structure exactly. Use the exact emoji headers shown below. They are visual anchors that make the brief scannable.
-
-### Header
-
-Start with a date header and a one-line stats summary. Format:
+Markdown version, only when HTML isn't possible:
 
 ```
-# Daily Brief: [Day of week], [Month] [Date], [Year]
+**Daily brief · [Weekday], [Month] [Day]**
+[N] calls · [N] replies waiting · [N] at risk
 
-[X calls] · [Y priority actions] · [Z messages waiting] · [N pipeline alerts]
+**Do first**
+1. [Specific action] — [why today, one line]
+2. [Specific action] — [why today]
+
+**Since yesterday**
+- [Company]: [Buyer] replied — [what they said or asked, a few words]
+- [Company]: moved [stage] → [stage]
+- [Company]: [won / lost / contract signed]
+
+**Today's calls**
+**[Time] · [Company]** · [call type]
+[Name] ([title]) · [Name] ([title])
+[Stage] · $[amount] · close [date] · last two-way touch [N] days ago
+[One or two lines: what happened last time and what's still open.]
+→ [One action before the call, if there is one]
+
+**Replies waiting**
+- [Name], [Company] · [email / chat] · [what they asked] · [N] days
+
+**At risk**
+- [Company] · [stage] · $[amount] · [the reason: quiet [N] days / no next step / promised [X] by [date], not done] → [action]
+
+**Team**
+- [Rep]: [N] at risk, [N] closing this week. [The one deal or decision that needs the leader.]
+
+**Open time**
+[Start]–[End] · [Start]–[End]
 ```
 
-If a category is zero, still mention it (e.g. "0 pipeline alerts"). Keep the stats line to one line, dot-separated.
 
----
+**Do first** pulls the most important items from every other section, ranked by what's due soonest: something blocking a call today goes first. Each item is concrete ("Send the security doc to [Buyer] before the 2pm call"), not general ("Follow up with [Company]"). Use `## What slips` from the profile to decide what rises to the top. On a clean day write "Nothing urgent. Just show up to your calls."
 
-### ⭐ Priority Actions
+**Today's calls:** sales calls only, at most five lines each. Mark a first call, or a person new to the deal (with their LinkedIn link, since that's the one time it's worth the space). If a profile methodology gap is glaring for this stage (for example a pilot with no economic buyer named), say it in the "still open" line. Vendor, partner and internal meetings share one line at the end ("Also: 8:00 agency kickoff, 3 internal"), plus one flag only if something is due before it.
 
-**This section synthesizes the rest of the brief.** Pull the 2-5 most important things the rep should do today, in the order they should do them, from across all the data you gathered: today's call flags, overdue commitments, messages awaiting a reply, pipeline alerts, contract stalls.
+**At risk:** list every at-risk deal in `DATA`, worst first; the page shows the top few and summarizes the rest. Every line names the specific reason and one action.
 
-Format:
+**Team (leaders only):** one line per rep, under 30 words, worst first: counts, then the single deal or decision that most needs the leader (a close this week going quiet, an approval, an exec intro, a call they're on). The full list belongs in the weekly pipeline review, not here. Keep the leader's own deals in the sections above.
 
+**Open time:** list the blocks and stop. Don't plan the time for them.
+
+**Length:** the visible rows should read in a minute (about 400 words, 500 for a leader); everything else goes in `detail`. Stick to the item limits above and group the rest ("+4 stage moves on the team"). In the Markdown version, if they say they're on their phone or in a hurry, keep it under 300 words: Do first and Since yesterday in full, then only what needs action today.
+
+## Step 4: Close
+
+The chat message next to the page stays short, four lines at most: (1) what's most urgent; (2) on a first run only, the first-run line; (3) one offer: the scheduling offer if it applies, otherwise the next skill (with no profile, the setup suggestion); (4) a missing-source note, if any.
+
+1. **One next skill, only if earned:** "Want me to run pre-call prep on the [time] [Company] call?" or "The [Company] call yesterday has no follow-up yet. Want me to run post-call on it?" or "Want me to draft a nudge for [Company]?" Skip it on a clean day.
+2. **Scheduling, only if you can create scheduled tasks and none already runs the daily brief:** "Want this waiting for you every weekday at 7am? Say yes, or give me a time." Check the existing scheduled tasks first. If they say yes, create a weekday task (default 7:00 local) whose prompt is "Run my Arrows daily brief", confirm it in one line, and don't offer again. If you can't create scheduled tasks, say nothing about scheduling.
+
+## Special cases
+
+- **No calendar connected:** use the pasted calendar if given; otherwise skip Today's calls and Open time, and add one line at the end: "Connect your calendar (your name at bottom left, then Settings, then Connectors) and I'll include today's calls."
+- **No CRM connected:** use pasted deals if given. Otherwise build the call and pipeline view from email, calls and calendar, mark deal stages as inferred, and mention once at the end that connecting the CRM or pasting a CSV export of open deals makes the at-risk list complete.
+- **A source fails partway:** retry once, then continue with what you have and say so in one line at the end ("Email didn't load, so Replies waiting may be incomplete").
+- **No calls today:** lead with Do first, then Since yesterday and At risk. That's still a useful brief.
+- **Weekend or holiday date:** brief the next working day and say so in the header.
+- **Leader with no deals of their own:** skip Today's calls if they have no external meetings; Team becomes the main section, right after Since yesterday.
+
+## Rules
+
+- **Only what you verified.** If there's no data for a call, write "No history found", rather than guessing what the call is about. A wrong fact in a daily read teaches the person to stop trusting it.
+- **Specific over general.** Quote the commitment and the date ("You said you'd send the case study by Friday. Not sent yet."). Vague flags get skipped.
+- **No cheerleading, no padding.** It's a memo, not a pep talk. Suggested actions after → are fine; "Big day!" isn't.
+- **Background research only when it changes the call.** Company news, funding or LinkedIn posts go in only if they tie to something in the deal. Competitors only when they came up in a real conversation.
+- **No emojis.** The template carries the structure; in the Markdown version, bold labels do.
+- **Read only.** Don't update the CRM, send, draft into the inbox or create anything without the person approving it. The scheduling task is created only after they say yes.
+
+## Report template
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#F7F6F3; --card:#FFFFFF; --ink:#171614; --ink-70:rgba(23,22,20,.7); --ink-50:rgba(23,22,20,.58); --ink-30:rgba(23,22,20,.3);
+  --line:#E9E8E4; --chip:#F3F2EF; --track:#ECEAE6;
+  --green:#1F8A4C; --green-soft:#E8F4EC;
+  --red:#D33A24; --red-soft:#FCEAE6;
+  --gold:#FEBC22; --gold-soft:#FFF4D6; --gold-text:#8A5A00;
+  --display:'Plus Jakarta Sans','Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 "Plus Jakarta Sans","Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:16px 16px 40px}
+.num{font-variant-numeric:tabular-nums}
+.chip{display:block;font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.2px;color:var(--ink)}
+.hero{background:#171614;color:#FFFFFF;position:relative;border-radius:4px;padding:20px 24px 18px}
+.hero h1{font-family:var(--display);font-feature-settings:"lnum","tnum";color:#FFFFFF;font-size:32px;line-height:1.12;letter-spacing:-.6px;font-weight:700;margin:0 0 4px;max-width:760px}
+.hero .sub{color:rgba(255,255,255,.75);font-size:15px;margin:0 0 16px}
+.health{display:flex;height:10px;border-radius:2px;overflow:hidden;background:rgba(250,248,245,.15)}
+.g-fill{background:var(--green)}
+.r-fill{background:var(--red)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:14px;border-top:1px solid rgba(250,248,245,.16)}
+.stat{padding:14px 12px 0 0}
+.stat+.stat{padding-left:16px;border-left:1px solid rgba(250,248,245,.16)}
+.stat .n{font-family:var(--display);font-feature-settings:"lnum","tnum";font-size:28px;font-weight:700;letter-spacing:-.5px}
+.stat .l{font-size:12px;color:rgba(255,255,255,.75)}
+.stat .key{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:20px 22px;margin-top:16px}
+.head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.hint{font-size:12px;color:var(--ink-50)}
+.item{border-top:1px solid var(--line)}
+.head + .item{border-top:0}
+.row{display:grid;grid-template-columns:26px 1fr 14px;gap:6px;padding:10px 0;align-items:start}
+details.item summary{list-style:none;cursor:pointer}
+details.item summary::-webkit-details-marker{display:none}
+details.item summary .row::after{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink-30);border-bottom:1.5px solid var(--ink-30);transform:rotate(-45deg);margin-top:7px;transition:transform .15s}
+details.item[open] summary .row::after{transform:rotate(45deg)}
+details.item summary:hover .row::after{border-color:var(--ink-70)}
+.mark.dot::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ink-30);margin-top:6px}
+.mark.dot.r::before{background:var(--red)}
+.mark.dot.g::before{background:var(--green)}
+.tick{width:16px;height:16px;border-radius:50%;background:var(--green);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.title{font-weight:600}
+.who{font-size:12px;color:var(--ink-50);font-weight:400;margin-left:6px}
+.sub2{font-size:13px;color:var(--ink-70)}
+.detail{margin:0 20px 12px 28px;padding:10px 12px;background:#F5F4F1;border-radius:6px;font-size:13px;color:var(--ink-70)}
+.detail ul,.detail ol{margin:0;padding-left:18px}
+.detail ol li{color:var(--ink)}
+.detail .ctx{margin-top:8px;font-size:12px;color:var(--ink-50)}
+a.stat{display:block;color:inherit;text-decoration:none;cursor:pointer}
+a.stat:hover .l{text-decoration:underline;text-underline-offset:2px}
+section[id]{scroll-margin-top:12px}
+.cols{display:grid;grid-template-columns:1fr 1fr}
+.cols > .item:nth-child(odd){padding-right:22px;border-right:1px solid var(--line)}
+.cols > .item:nth-child(even){padding-left:22px}
+.num-badge{width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:-1px}
+.cols > .item:nth-child(-n+2){border-top:0}
+.detail li+li{margin-top:3px}
+.next{color:var(--ink);font-size:13px}
+.next::before{content:"→ ";color:var(--ink-30)}
+.qline{margin:3px 0 2px}
+.tag.r{background:var(--red-soft);color:var(--red)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.n{background:var(--chip);color:var(--ink-70)}
+.empty{font-size:13px;color:var(--ink-50);padding:6px 0}
+.rep-row{display:grid;grid-template-columns:190px 1fr;gap:12px}
+.minibar{display:flex;height:8px;border-radius:2px;overflow:hidden;background:var(--track);margin-top:6px;max-width:220px}
+.more{font-size:12px;color:var(--ink-50);padding-top:10px;border-top:1px solid var(--line)}
+.r-al{text-align:right}
+.meta{font-size:12px;color:var(--ink-50)}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:12px;color:var(--ink-50)}
+footer details summary{cursor:pointer}
+footer a{color:var(--ink-70);text-decoration:underline;text-underline-offset:2px}
+footer a:hover{color:var(--ink)}
+.about{max-width:680px;margin-top:6px;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:4px;color:var(--ink-70);font-size:13px}
+.about p{margin:0 0 8px}
+.about p:last-child{margin:0}
+.about b{color:var(--ink);font-weight:600}
+.tag.g{color:#127A3E!important}
+.y-fill{background:var(--gold)}
+.mark.dot.y::before{background:var(--gold)}
+.tag.y{background:var(--gold-soft);color:var(--gold-text)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;align-items:start}
+.grid2 .card,.grid3 .card{margin-top:0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;align-items:start}
+.card.won{border-top:3px solid var(--green)}
+.card.lost{border-top:3px solid var(--red)}
+.card.won .head,.card.lost .head{border-bottom:0}
+.mark{font-weight:700;color:var(--ink-30);font-size:14px}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:2px;padding:1px 6px;white-space:nowrap;margin-left:6px}
+.qline .tag{margin-left:0}
+.stage{display:grid;grid-template-columns:170px 1fr 100px;gap:14px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.head + .stage{border-top:0}
+.stage .bar{display:flex;height:12px;border-radius:2px;overflow:hidden}
+.stage .gap{grid-column:2/4;font-size:12px;color:var(--ink-50);margin-top:-6px}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--ink-50);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+footer details p{max-width:640px;margin:6px 0 0}
+@media (max-width:720px){
+  .hero{padding:22px 18px 18px}
+  .hero h1{font-size:25px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat:nth-child(n+3){margin-top:10px}
+  .grid2,.grid3,.cols{grid-template-columns:1fr}
+  .cols > .item:nth-child(2){border-top:1px solid var(--line)}
+  .cols > .item:nth-child(odd){padding-right:0;border-right:0}
+  .cols > .item:nth-child(even){padding-left:0}
+  .card{padding:16px}
+  .detail{margin:0 0 12px 28px}
+  .rep-row{grid-template-columns:1fr;gap:4px}
+  .stage{grid-template-columns:1fr 90px}
+  .stage .bar{grid-column:1/3}
+  .stage .gap{grid-column:1/3;margin-top:0}
+}
+.row.t{grid-template-columns:52px 1fr 14px}
+.time{font-weight:700;font-size:13px;color:var(--ink);margin-top:1px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+/* Fill in DATA only. Leave everything else as is. */
+const DATA = {
+  name: "[First name]",
+  company: "[Company, for the team view]",
+  date: "[Weekday, Month Day]",
+  view: "[My day | My day + team · N reps]",
+  updated: "[date, time]",
+  numbers: { calls: 0, replies: 0, atRisk: 0, changes: 0 },
+  doFirst: [],
+  sinceYesterday: [],
+  atRisk: [],
+  closeOut: [],
+  calls: [],
+  otherMeetings: "",
+  replies: [],
+  team: [],
+  openTime: [],
+  howBuilt: "[What was read, any sampling, anything missing]"
+};
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const money = n => n == null || n === "" ? "" : n >= 1e6 ? "$" + (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M" : n >= 1e3 ? "$" + Math.round(n / 1e3) + "k" : "$" + n;
+const list = a => (a || []).filter(Boolean);
+const detailBox = d => {
+  const lines = Array.isArray(d) ? list(d) : d ? [d] : [];
+  return lines.length ? `<div class="detail"><ul>${lines.map(l => `<li>${esc(l)}</li>`).join("")}</ul></div>` : "";
+};
+const stepsBox = (steps, context) => {
+  const st = list(steps);
+  if (!st.length && !context) return "";
+  return `<div class="detail">${st.length ? `<ol>${st.map(x => `<li>${esc(x)}</li>`).join("")}</ol>` : ""}${context ? `<div class="ctx">${esc(context)}</div>` : ""}</div>`;
+};
+const item = (mark, title, sub, detail, box0, cls) => {
+  const body = `<div class="row${cls ? " " + cls : ""}">${mark}<div>${title}${sub ? `<div class="sub2">${sub}</div>` : ""}</div></div>`;
+  const box = box0 || detailBox(detail);
+  return box ? `<details class="item"><summary>${body}</summary>${box}</details>` : `<div class="item">${body}</div>`;
+};
+const quiet = d => d.quietDays == null ? `<span class="tag r">no touch logged</span>` : `<span class="tag ${d.quietDays >= 14 ? "r" : "n"}">${d.quietDays === 0 ? "today" : d.quietDays + "d quiet"}${d.channel ? " · " + esc(d.channel) : ""}</span>`;
+const kindMark = k => k === "good" ? `<span class="tick">✓</span>` : `<span class="mark dot ${k === "bad" ? "r" : ""}"></span>`;
+const D = DATA, N = D.numbers, team = list(D.team).length > 0;
+
+const go = id => `href="#${id}" onclick="const t=document.getElementById('${id}');if(t){t.scrollIntoView({behavior:'smooth'});}return false;"`;
+const cols = items => items.length ? `<div class="cols">${items.join("")}</div>` : "";
+const AR = list(D.atRisk), cap = team ? 6 : 5;
+
+let h = "";
+h += `<section class="hero"><h1>${team ? esc(D.company || "Sales team") + " daily brief" : esc(D.name) + "'s daily brief"}</h1><p class="sub">${esc([D.date, D.view].filter(Boolean).join(" · "))}</p>`;
+h += `<div class="stats num">
+  <a class="stat" ${go("calls")}><div class="n">${N.calls}</div><div class="l">Sales calls today</div></a>
+  <a class="stat" ${go("replies")}><div class="n">${N.replies}</div><div class="l">Replies waiting</div></a>
+  <a class="stat" ${go("at-risk")}><div class="n">${N.atRisk}</div><div class="l"><span class="key r-fill"></span>Deals at risk</div></a>
+  <a class="stat" ${go("since")}><div class="n">${N.changes}</div><div class="l">New since yesterday</div></a>
+</div></section>`;
+
+h += `<section class="card" id="do-first"><div class="head"><span class="chip">Do first</span><span class="hint">Open any item for the steps</span></div>`;
+h += list(D.doFirst).length ? cols(list(D.doFirst).map((t, i) => item(`<span class="num-badge">${i + 1}</span>`, `<span class="title">${esc(t.deal)}</span><span class="who num">${esc([money(t.amount), t.owner].filter(Boolean).join(" · "))}</span><div>${esc(t.action)}</div>`, esc(t.why), null, stepsBox(t.steps, t.context) || detailBox(t.detail) || detailBox(t.why ? [t.why] : [])))) : `<div class="empty">Nothing urgent today.</div>`;
+h += `</section>`;
+
+h += `<section class="card" id="since"><div class="head"><span class="chip">New since yesterday</span><span class="hint">Replies, stage moves, wins and losses</span></div>`;
+h += list(D.sinceYesterday).length ? cols(list(D.sinceYesterday).map(s => item(kindMark(s.kind), `<span class="title">${esc(s.deal)}</span><span class="who">${esc([money(s.amount), s.owner].filter(Boolean).join(" · "))}</span>`, esc(s.what), s.detail))) : `<div class="empty">Nothing changed since yesterday.</div>`;
+h += `</section>`;
+
+h += `<section class="card" id="at-risk"><div class="head"><span class="chip">${team ? "Biggest at risk" : "At risk"}</span><span class="hint">${AR.length > cap || N.atRisk > cap ? `Top ${Math.min(cap, AR.length)} of ${Math.max(N.atRisk, AR.length)}` : ""}</span></div>`;
+if (AR.length) {
+  h += cols(AR.slice(0, cap).map(d => item(`<span class="mark dot r"></span>`,
+    `<span class="title">${esc(d.deal)}</span><span class="who num">${esc([money(d.amount), d.owner, d.stage].filter(Boolean).join(" · "))}</span><div class="qline">${quiet(d)}</div>`,
+    `${esc(d.why)}<div class="next">${esc(d.next)}</div>`, d.detail)));
+  const rest = AR.slice(cap);
+  if (rest.length) h += `<div class="more">${rest.length} more${team ? ", grouped by rep in Team below" : ": " + esc(rest.map(d => d.deal).join(", "))}</div>`;
+} else h += `<div class="empty">No deals at risk today.</div>`;
+if (list(D.closeOut).length) h += `<div class="more">Close out (${list(D.closeOut).length}, no activity in 60+ days): ${esc(list(D.closeOut).join(", "))}</div>`;
+h += `</section>`;
+
+if (team) {
+  const repBox = r => {
+    const mine = AR.filter(d => d.owner === r.name).map(d => [d.deal, money(d.amount), d.stage].filter(Boolean).join(" · ") + ": " + (d.why || ""));
+    return detailBox([...mine, ...(Array.isArray(r.detail) ? r.detail : r.detail ? [r.detail] : [])]);
+  };
+  h += `<section class="card" id="team"><div class="head"><span class="chip">Team</span><span class="hint">Most at risk first · open a rep for their deals</span></div>`;
+  h += list(D.team).map(r => item(`<span class="mark dot ${r.atRiskCount ? "r" : "g"}"></span>`,
+    `<div class="rep-row"><div><span class="title">${esc(r.name)}</span><div class="meta num">${r.closingCount || 0} closing this week</div></div><div><span class="sub2">${esc(r.ask)}</span>${r.atRiskCount ? `<span class="tag r">${r.atRiskCount} at risk</span>` : `<span class="tag g">On track</span>`}</div></div>`,
+    "", null, repBox(r))).join("");
+  h += `</section>`;
+}
+
+h += `<section class="card" id="calls"><div class="head"><span class="chip">Today's calls</span><span class="hint">${list(D.calls).length ? list(D.calls).length + " sales calls" : ""}</span></div>`;
+h += list(D.calls).length ? list(D.calls).map(c => item(`<span class="time num">${esc(c.time)}</span>`,
+  `<span class="title">${esc(c.company)}</span><span class="who">${esc(c.type)}</span><div class="meta">${esc(c.people)}</div><div class="meta num">${esc(c.deal)}</div>`,
+  `${esc(c.open)}${c.prep ? `<div class="next">${esc(c.prep)}</div>` : ""}`, c.detail, "", "t")).join("") : `<div class="empty">No sales calls today.</div>`;
+if (D.otherMeetings) h += `<div class="more">Also: ${esc(D.otherMeetings)}</div>`;
+h += `</section>`;
+
+h += `<section class="card" id="replies"><div class="head"><span class="chip">Replies waiting</span><span class="hint">${list(D.replies).length || ""}</span></div>`;
+h += list(D.replies).length ? cols(list(D.replies).map(r => item(`<span class="mark dot ${r.waitingDays >= 2 ? "r" : "y"}"></span>`, `<span class="title">${esc(r.name)}</span><span class="who">${esc([r.company, r.channel].filter(Boolean).join(" · "))}</span>`, `${esc(r.ask)} <span class="tag ${r.waitingDays >= 2 ? "r" : "y"}">${r.waitingDays === 0 ? "today" : r.waitingDays + "d waiting"}</span>`, r.detail))) : `<div class="empty">No buyer is waiting on a reply.</div>`;
+h += `</section>`;
+
+h += `<section class="card" id="open-time"><div class="head"><span class="chip">Open time</span></div>`;
+h += list(D.openTime).length ? cols(list(D.openTime).map(o => `<div class="item"><div class="row"><span class="mark dot g"></span><div><span class="title num">${esc(o.start)}–${esc(o.end)}</span><span class="who">${esc(o.length)}</span></div></div></div>`)) : `<div class="empty">No open blocks of 30+ minutes.</div>`;
+h += `</section>`;
+
+h += `<footer><details><summary>How this report works</summary><div class="about">
+<p>This page is rebuilt from the calendar, CRM, email and calls each time it runs, in the same layout and order, so every section is always in the same place. It only reads those tools: nothing in the CRM, inboxes or calendars was changed.</p>
+<p><b>New since yesterday</b> covers buyer replies, stage changes, wins, losses and signed contracts since the start of the previous working day. <b>At risk</b> means one of three things: no two-way contact in 14+ days, no dated next step, or a promised next step that didn't happen. <b>Slipped</b> means the close date has passed and the deal is still open. <b>Close out</b> names deals with no activity in 60+ days: close them with a reason or restart them. <b>Replies waiting</b> are buyers who wrote last and haven't heard back. <b>Today's calls</b> lists sales calls only; other meetings are on one line below them.</p>
+<p>Open the arrow on any row for the details and where they came from.</p>
+<p><b>Today:</b> ${esc(D.howBuilt)}</p></div></details><span>Updated ${esc(D.updated)} · Built with Sales Skills by <a href="https://arrows.to/claude-for-teams/?utm_source=sales-skills&utm_medium=report&utm_campaign=daily-brief" target="_blank" rel="noopener">Arrows</a></span></footer>`;
+document.getElementById("app").innerHTML = h;
+</script>
+</body>
+</html>
 ```
-## ⭐ Priority Actions
-
-Tackle these first, in order.
-
-1. **[Short action title.]** [One or two sentences: the specific thing to do and why it matters today.]
-2. **[Short action title.]** [Context.]
-3. **[Short action title.]** [Context.]
-```
-
-Rules for this section:
-- Rank by time sensitivity. If something is blocking a meeting today, it goes first.
-- Each item is concrete. "Reply to Sarah on Slack about pricing" not "Follow up with Acme."
-- Reference the underlying flag where useful ("You committed to this Friday", "She asked yesterday").
-- Limit to 5 items. If everything is a priority, nothing is. Cut the weakest ones.
-- If there are genuinely no priority actions today (clean pipeline, no overdue commitments, no urgent messages), say "Nothing urgent today — just show up to your calls." and move on.
-
----
-
-### 📅 Today's Calls
-
-For each call, in chronological order:
-
-```
-### [Time] · [Company Name] · [One-word call type: Discovery / Demo / Pricing / Recap / etc.]
-
-**Attendees:** [Name] ([Title], [LinkedIn URL]) · [Name] ([Title], [LinkedIn URL])
-**Deal:** [Stage] · $[Amount] · Close [Date] · Last activity [X days ago] ([channel])
-
-[1-2 sentences max. What is this call about? What happened last time, specifics, not "you had a good conversation." State any open commitments or unresolved issues. If the most recent activity was on chat, say so — that's easy to forget and often where the real pulse of the deal lives.]
-
-**Flags:**
-- 🚨 [Urgent flag: blocking or time-sensitive for today]. → [Suggested action.]
-- ⚠️ [Attention flag: needs action soon but not blocking]. → [Suggested action.]
-- [Info flag: noteworthy but no action required, like "First call with this buyer" or "Jane is new on this invite."]
-```
-
-Flag rules:
-- Use 🚨 for urgent flags — something blocking the call today or needing immediate action.
-- Use ⚠️ for attention flags — needs action soon, not blocking.
-- No emoji for info flags — just the fact, no action needed.
-- Every urgent or attention flag MUST end with a suggested action after a → arrow. Concrete and specific. "Send the case study now, before the call" not "follow up."
-- Info flags don't need a suggested action.
-- If there are no flags, don't include the Flags heading. Don't invent flags.
-
-Examples of flags:
-- 🚨 Sarah DM'd yesterday asking for pricing. You haven't replied. → Reply with pricing before the 2pm call.
-- ⚠️ You said you'd send the case study by Friday. Not sent yet. → Send now, before the call.
-- 23 days since your last conversation across CRM, email, and chat. Last touchpoint was the pricing discussion on Slack.
-- First call with this buyer.
-- Mike (CFO) is new on this invite. Not on previous calls.
-- ⚠️ Contract sitting unsigned since April 11 (if contracts tool is connected). → Check in with whoever owns sign-off.
-- Competitor mentioned on last call: [name] — [what was said]. → [Action only if relevant.]
-
----
-
-### 💬 Messages Needing a Reply
-
-List any sales-related emails OR chat messages where a buyer, prospect, or contact sent something and the rep hasn't responded. Keep it tight:
-
-```
-- 🚨 [Sender Name] ([Company]) · [Channel: Email / Slack DM / Teams DM / etc.] · "[One line: what they asked/said]" · received [date/time]
-- ⚠️ [Sender Name] ([Company]) · [Channel] · "[Quote or paraphrase]" · received [date/time]
-- [Sender Name] ([Company]) · [Channel] · "[Quote]" · received [date/time]
-```
-
-Severity rules:
-- 🚨 if they're blocking today's work or have been waiting more than 24 hours on something time-sensitive.
-- ⚠️ if they've been waiting less than 24 hours or it's not time-sensitive.
-- No emoji for informational replies (e.g. a "thanks" that doesn't require a response).
-
-Only include messages that actually need a response. Skip newsletters, automated notifications, internal threads, and group channel messages not addressed to the rep. If there are none, skip this section entirely.
-
----
-
-### 📍 Pipeline Alerts
-
-Only include deals that genuinely need attention. Don't pad this list. Every alert ends with a suggested action after a → arrow.
-
-```
-**Overdue follow-ups:**
-- 🚨 [Company] · You said you'd [specific commitment] on [date]. Not done yet. → [Suggested action.]
-
-**Gone quiet:**
-- ⚠️ [Company] · No activity across CRM, chat, or email in [X] days. Last touchpoint was [what happened] ([channel]). Deal is in [stage] at $[amount]. → [Suggested action.]
-
-**Close dates passed or this week:**
-- 🚨 [Company] · Close date was [date]. Deal is in [stage]. [One line on current state.] → [Suggested action.]
-
-**Contracts waiting (if contracts tool is connected):**
-- ⚠️ [Company] · Contract sent [date], unsigned for [X] days. [One line: who needs to sign, any recent movement.] → [Suggested action.]
-```
-
-Severity rules here mirror the flag rules:
-- 🚨 if the alert is blocking or significantly time-sensitive (overdue commitment, close date already passed).
-- ⚠️ if it needs attention soon but isn't immediately blocking.
-
-If there are no pipeline alerts, say "No pipeline alerts today." and move on.
-
----
-
-### 🆓 Open Time
-
-List open slots of 30 minutes or more.
-
-```
-## 🆓 Open Time
-
-[Start] to [End] · [Start] to [End]
-
-Anything specific you want to use it for, or want me to look through your pipeline and figure out where to focus?
-```
-
-Do not suggest what to do with the time. Wait for the rep to respond.
-
----
-
-### Closing: one relevant next Arrows skill
-
-After the brief is complete, scan what came up and offer ONE specific next Arrows skill if it's clearly useful. Not a menu. Not a pile. Reference the Arrows skills registry (above) for the full set.
-
-Examples of when to offer something:
-- If today has a call that would benefit from deeper prep: "Heads up: you've got a [time] call with [Company] today. Want me to run pre-call prep on that one?"
-- If a recent call has no follow-up email or CRM note yet: "Looks like that [Company] call yesterday hasn't been post-called yet. Want me to run post-call on it?"
-- If pipeline alerts surfaced stalled or quiet deals: "You've got [X] deals that look like they could use a nudge. Want me to run deal nudge on [Company] first?"
-
-Only offer if there's a specific, earned reason. If the brief is clean and there's no obvious next action, skip this entirely and go straight to the scheduling offer. Don't manufacture a suggestion to fill the slot.
-
-Keep it to one line. Easy to accept ("yes") or ignore.
-
----
-
-### Final section: smart scheduling offer
-
-After the Open Time section, check whether a scheduled daily brief already exists before offering to set one up.
-
-1. If you have access to the scheduled tasks tool, list existing scheduled tasks.
-2. Scan for any task that looks like a daily brief (by name, description, or trigger phrase).
-3. **If one exists:** Do not mention scheduling at all. Move on.
-4. **If none exists:** Add this closing block to the output:
-
-```
----
-
-**Want this delivered automatically every weekday?**
-
-Claude Desktop can run this as a scheduled task, so you get your brief in a fresh conversation at whatever time works best. Here's how:
-
-1. Just say: "Schedule this daily brief to run every weekday at 7am"
-   (Adjust the time and days to whatever works — for example, "every Monday to Thursday at 6:30am".)
-2. I'll create the scheduled task for you and confirm when it's set.
-3. At your scheduled time, you'll get a new conversation with your brief already generated, waiting for you.
-
-To change or cancel the schedule later, say "show my scheduled tasks" or find it under Scheduled Tasks in your Claude Desktop settings.
-```
-
-If the rep confirms they want to schedule it, use Claude's native scheduled tasks feature to create a recurring task that runs the arrows_daily_brief tool at the time and days they specified. Default to 7:00 AM local time, weekdays only, if they don't specify. Confirm once when the task is created, then stop.
-
-5. **If the scheduled tasks tool is not available:** Skip this section entirely. Do not mention scheduling.
-
-Do not re-offer scheduling in the same session if they've already declined or already set it up.
-
----
-
-## RULES
-
-1. **Never guess.** If you don't have data on something, say "No CRM data found for this contact" or "No recent calls recorded." Don't fill in gaps with assumptions.
-
-2. **Never editorialize.** Don't say "This is a big day!" or "You've got this!" The brief is a document, not a coach. Neutral, factual, concise. Note: suggested actions after a → arrow (e.g. "Send the case study now") are NOT editorializing — they're concrete, specific next steps. Cheerleading phrases are the thing to avoid.
-
-3. **Never pad.** If a call has nothing notable to flag, don't manufacture flags. If the pipeline is clean, say so. Shorter is better.
-
-4. **Be specific with commitments.** If the rep said "I'll send the case study by Friday" on a recorded call, and it's now Tuesday and they haven't sent it, say exactly that. No softening. "You said you'd send the case study by Friday. Not sent yet."
-
-5. **Company news and LinkedIn: almost never.** Don't include company news, funding rounds, LinkedIn posts, or other background unless it's directly tied to something in the deal. If the buyer posted about a problem your product solves yesterday, yes. If the company raised a round 6 months ago, no.
-
-6. **Competitor mentions: only from actual conversations.** If a competitor came up on a previous call or in an email thread, flag it. Don't search for competitive intel proactively — that's not what this brief is for.
-
-7. **Tone:** Write like a concise internal memo. Short sentences. No adjectives. No enthusiasm. Just the facts and what needs to happen.
-
-8. **Length:** The entire brief should be scannable in 1-2 minutes. This is a summary, not a report. Each call section should be 4-6 lines max including flags. Pipeline alerts are one line each. If the rep wants to go deeper on a specific call or deal, they can ask — but the initial brief is a quick scan. Ruthlessly cut anything that doesn't help the rep walk into their day prepared.
-
-9. **Emojis are functional, not decorative.** Use only the specific emojis defined in this prompt:
-   - ⭐ for the Priority Actions section header only
-   - 📅 for the Today's Calls section header only
-   - 💬 for the Messages Needing a Reply section header only
-   - 📍 for the Pipeline Alerts section header only
-   - 🆓 for the Open Time section header only
-   - 🚨 for urgent flags, urgent messages, and urgent pipeline alerts
-   - ⚠️ for attention flags, attention messages, and attention pipeline alerts
-
-   Do NOT add any other emojis anywhere in the output. No celebratory emojis, no decorative emojis, no emojis in body text. The emoji set is intentionally small so each one carries meaning. If you add more, the signal gets lost.
 
 ---
 
@@ -305,6 +396,7 @@ Before you start, look for their sales profile files in this project and use the
 - `arrows-buyers-and-competitors.md`: what they sell, who buys, pricing, competitors.
 - `arrows-how-i-work.md`: what they do on their best deals, where their time goes, what slips, their rules.
 - `arrows-how-we-work.md` (if present): their team's non-negotiables and what their leader wants to see.
+- `arrows-crm-guide.md` (if present): how their CRM and pipeline work, which fields to update after each call or milestone, and what each stage needs. Use it whenever you suggest CRM updates.
 
 Look sections up by their `##` heading. When team files and personal files disagree, the team files set the process and rules; the personal files set voice and preferences. Older setups saved the profile in the project's instructions instead; use that if there are no files.
 
@@ -338,15 +430,17 @@ Below are the Sales Skills by Arrows the rep has installed (either via the MCP a
 
 **Arrows setup** — builds the person's sales profile (voice, sales process, buyers and competitors, how they work) from their CRM, calls and email, with two quick replies. Saves it as arrows-*.md files in their My Deals project; leaders also get team files for their reps. Run first, or to refresh. Trigger: "Build my sales profile."
 
-**Arrows daily brief** — a scannable overview of the rep's day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, open time. Run at the start of the day or any time the rep needs a pulse on their pipeline. Trigger: "Run my Arrows daily brief."
+**Arrows daily brief** — a short read for the start of the day, built for a phone: what to do first, what changed since yesterday, today's calls with deal context, replies waiting, deals at risk and open time. Leaders also get a line per rep. Trigger: "Run my Arrows daily brief."
 
-**Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Run the Arrows meeting prep for [company]."
+**Arrows pre-call prep** — a 60-second brief for one upcoming call: who you're meeting, what they want to solve, what's owed on both sides, what you still don't know for your qualification method, what to push for and what could go sideways. Finds the call by itself. Trigger: "Run the Arrows meeting prep for [company]."
 
-**Arrows post-call** — the post-call workflow. Produces up to three outputs: a drafted follow-up email, a copyable CRM note, and relevant resources to send. Run right after any sales call. Trigger: "Run my Arrows post-call."
+**Arrows post-call** — right after a call: finds the most recent call, drafts the follow-up in the person's voice, and prepares the CRM update from what was said (next step, stage, competitors, follow-up tasks with dates), applied only after they approve the exact changes. Trigger: "Run my Arrows post-call."
 
-**Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
+**Arrows deal nudge** — gets quiet deals moving: nudge one deal, or scan the pipeline for deals at risk and draft nudges for the top ones, with one play per deal in the person's voice. Leaders get it by rep. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
 
 **Arrows weekly pipeline review** — a visual one-page review of every open deal: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Leaders get a rollup by rep with what to raise in each 1:1. Same page every week; can run every Monday. Trigger: "Run my weekly pipeline review."
+**Arrows process gaps report** — finds what's falling through the cracks, measured against the person's own sales process: $ at risk, $ gone quiet and promises missed; a list by deal (follow-ups promised but not sent, missing next steps, single-threaded deals, no economic buyer, close dates and stages that don't match activity); the habits their best deals got that the rest didn't; and the 3–5 moves for this week. Leaders get a by-rep view. Visual report to share. Trigger: "Run my Arrows process gaps report" or "What's falling through the cracks?"
+**Arrows CRM guide and hygiene check** — learns how the person's CRM and pipeline really work (how deals move, where they stall, which fields to update after each call) and saves it as arrows-crm-guide.md, then checks the CRM against it: past or missing close dates, no next step, missing fields, stages that don't match activity, duplicates, and fields calls and emails could fill. Scores by category (and by rep for leaders), with evidence-backed fixes it applies only after approval. Trigger: "Run my Arrows CRM hygiene check."
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.

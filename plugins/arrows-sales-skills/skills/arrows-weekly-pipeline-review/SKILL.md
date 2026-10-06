@@ -11,12 +11,12 @@ The whole open pipeline on one page, built to be read in 30 seconds and shared b
 | Section | What's in it |
 |---|---|
 | Header | "[Name]'s weekly pipeline review" (team view: "[Company] weekly pipeline review"), a bar of on track vs. at risk, and four numbers: open deals, on track, at risk, expected to close |
-| Do this week | The 3–5 actions that matter most, ranked |
 | Moving forward | Deals that advanced, kicked off or won, so the good news is visible too |
-| Expected to close | Every deal with a close date in the period, with its real state, plus deals that slipped past their date |
-| At risk | Deals that are quiet, have no next step, or have a broken promise, each with the reason and one action |
+| At risk | Deals that are quiet, have no next step, or have a broken promise, each with the reason and one action (the biggest few in a team view) |
+| Do this week | The 3–5 moves that matter most, ranked, each opening into numbered steps |
+| By rep (leaders) | Each rep's pipeline, at-risk count and the one thing to raise in their 1:1; open a rep for their deals |
 | Pipeline by stage | Count and value per stage, plus deals missing what the stage requires |
-| By rep (leaders) | Each rep's pipeline, at-risk count and the one thing to raise in their 1:1 |
+| Expected to close | Every deal with a close date in the period, with its real state, plus deals that slipped past their date |
 | Closed won, closed lost | Each deal won and lost this period, wins as visible as losses |
 
 The default output is a visual report built from one fixed template (end of this skill), so it looks the same every week. A short summary goes in the chat alongside it.
@@ -33,7 +33,7 @@ No profile: run the review anyway with stages straight from the CRM, and use the
 
 ## Step 2: Decide whose pipeline
 
-There are two versions of the same report. Rep ("[Name]'s weekly pipeline review"): deals they own, no rollup or owner names. Leader ("[Company] weekly pipeline review"): deals owned by their team, rolled up by rep. Both: the team view (header numbers cover the team), with their own deals as the "You" row in the rollup.
+There are two versions of the same report. Rep ("[Name]'s weekly pipeline review"): deals they own, no rollup or owner names. Leader ("[Company] weekly pipeline review"): deals owned by their team, rolled up by rep. Both: the team view (header numbers cover the team), with their own deals as a row under their first name in the rollup.
 
 Use `scope` if given. Otherwise use `## About me` in the profile; failing that, match their email to a CRM owner (owns most open deals → rep; others own most and they own few → leader). Seeing everyone's deals proves nothing; at small companies reps often have admin access. Don't stop to ask; say in the report header which view you built ("Team view: 3 reps, 41 open deals") so they can ask for the other.
 
@@ -73,7 +73,7 @@ Rank "What needs attention" by time sensitivity: a deal closing this week with a
 
 Build the report from the template at the end of this skill, as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Use it on every run, including scheduled ones: people learn this page and orient around it each week, so the layout, sections and order never change. Don't restyle it, add or drop sections, or write your own HTML or a Markdown version in its place. If a field has nothing in it, leave it empty (`[]` or `""`) and the page handles it.
 
-Use the buyer's company name for each deal ("Northwind", not "Northwind - New Business Q3"). Keep every text field short. The report is for scanning, so the words in it are a few each, not sentences:
+Never write "you" or "your" anywhere in `DATA`: use the person's first name ("Dana owes the pricing email"), reps' first names, or "the team", because reports get forwarded and "you" means nothing to the next reader. Only quoted text (an email subject, a line from a call) may keep it. The chat reply can still speak to the person directly. Use the buyer's company name for each deal ("Northwind", not "Northwind - New Business Q3"). Keep every text field short. The report is for scanning, so the words in it are a few each, not sentences:
 
 | Field | What goes in it |
 |---|---|
@@ -81,13 +81,12 @@ Use the buyer's company name for each deal ("Northwind", not "Northwind - New Bu
 | `cadence` | "weekly", or "monthly" / "quarterly" for a longer period |
 | `period`, `view`, `pipeline`, `updated`, `closingLabel` | "Week of Oct 5" (or the month or quarter) · "My deals" or "Team view · 4 reps" · the pipeline used · date and time · "Expected to close this week" (or "this month") |
 | `numbers` | `open`, `value` (total pipeline), `atRiskValue`, `atRiskCount`, `closingCount`, `closingValue`, `movedCount`. Plain numbers; the page formats money. Use 0 when unknown and say so in `howBuilt`. |
-| `doThisWeek` | 3–5 items: `deal` (the company name, always; it leads the line), `action` (under 8 words, starts with a verb, names the person to contact by role or first name), `owner` (team view), `why` (under 10 words), `steps`, `context` |
-| `steps` | For `doThisWeek` only, what opens under the caret: 2–4 numbered steps someone could follow without thinking. Each starts with a verb and names who, how and when: "Email Dana (CFO) today: ask if the Oct 15 board date still holds", "Send the security docs promised on the Sep 30 call", "If no reply by Thursday, call her mobile". |
+| `doThisWeek` | 3–5 moves, most urgent first: `action` (under 8 words, starts with a verb, names the person to contact; it goes on its own line under the company), `deal` (company name; it leads the row in bold), `amount`, `owner` (team view), `why` (under 10 words), `steps` (required), `context` |
+| `steps` | Required for every `doThisWeek` move, never left empty. What opens under the caret: 2–4 numbered steps someone could follow without thinking. Each starts with a verb and names who, how and when: "Email Dana (CFO) today: ask if the Oct 15 board date still holds", "Send the security docs promised on the Sep 30 call", "If no reply by Thursday, call her mobile". |
 | `context` | For `doThisWeek` only: one line on why now, with the date and source ("Sep 30 call: she said the board meets Oct 15"). |
 | `moving` | Every deal going well this period (the count must match `movedCount`): `deal`, `amount`, `owner`, `what` (under 8 words: "Pilot kicks off Oct 6", "Advanced to Proposal", "Won"), `detail` |
-| `reps` | Team view only, one row for everyone on the team who owns open deals, most value at risk first: `name` ("You" for the leader's own deals), `open`, `value`, `atRiskValue`, `atRiskCount`, `closing`, `ask` (one question for the 1:1, under 15 words), `detail`. Empty for a rep's own review. |
-| `atRisk` | The 8 that matter most: `deal`, `owner`, `amount`, `stage`, `quietDays` (days since the last two-way touch, or null if none logged), `channel` (where that touch happened: "email", "call", "chat"), `why` (under 8 words, leading with which of the three reasons applies: "No next step", "Quiet 18 days", "Promised demo not sent"), `next` (under 6 words, a concrete action), `detail` |
-| `atRiskMore` | Names of the remaining at-risk deals |
+| `reps` | Team view only, one row for everyone on the team who owns open deals, most value at risk first: `name` (first name, including the leader's own row), `open`, `value`, `atRiskValue`, `atRiskCount`, `closing`, `ask` (one question for the 1:1, under 15 words), `detail` (optional). Opening a rep lists their at-risk and moving deals automatically, matched by `owner`, so use the exact same owner names everywhere. Empty for a rep's own review. |
+| `atRisk` | Every at-risk deal (up to about 40), most important first (biggest and most urgent); the page shows the top 8 (6 in a team view) and groups the rest under each rep: `deal`, `owner`, `amount`, `stage`, `quietDays` (days since the last two-way touch, or null if none logged), `channel` (where that touch happened: "email", "call", "chat"), `why` (under 8 words, leading with which of the three reasons applies: "No next step", "Quiet 18 days", "Promised demo not sent"), `next` (under 6 words, a concrete action), `detail` |
 | `stages` | In the profile's stage order: `name`, `count`, `value`, `atRiskValue`, `gap` (deals missing what the stage requires, under 8 words, or "") |
 | `closing` | Deals whose close date falls in the rest of this period (already-passed dates go in `pastClose`): `deal`, `amount`, `owner`, `date`, `status` ("green" on track, "red" at risk; at risk is yes or no, there is no middle state), `note` (under 8 words), `detail` |
 | `pastClose` | Open deals whose close date has passed ("slipped"): `count`, `value`, `names` |
@@ -168,6 +167,7 @@ Copy this exactly. Replace only the `DATA` object.
   --line:#E9E8E4; --chip:#F3F2EF; --track:#ECEAE6;
   --green:#1F8A4C; --green-soft:#E8F4EC;
   --red:#D33A24; --red-soft:#FCEAE6;
+  --gold:#FEBC22; --gold-soft:#FFF4D6; --gold-text:#8A5A00;
   --display:'Plus Jakarta Sans','Segoe UI',sans-serif;
 }
 *{box-sizing:border-box}
@@ -179,19 +179,15 @@ body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 "Plus Jakar
 .hero h1{font-family:var(--display);font-feature-settings:"lnum","tnum";color:#FFFFFF;font-size:32px;line-height:1.12;letter-spacing:-.6px;font-weight:700;margin:0 0 4px;max-width:760px}
 .hero .sub{color:rgba(255,255,255,.75);font-size:15px;margin:0 0 16px}
 .health{display:flex;height:10px;border-radius:2px;overflow:hidden;background:rgba(250,248,245,.15)}
-.g-fill{background:var(--green)} .r-fill{background:var(--red)}
+.g-fill{background:var(--green)}
+.r-fill{background:var(--red)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:14px;border-top:1px solid rgba(250,248,245,.16)}
 .stat{padding:14px 12px 0 0}
 .stat+.stat{padding-left:16px;border-left:1px solid rgba(250,248,245,.16)}
 .stat .n{font-family:var(--display);font-feature-settings:"lnum","tnum";font-size:28px;font-weight:700;letter-spacing:-.5px}
 .stat .l{font-size:12px;color:rgba(255,255,255,.75)}
 .stat .key{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:1px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;align-items:start}
 .card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:20px 22px;margin-top:16px}
-.grid2 .card,.grid3 .card{margin-top:0}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;align-items:start}
-.card.won{border-top:3px solid var(--green)} .card.lost{border-top:3px solid var(--red)}
-.card.won .head,.card.lost .head{border-bottom:0}
 .head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .hint{font-size:12px;color:var(--ink-50)}
 .item{border-top:1px solid var(--line)}
@@ -202,19 +198,20 @@ details.item summary::-webkit-details-marker{display:none}
 details.item summary .row::after{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink-30);border-bottom:1.5px solid var(--ink-30);transform:rotate(-45deg);margin-top:7px;transition:transform .15s}
 details.item[open] summary .row::after{transform:rotate(45deg)}
 details.item summary:hover .row::after{border-color:var(--ink-70)}
-.mark{font-weight:700;color:var(--ink-30);font-size:14px}
 .mark.dot::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ink-30);margin-top:6px}
-.mark.dot.r::before{background:var(--red)} .mark.dot.g::before{background:var(--green)}
+.mark.dot.r::before{background:var(--red)}
+.mark.dot.g::before{background:var(--green)}
 .tick{width:16px;height:16px;border-radius:50%;background:var(--green);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
 .title{font-weight:600}
-.tag.g{color:#127A3E!important}
-
 .who{font-size:12px;color:var(--ink-50);font-weight:400;margin-left:6px}
 .sub2{font-size:13px;color:var(--ink-70)}
 .detail{margin:0 20px 12px 28px;padding:10px 12px;background:#F5F4F1;border-radius:6px;font-size:13px;color:var(--ink-70)}
 .detail ul,.detail ol{margin:0;padding-left:18px}
 .detail ol li{color:var(--ink)}
 .detail .ctx{margin-top:8px;font-size:12px;color:var(--ink-50)}
+a.stat{display:block;color:inherit;text-decoration:none;cursor:pointer}
+a.stat:hover .l{text-decoration:underline;text-underline-offset:2px}
+section[id]{scroll-margin-top:12px}
 .cols{display:grid;grid-template-columns:1fr 1fr}
 .cols > .item:nth-child(odd){padding-right:22px;border-right:1px solid var(--line)}
 .cols > .item:nth-child(even){padding-left:22px}
@@ -223,38 +220,50 @@ details.item summary:hover .row::after{border-color:var(--ink-70)}
 .detail li+li{margin-top:3px}
 .next{color:var(--ink);font-size:13px}
 .next::before{content:"→ ";color:var(--ink-30)}
-.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:2px;padding:1px 6px;white-space:nowrap;margin-left:6px}
 .qline{margin:3px 0 2px}
-.qline .tag{margin-left:0}
-.tag.r{background:var(--red-soft);color:var(--red)} .tag.g{background:var(--green-soft);color:var(--green)} .tag.n{background:var(--chip);color:var(--ink-70)}
+.tag.r{background:var(--red-soft);color:var(--red)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.n{background:var(--chip);color:var(--ink-70)}
 .empty{font-size:13px;color:var(--ink-50);padding:6px 0}
 .rep-row{display:grid;grid-template-columns:190px 1fr;gap:12px}
 .minibar{display:flex;height:8px;border-radius:2px;overflow:hidden;background:var(--track);margin-top:6px;max-width:220px}
 .more{font-size:12px;color:var(--ink-50);padding-top:10px;border-top:1px solid var(--line)}
-.stage{display:grid;grid-template-columns:170px 1fr 100px;gap:14px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
-.head + .stage{border-top:0}
-.stage .bar{display:flex;height:12px;border-radius:2px;overflow:hidden}
-.stage .gap{grid-column:2/4;font-size:12px;color:var(--ink-50);margin-top:-6px}
 .r-al{text-align:right}
 .meta{font-size:12px;color:var(--ink-50)}
-.legend{display:flex;gap:16px;font-size:12px;color:var(--ink-50);margin-top:10px}
-.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
 footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:12px;color:var(--ink-50)}
 footer details summary{cursor:pointer}
 footer a{color:var(--ink-70);text-decoration:underline;text-underline-offset:2px}
 footer a:hover{color:var(--ink)}
-footer details p{max-width:640px;margin:6px 0 0}
 .about{max-width:680px;margin-top:6px;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:4px;color:var(--ink-70);font-size:13px}
 .about p{margin:0 0 8px}
 .about p:last-child{margin:0}
 .about b{color:var(--ink);font-weight:600}
+.tag.g{color:#127A3E!important}
+.y-fill{background:var(--gold)}
+.mark.dot.y::before{background:var(--gold)}
+.tag.y{background:var(--gold-soft);color:var(--gold-text)}
+.card.won{border-top:3px solid var(--green)}
+.card.lost{border-top:3px solid var(--red)}
+.card.won .head,.card.lost .head{border-bottom:0}
+.mark{font-weight:700;color:var(--ink-30);font-size:14px}
+.dl{list-style:none;padding-left:0!important;margin:0}
+.dl li{display:grid;grid-template-columns:16px 1fr;gap:4px;color:var(--ink)}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:2px;padding:1px 6px;white-space:nowrap;margin-left:6px}
+.qline .tag{margin-left:0}
+.stage{display:grid;grid-template-columns:170px 1fr 100px;gap:14px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.head + .stage{border-top:0}
+.stage .bar{display:flex;height:12px;border-radius:2px;overflow:hidden}
+.stage .gap{grid-column:2/4;font-size:12px;color:var(--ink-50);margin-top:-6px}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--ink-50);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+footer details p{max-width:640px;margin:6px 0 0}
 @media (max-width:720px){
   .hero{padding:22px 18px 18px}
   .hero h1{font-size:25px}
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(3){padding-left:0;border-left:0}
   .stat:nth-child(n+3){margin-top:10px}
-  .grid2,.grid3,.cols{grid-template-columns:1fr}
+  .cols{grid-template-columns:1fr}
   .cols > .item:nth-child(2){border-top:1px solid var(--line)}
   .cols > .item:nth-child(odd){padding-right:0;border-right:0}
   .cols > .item:nth-child(even){padding-left:0}
@@ -285,7 +294,6 @@ const DATA = {
   moving: [],
   reps: [],
   atRisk: [],
-  atRiskMore: [],
   stages: [],
   closing: [],
   pastClose: { count: 0, value: 0, names: [] },
@@ -313,6 +321,8 @@ const item = (mark, title, sub, detail, box0) => {
   return box ? `<details class="item"><summary>${body}</summary>${box}</details>` : `<div class="item">${body}</div>`;
 };
 const quiet = d => d.quietDays == null ? `<span class="tag r">no touch logged</span>` : `<span class="tag ${d.quietDays >= 14 ? "r" : "n"}">${d.quietDays === 0 ? "today" : d.quietDays + "d quiet"}${d.channel ? " · " + esc(d.channel) : ""}</span>`;
+const go = id => `href="#${id}" onclick="const t=document.getElementById('${id}');if(t){t.scrollIntoView({behavior:'smooth'});}return false;"`;
+const cols = items => items.length ? `<div class="cols">${items.join("")}</div>` : "";
 const D = DATA, N = D.numbers, team = list(D.reps).length > 0;
 const onTrack = Math.max(0, N.value - N.atRiskValue);
 
@@ -320,57 +330,67 @@ let h = "";
 h += `<section class="hero"><h1>${team ? esc(D.company || "Sales team") : esc(D.name) + "'s"} ${esc(D.cadence || "weekly")} pipeline review</h1><p class="sub">${esc([D.period, D.view, D.pipeline].filter(Boolean).join(" · "))}</p>`;
 h += `<div class="health"><span class="g-fill" style="width:${pct(onTrack, N.value)}%"></span><span class="r-fill" style="width:${pct(N.atRiskValue, N.value)}%"></span></div>`;
 h += `<div class="stats num">
-  <div class="stat"><div class="n">${N.open}</div><div class="l">Open deals · ${money(N.value)}</div></div>
-  <div class="stat"><div class="n">${money(onTrack)}</div><div class="l"><span class="key g-fill"></span>On track</div></div>
-  <div class="stat"><div class="n">${money(N.atRiskValue)}</div><div class="l"><span class="key r-fill"></span>At risk · ${N.atRiskCount} deals</div></div>
-  <div class="stat"><div class="n">${N.closingCount}</div><div class="l">${esc(D.closingLabel || "Closing")} · ${money(N.closingValue)}</div></div>
+  <${list(D.stages).length ? `a class="stat" ${go("stages")}` : `div class="stat"`}><div class="n">${N.open}</div><div class="l">Open deals · ${money(N.value)}</div></${list(D.stages).length ? "a" : "div"}>
+  <div class="stat"><div class="n">${money(onTrack)}</div><div class="l"><span class="key g-fill"></span>On track (not at risk)</div></div>
+  <a class="stat" ${go("at-risk")}><div class="n">${money(N.atRiskValue)}</div><div class="l"><span class="key r-fill"></span>At risk · ${N.atRiskCount} deals</div></a>
+  <a class="stat" ${go("closing")}><div class="n">${N.closingCount}</div><div class="l">${esc(D.closingLabel || "Closing")} · ${money(N.closingValue)}</div></a>
 </div></section>`;
 
-h += `<div class="grid2"><section class="card"><div class="head"><span class="chip">Moving forward</span><span class="hint">${N.movedCount} deals</span></div>`;
-h += list(D.moving).length ? list(D.moving).map(m => item(`<span class="tick">✓</span>`, `<span class="title">${esc(m.deal)}</span><span class="who">${esc([money(m.amount), m.owner].filter(Boolean).join(" · "))}</span>`, esc(m.what), m.detail)).join("") : `<div class="empty">No deals moved forward this period.</div>`;
-h += `</section>`;
-h += `<section class="card"><div class="head"><span class="chip">At risk</span><span class="hint">${list(D.atRisk).length < N.atRiskCount ? `Top ${list(D.atRisk).length} of ${N.atRiskCount}` : ""}</span></div>`;
-if (list(D.atRisk).length) {
-  h += list(D.atRisk).map(d => item(`<span class="mark dot r"></span>`,
-    `<span class="title">${esc(d.deal)}</span><span class="who num">${esc([money(d.amount), d.owner, d.stage].filter(Boolean).join(" · "))}</span><div class="qline">${quiet(d)}</div>`,
-    `${esc(d.why)}<div class="next">${esc(d.next)}</div>`, d.detail)).join("");
-  if (list(D.atRiskMore).length) h += `<div class="more">${list(D.atRiskMore).length} more: ${esc(list(D.atRiskMore).join(", "))}</div>`;
-} else h += `<div class="empty">No deals at risk this week.</div>`;
-h += `</section></div>`;
+const AR = list(D.atRisk), MV = list(D.moving), cap = team ? 6 : 8;
+const dealLine = (d, lvl, text) => `<li><span class="mark dot ${lvl}"></span><span><b>${esc(d.deal)}</b> <span class="meta num">${esc([money(d.amount), d.stage].filter(Boolean).join(" · "))}</span><br>${esc(text)}</span></li>`;
 
-h += `<section class="card"><div class="head"><span class="chip">Do this week</span><span class="hint">Open any item for the steps</span></div><div class="cols">`;
-h += list(D.doThisWeek).length ? list(D.doThisWeek).map((t, i) => item(`<span class="num-badge">${i + 1}</span>`, `<span class="title">${esc(t.deal)}</span>${t.owner ? `<span class="who">${esc(t.owner)}</span>` : ""}<div>${esc(t.action)}</div>`, esc(t.why), t.detail, stepsBox(t.steps, t.context))).join("") : `<div class="empty">Nothing urgent this week.</div>`;
-h += `</div></section>`;
+h += `<section class="card" id="moving"><div class="head"><span class="chip">Moving forward</span><span class="hint">${N.movedCount} deals advanced, kicked off, met a decision-maker or won</span></div>`;
+h += MV.length ? cols(MV.map(m => item(`<span class="tick">✓</span>`, `<span class="title">${esc(m.deal)}</span><span class="who">${esc([money(m.amount), m.owner].filter(Boolean).join(" · "))}</span>`, esc(m.what), m.detail))) : `<div class="empty">No deals moved forward this period.</div>`;
+h += `</section>`;
+
+h += `<section class="card" id="at-risk"><div class="head"><span class="chip">${team ? "Biggest at risk" : "At risk"}</span><span class="hint">Quiet 14+ days, no dated next step, or a missed promise${Math.max(N.atRiskCount, AR.length) > cap ? ` · top ${Math.min(cap, AR.length)} of ${Math.max(N.atRiskCount, AR.length)}` : ""}</span></div>`;
+if (AR.length) {
+  h += cols(AR.slice(0, cap).map(d => item(`<span class="mark dot r"></span>`,
+    `<span class="title">${esc(d.deal)}</span><span class="who num">${esc([money(d.amount), d.owner, d.stage].filter(Boolean).join(" · "))}</span><div class="qline">${quiet(d)}</div>`,
+    `${esc(d.why)}<div class="next">${esc(d.next)}</div>`, d.detail)));
+  const rest = AR.slice(cap);
+  if (rest.length) h += `<div class="more">${rest.length} more${team ? ", grouped by rep below" : ": " + esc(rest.map(d => d.deal).join(", "))}</div>`;
+} else h += `<div class="empty">No deals at risk this week.</div>`;
+h += `</section>`;
+
+h += `<section class="card" id="do-this-week"><div class="head"><span class="chip">Do this week</span><span class="hint">Open any move for the steps</span></div>`;
+h += list(D.doThisWeek).length ? cols(list(D.doThisWeek).map((t, i) => item(`<span class="num-badge">${i + 1}</span>`, `<span class="title">${esc(t.deal)}</span><span class="who num">${esc([money(t.amount), t.owner].filter(Boolean).join(" · "))}</span><div>${esc(t.action)}</div>`, esc(t.why), null, stepsBox(t.steps, t.context) || detailBox(t.detail)))) : `<div class="empty">Nothing urgent this week.</div>`;
+h += `</section>`;
 
 if (team) {
-  h += `<section class="card"><div class="head"><span class="chip">By rep</span><span class="hint">Most value at risk first</span></div>`;
+  const repBox = r => {
+    const lines = [...AR.filter(d => d.owner === r.name).map(d => dealLine(d, "r", d.why)), ...MV.filter(d => d.owner === r.name).map(d => dealLine(d, "g", d.what))];
+    const extra = detailBox(r.detail);
+    return lines.length || extra ? `<div class="detail">${lines.length ? `<ul class="dl">${lines.join("")}</ul>` : ""}${extra ? extra.replace('<div class="detail">', '<div class="ctx">') : ""}</div>` : "";
+  };
+  h += `<section class="card" id="by-rep"><div class="head"><span class="chip">By rep</span><span class="hint">Most value at risk first · open a rep for their deals</span></div>`;
   h += list(D.reps).map(r => item(`<span class="mark dot ${r.atRiskCount ? "r" : "g"}"></span>`,
     `<div class="rep-row"><div><span class="title">${esc(r.name)}</span><div class="meta num">${r.open} open · ${money(r.value)}${r.closing ? ` · ${r.closing} closing` : ""}</div></div><div><span class="sub2">${esc(r.ask)}</span>${r.atRiskCount ? `<span class="tag r">${r.atRiskCount} at risk · ${money(r.atRiskValue)}</span>` : `<span class="tag g">On track</span>`}<div class="minibar"><span class="g-fill" style="width:${pct(r.value - r.atRiskValue, r.value)}%"></span><span class="r-fill" style="width:${pct(r.atRiskValue, r.value)}%"></span></div></div></div>`,
-    "", r.detail)).join("");
+    "", null, repBox(r))).join("");
   h += `</section>`;
 }
 
 if (list(D.stages).length) {
   const maxV = Math.max(...list(D.stages).map(s => s.value || 0), 1);
-  h += `<section class="card"><div class="head"><span class="chip">Pipeline by stage</span></div>`;
+  h += `<section class="card" id="stages"><div class="head"><span class="chip">Pipeline by stage</span><span class="hint">Open value in each stage; red is at risk</span></div>`;
   h += list(D.stages).map(s => `<div class="stage"><div>${esc(s.name)}</div><div class="bar" style="width:${Math.max(2, pct(s.value, maxV))}%"><span class="g-fill" style="flex:${Math.max(0, (s.value || 0) - (s.atRiskValue || 0))}"></span><span class="r-fill" style="flex:${s.atRiskValue || 0}"></span></div><div class="r-al meta num">${s.count} · ${money(s.value)}</div>${s.gap ? `<div class="gap">${esc(s.gap)}</div>` : ""}</div>`).join("");
   h += `<div class="legend"><span><i class="g-fill"></i>On track</span><span><i class="r-fill"></i>At risk</span></div></section>`;
 }
 
-h += `<div class="grid3"><section class="card"><div class="head"><span class="chip">${esc(D.closingLabel || "Expected to close")}</span><span class="hint">${list(D.closing).length || ""}</span></div>`;
-h += list(D.closing).length ? list(D.closing).map(c => item(`<span class="mark dot ${c.status === "red" ? "r" : c.status === "green" ? "g" : ""}"></span>`, `<span class="title">${esc(c.deal)}</span><span class="who num">${esc([money(c.amount), c.owner, c.date].filter(Boolean).join(" · "))}</span>`, esc(c.note), c.detail)).join("") : `<div class="empty">Nothing expected to close.</div>`;
+h += `<section class="card" id="closing"><div class="head"><span class="chip">${esc(D.closingLabel || "Expected to close")}</span><span class="hint">Close date in this period · dot shows on track or at risk</span></div>`;
+h += list(D.closing).length ? cols(list(D.closing).map(c => item(`<span class="mark dot ${c.status === "red" ? "r" : c.status === "green" ? "g" : ""}"></span>`, `<span class="title">${esc(c.deal)}</span><span class="who num">${esc([money(c.amount), c.owner, c.date].filter(Boolean).join(" · "))}</span>`, esc(c.note), c.detail))) : `<div class="empty">Nothing expected to close.</div>`;
 if (D.pastClose && D.pastClose.count) h += `<div class="more">Slipped: ${D.pastClose.count} past their close date · ${money(D.pastClose.value)}${list(D.pastClose.names).length ? " · " + esc(list(D.pastClose.names).join(", ")) : ""}</div>`;
 const sum = a => money(list(a).reduce((t, x) => t + (x.amount || 0), 0));
-h += `</section><section class="card won"><div class="head"><span class="chip">Closed won</span><span class="hint num">${list(D.won).length ? list(D.won).length + " · " + sum(D.won) : ""}</span></div>`;
-h += list(D.won).length ? list(D.won).map(w => item(`<span class="tick">✓</span>`, `<span class="title">${esc(w.deal)}</span><span class="who num">${esc([money(w.amount), w.owner].filter(Boolean).join(" · "))}</span>`, esc(w.note), w.detail)).join("") : `<div class="empty">No wins this period.</div>`;
-h += `</section><section class="card lost"><div class="head"><span class="chip">Closed lost</span><span class="hint num">${list(D.lost).length ? list(D.lost).length + " · " + sum(D.lost) : ""}</span></div>`;
-h += list(D.lost).length ? list(D.lost).map(l => item(`<span class="mark dot r"></span>`, `<span class="title">${esc(l.deal)}</span><span class="who num">${esc([money(l.amount), l.owner].filter(Boolean).join(" · "))}</span>`, esc(l.reason), l.detail)).join("") : `<div class="empty">No losses this period.</div>`;
-h += `</section></div>`;
+h += `</section><section class="card won" id="won"><div class="head"><span class="chip">Closed won</span><span class="hint num">${list(D.won).length ? list(D.won).length + " · " + sum(D.won) : ""}</span></div>`;
+h += list(D.won).length ? cols(list(D.won).map(w => item(`<span class="tick">✓</span>`, `<span class="title">${esc(w.deal)}</span><span class="who num">${esc([money(w.amount), w.owner].filter(Boolean).join(" · "))}</span>`, esc(w.note), w.detail))) : `<div class="empty">No wins this period.</div>`;
+h += `</section><section class="card lost" id="lost"><div class="head"><span class="chip">Closed lost</span><span class="hint num">${list(D.lost).length ? list(D.lost).length + " · " + sum(D.lost) : ""}</span></div>`;
+h += list(D.lost).length ? cols(list(D.lost).map(l => item(`<span class="mark dot r"></span>`, `<span class="title">${esc(l.deal)}</span><span class="who num">${esc([money(l.amount), l.owner].filter(Boolean).join(" · "))}</span>`, esc(l.reason), l.detail))) : `<div class="empty">No losses this period.</div>`;
+h += `</section>`;
 
 h += `<footer><details><summary>How this report works</summary><div class="about">
-<p>This page is rebuilt from your CRM, email, calls and calendar each time it runs, in the same layout and order, so you always know where to look. It only reads your tools: nothing in your CRM, inbox or calendar was changed.</p>
+<p>This page is rebuilt from the CRM, email, calls and calendar each time it runs, in the same layout and order, so every section is always in the same place. It only reads those tools: nothing in the CRM, inboxes or calendars was changed.</p>
 <p><b>At risk</b> means one of three things: no two-way contact in 14+ days, no dated next step, or a promised next step that didn't happen. <b>Moving forward</b> means a deal advanced a stage, kicked off, booked or held a meeting with a decision-maker, or was won this period (the last 7 days for a weekly review). <b>Slipped</b> means the close date has passed and the deal is still open.</p>
-<p>Open the arrow on any row for the details and where they came from.</p>
+<p>The arrow on any row opens the details and where they came from.</p>
 <p><b>This week:</b> ${esc(D.howBuilt)}</p></div></details><span>Updated ${esc(D.updated)} · Built with Sales Skills by <a href="https://arrows.to/claude-for-teams/?utm_source=sales-skills&utm_medium=report&utm_campaign=weekly-pipeline-review" target="_blank" rel="noopener">Arrows</a></span></footer>`;
 document.getElementById("app").innerHTML = h;
 </script>
@@ -393,6 +413,7 @@ Before you start, look for their sales profile files in this project and use the
 - `arrows-buyers-and-competitors.md`: what they sell, who buys, pricing, competitors.
 - `arrows-how-i-work.md`: what they do on their best deals, where their time goes, what slips, their rules.
 - `arrows-how-we-work.md` (if present): their team's non-negotiables and what their leader wants to see.
+- `arrows-crm-guide.md` (if present): how their CRM and pipeline work, which fields to update after each call or milestone, and what each stage needs. Use it whenever you suggest CRM updates.
 
 Look sections up by their `##` heading. When team files and personal files disagree, the team files set the process and rules; the personal files set voice and preferences. Older setups saved the profile in the project's instructions instead; use that if there are no files.
 
@@ -426,15 +447,17 @@ Below are the Sales Skills by Arrows the rep has installed (either via the MCP a
 
 **Arrows setup** — builds the person's sales profile (voice, sales process, buyers and competitors, how they work) from their CRM, calls and email, with two quick replies. Saves it as arrows-*.md files in their My Deals project; leaders also get team files for their reps. Run first, or to refresh. Trigger: "Build my sales profile."
 
-**Arrows daily brief** — a scannable overview of the rep's day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, open time. Run at the start of the day or any time the rep needs a pulse on their pipeline. Trigger: "Run my Arrows daily brief."
+**Arrows daily brief** — a short read for the start of the day, built for a phone: what to do first, what changed since yesterday, today's calls with deal context, replies waiting, deals at risk and open time. Leaders also get a line per rep. Trigger: "Run my Arrows daily brief."
 
-**Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Run the Arrows meeting prep for [company]."
+**Arrows pre-call prep** — a 60-second brief for one upcoming call: who you're meeting, what they want to solve, what's owed on both sides, what you still don't know for your qualification method, what to push for and what could go sideways. Finds the call by itself. Trigger: "Run the Arrows meeting prep for [company]."
 
-**Arrows post-call** — the post-call workflow. Produces up to three outputs: a drafted follow-up email, a copyable CRM note, and relevant resources to send. Run right after any sales call. Trigger: "Run my Arrows post-call."
+**Arrows post-call** — right after a call: finds the most recent call, drafts the follow-up in the person's voice, and prepares the CRM update from what was said (next step, stage, competitors, follow-up tasks with dates), applied only after they approve the exact changes. Trigger: "Run my Arrows post-call."
 
-**Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
+**Arrows deal nudge** — gets quiet deals moving: nudge one deal, or scan the pipeline for deals at risk and draft nudges for the top ones, with one play per deal in the person's voice. Leaders get it by rep. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
 
 **Arrows weekly pipeline review** — a visual one-page review of every open deal: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Leaders get a rollup by rep with what to raise in each 1:1. Same page every week; can run every Monday. Trigger: "Run my weekly pipeline review."
+**Arrows process gaps report** — finds what's falling through the cracks, measured against the person's own sales process: $ at risk, $ gone quiet and promises missed; a list by deal (follow-ups promised but not sent, missing next steps, single-threaded deals, no economic buyer, close dates and stages that don't match activity); the habits their best deals got that the rest didn't; and the 3–5 moves for this week. Leaders get a by-rep view. Visual report to share. Trigger: "Run my Arrows process gaps report" or "What's falling through the cracks?"
+**Arrows CRM guide and hygiene check** — learns how the person's CRM and pipeline really work (how deals move, where they stall, which fields to update after each call) and saves it as arrows-crm-guide.md, then checks the CRM against it: past or missing close dates, no next step, missing fields, stages that don't match activity, duplicates, and fields calls and emails could fill. Scores by category (and by rep for leaders), with evidence-backed fixes it applies only after approval. Trigger: "Run my Arrows CRM hygiene check."
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.

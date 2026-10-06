@@ -287,7 +287,7 @@ Tip: these files double as a ready-made sales playbook. If you ever talk to the 
 End with one offer they can accept with "yes," on their real data:
 
 - **Rep:** "Want me to find the 3 deals that need you most this week?" (deal nudge, pipeline scan)
-- **Leader or both:** "Want to see what's falling through the cracks across your team's pipeline?" (the gaps report if it's in the skills list; otherwise the weekly pipeline review)
+- **Leader or both:** "Want to see what's falling through the cracks across your team's pipeline?" (the process gaps report; otherwise the weekly pipeline review)
 
 Then, only if you can create scheduled tasks and no daily brief is already scheduled, add one line: "I can also have your daily brief waiting every weekday morning. Want that?" If yes, set it for the time they pick.
 
@@ -338,6 +338,7 @@ Before you start, look for their sales profile files in this project and use the
 - `arrows-buyers-and-competitors.md`: what they sell, who buys, pricing, competitors.
 - `arrows-how-i-work.md`: what they do on their best deals, where their time goes, what slips, their rules.
 - `arrows-how-we-work.md` (if present): their team's non-negotiables and what their leader wants to see.
+- `arrows-crm-guide.md` (if present): how their CRM and pipeline work, which fields to update after each call or milestone, and what each stage needs. Use it whenever you suggest CRM updates.
 
 Look sections up by their `##` heading. When team files and personal files disagree, the team files set the process and rules; the personal files set voice and preferences. Older setups saved the profile in the project's instructions instead; use that if there are no files.
 
@@ -371,15 +372,17 @@ Below are the Sales Skills by Arrows the rep has installed (either via the MCP a
 
 **Arrows setup** — builds the person's sales profile (voice, sales process, buyers and competitors, how they work) from their CRM, calls and email, with two quick replies. Saves it as arrows-*.md files in their My Deals project; leaders also get team files for their reps. Run first, or to refresh. Trigger: "Build my sales profile."
 
-**Arrows daily brief** — a scannable overview of the rep's day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, open time. Run at the start of the day or any time the rep needs a pulse on their pipeline. Trigger: "Run my Arrows daily brief."
+**Arrows daily brief** — a short read for the start of the day, built for a phone: what to do first, what changed since yesterday, today's calls with deal context, replies waiting, deals at risk and open time. Leaders also get a line per rep. Trigger: "Run my Arrows daily brief."
 
-**Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Run the Arrows meeting prep for [company]."
+**Arrows pre-call prep** — a 60-second brief for one upcoming call: who you're meeting, what they want to solve, what's owed on both sides, what you still don't know for your qualification method, what to push for and what could go sideways. Finds the call by itself. Trigger: "Run the Arrows meeting prep for [company]."
 
-**Arrows post-call** — the post-call workflow. Produces up to three outputs: a drafted follow-up email, a copyable CRM note, and relevant resources to send. Run right after any sales call. Trigger: "Run my Arrows post-call."
+**Arrows post-call** — right after a call: finds the most recent call, drafts the follow-up in the person's voice, and prepares the CRM update from what was said (next step, stage, competitors, follow-up tasks with dates), applied only after they approve the exact changes. Trigger: "Run my Arrows post-call."
 
-**Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
+**Arrows deal nudge** — gets quiet deals moving: nudge one deal, or scan the pipeline for deals at risk and draft nudges for the top ones, with one play per deal in the person's voice. Leaders get it by rep. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
 
 **Arrows weekly pipeline review** — a visual one-page review of every open deal: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Leaders get a rollup by rep with what to raise in each 1:1. Same page every week; can run every Monday. Trigger: "Run my weekly pipeline review."
+**Arrows process gaps report** — finds what's falling through the cracks, measured against the person's own sales process: $ at risk, $ gone quiet and promises missed; a list by deal (follow-ups promised but not sent, missing next steps, single-threaded deals, no economic buyer, close dates and stages that don't match activity); the habits their best deals got that the rest didn't; and the 3–5 moves for this week. Leaders get a by-rep view. Visual report to share. Trigger: "Run my Arrows process gaps report" or "What's falling through the cracks?"
+**Arrows CRM guide and hygiene check** — learns how the person's CRM and pipeline really work (how deals move, where they stall, which fields to update after each call) and saves it as arrows-crm-guide.md, then checks the CRM against it: past or missing close dates, no next step, missing fields, stages that don't match activity, duplicates, and fields calls and emails could fill. Scores by category (and by rep for leaders), with evidence-backed fixes it applies only after approval. Trigger: "Run my Arrows CRM hygiene check."
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.

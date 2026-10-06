@@ -1,299 +1,368 @@
 ---
 name: arrows-pre-call-prep
-description: "Arrows pre-call prep. Quick, focused deep dive on one specific upcoming call. Pulls only the relevant context (deal history if any, attendees, past conversations across channels, open commitments, discovery gaps) and gives you a brief you can scan in 60 seconds right before the meeting. Works for first calls (form submissions, intro emails, meeting booking context) and for follow-up calls (every prior call, note, email, chat). Different from the daily brief — this is for ONE call, not your whole day. Say 'Run the Arrows meeting prep for [company]' to start. Also responds to 'prep me for my call with [company]' and 'pre-call prep on [company]'."
+description: "Arrows pre-call prep. A 60-second brief for one upcoming call: who you're meeting, what they want to solve, what happened last time and what's still owed, what you still don't know for your qualification method (like the economic buyer), what to push for and what could go sideways. Works for first calls (booking form, intro email) and later ones (every prior call, email and chat). Finds the call on your calendar by itself. For one call, not your whole day. Use whenever someone says 'Run the Arrows meeting prep for [company]', 'prep me for my call with [company]', 'pre-call prep on [company]', 'what do I need to know before my next call', asks to get ready for a specific sales meeting, or wants prep ready automatically before their meetings. The brief is for the person only; not for writing an agenda or anything to send to the buyer."
 ---
 
-You're preparing the rep for one specific upcoming call. This brief is a focused dossier for the rep to scan in 60 seconds before they get on the call. It is NOT content for the buyer — it's internal-only.
 
-**Short beats long.** Only include information that's genuinely relevant to THIS call. A 2-section brief with real signal is better than a 6-section brief padded with filler. If a section has nothing worth saying, drop it entirely.
+A brief for one upcoming call that the person can scan in 60 seconds before joining. It's for them only, never the buyer.
 
-**Works for first calls too.** If there's no prior call history (this is the first touchpoint), still pull whatever context exists: meeting form submissions, the email thread that booked the meeting, anything the buyer filled out on your website, CRM fields that were populated from a form submission. A first call brief is usually shorter — that's fine.
+| Section | What's in it |
+|---|---|
+| What this call is for | The agenda and what the buyer wants from it |
+| Who's on the call | Each attendee's role on the deal, with flags (new, skeptic, champion) |
+| What they want to solve | Their pain, goals and numbers, in their words |
+| Last time and what's owed | What happened before, and commitments still open on either side |
+| Still unknown | Gaps against the person's qualification method |
+| What to push for | 2–4 outcomes for this call |
+| Watch out for | Real risks, each with how to handle it |
+| Their words | Phrases the buyer uses, to echo on the call |
 
-The foundational rule: **every fact in this brief must be verifiable from a real source. Never invent, never guess, never pad. If a section doesn't have real content, drop it.**
+Every section is optional. A first call with no history might be three sections long; that's right.
 
----
+## Step 1: Find the call
 
-## STEP 1: IDENTIFY THE CALL + CONFIRM WITH THE REP
+Look at the calendar for upcoming meetings with the company they named over the next 14 days, and match each one to a CRM deal.
 
-Before pulling any deep data or drafting anything, figure out WHICH call the rep is asking about. Never proceed past this step until the rep has explicitly confirmed. Running pre-call prep on the wrong deal breaks trust fast.
+- **One match:** go straight on. Name the call in the brief's header so a wrong pick is obvious. Don't stop to confirm; an extra round trip right before a call is the moment people give up.
+- **Several meetings, same deal:** prep the next one and mention the later ones in a line at the end.
+- **Meetings for different deals or groups at the same company** (for example two business units): ask which one, in one line per option with date, time, attendees and deal. This is the only time to ask.
+- **No company named:** prep their next sales call: an external meeting with a buyer, prospect or customer (a CRM deal or contact, or a booking from a prospect), today or the next working day. Skip vendors, partners, agencies, recruiting and personal meetings (a partner or customer who booked through a sales or demo link counts as a sales call), and name what you skipped in one line at the end ("Skipped the 8:00 agency kickoff: not a sales call.").
+- **The company named is a vendor or partner** (they sell to the person, or there's no buyer relationship): say so under the header and give a short meeting brief instead: who's attending, what's open on both sides, and what to get out of the call. Leave out the deal and qualification sections.
+- **No match:** say so in two lines with the likely reason (different name on the invite, a calendar you can't see, not booked yet), and ask for the buyer's name or the meeting details.
 
-**Find candidates:**
-- Search the rep's calendar for upcoming meetings with the buyer in the next 14 days.
-- For each candidate meeting, match to a CRM deal if CRM is connected.
-- Note attendees, meeting time, meeting description, and the matched deal (name, amount, stage).
+## Step 2: Gather
 
-**Decide how to respond based on what you found:**
+Read broadly, then keep only what helps on this call. Reading budget:
 
-**Case A — Exactly one matching upcoming call:**
-Present a brief confirmation and wait. Do not proceed to STEP 2 until the rep says yes (or tells you what to change).
+- **CRM:** the deal (stage, amount, close date, next step, source, owner, custom fields that are filled in) and each attendee's contact record; notes and the last 15 activities; any form submission that created the contact.
+- **Call recordings:** summaries of every prior call with this company, however old; full transcripts of the most recent one or two. Prep is cumulative: the first calls often hold their original goal, their definition of success and early doubts, which matter on every later call.
+- **Email:** threads with each attendee in the last 90 days, read to the end, including replies from teammates the person was copied on and emails the deal owner logged in the CRM. Before calling anything owed, check that nobody on the team already answered it. For a first call, read the thread that booked it closely: buyers often state their goal or timeline there and it's forgotten by call time.
+- **Chat, if connected:** direct messages with attendees and internal threads about the deal.
+- **Contracts, if connected:** pending documents and signature status.
+- **Web:** a quick look at attendees who have no CRM or call history (role, how long they've been there). Company news only if it connects to something the buyer said matters.
 
-Format:
-```
-Before I start, confirming:
+Then work out the call number (the Nth call with this buyer, counting real meetings) and whether there's any buyer-side content yet: a booking form, an intro reply, SDR handoff notes or prior calls. A first call with a filled-in form isn't a blank slate.
 
-📅 Call: [date] at [time] ([duration on the invite])
-👥 Attendees: [Name] ([Title]), [Name] ([Title])
-💼 Deal: [deal name] · $[amount] · [stage] ([CRM system])
+## Step 3: Check it against the profile
 
-Right call? Say "yes" to proceed, or tell me what to change.
-```
+This is what turns a recap into prep. Use the profile files (see the shared context):
 
-**Case B — Multiple candidates:**
-List each with distinguishing details. Ask the rep to pick.
+- **Qualification gaps.** Take the method in `arrows-sales-process.md` under `## Discovery and qualification` (MEDDIC, SPICED, BANT or their own) and the exit criteria for the deal's current stage under `## Pipeline stages`. For each element, decide from the evidence whether it's known, partly known or unknown. Unknown items that matter at this stage become "Still unknown" ("You still don't know the economic buyer. Only the champion has been on calls."). No profile: use the gaps a standard discovery would check (budget, decision maker, timeline, the problem, competition) and say that's what you used.
+- **Best-deal moves.** If `arrows-how-i-work.md` lists moves from their best deals under `## What I do on my best deals`, suggest the one that fits this call ("On your best deals you get the decision maker on before the pilot starts.").
+- **What slips.** Check this deal for each item under `## What slips` and flag any that apply.
+- **Competitors.** If a competitor came up, use `arrows-buyers-and-competitors.md` for how they usually win or lose against it.
+- **At risk.** The deal is at risk if there's been no two-way touch in 14+ days, no next step, or a promised next step that didn't happen. Say so in the header if it is.
 
-Format:
-```
-I found multiple upcoming calls with [company]. Which one?
+## Step 4: Write the brief
 
-Option 1 · [date] [time] · with [attendee] · [deal name] ($[amount], [stage])
-Option 2 · [date] [time] · with [attendee] · [deal name] ($[amount], [stage])
+The brief is a report page with a fixed design. Copy the template under `## Report template` at the end of this file exactly and replace only the `DATA` object. Don't restyle it, add or drop sections, or write your own HTML, so the person finds things in the same place before every call, scheduled runs included. An empty list shows a short "nothing here" line, which is right for a first call.
 
-Reply with the option number or tell me more specifically which one.
-```
+Show it as an artifact. If you can't, save the filled template as `pre-call-[company].html` and share the file. Only if you can't show or save HTML at all, write the same sections in the same order as Markdown (below). On someone's first run, add one chat line: "You'll get the same page before every call; 'How this report works' at the bottom explains each section."
 
-**Case C — No match found:**
-Say so explicitly. Suggest why. Let the rep clarify.
+**Filling `DATA`.** Rows are a few words; anything longer goes in `detail` (a list of dated facts with their source). Amounts are plain numbers (24000). Never write "you" or "your" in `DATA`: use the person's first name ("Dana owes this"), reps' first names, or "the team", since the page gets forwarded and "you" means nothing to the next reader. Quoted text (email subjects, call quotes) can keep it; the chat message can still speak to the person directly. Every row that states a fact gets a `source` ("call, Sep 22", "email, Oct 1", "CRM note").
 
-Format:
-```
-I couldn't find an upcoming call with [company] in your calendar. A few possibilities:
+| Field | What goes in it | Limit |
+|---|---|---|
+| `name`, `company`, `updated` | First name; the buyer's company; when this ran | |
+| `when`, `callNumber` | "Mon Oct 5 · 4:00pm · 30 min"; "Call 3" or "First call" | |
+| `agenda`, `theyWant` | From the invite or booking email; what the buyer asked to cover (with source) | 20 words each |
+| `deal` | `stage`, `amount`, `close`, `owner` (first name). Leave a value empty when you can't source it; never guess a stage. No deal means stage "" | |
+| `atRisk` | The at-risk reason, if the deal is at risk; else "" | 12 words |
+| `note` | Leader prepping a rep's call: "[Rep]'s deal. Where [Name] helps: ..."; vendor or partner meeting: say so; else "" | 25 words |
+| `numbers` | `gaps` (items in `unknown`), `owed` (open commitments in `lastTime`) | numbers |
+| `want` | `point`, `quote` (their words), `source`, optional `detail` | 3–5 items; point 8 words |
+| `watch` | `risk`, `source`, `handle` (how to handle it), optional `detail` | 3 items |
+| `push` | `outcome` (something to leave the call with, bold on the page), `why`, `steps` (required: 2–3 numbered steps on how to get it on the call), optional `context` | 2–4 items; outcome 8 words |
+| `people` | `name`, `title`, `flag` ("new", "skeptic", "champion", "decision maker" or ""), `role`, `source`, optional `detail` | role 12 words |
+| `lastTime` | `text`, `status` ("done", "open" for a commitment still owed, or ""), `source`, optional `detail` | 4 items; 12 words |
+| `unknown` | `item` (an element of their qualification method), `why` (why it matters at this stage, phrased so it turns into a question) | 1–4 items |
+| `words` | `phrase` (exact), `source` | 3–5 items |
+| `howBuilt` | What was read, anything that failed or isn't connected | 40 words |
 
-- The company name is different in your calendar (e.g. "Pendo Inc." vs "Pendo")
-- The meeting isn't in a calendar I have access to
-- The call hasn't been booked yet
-
-Tell me the exact deal or buyer name, paste the meeting details, or correct the company name.
-```
-
-**Never invent a meeting. Never proceed past STEP 1 until the rep confirms which call.**
-
----
-
-## STEP 2: GATHER EVERYTHING
-
-After the rep confirms the call, pull all relevant context before drafting. Read broadly, then filter ruthlessly into the brief.
-
-**First, figure out where this call sits in the deal history.** Count the prior calls and touchpoints logged in CRM, call recorder, and email threads. Then separately ask: do we have ANY verifiable buyer-side content yet? Even on a first call, a prior email exchange, a booking-form submission, a reply to an intro message, or inherited CRM notes can give you real signal.
-
-Call number sets the header. Prior buyer content drives which sections get included:
-- **First call with no prior buyer content at all:** shortest brief. Skip "what happened last time" and "what they want to solve" because there's nothing real to pull from.
-- **First call WITH prior content** (a booking form, an intro email, the buyer's reply when they scheduled, inherited CRM notes from an SDR or referral): include both sections, drawing from that content. A first call is not automatically a blank slate.
-- **Call #2 or later:** always include both sections, cumulative across all prior touchpoints, not just the most recent call.
-
-Note the call number for the header, and note which content sources exist for the brief itself.
-
-**CRM (HubSpot, Salesforce, etc.) — every field matters:**
-Deep read on the confirmed deal and the attendees. Pull all of it, then decide what's worth surfacing.
-- **Previous meetings** logged against the deal or contacts — dates, outcomes, any linked recordings.
-- **Previous notes** on the deal and on every contact record.
-- **All property values** on the deal (stage, amount, close date, owner, source, custom fields) and on each contact (title, role, lifecycle stage, last contacted date, any custom fields that got filled in).
-- **All emails logged** in the CRM (subject AND body).
-- **All logged calls** with notes and outcomes.
-- **Full activity timeline** in order.
-- **Commitments** the rep made in prior interactions — closed out or still open.
-
-**Call recordings (if prior calls exist):**
-- Pull transcripts or detailed summaries of EVERY prior call on this deal, not just the most recent. Pre-call prep is cumulative across all calls.
-- Extract: specific buyer quotes, commitments made, objections raised, competitor mentions, unresolved questions.
-
-**Email (especially important for first calls):**
-- Recent threads with each attendee (sent and received).
-- **For first calls:** look carefully at the email thread that booked the meeting. What did the buyer say when they replied to an intro? What was in their meeting request? Often the buyer shares their goal, timeline, or a specific pain point in the booking email that the rep forgets by call time.
-- What the buyer asked for, what was promised, what's still unanswered.
-- Any deliverables the rep committed to in emails.
-
-**Meeting booking context (especially important for first calls):**
-- If the meeting was booked through a form (Calendly, HubSpot meetings, a website demo request form, etc.), pull the form submission values. These often have the buyer's team size, stated goal, current tool, or reason for booking.
-- Check CRM for any auto-populated fields that came from a form submission.
-- Check email for intro messages, SDR-to-AE handoff notes, or referral context if a team member forwarded this deal.
-
-**Chat (Slack, Teams, etc.) if connected:**
-- DMs between the rep and any attendee.
-- Internal team chat about this deal — often has strategy context not in CRM.
-- Commitments or context in chat but not reflected elsewhere.
-
-**Contracts and signing (if connected):**
-- Any pending documents tied to this deal.
-- Signature status.
-
-**Web research (quick, only what's relevant):**
-- LinkedIn for each attendee: current role, recent job changes (last 3 months), anything directly relevant to this deal.
-- The buyer's company: recent news ONLY if it maps to something they've told the rep matters. Don't pad with generic company research.
-
-**Hard rule: never invent information.** If data is missing from every source, say so in the brief or drop the section.
-
----
-
-## STEP 3: WRITE THE PRE-CALL BRIEF
-
-Structure the output exactly as shown. Use the emoji headers as visual anchors.
-
-### Header
+Markdown version, only when HTML isn't possible:
 
 ```
-# Pre-Call Brief: [Buyer Company]
-[Date] at [time] · [duration] · Call #[N]
-Deal: [deal name] · $[amount] · [stage]
+**Pre-call: [Company]** · [Day] [time] · [length] · call [N]
+[Deal name] · [stage] · $[amount] · close [date][ · at risk: reason]
+
+**What this call is for**
+- Agenda: [from the invite or booking email]
+- They want: [what the buyer asked to cover, with source]
+
+**Who's on the call**
+- **[Name], [title]**: [their role on the deal, what they care about]. [Flag]
+- **[Name], [title]**: [role]. New to the deal; [LinkedIn link]
+
+**What they want to solve**
+- [Pain or goal]: "[their words]" ([source, date])
+
+**Last time and what's owed**
+- [What happened or was decided] ([source, date])
+- You promised [deliverable] by [date]: [sent / not sent yet]
+- They promised [thing]: [done / still open]
+
+**Still unknown**
+- [Element of their method]: [what's missing and why it matters at this stage]
+
+**What to push for**
+1. [Specific outcome]: [why, and what you need to hear]
+
+**Watch out for**
+- [Risk] ([where it came from]) → [how to handle it]
+
+**Their words**
+- "[exact phrase]" ([source])
 ```
 
-"Call #N" is the Nth touchpoint with the buyer (first call is #1). Only include if you can verify the count from prior calls, call recordings, or email threads. Omit if unclear.
 
----
+Section notes:
 
-### 📋 What this call is for
+- **Sources:** end each bullet under Who's on the call, What they want to solve, Last time and Their words with a short source tag ("(call, Sep 22)", "(email, Oct 1)", "(CRM note)"). The person needs to know what's fact and where to check it.
+- **Who's on the call:** flags are New (not on earlier calls), Skeptic (pushed back before; give the quote), Champion (has sold internally; point to the moment) and Decision maker (title plus behavior on calls, not title alone). Only use a flag you can back up, since a wrong "champion" label is worse than none. If you know nothing about someone, say so and suggest asking the host who they are.
+- **What they want to solve:** 3–5 bullets, cumulative across every touchpoint, in the buyer's own words where possible.
+- **Still unknown:** 1–4 items, most important for this stage first. Phrase each so it turns into a question on the call.
+- **What to push for:** things to leave the call with (a date, a name, a number, a yes), not topics ("discuss pricing") or approaches ("reframe around the new product"). If the buyer asked to see something specific, showing it is usually push #1. Tie each to a gap, a stage requirement or something the buyer asked for.
+- **Watch out for:** only risks with a real source: a competitor that came up, a promise not kept, a new stakeholder, a slipped close date, a long silence.
+- **Their words:** 3–5 phrases from transcripts or emails. Skip if there are no real quotes.
 
-Two short bullets (or fewer):
-- **Agenda:** what this meeting is set up to cover, from the calendar invite or the booking email.
-- **What they want out of it:** what the buyer has said they want from THIS specific call. Pull from the booking email, recent email threads, or the end of the last call ("Can we cover X next time?"). Drop this bullet if nothing specific was said.
+## Step 5: Close
 
-If there's no verifiable agenda or stated goal, skip this section entirely. Don't invent one.
+The chat message next to the page stays short, four lines at most: (1) the call and the single most important thing; (2) on a first run only, the first-run line; (3) a missing-source or skipped-meeting note, if any; (4) one offer.
 
----
+- **If you can create scheduled tasks and none already preps their calls:** "Want this ready before every external call? I can run it each weekday at 7am for that day's calls." If yes, create a weekday task (default 7:00 local) whose prompt is "Run Arrows pre-call prep for each external call on my calendar today", confirm in one line, and don't offer again. If they decline, stop there.
+- **Otherwise:** "After the call, say 'Run my Arrows post-call' and I'll draft the follow-up and CRM note from this context."
 
-### 👥 Who you're meeting
+## Special cases
 
-For each attendee:
+- **First call, nothing on the buyer side:** header, Who's on the call, What to push for, and Still unknown (which is most of discovery). Say "First call, no prior touchpoints."
+- **Leader prepping a rep's call** (the deal owner is someone else on their team): add one line under the header: "[Rep]'s deal. Where [Name] helps: [the gap or decision a leader can unlock, like getting the exec on]." Keep the rest the same.
+- **No CRM connected:** work from calendar, email and calls; mark stage and amount as unknown rather than guessing. Mention once at the end that connecting the CRM or pasting the deal record sharpens the gaps.
+- **No calendar connected:** ask for the date, time and attendees in one line, or work from the `meeting_date` and notes given.
+- **A source fails:** retry once, continue, and say in one line what's missing.
 
-**[Name], [Title]** · [LinkedIn URL]
-Role on the deal: [what they own, how they influence the decision, what's distinctive about them from prior calls or their role]
+## Rules
 
-Flag anything that matters inline:
-- 🆕 if new to the invite (not on prior calls)
-- ⚠️ if they've pushed back, been a skeptic, or raised a concern last time — cite the quote
-- **Champion** if they've been advocating for your solution internally (pushing to move forward, asking how to sell this up the chain, volunteering to present internally). Only flag if you can point to a specific moment on a prior call or in an email where they did it.
-- **Decision maker** if their title or CRM record indicates they own the buying decision AND prior-call behavior confirms it (directing the conversation, making commitments, pushing timing). Don't infer from title alone.
-- A LinkedIn move only if directly relevant (new role in the last 3 months, posted about a problem your product solves)
+- **Every fact traces to a source.** CRM, a call, an email, chat, a contract or the web. If you can't point to it, leave it out. One invented detail is enough to make the person double-check everything.
+- **Drop empty sections.** A three-section brief with real content beats an eight-section one with filler.
+- **Sixty seconds.** The person reads this right before joining: keep the visible rows to about 450 words and put the rest in `detail`.
+- **Facts and prompts, no pep talk.** No "This is a big call!"
+- **No emojis.** The template carries the structure; in the Markdown version, bold labels do.
+- **Read only.** Don't update the CRM, send or draft anything, or create a scheduled task without the person saying yes.
 
-**If you can't confidently infer champion or decision maker, don't flag it.** These labels only matter when they're right. Inventing them breaks trust.
+## Report template
 
-If you don't have basic info on any attendee, flag the gap: "No background on [Name] — LinkedIn didn't return a match and they're not in CRM. Worth asking [host attendee] who they are before the call."
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pre-call brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#F7F6F3; --card:#FFFFFF; --ink:#171614; --ink-70:rgba(23,22,20,.7); --ink-50:rgba(23,22,20,.58); --ink-30:rgba(23,22,20,.3);
+  --line:#E9E8E4; --chip:#F3F2EF; --track:#ECEAE6;
+  --green:#1F8A4C; --green-soft:#E8F4EC;
+  --red:#D33A24; --red-soft:#FCEAE6;
+  --gold:#FEBC22; --gold-soft:#FFF4D6; --gold-text:#8A5A00;
+  --display:'Plus Jakarta Sans','Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 "Plus Jakarta Sans","Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:16px 16px 40px}
+.num{font-variant-numeric:tabular-nums}
+.chip{display:block;font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.2px;color:var(--ink)}
+.hero{background:#171614;color:#FFFFFF;position:relative;border-radius:4px;padding:20px 24px 18px}
+.hero h1{font-family:var(--display);font-feature-settings:"lnum","tnum";color:#FFFFFF;font-size:32px;line-height:1.12;letter-spacing:-.6px;font-weight:700;margin:0 0 4px;max-width:760px}
+.hero .sub{color:rgba(255,255,255,.75);font-size:15px;margin:0 0 16px}
+.health{display:flex;height:10px;border-radius:2px;overflow:hidden;background:rgba(250,248,245,.15)}
+.g-fill{background:var(--green)}
+.r-fill{background:var(--red)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:14px;border-top:1px solid rgba(250,248,245,.16)}
+.stat{padding:14px 12px 0 0}
+.stat+.stat{padding-left:16px;border-left:1px solid rgba(250,248,245,.16)}
+.stat .n{font-family:var(--display);font-feature-settings:"lnum","tnum";font-size:28px;font-weight:700;letter-spacing:-.5px}
+.stat .l{font-size:12px;color:rgba(255,255,255,.75)}
+.stat .key{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:20px 22px;margin-top:16px}
+.head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.hint{font-size:12px;color:var(--ink-50)}
+.item{border-top:1px solid var(--line)}
+.head + .item{border-top:0}
+.row{display:grid;grid-template-columns:26px 1fr 14px;gap:6px;padding:10px 0;align-items:start}
+details.item summary{list-style:none;cursor:pointer}
+details.item summary::-webkit-details-marker{display:none}
+details.item summary .row::after{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink-30);border-bottom:1.5px solid var(--ink-30);transform:rotate(-45deg);margin-top:7px;transition:transform .15s}
+details.item[open] summary .row::after{transform:rotate(45deg)}
+details.item summary:hover .row::after{border-color:var(--ink-70)}
+.mark.dot::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ink-30);margin-top:6px}
+.mark.dot.r::before{background:var(--red)}
+.mark.dot.g::before{background:var(--green)}
+.tick{width:16px;height:16px;border-radius:50%;background:var(--green);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.title{font-weight:600}
+.who{font-size:12px;color:var(--ink-50);font-weight:400;margin-left:6px}
+.sub2{font-size:13px;color:var(--ink-70)}
+.detail{margin:0 20px 12px 28px;padding:10px 12px;background:#F5F4F1;border-radius:6px;font-size:13px;color:var(--ink-70)}
+.detail ul,.detail ol{margin:0;padding-left:18px}
+.detail ol li{color:var(--ink)}
+.detail .ctx{margin-top:8px;font-size:12px;color:var(--ink-50)}
+a.stat{display:block;color:inherit;text-decoration:none;cursor:pointer}
+a.stat:hover .l{text-decoration:underline;text-underline-offset:2px}
+section[id]{scroll-margin-top:12px}
+.cols{display:grid;grid-template-columns:1fr 1fr}
+.cols > .item:nth-child(odd){padding-right:22px;border-right:1px solid var(--line)}
+.cols > .item:nth-child(even){padding-left:22px}
+.num-badge{width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:-1px}
+.cols > .item:nth-child(-n+2){border-top:0}
+.detail li+li{margin-top:3px}
+.next{color:var(--ink);font-size:13px}
+.next::before{content:"→ ";color:var(--ink-30)}
+.qline{margin:3px 0 2px}
+.tag.r{background:var(--red-soft);color:var(--red)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.n{background:var(--chip);color:var(--ink-70)}
+.empty{font-size:13px;color:var(--ink-50);padding:6px 0}
+.rep-row{display:grid;grid-template-columns:190px 1fr;gap:12px}
+.minibar{display:flex;height:8px;border-radius:2px;overflow:hidden;background:var(--track);margin-top:6px;max-width:220px}
+.more{font-size:12px;color:var(--ink-50);padding-top:10px;border-top:1px solid var(--line)}
+.r-al{text-align:right}
+.meta{font-size:12px;color:var(--ink-50)}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:12px;color:var(--ink-50)}
+footer details summary{cursor:pointer}
+footer a{color:var(--ink-70);text-decoration:underline;text-underline-offset:2px}
+footer a:hover{color:var(--ink)}
+.about{max-width:680px;margin-top:6px;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:4px;color:var(--ink-70);font-size:13px}
+.about p{margin:0 0 8px}
+.about p:last-child{margin:0}
+.about b{color:var(--ink);font-weight:600}
+.tag.g{color:#127A3E!important}
+.y-fill{background:var(--gold)}
+.mark.dot.y::before{background:var(--gold)}
+.tag.y{background:var(--gold-soft);color:var(--gold-text)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;align-items:start}
+.grid2 .card,.grid3 .card{margin-top:0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;align-items:start}
+.card.won{border-top:3px solid var(--green)}
+.card.lost{border-top:3px solid var(--red)}
+.card.won .head,.card.lost .head{border-bottom:0}
+.mark{font-weight:700;color:var(--ink-30);font-size:14px}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:2px;padding:1px 6px;white-space:nowrap;margin-left:6px}
+.qline .tag{margin-left:0}
+.stage{display:grid;grid-template-columns:170px 1fr 100px;gap:14px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.head + .stage{border-top:0}
+.stage .bar{display:flex;height:12px;border-radius:2px;overflow:hidden}
+.stage .gap{grid-column:2/4;font-size:12px;color:var(--ink-50);margin-top:-6px}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--ink-50);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+footer details p{max-width:640px;margin:6px 0 0}
+@media (max-width:720px){
+  .hero{padding:22px 18px 18px}
+  .hero h1{font-size:25px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat:nth-child(n+3){margin-top:10px}
+  .grid2,.grid3,.cols{grid-template-columns:1fr}
+  .cols > .item:nth-child(2){border-top:1px solid var(--line)}
+  .cols > .item:nth-child(odd){padding-right:0;border-right:0}
+  .cols > .item:nth-child(even){padding-left:0}
+  .card{padding:16px}
+  .detail{margin:0 0 12px 28px}
+  .rep-row{grid-template-columns:1fr;gap:4px}
+  .stage{grid-template-columns:1fr 90px}
+  .stage .bar{grid-column:1/3}
+  .stage .gap{grid-column:1/3;margin-top:0}
+}
+.hero .stat .n{font-size:22px}
+@media (max-width:720px){.hero .stat .n{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+/* Fill in DATA only. Leave everything else as is. */
+const DATA = {
+  name: "[First name]",
+  company: "[Buyer company]",
+  when: "[Weekday Month Day · time · length]",
+  callNumber: "[Call N | First call]",
+  agenda: "",
+  theyWant: "",
+  deal: { stage: "", amount: null, close: "", owner: "" },
+  atRisk: "",
+  note: "",
+  updated: "[date, time]",
+  numbers: { gaps: 0, owed: 0 },
+  want: [],
+  watch: [],
+  push: [],
+  people: [],
+  lastTime: [],
+  unknown: [],
+  words: [],
+  howBuilt: "[What was read, anything missing]"
+};
 
-Drop this section entirely if there's no attendee list and you couldn't find one.
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const money = n => n == null || n === "" ? "" : n >= 1e6 ? "$" + (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M" : n >= 1e3 ? "$" + Math.round(n / 1e3) + "k" : "$" + n;
+const list = a => (a || []).filter(Boolean);
+const detailBox = d => {
+  const lines = Array.isArray(d) ? list(d) : d ? [d] : [];
+  return lines.length ? `<div class="detail"><ul>${lines.map(l => `<li>${esc(l)}</li>`).join("")}</ul></div>` : "";
+};
+const stepsBox = (steps, context) => {
+  const st = list(steps);
+  if (!st.length && !context) return "";
+  return `<div class="detail">${st.length ? `<ol>${st.map(x => `<li>${esc(x)}</li>`).join("")}</ol>` : ""}${context ? `<div class="ctx">${esc(context)}</div>` : ""}</div>`;
+};
+const item = (mark, title, sub, detail, box0) => {
+  const body = `<div class="row">${mark}<div>${title}${sub ? `<div class="sub2">${sub}</div>` : ""}</div></div>`;
+  const box = box0 || detailBox(detail);
+  return box ? `<details class="item"><summary>${body}</summary>${box}</details>` : `<div class="item">${body}</div>`;
+};
+const src = s => s ? `<span class="who">${esc(s)}</span>` : "";
+const flagTag = f => !f ? "" : `<span class="tag ${f === "skeptic" ? "r" : f === "champion" ? "g" : "n"}">${esc(f)}</span>`;
+const D = DATA, N = D.numbers, dl = D.deal || {};
+const go = id => `href="#${id}" onclick="const t=document.getElementById('${id}');if(t){t.scrollIntoView({behavior:'smooth'});}return false;"`;
+const cols = items => items.length ? `<div class="cols">${items.join("")}</div>` : "";
+const card = (title, hint, body, empty, id) => `<section class="card"${id ? ` id="${id}"` : ""}><div class="head"><span class="chip">${title}</span><span class="hint">${hint || ""}</span></div>${body || `<div class="empty">${empty}</div>`}</section>`;
 
----
+let h = "";
+h += `<section class="hero"><h1>${esc(D.name)}'s pre-call brief: ${esc(D.company)}</h1><p class="sub">${esc([D.when, D.callNumber].filter(Boolean).join(" · "))}</p>`;
+if (D.agenda || D.theyWant) h += `<p class="sub">${D.agenda ? "Agenda: " + esc(D.agenda) : ""}${D.agenda && D.theyWant ? "<br>" : ""}${D.theyWant ? "They want: " + esc(D.theyWant) : ""}</p>`;
+if (D.note) h += `<p class="sub">${esc(D.note)}</p>`;
+h += `<div class="stats num">
+  <div class="stat"><div class="n">${esc(dl.stage || "No deal")}</div><div class="l">${esc(dl.owner ? "Owner: " + dl.owner : "Stage")}</div></div>
+  <div class="stat"><div class="n">${money(dl.amount) || "–"}</div><div class="l">${esc(dl.close ? "Close " + dl.close : "Amount")}</div></div>
+  <a class="stat" ${go("unknown")}><div class="n">${N.gaps}</div><div class="l"><span class="key y-fill"></span>Still unknown</div></a>
+  <a class="stat" ${go("owed")}><div class="n">${N.owed}</div><div class="l">Open commitments</div></a>
+</div>${D.atRisk ? `<p class="sub" style="margin:14px 0 0"><span class="tag r" style="margin-left:0">At risk</span> ${esc(D.atRisk)}</p>` : ""}</section>`;
 
-### 🔥 What they want to solve
+h += card("What they want to solve", "", cols(list(D.want).map(w => item(`<span class="tick">✓</span>`, `<span class="title">${esc(w.point)}</span>${src(w.source)}`, w.quote ? "“" + esc(w.quote) + "”" : "", w.detail))), "Nothing stated by the buyer yet.");
+h += card("Watch out for", "", cols(list(D.watch).map(w => item(`<span class="mark dot r"></span>`, `<span class="title">${esc(w.risk)}</span>${src(w.source)}`, `<div class="next">${esc(w.handle)}</div>`, w.detail))), "No risks found for this call.");
 
-Thematic distillation of the buyer's pain points, stated goals, and ROI specifics across all prior touchpoints. This is what the rep keeps calling back to on this call and every future one.
+h += `<section class="card"><div class="head"><span class="chip">What to push for</span><span class="hint">Open any item for how</span></div><div class="cols">`;
+h += list(D.push).length ? list(D.push).map((p, i) => item(`<span class="num-badge">${i + 1}</span>`, `<span class="title">${esc(p.outcome)}</span>`, esc(p.why), null, stepsBox(p.steps, p.context) || detailBox(p.why ? [p.why] : []))).join("") : `<div class="empty">Not enough deal context for specific pushes.</div>`;
+h += `</div></section>`;
 
-Include this section whenever there's verifiable buyer-side content to pull from: prior calls, prior emails, booking-form submissions, intro messages, or inherited CRM notes where the buyer articulated something. **This applies to first calls too if they replied to an intro with their goals, filled out a form with their current pain, or were warm-handed off with notes.**
+h += card("Who's on the call", list(D.people).length || "", cols(list(D.people).map(p => item(`<span class="mark dot ${p.flag === "skeptic" ? "r" : p.flag === "champion" ? "g" : ""}"></span>`, `<span class="title">${esc(p.name)}</span><span class="who">${esc(p.title)}</span>${flagTag(p.flag)}`, `${esc(p.role)}${src(p.source)}`, p.detail))), "No attendee list found.", "people");
+h += card("Last time and what's owed", "", cols(list(D.lastTime).map(l => item(l.status === "done" ? `<span class="tick">✓</span>` : `<span class="mark dot ${l.status === "open" ? "y" : ""}"></span>`, `${esc(l.text)}${l.status === "open" ? `<span class="tag y">open</span>` : ""}${src(l.source)}`, "", l.detail))), "First call. No prior touchpoints.", "owed");
 
-Skip this section only when there is genuinely no verifiable buyer-side content anywhere — true cold first calls with nothing to reference.
+h += card("Still unknown", "", cols(list(D.unknown).map(u => item(`<span class="mark dot y"></span>`, `<span class="title">${esc(u.item)}</span>`, esc(u.why), u.detail))), "No open gaps for this stage.", "unknown");
+h += card("Their words", "", cols(list(D.words).map(w => item(`<span class="mark">“</span>`, `${esc(w.phrase)}${src(w.source)}`, "", ""))), "No direct quotes yet.");
 
-Format:
-- **[Pain point, goal, or stake]** — specific quote or paraphrase from the buyer, with source.
-
-Pull from:
-- Specific pain they've articulated ("onboarding takes 6 weeks and we're losing customers in weeks 3-4" — Sarah, 4/17 call)
-- ROI or numbers they've shared (time cost, dollar cost, hours lost, headcount equivalents)
-- Stakes or consequences they've named ("if we don't fix this before Q3, leadership will reconsider the whole CS budget")
-- Stated goals ("target is under 2 weeks to first value", "free up 0.5 FTE")
-
-Rules:
-- 3-5 bullets max. If there's more, pick the ones the buyer has repeated or emphasized most.
-- Quote the buyer directly where possible — their words, not interpretation.
-- Cumulative across ALL prior calls and emails, not just the most recent.
-- No invented pain. If the buyer didn't articulate it, it doesn't go in.
-
-Drop this section entirely if this is the first call, or if no clear pain points have been articulated yet even after multiple calls.
-
----
-
-### 📎 What happened last time (cross-channel)
-
-2-4 bullets capturing what matters from prior touchpoints. Pull from ALL channels — last call, recent email, Slack DM, CRM note — not just the most recent call.
-
-Format each bullet with the source:
-- "[Quote from buyer]" — last call on [date]
-- You committed to [specific deliverable] by [date]. [Sent / Not sent yet.] — from email on [date]
-- [Open question the buyer raised] — not yet answered — last call on [date]
-
-If this is a first call AND there is truly no prior buyer-side content (no booking form, no reply emails, no intro notes, no CRM notes from an SDR handoff or referral), say so explicitly: "First call with [Company]. No prior touchpoints to reference." Then drop the rest of the section.
-
-If this is a first call BUT there is prior buyer-side content (booking-form values, the buyer's reply when they scheduled, an intro email thread, inherited notes from an SDR or referrer), still include this section drawing from that content. The "last time" is whatever prior interaction exists — a booking reply, a form submission, or an intro message counts. Cite the source for each bullet.
-
----
-
-### 🎯 What to push on this call
-
-3-5 specific things to try to accomplish on this call, in priority order. Each item tied to something real (a question from last time, a deal stage requirement, a stated goal from the buyer).
-
-Format:
-- **[Specific outcome].** [Why it matters for the deal. What you need to hear from the buyer.]
-
-Each push is concrete. Not "discuss pricing" but "get them to commit to a budget range so we can size the deal before end of month."
-
-Drop this section if you don't have enough deal context to give concrete pushes. Don't manufacture pushes.
-
----
-
-### ⚠️ What might go sideways
-
-Risks specific to this call, pulled from real signals. Each item includes the risk, where it came from, and how to handle.
-
-Examples of legitimate flags:
-- Competitor came up on last call and wasn't closed out: [competitor name, what was said]. → Get ahead of it.
-- Promised deliverable hasn't shipped: [deliverable, date promised]. → Acknowledge up front.
-- New stakeholder on this invite you haven't met: [name, title]. → Budget extra context for them.
-- Buyer has been quiet for [X] days across all channels. → Expect they may be cooling. Don't assume momentum.
-- Timeline slipping: close date was [date], now pushed. → Ask directly what changed.
-
-Drop this section if there are no real risks to surface. Do not invent risks.
-
----
-
-### 🗣️ Their language
-
-3-5 specific phrases the buyer actually uses, pulled from real transcripts or emails. This is so the rep can echo the buyer's own words on the call instead of reaching for internal jargon.
-
-Format:
-- "[exact phrase]" — from [source: last call on X date / email on Y date]
-
-Drop this section if you don't have verifiable quotes from the buyer.
-
----
-
-### ❓ Open questions to get answered
-
-Specific discovery gaps to close on this call. Each tied to something the deal needs.
-
-Format:
-- **[Question].** [Why it matters — what part of the deal this unblocks.]
-
-Examples:
-- **What's the budget range they've approved?** Needed to size the deal and frame pricing on the next call.
-- **Who else is in the decision committee?** You've met Sarah but the buyer mentioned "our exec team" on the last call without naming them.
-- **What does success look like in 90 days?** Worth capturing for post-call context.
-
-Drop this section if discovery is complete and there are no open questions.
-
----
-
-## STEP 4: ONE SUGGESTED NEXT STEP
-
-After the brief, end with exactly one concrete next-step offer:
-
-"After the call, run `Run post-call on [company]` and I'll generate the follow-up email, CRM note, and resources using the same deal context."
-
-Don't stack suggestions. One offer, then stop.
-
----
-
-## RULES
-
-1. **Never invent information.** Every fact traces back to a real source: call transcripts, CRM, email, chat, contracts, LinkedIn, or public web. If you can't verify it, it doesn't go in.
-
-2. **Never proceed past STEP 1 without confirmation.** The rep must explicitly confirm which call before gathering deep context.
-
-3. **Drop any section without real content.** Don't pad, don't flag placeholders, don't add generic filler. A 3-section brief with real content beats a 6-section brief with filler.
-
-4. **This brief is for the rep only.** It's a dossier, not buyer-facing. Voice matching doesn't matter here — clarity and scannability do.
-
-5. **Scannable in 60 seconds.** The rep is reading this right before the call. Short beats long. Each bullet earns its place. A 2-section brief with real content is better than a 6-section brief padded with filler. Cut anything that doesn't help the rep walk in sharper.
-
-6. **Emoji usage: only the defined set.** 📋 👥 🔥 📎 🎯 ⚠️ 🗣️ ❓ for section headers. 🆕 for new attendees. ⚠️ inline for attendee risks. No other emojis anywhere.
-
-7. **Never editorialize.** No "This is a big call!" or "You've got this!" Just facts and prompts.
+h += `<footer><details><summary>How this report works</summary><div class="about">
+<p>This page is rebuilt from the calendar, CRM, email and calls before each call, in the same layout and order, so every section is always in the same place. It only reads those tools: nothing in the CRM, inboxes or calendars was changed. It's for the seller, not the buyer.</p>
+<p><b>Still unknown</b> checks the deal against the team's own qualification method from the sales profile. <b>At risk</b> means no two-way contact in 14+ days, no dated next step, or a promised next step that didn't happen. <b>Champion</b>, <b>skeptic</b> and <b>decision maker</b> are only shown when a call or email backs them up.</p>
+<p>Every line names where it came from. Open the arrow on any row for more.</p>
+<p><b>This time:</b> ${esc(D.howBuilt)}</p></div></details><span>Updated ${esc(D.updated)} · Built with Sales Skills by <a href="https://arrows.to/claude-for-teams/?utm_source=sales-skills&utm_medium=report&utm_campaign=pre-call-prep" target="_blank" rel="noopener">Arrows</a></span></footer>`;
+document.getElementById("app").innerHTML = h;
+</script>
+</body>
+</html>
+```
 
 ---
 
@@ -310,6 +379,7 @@ Before you start, look for their sales profile files in this project and use the
 - `arrows-buyers-and-competitors.md`: what they sell, who buys, pricing, competitors.
 - `arrows-how-i-work.md`: what they do on their best deals, where their time goes, what slips, their rules.
 - `arrows-how-we-work.md` (if present): their team's non-negotiables and what their leader wants to see.
+- `arrows-crm-guide.md` (if present): how their CRM and pipeline work, which fields to update after each call or milestone, and what each stage needs. Use it whenever you suggest CRM updates.
 
 Look sections up by their `##` heading. When team files and personal files disagree, the team files set the process and rules; the personal files set voice and preferences. Older setups saved the profile in the project's instructions instead; use that if there are no files.
 
@@ -343,15 +413,17 @@ Below are the Sales Skills by Arrows the rep has installed (either via the MCP a
 
 **Arrows setup** — builds the person's sales profile (voice, sales process, buyers and competitors, how they work) from their CRM, calls and email, with two quick replies. Saves it as arrows-*.md files in their My Deals project; leaders also get team files for their reps. Run first, or to refresh. Trigger: "Build my sales profile."
 
-**Arrows daily brief** — a scannable overview of the rep's day: today's calls with attendee and deal context, messages waiting for a reply, pipeline alerts, open time. Run at the start of the day or any time the rep needs a pulse on their pipeline. Trigger: "Run my Arrows daily brief."
+**Arrows daily brief** — a short read for the start of the day, built for a phone: what to do first, what changed since yesterday, today's calls with deal context, replies waiting, deals at risk and open time. Leaders also get a line per rep. Trigger: "Run my Arrows daily brief."
 
-**Arrows pre-call prep** — focused deep dive on one specific upcoming call. Scannable in 60 seconds: who they're meeting, what the buyer wants to solve, what happened last time, what to push on, what might go sideways, open discovery questions. Run before any specific meeting the rep wants to walk into sharper. Trigger: "Run the Arrows meeting prep for [company]."
+**Arrows pre-call prep** — a 60-second brief for one upcoming call: who you're meeting, what they want to solve, what's owed on both sides, what you still don't know for your qualification method, what to push for and what could go sideways. Finds the call by itself. Trigger: "Run the Arrows meeting prep for [company]."
 
-**Arrows post-call** — the post-call workflow. Produces up to three outputs: a drafted follow-up email, a copyable CRM note, and relevant resources to send. Run right after any sales call. Trigger: "Run my Arrows post-call."
+**Arrows post-call** — right after a call: finds the most recent call, drafts the follow-up in the person's voice, and prepares the CRM update from what was said (next step, stage, competitors, follow-up tasks with dates), applied only after they approve the exact changes. Trigger: "Run my Arrows post-call."
 
-**Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
+**Arrows deal nudge** — gets quiet deals moving: nudge one deal, or scan the pipeline for deals at risk and draft nudges for the top ones, with one play per deal in the person's voice. Leaders get it by rep. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
 
 **Arrows weekly pipeline review** — a visual one-page review of every open deal: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Leaders get a rollup by rep with what to raise in each 1:1. Same page every week; can run every Monday. Trigger: "Run my weekly pipeline review."
+**Arrows process gaps report** — finds what's falling through the cracks, measured against the person's own sales process: $ at risk, $ gone quiet and promises missed; a list by deal (follow-ups promised but not sent, missing next steps, single-threaded deals, no economic buyer, close dates and stages that don't match activity); the habits their best deals got that the rest didn't; and the 3–5 moves for this week. Leaders get a by-rep view. Visual report to share. Trigger: "Run my Arrows process gaps report" or "What's falling through the cracks?"
+**Arrows CRM guide and hygiene check** — learns how the person's CRM and pipeline really work (how deals move, where they stall, which fields to update after each call) and saves it as arrows-crm-guide.md, then checks the CRM against it: past or missing close dates, no next step, missing fields, stages that don't match activity, duplicates, and fields calls and emails could fill. Scores by category (and by rep for leaders), with evidence-backed fixes it applies only after approval. Trigger: "Run my Arrows CRM hygiene check."
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.
