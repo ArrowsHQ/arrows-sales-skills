@@ -47,7 +47,6 @@ Setup takes about 5 to 10 minutes. Do it once, and the rest of the skills sound 
 | **Arrows post-call** | Right after a call, produces a follow-up email draft, a copyable CRM note, and relevant resources to send. Every fact comes from the actual call. |
 | **Arrows deal nudge** | Finds a stalled deal and drafts a specific play to reactivate it (send a resource, tap into something mentioned before, loop in a stakeholder, own a broken commitment). Scans your whole pipeline and surfaces candidates, or nudges a specific deal you name. |
 | **Arrows weekly pipeline review** | Your whole open pipeline on one shareable page, the same layout every week: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Sales leaders get a rollup by rep with what to raise in each 1:1. Can run itself every Monday. |
-| **Arrows help** | Prints a reference of every available Arrows skill and its trigger phrase. Useful when you forget what's installed or what to say. |
 
 ---
 
@@ -81,7 +80,7 @@ Done. Start a new chat and type "Build my sales profile" to begin.
 
 ### Or: add them as a Claude plugin
 
-This repo is also a Claude plugin marketplace. Adding the plugin installs all seven skills at once, and they update when this repo does.
+This repo is also a Claude plugin marketplace. Adding the plugin installs all six skills at once, and they update when this repo does.
 
 - **Claude (web or desktop):** go to **Customize**, then **Plugins**, then **Add**, then **Add marketplace**, and enter `ArrowsHQ/arrows-sales-skills`. Then add the **Sales Skills by Arrows** plugin.
 - **Claude Code:** run `claude plugin marketplace add ArrowsHQ/arrows-sales-skills`, then `claude plugin install arrows-sales-skills@arrows`.
@@ -90,7 +89,7 @@ This repo is also a Claude plugin marketplace. Adding the plugin installs all se
 
 If your company doesn't allow custom connectors, or you use ChatGPT, Copilot, Gemini, or another AI tool, you can download the skills directly and upload them.
 
-1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge, arrows-weekly-pipeline-review, arrows-help) each contain a SKILL.md file.
+1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge, arrows-weekly-pipeline-review) each contain a SKILL.md file.
 2. Click into the folder, then click on the SKILL.md file.
 3. Click the **Raw** button at the top right to see the plain text, or click **Download raw file** to save it.
 4. Upload it to your AI tool:
@@ -113,7 +112,6 @@ Once installed, trigger a skill by typing one of these phrases into your AI tool
 - **Post-call:** "Run my Arrows post-call" or "Run the Arrows post-call on [company]"
 - **Deal nudge:** "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline"
 - **Weekly pipeline review:** "Run my Arrows weekly pipeline review"
-- **Help:** "Arrows help"
 
 You can also invoke skills directly:
 
@@ -124,7 +122,6 @@ You can also invoke skills directly:
 /arrows-post-call
 /arrows-deal-nudge
 /arrows-weekly-pipeline-review
-/arrows-help
 ```
 
 ---

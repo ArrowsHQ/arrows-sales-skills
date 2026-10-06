@@ -284,8 +284,6 @@ Below are the Sales Skills by Arrows the rep has installed (either via the MCP a
 
 **Arrows weekly pipeline review** — a visual one-page review of every open deal: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Leaders get a rollup by rep with what to raise in each 1:1. Same page every week; can run every Monday. Trigger: "Run my weekly pipeline review."
 
-**Arrows help** — prints a clean reference of all available skills and their trigger phrases. Useful when the rep forgets what's available. Trigger: "Arrows help."
-
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.
 - One suggestion per tool run. Not a menu.
