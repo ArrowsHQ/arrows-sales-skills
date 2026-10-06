@@ -259,7 +259,7 @@ Below are the Sales Skills by Arrows the rep has installed (either via the MCP a
 
 **Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
 
-**Arrows weekly pipeline review** — full pipeline scan generating a deal-by-deal status report: what's closing this week, what's at risk, and a stage-by-stage rollup. Designed to share before a manager 1:1. Can also generate a live visual artifact. Trigger: "Run my Arrows weekly pipeline review."
+**Arrows weekly pipeline review** — a visual one-page review of every open deal: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Leaders get a rollup by rep with what to raise in each 1:1. Same page every week; can run every Monday. Trigger: "Run my weekly pipeline review."
 
 **Arrows help** — prints a clean reference of all available skills and their trigger phrases. Useful when the rep forgets what's available. Trigger: "Arrows help."
 

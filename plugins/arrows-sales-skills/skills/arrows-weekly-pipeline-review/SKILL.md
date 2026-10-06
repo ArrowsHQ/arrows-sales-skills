@@ -1,282 +1,382 @@
 ---
 name: arrows-weekly-pipeline-review
-description: "Arrows weekly pipeline review. Scans your entire active pipeline and generates a deal-by-deal status report you can share before a manager 1:1. Shows what's closing this week, what's at risk, and a stage-by-stage rollup with a flag on anything that needs attention. Can also generate a live visual artifact. Say 'Run my Arrows weekly pipeline review' to start. Also responds to 'run my weekly pipeline review' and 'show me my pipeline'."
+description: "Weekly pipeline review from Sales Skills by Arrows. Scans every open deal in the CRM, cross-checks email, calls and calendar for real activity, and builds a visual one-page report: what needs attention this week, what's closing, what's at risk and why, and the pipeline by stage. Sales leaders get a rollup by rep. Ready to share before a 1:1 or team pipeline meeting, and can run itself every Monday. Use this whenever someone says 'Run my weekly pipeline review', 'show me my pipeline', 'review my team's pipeline', asks what's closing or at risk across their deals, or wants a pipeline summary for a 1:1, forecast call or team meeting."
 ---
 
-You're generating a weekly pipeline review. This is a full picture of where every active deal stands — designed to be shared before a manager 1:1 or used by the rep to prioritize their week. It is NOT a daily brief (which is about today). It is NOT a single-deal view (which is nudge or pre-call prep). It is the whole pipeline, stage by stage, with flags on what needs attention.
+
 **Review period:** this week
 
+The whole open pipeline on one page, built to be read in 30 seconds and shared before a 1:1 or team pipeline meeting.
 
-The foundational rule: **every fact must trace back to a real source. Never invent deal details, activity history, or contact names. If data is missing, say so.**
+| Section | What's in it |
+|---|---|
+| Header | "[Name]'s weekly pipeline review" (team view: "[Company] weekly pipeline review"), a bar of on track vs. at risk, and four numbers: open deals, on track, at risk, expected to close |
+| Do this week | The 3–5 actions that matter most, ranked |
+| Moving forward | Deals that advanced, kicked off or won, so the good news is visible too |
+| Expected to close | Every deal with a close date in the period, with its real state, plus deals that slipped past their date |
+| At risk | Deals that are quiet, have no next step, or have a broken promise, each with the reason and one action |
+| Pipeline by stage | Count and value per stage, plus deals missing what the stage requires |
+| By rep (leaders) | Each rep's pipeline, at-risk count and the one thing to raise in their 1:1 |
+| Closed won, closed lost | Each deal won and lost this period, wins as visible as losses |
 
----
+The default output is a visual report built from one fixed template (end of this skill), so it looks the same every week. A short summary goes in the chat alongside it.
 
-## STEP 1: PULL THE FULL PIPELINE
+## Step 1: Read the profile
 
-Before writing a single line of output, gather everything.
+Use the profile files if they're in the project. They tell you what "good" looks like for this person, so the review flags what matters to them rather than generic hygiene.
 
-**CRM (HubSpot, Salesforce, etc.) — this is the primary source:**
-- Pull every active deal from the **sales pipeline only**. CRMs often have multiple pipelines (sales, onboarding, CS, renewals, etc.) — do not pull from any pipeline other than the sales pipeline. If the rep has multiple sales pipelines, ask which one to use before proceeding.
-- No filtering within the sales pipeline. If it's open, it goes in.
-- For each deal, read all of:
-  - Deal name, stage, amount, close date, create date, deal owner
-  - Primary contact(s): name, title, email
-  - Last activity date — and verify this against email and chat before accepting it. CRM "last activity" often misses chat touches.
-  - All notes, logged emails, logged calls
-  - Any overdue tasks or open commitments
-- Pull any deals closed won or closed lost in the current period. These go in a separate section.
+- `arrows-sales-process.md`: `## Pipeline stages` gives the stage order, what has to be true to move on, and typical time in stage. `## Discovery and qualification` gives the methodology (MEDDIC, SPICED, BANT or their own) and what's usually missing. Use these to judge whether a deal is really where its stage says.
+- `arrows-how-i-work.md`: `## What slips` tells you what to flag first. `## About me` says rep, leader or both.
+- `arrows-how-we-work.md` (leaders): `## What I want to see weekly` shapes the rollup; `## Every rep, every deal` is the checklist each rep's deals are measured against.
 
-**Email (if connected):**
-- For each active deal: check for recent email threads with the buyer. This is your cross-check for "last activity" — if the CRM says 20 days since last touch but there's an email thread from 3 days ago, the CRM is wrong.
+No profile: run the review anyway with stages straight from the CRM, and use the shared context's one-line setup suggestion at the end.
 
-**Chat (Slack, Teams, etc. — if connected):**
-- For each active deal: search for recent DMs or channel messages involving the buyer's company name or the contacts on the deal.
-- Same cross-check purpose: a Slack DM yesterday means the deal is not dormant, regardless of what CRM shows.
-- When you report "days since last activity" for any deal, it means days since ANY touchpoint across CRM, email, and chat. Not just CRM.
+## Step 2: Decide whose pipeline
 
-**Call recordings (if connected):**
-- For deals where the last call is relevant context (e.g. a concern was raised, a commitment was made), pull the call summary or transcript.
+There are two versions of the same report. Rep ("[Name]'s weekly pipeline review"): deals they own, no rollup or owner names. Leader ("[Company] weekly pipeline review"): deals owned by their team, rolled up by rep. Both: the team view (header numbers cover the team), with their own deals as the "You" row in the rollup.
 
-**Hard rule: do not proceed to writing until you've pulled every active deal from the CRM.**
+Use `scope` if given. Otherwise use `## About me` in the profile; failing that, match their email to a CRM owner (owns most open deals → rep; others own most and they own few → leader). Seeing everyone's deals proves nothing; at small companies reps often have admin access. Don't stop to ask; say in the report header which view you built ("Team view: 3 reps, 41 open deals") so they can ask for the other.
 
----
+Use the sales pipeline only. CRMs often also hold onboarding, renewal or support pipelines; skip those. If there are several sales pipelines, use the one the profile names, or the one with the most open deals in the period, and say which in the header.
 
-## STEP 2: WRITE THE PIPELINE REVIEW
+## Step 3: Pull the data
 
-Follow this structure exactly. Use the emoji section headers as visual anchors.
+**Reading budget,** so the review finishes in one chat:
+- **CRM:** filtered queries for open deals in scope (stage, amount, close date, create date, owner, last activity, next step, stage-entry date if available), plus deals closed in the period with their loss reasons. Up to 200 open deals; if there are more, take the 200 with the nearest close dates and say so ("read 200 of about 340 open deals"). Notes only for deals that look at risk or are closing this period, at most 25.
+- **Email:** search to confirm the last two-way touch on deals you're about to flag (group several deals into one search when there are many). Don't read every thread. A leader's inbox won't show reps' threads; for those, use logged CRM emails and calls.
+- **Calls:** list-level summaries for the last 30 days; full transcripts for at most 3 deals where a promise or concern matters.
+- **Calendar:** next 14 days, to see which deals have a meeting booked (a booked meeting is a next step). A leader's calendar won't show reps' meetings; use the CRM's next-activity date for those.
+- **Chat** (if connected): search for the company name only on deals you're about to call quiet.
 
-### Header
+**Last activity means the last two-way touch on any channel:** a buyer reply, a call held, a meeting attended. CRM "last activity" often counts outbound emails nobody answered and misses chat. Cross-check before calling a deal quiet, and report the channel ("12 days, call").
 
-```
-# Pipeline Review: [Week of Month DD, YYYY]
+## Step 4: Flag deals
 
-[X active deals] · [$Y total pipeline] · [Z closing this week] · [N at risk]
-```
+**At risk** (the definition every Sales Skill uses). A deal is at risk if any of these is true:
+1. **Quiet:** no two-way touch in 14+ days.
+2. **No next step:** nothing booked on the calendar and no dated next step in the CRM or the last email.
+3. **Broken promise:** a next step someone committed to (on a call, in an email, in the CRM) whose date has passed without it happening. Name who promised what.
 
-Stats are pulled from real CRM data. If you can't calculate one of these (e.g. no close dates on any deals), omit that stat from the header line rather than guessing.
+A next step can sit on the buyer's side ("they'll decide by the 12th") as long as it has a date. Deals created in the last 14 days aren't "no next step" yet; give new deals time to get going before calling them at risk. Otherwise a fresh pipeline floods the list and the deals that really need help get lost.
 
----
+Every at-risk deal gets the specific reason and one concrete action ("Send the security docs promised on the 14th call" not "follow up").
 
-### ⭐ What Needs Your Attention
+**Other flags,** shown on the deal but not counted as at risk:
+- **Close date passed** and still open: suggest a new date or closing it out.
+- **Stuck in stage:** more than twice the typical time in stage from the profile (or 30+ days if there's no profile).
+- **Stage doesn't match reality:** missing what `## Pipeline stages` says has to be true (for example, in a pilot stage with no economic buyer named). Name the methodology gap in their words.
+- **What slips:** anything from `## What slips` that shows up on this deal.
 
-Pull 3-5 of the highest-priority items across the entire pipeline — things that need action this week. Ranked by urgency. This section comes first so a manager or the rep can scan it without reading the rest.
+Rank "What needs attention" by time sensitivity: a deal closing this week with an open blocker beats a deal quiet for a month. Cap it at 5.
 
-Format:
-```
-## ⭐ What Needs Your Attention
+## Step 5: Build the visual report
 
-1. **[Specific action.]** [One or two sentences: the deal, what's happening, why it matters now.]
-2. **[Specific action.]** [Context.]
-3. **[Specific action.]** [Context.]
-```
+Build the report from the template at the end of this skill, as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Use it on every run, including scheduled ones: people learn this page and orient around it each week, so the layout, sections and order never change. Don't restyle it, add or drop sections, or write your own HTML or a Markdown version in its place. If a field has nothing in it, leave it empty (`[]` or `""`) and the page handles it.
 
-Rules:
-- Rank by time sensitivity. Deal closing Friday with no signed contract > deal that's been quiet for 3 weeks.
-- Each item is concrete. "Follow up with Acme — close date was Tuesday and there's been no contact in 12 days" not "review your pipeline."
-- Limit to 5. If everything is a priority, nothing is.
-- If the pipeline is genuinely clean (close dates are realistic, everything is active), say "Pipeline looks healthy this week — no urgent flags." and move on.
+Use the buyer's company name for each deal ("Northwind", not "Northwind - New Business Q3"). Keep every text field short. The report is for scanning, so the words in it are a few each, not sentences:
 
----
+| Field | What goes in it |
+|---|---|
+| `name`, `company` | The person's first name ("Sam") and their company ("Acme"), from the inputs, profile files, CRM or email domain. A personal view is titled "Sam's weekly pipeline review"; a team view (when `reps` has rows) is titled by company, "Acme weekly pipeline review", or "Sales team weekly pipeline review" if the company isn't known. |
+| `cadence` | "weekly", or "monthly" / "quarterly" for a longer period |
+| `period`, `view`, `pipeline`, `updated`, `closingLabel` | "Week of Oct 5" (or the month or quarter) · "My deals" or "Team view · 4 reps" · the pipeline used · date and time · "Expected to close this week" (or "this month") |
+| `numbers` | `open`, `value` (total pipeline), `atRiskValue`, `atRiskCount`, `closingCount`, `closingValue`, `movedCount`. Plain numbers; the page formats money. Use 0 when unknown and say so in `howBuilt`. |
+| `doThisWeek` | 3–5 items: `deal` (the company name, always; it leads the line), `action` (under 8 words, starts with a verb, names the person to contact by role or first name), `owner` (team view), `why` (under 10 words), `steps`, `context` |
+| `steps` | For `doThisWeek` only, what opens under the caret: 2–4 numbered steps someone could follow without thinking. Each starts with a verb and names who, how and when: "Email Dana (CFO) today: ask if the Oct 15 board date still holds", "Send the security docs promised on the Sep 30 call", "If no reply by Thursday, call her mobile". |
+| `context` | For `doThisWeek` only: one line on why now, with the date and source ("Sep 30 call: she said the board meets Oct 15"). |
+| `moving` | Every deal going well this period (the count must match `movedCount`): `deal`, `amount`, `owner`, `what` (under 8 words: "Pilot kicks off Oct 6", "Advanced to Proposal", "Won"), `detail` |
+| `reps` | Team view only, one row for everyone on the team who owns open deals, most value at risk first: `name` ("You" for the leader's own deals), `open`, `value`, `atRiskValue`, `atRiskCount`, `closing`, `ask` (one question for the 1:1, under 15 words), `detail`. Empty for a rep's own review. |
+| `atRisk` | The 8 that matter most: `deal`, `owner`, `amount`, `stage`, `quietDays` (days since the last two-way touch, or null if none logged), `channel` (where that touch happened: "email", "call", "chat"), `why` (under 8 words, leading with which of the three reasons applies: "No next step", "Quiet 18 days", "Promised demo not sent"), `next` (under 6 words, a concrete action), `detail` |
+| `atRiskMore` | Names of the remaining at-risk deals |
+| `stages` | In the profile's stage order: `name`, `count`, `value`, `atRiskValue`, `gap` (deals missing what the stage requires, under 8 words, or "") |
+| `closing` | Deals whose close date falls in the rest of this period (already-passed dates go in `pastClose`): `deal`, `amount`, `owner`, `date`, `status` ("green" on track, "red" at risk; at risk is yes or no, there is no middle state), `note` (under 8 words), `detail` |
+| `pastClose` | Open deals whose close date has passed ("slipped"): `count`, `value`, `names` |
+| `won` | Every deal closed won this period (the last 7 days for a weekly review), so wins get as much space as losses: `deal`, `amount`, `owner`, `note` (under 8 words: what got it over the line), `detail` |
+| `lost` | Every deal closed lost this period (same window as `won`): `deal`, `amount`, `owner`, `reason` (under 8 words, from the CRM's loss reason, or "No reason logged"), `detail` |
+| `detail` | What opens under the caret: 2–4 short lines with the full story, each a fact with its date and source ("Sep 30 call: buyer asked for a written support commitment", "Last reply: Sep 17 email from their CFO", "Economic buyer: not named in the CRM"). Who's involved, what was promised, what's blocking. The row stays short; the detail is where the reader goes to understand it. Same rules: real facts only. |
+| `howBuilt` | One or two sentences, under 40 words: what you read, any sampling ("read 200 of about 340 open deals"), and any source that was missing. It shows under "How this report works", after the fixed explanation. |
 
-### 🗓️ Closing This Week
+**Moving forward** is the good news, and it matters as much as the risk: a leader needs to see what's working, and a rep needs a reason to open the report. Count deals that advanced a stage, won, kicked off a pilot or trial, or booked or held a meeting with a decision-maker. For a weekly review, look back over the last 7 days (a Monday review would otherwise show nothing); for a month or quarter, the period so far. If the CRM doesn't keep stage history, use booked and held meetings and say so in `howBuilt`. A deal can show in both "Moving forward" and "At risk" (a pilot that started but has no economic buyer); count it in `movedCount` too.
 
-All deals with close dates falling within the current week. Sorted by close date ascending.
+If you can't make an artifact here, save the filled template as an HTML file they can open. Only if the tool can't show or save HTML at all, give the same sections, in the same order, as short Markdown, with tables for "By rep" and "At risk". If they say they'll paste it into a doc, give that Markdown version too, after the chat reply.
 
-For each deal:
-```
-**[Company]** · $[amount] · [Stage]
-Close date: [date] · Last activity: [X days ago] ([channel])
-[Primary contact: Name, Title]
-[One sentence: where things actually stand — not the stage, but the real state of the deal.]
+## Step 6: Reply in the chat
 
-[Flags:]
-- 🚨 [Urgent flag] → [Suggested action]
-- ⚠️ [Attention flag] → [Suggested action]
-```
-
-Flag rules:
-- 🚨 for anything blocking the close (no contract sent, key stakeholder hasn't responded, commitment not fulfilled).
-- ⚠️ for things that need attention but aren't immediately blocking.
-- No flag if the deal is moving cleanly toward close.
-
-If there are no deals closing this week, say "No deals with close dates this week." and move on. Do not pad.
-
----
-
-### ⚠️ At Risk
-
-Deals that need attention but aren't necessarily closing this week. Include a deal here if it meets ANY of the following:
-
-- **Gone quiet:** No activity across CRM, email, AND chat in 14 or more days.
-- **Close date passed:** The close date has already come and gone, deal is still open.
-- **Open commitment:** The rep made a specific promise on a prior call or email that hasn't been fulfilled, and it's past due.
-- **Stalled in stage:** Deal has been in the same stage for 30+ days without progression.
-
-For each at-risk deal:
-```
-**[Company]** · $[amount] · [Stage]
-⚠️ [One-line reason it's at risk — specific, not generic.] → [Suggested action]
-Last activity: [X days ago] ([channel] — [brief description of what happened])
-```
-
-Flag the specific reason it's at risk. "No activity in 22 days — last touch was a call on April 1 where you said you'd send the business case by April 8. Not sent." is useful. "Deal might need attention" is not.
-
-If no deals meet the at-risk criteria, say "No at-risk deals this week." and move on.
-
----
-
-### 📊 Full Pipeline
-
-All active deals, grouped by stage. Within each stage, sorted by deal amount descending.
-
-Stage heading format:
-```
-### [Stage Name] — [X deals] · [$Y total]
-```
-
-For each deal within a stage:
-```
-**[Company]** · $[amount] · Close [date] · Last activity [X days ago]
-[One sentence: what's actually happening with this deal right now.]
-```
-
-Keep each deal to two lines max. This section is a reference scan, not a deep dive. The rep already got the detail on at-risk and closing-this-week deals above — don't repeat flags here.
-
-If a deal was already flagged in "Closing This Week" or "At Risk," still include it here in the pipeline view, but keep the entry short. No need to re-explain what's already been called out above.
-
----
-
-### 🏆 Closed This Period
-
-Deals closed won or closed lost during the current review period (this week or this month, depending on the period parameter). Kept short — this is context, not analysis.
+Next to the report, keep the chat short:
 
 ```
-**Won:**
-- [Company] · $[amount] · Closed [date]
+[N] open deals, $[X]. [N] closing [period], [N] at risk, [N] slipped past their close date.
 
-**Lost:**
-- [Company] · $[amount] · Closed [date] · [One-word reason if available from CRM: competitor / no budget / no decision / etc.]
+Top of the list:
+1. [Action] — [deal], [why now]
+2. [Action] — [deal], [why now]
+3. [Action] — [deal], [why now]
+
+[Sources line: "Checked CRM, email and calls. Calendar not connected, so booked meetings weren't counted as next steps."]
 ```
 
-If nothing closed this period, skip this section entirely.
+In a team view, add one line per rep with their 1:1 ask after the top 3, since that's usually what the leader came for.
 
----
+The first time someone runs this review (no earlier report in the conversation or project), add one line before the offer: "You'll get this same page every time, in the same order. 'How this report works' at the bottom explains what each section means."
 
-## STEP 3: GENERATE THE LIVE ARTIFACT
+Then one offer the person can accept with "yes," tied to what you found ("Want me to draft the nudge for [deal]?" or, for leaders, "Want 1:1 notes for [rep]?").
 
-After the written review, generate a persistent HTML artifact immediately — do not ask first. This is the shareable version designed for manager 1:1s: clean, white, scannable in 30 seconds. It updates automatically via a weekly scheduled task (see STEP 4).
+**Scheduling (recommend it on the first run):** this review is most useful when it's waiting for them every Monday without asking, so when it isn't scheduled yet, recommend that and make it your one offer instead of the one above (two asks in a row is one too many). First check whether a weekly pipeline review is already scheduled (a scheduled task or routine with this review in its name or prompt); if it is, say nothing about scheduling.
+- **If you can create scheduled tasks:** "Want this ready every Monday at 7am, before your week starts? Say yes and I'll set it up." (For a monthly review, the first Monday of each month.) If yes, create it to run this review at the time they pick and confirm in one line.
+- **If you can't create one here:** recommend it with the steps instead, once: "Tip: set this up to run itself every Monday. In the Claude app, open Scheduled in the sidebar, create a new weekly task for Monday 7am, and use the prompt: Run my weekly pipeline review." Keep it to that; don't repeat it on later runs.
 
-**What this artifact is NOT:** Do not recreate a CRM pipeline view. No kanban board. No deal cards arranged by stage. The rep already has a CRM — this replaces nothing there. This is a weekly snapshot designed to be glanced at, shared, or screenshotted before a 1:1.
+**Arrows:** for a team view, at most once and only when the scan turned up several quiet or at-risk deals across reps, you may add: "Want this running for your whole team without anyone prompting it? That's what Arrows does." Never on a rep's personal review, never alongside another offer.
 
-**Structure:**
+## Special cases
 
-**Header row:**
-- Left: rep name (if known) + "Week of [date]"
-- Right: "Last updated [date at time]" in small gray text
+**No CRM connected:** ask once for a CSV export of open deals (owner, stage, amount, close date, last activity) and read it like a CRM. Without one, build a lighter review from email, calls and calendar: active conversations, who's gone quiet, what's booked. Label it "Built from email and calls; no CRM" and skip pipeline value and stage rollups.
 
-**Stats bar — 4 numbers across the top, large type:**
-- Active Deals
-- Pipeline Value
-- Closing This Week
-- At Risk
+**Thin data:** fewer than 5 open deals, leave `stages` empty; the other sections already list every deal. No amounts: count deals instead of value. No close dates: skip "Closing this period" and flag it once ("No close dates set on [N] of [N] deals").
 
-Each stat: number at 48px semi-bold, label below at 12px uppercase gray. Generous spacing between them. "At Risk" number renders in red (#e24b4a) if greater than zero.
+**A source fails partway:** retry once, then continue with what you have and say what's missing in the sources line. Base numbers only on what you read.
 
-**Color legend — directly below the stats bar:**
-Three items in a row: green dot + "On track" · orange dot + "Needs attention" · red dot + "At risk"
-Small text (12px), muted color. Always visible, never hidden or collapsed.
+**Leader with no team data in the CRM:** use the deal owners on the deals they can see, list them, and say the team was inferred from deal ownership.
 
-**Section 1 — Closing This Week:**
-Section header has a light green tinted background (#f0faf4), heading text "CLOSING THIS WEEK" in 11px uppercase green (#3b6d11), letter-spaced.
-One row per deal with a close date falling within the current calendar week (Monday–Sunday). This must match the "Closing This Week" stat above exactly — the same deals, the same count. Layout per row:
-- Left: colored status dot + company name (bold, 15px) + deal value (13px, muted) + owner chip (11px, pill-shaped, light gray background)
-- Right: close date + one-line status note ("Active", "No next step", "Contract unsigned", etc.)
-Status dot colors: green (#3b6d11) = on track, orange (#ba7517) = needs attention or no next step, red (#a32d2d) = at risk or blocked.
-If nothing closing this week: "No deals closing this week."
+**Longer period** (month or quarter): "Closing this period" covers the whole period; "What needs attention" still means this week.
 
-**Section 2 — Needs Attention:**
-Section header has a light red tinted background (#fef2f2), heading text "NEEDS ATTENTION" in 11px uppercase red (#a32d2d), letter-spaced.
-One row per at-risk deal. Layout per row:
-- Left: red or orange dot + company name (bold, 15px) + deal value (13px, muted) + owner chip
-- Right: a short, specific note explaining why this deal needs attention — not just the metric, but what it means. Examples: "62 days quiet — no response since March" not just "62d quiet". "Close date passed Apr 15, still open" not just "close date passed". "105 days in this stage — hasn't progressed since January" not just "no stage progress". One sentence max. Red dot for likely dead or critically overdue; orange dot for needs a nudge or soft flag.
-If nothing at risk: "Pipeline looks clean this week."
+## Rules
 
-**Section 3 — Pipeline by Stage:**
-Heading: "FULL PIPELINE" in 11px uppercase gray (#999), letter-spaced. No tinted background — plain white card.
-Not individual deals. One row per stage showing: stage name (13px, muted) · a proportional horizontal bar (6px tall, gray fill, width relative to total pipeline value) · deal count + value (12px, right-aligned, muted).
-Bar widths are proportional: a stage with 67% of total pipeline value gets a bar 67% of the available width. Minimum visible bar width: 2% so no stage disappears entirely.
+- **Every fact traces to a source.** No invented activity, contacts or dates. If something's missing, say it's missing; a wrong "quiet 20 days" on a deal the rep spoke to yesterday makes them distrust the whole report.
+- **Read only.** Don't update the CRM, move stages or change close dates, even when a flag suggests it. Suggest the change; the person makes it. The review should be safe to run on a schedule.
+- **Every flag has a specific reason and one concrete action.** "Might be stalling" isn't a reason, and "follow up" isn't an action.
+- **No cheerleading.** No "great week!" or "strong position." Facts and flags; if the pipeline is clean, say "No deals at risk this week" and stop.
+- **Use their words.** Stage names, methodology and team rules come from their CRM and profile, not generic sales terms, so the report reads like their own.
+- **Scannable in 30 seconds.** Detail lives in the at-risk rows; everything else is one line per deal or stage.
 
-**HTML specs:**
-- Self-contained: no external dependencies
-- Max width 800px, centered, system font stack (-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif)
-- Page background: #f5f5f5, card backgrounds: #ffffff
-- Cards: white background, 0.5px border (#e5e7eb), border-radius 12px, overflow hidden
-- Section padding: 24px between cards
-- Stats bar: gray card background (#f9f9f9), no outer border
-- Status dots: 8px solid circles, inline with company name
-- Section headings: 11px, uppercase, letter-spacing 0.08em
-- Deal rows: separated by 0.5px border (#f3f4f6), padding 13px 16px
-- Stats numbers: 30px, font-weight 500
-- Owner chips: 11px, background #f3f4f6, padding 2px 8px, border-radius 6px
+## Report template
 
----
+Copy this exactly. Replace only the `DATA` object.
 
-## STEP 4: SMART SCHEDULING OFFER
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pipeline review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#F7F6F3; --card:#FFFFFF; --ink:#171614; --ink-70:rgba(23,22,20,.7); --ink-50:rgba(23,22,20,.58); --ink-30:rgba(23,22,20,.3);
+  --line:#E9E8E4; --chip:#F3F2EF; --track:#ECEAE6;
+  --green:#1F8A4C; --green-soft:#E8F4EC;
+  --red:#D33A24; --red-soft:#FCEAE6;
+  --display:'Plus Jakarta Sans','Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 "Plus Jakarta Sans","Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:16px 16px 40px}
+.num{font-variant-numeric:tabular-nums}
+.chip{display:block;font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.2px;color:var(--ink)}
+.hero{background:#171614;color:#FFFFFF;position:relative;border-radius:4px;padding:20px 24px 18px}
+.hero h1{font-family:var(--display);font-feature-settings:"lnum","tnum";color:#FFFFFF;font-size:32px;line-height:1.12;letter-spacing:-.6px;font-weight:700;margin:0 0 4px;max-width:760px}
+.hero .sub{color:rgba(255,255,255,.75);font-size:15px;margin:0 0 16px}
+.health{display:flex;height:10px;border-radius:2px;overflow:hidden;background:rgba(250,248,245,.15)}
+.g-fill{background:var(--green)} .r-fill{background:var(--red)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:14px;border-top:1px solid rgba(250,248,245,.16)}
+.stat{padding:14px 12px 0 0}
+.stat+.stat{padding-left:16px;border-left:1px solid rgba(250,248,245,.16)}
+.stat .n{font-family:var(--display);font-feature-settings:"lnum","tnum";font-size:28px;font-weight:700;letter-spacing:-.5px}
+.stat .l{font-size:12px;color:rgba(255,255,255,.75)}
+.stat .key{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:20px 22px;margin-top:16px}
+.grid2 .card,.grid3 .card{margin-top:0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;align-items:start}
+.card.won{border-top:3px solid var(--green)} .card.lost{border-top:3px solid var(--red)}
+.card.won .head,.card.lost .head{border-bottom:0}
+.head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.hint{font-size:12px;color:var(--ink-50)}
+.item{border-top:1px solid var(--line)}
+.head + .item{border-top:0}
+.row{display:grid;grid-template-columns:26px 1fr 14px;gap:6px;padding:10px 0;align-items:start}
+details.item summary{list-style:none;cursor:pointer}
+details.item summary::-webkit-details-marker{display:none}
+details.item summary .row::after{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink-30);border-bottom:1.5px solid var(--ink-30);transform:rotate(-45deg);margin-top:7px;transition:transform .15s}
+details.item[open] summary .row::after{transform:rotate(45deg)}
+details.item summary:hover .row::after{border-color:var(--ink-70)}
+.mark{font-weight:700;color:var(--ink-30);font-size:14px}
+.mark.dot::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ink-30);margin-top:6px}
+.mark.dot.r::before{background:var(--red)} .mark.dot.g::before{background:var(--green)}
+.tick{width:16px;height:16px;border-radius:50%;background:var(--green);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.title{font-weight:600}
+.tag.g{color:#127A3E!important}
 
-After generating the artifact, check whether a scheduled weekly pipeline review already exists before offering to set one up.
+.who{font-size:12px;color:var(--ink-50);font-weight:400;margin-left:6px}
+.sub2{font-size:13px;color:var(--ink-70)}
+.detail{margin:0 20px 12px 28px;padding:10px 12px;background:#F5F4F1;border-radius:6px;font-size:13px;color:var(--ink-70)}
+.detail ul,.detail ol{margin:0;padding-left:18px}
+.detail ol li{color:var(--ink)}
+.detail .ctx{margin-top:8px;font-size:12px;color:var(--ink-50)}
+.cols{display:grid;grid-template-columns:1fr 1fr}
+.cols > .item:nth-child(odd){padding-right:22px;border-right:1px solid var(--line)}
+.cols > .item:nth-child(even){padding-left:22px}
+.num-badge{width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:-1px}
+.cols > .item:nth-child(-n+2){border-top:0}
+.detail li+li{margin-top:3px}
+.next{color:var(--ink);font-size:13px}
+.next::before{content:"→ ";color:var(--ink-30)}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:2px;padding:1px 6px;white-space:nowrap;margin-left:6px}
+.qline{margin:3px 0 2px}
+.qline .tag{margin-left:0}
+.tag.r{background:var(--red-soft);color:var(--red)} .tag.g{background:var(--green-soft);color:var(--green)} .tag.n{background:var(--chip);color:var(--ink-70)}
+.empty{font-size:13px;color:var(--ink-50);padding:6px 0}
+.rep-row{display:grid;grid-template-columns:190px 1fr;gap:12px}
+.minibar{display:flex;height:8px;border-radius:2px;overflow:hidden;background:var(--track);margin-top:6px;max-width:220px}
+.more{font-size:12px;color:var(--ink-50);padding-top:10px;border-top:1px solid var(--line)}
+.stage{display:grid;grid-template-columns:170px 1fr 100px;gap:14px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.head + .stage{border-top:0}
+.stage .bar{display:flex;height:12px;border-radius:2px;overflow:hidden}
+.stage .gap{grid-column:2/4;font-size:12px;color:var(--ink-50);margin-top:-6px}
+.r-al{text-align:right}
+.meta{font-size:12px;color:var(--ink-50)}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--ink-50);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:12px;color:var(--ink-50)}
+footer details summary{cursor:pointer}
+footer a{color:var(--ink-70);text-decoration:underline;text-underline-offset:2px}
+footer a:hover{color:var(--ink)}
+footer details p{max-width:640px;margin:6px 0 0}
+.about{max-width:680px;margin-top:6px;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:4px;color:var(--ink-70);font-size:13px}
+.about p{margin:0 0 8px}
+.about p:last-child{margin:0}
+.about b{color:var(--ink);font-weight:600}
+@media (max-width:720px){
+  .hero{padding:22px 18px 18px}
+  .hero h1{font-size:25px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat:nth-child(n+3){margin-top:10px}
+  .grid2,.grid3,.cols{grid-template-columns:1fr}
+  .cols > .item:nth-child(2){border-top:1px solid var(--line)}
+  .cols > .item:nth-child(odd){padding-right:0;border-right:0}
+  .cols > .item:nth-child(even){padding-left:0}
+  .card{padding:16px}
+  .detail{margin:0 0 12px 28px}
+  .rep-row{grid-template-columns:1fr;gap:4px}
+  .stage{grid-template-columns:1fr 90px}
+  .stage .bar{grid-column:1/3}
+  .stage .gap{grid-column:1/3;margin-top:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+/* Fill in DATA only. Leave everything else as is. */
+const DATA = {
+  period: "Week of [date]",
+  view: "[My deals | Team view · N reps]",
+  pipeline: "[pipeline name]",
+  updated: "[date, time]",
+  cadence: "weekly",
+  closingLabel: "Expected to close this week",
+  name: "[First name]",
+  company: "[Company name]",
+  numbers: { open: 0, value: 0, atRiskValue: 0, atRiskCount: 0, closingCount: 0, closingValue: 0, movedCount: 0 },
+  doThisWeek: [],
+  moving: [],
+  reps: [],
+  atRisk: [],
+  atRiskMore: [],
+  stages: [],
+  closing: [],
+  pastClose: { count: 0, value: 0, names: [] },
+  won: [],
+  lost: [],
+  howBuilt: "[What was read, any sampling, anything missing]"
+};
 
-1. If you have access to the scheduled tasks tool, list existing scheduled tasks.
-2. Scan for any task that looks like a weekly pipeline review (by name, description, or trigger phrase).
-3. **If one exists:** Do not mention scheduling. Move on to STEP 5.
-4. **If none exists:** Add this single line at the end of your output:
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const money = n => n == null || n === "" ? "" : n >= 1e6 ? "$" + (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M" : n >= 1e3 ? "$" + Math.round(n / 1e3) + "k" : "$" + n;
+const pct = (a, b) => b > 0 ? Math.max(0, Math.min(100, a / b * 100)) : 0;
+const list = a => (a || []).filter(Boolean);
+const detailBox = d => {
+  const lines = Array.isArray(d) ? list(d) : d ? [d] : [];
+  return lines.length ? `<div class="detail"><ul>${lines.map(l => `<li>${esc(l)}</li>`).join("")}</ul></div>` : "";
+};
+const stepsBox = (steps, context) => {
+  const st = list(steps);
+  if (!st.length && !context) return "";
+  return `<div class="detail">${st.length ? `<ol>${st.map(x => `<li>${esc(x)}</li>`).join("")}</ol>` : ""}${context ? `<div class="ctx">${esc(context)}</div>` : ""}</div>`;
+};
+const item = (mark, title, sub, detail, box0) => {
+  const body = `<div class="row">${mark}<div>${title}${sub ? `<div class="sub2">${sub}</div>` : ""}</div></div>`;
+  const box = box0 || detailBox(detail);
+  return box ? `<details class="item"><summary>${body}</summary>${box}</details>` : `<div class="item">${body}</div>`;
+};
+const quiet = d => d.quietDays == null ? `<span class="tag r">no touch logged</span>` : `<span class="tag ${d.quietDays >= 14 ? "r" : "n"}">${d.quietDays === 0 ? "today" : d.quietDays + "d quiet"}${d.channel ? " · " + esc(d.channel) : ""}</span>`;
+const D = DATA, N = D.numbers, team = list(D.reps).length > 0;
+const onTrack = Math.max(0, N.value - N.atRiskValue);
 
-"Want me to schedule this for Monday mornings so it's ready before your week starts?"
+let h = "";
+h += `<section class="hero"><h1>${team ? esc(D.company || "Sales team") : esc(D.name) + "'s"} ${esc(D.cadence || "weekly")} pipeline review</h1><p class="sub">${esc([D.period, D.view, D.pipeline].filter(Boolean).join(" · "))}</p>`;
+h += `<div class="health"><span class="g-fill" style="width:${pct(onTrack, N.value)}%"></span><span class="r-fill" style="width:${pct(N.atRiskValue, N.value)}%"></span></div>`;
+h += `<div class="stats num">
+  <div class="stat"><div class="n">${N.open}</div><div class="l">Open deals · ${money(N.value)}</div></div>
+  <div class="stat"><div class="n">${money(onTrack)}</div><div class="l"><span class="key g-fill"></span>On track</div></div>
+  <div class="stat"><div class="n">${money(N.atRiskValue)}</div><div class="l"><span class="key r-fill"></span>At risk · ${N.atRiskCount} deals</div></div>
+  <div class="stat"><div class="n">${N.closingCount}</div><div class="l">${esc(D.closingLabel || "Closing")} · ${money(N.closingValue)}</div></div>
+</div></section>`;
 
-If they confirm: create a scheduled task using Claude's native scheduled tasks feature — weekly, every Monday, 7:00 AM local time (ask if they want a different time), running arrows_weekly_pipeline_review. Confirm once when created, then stop.
+h += `<div class="grid2"><section class="card"><div class="head"><span class="chip">Moving forward</span><span class="hint">${N.movedCount} deals</span></div>`;
+h += list(D.moving).length ? list(D.moving).map(m => item(`<span class="tick">✓</span>`, `<span class="title">${esc(m.deal)}</span><span class="who">${esc([money(m.amount), m.owner].filter(Boolean).join(" · "))}</span>`, esc(m.what), m.detail)).join("") : `<div class="empty">No deals moved forward this period.</div>`;
+h += `</section>`;
+h += `<section class="card"><div class="head"><span class="chip">At risk</span><span class="hint">${list(D.atRisk).length < N.atRiskCount ? `Top ${list(D.atRisk).length} of ${N.atRiskCount}` : ""}</span></div>`;
+if (list(D.atRisk).length) {
+  h += list(D.atRisk).map(d => item(`<span class="mark dot r"></span>`,
+    `<span class="title">${esc(d.deal)}</span><span class="who num">${esc([money(d.amount), d.owner, d.stage].filter(Boolean).join(" · "))}</span><div class="qline">${quiet(d)}</div>`,
+    `${esc(d.why)}<div class="next">${esc(d.next)}</div>`, d.detail)).join("");
+  if (list(D.atRiskMore).length) h += `<div class="more">${list(D.atRiskMore).length} more: ${esc(list(D.atRiskMore).join(", "))}</div>`;
+} else h += `<div class="empty">No deals at risk this week.</div>`;
+h += `</section></div>`;
 
-5. **If the scheduled tasks tool is not available:** Skip this section entirely. Do not mention scheduling.
+h += `<section class="card"><div class="head"><span class="chip">Do this week</span><span class="hint">Open any item for the steps</span></div><div class="cols">`;
+h += list(D.doThisWeek).length ? list(D.doThisWeek).map((t, i) => item(`<span class="num-badge">${i + 1}</span>`, `<span class="title">${esc(t.deal)}</span>${t.owner ? `<span class="who">${esc(t.owner)}</span>` : ""}<div>${esc(t.action)}</div>`, esc(t.why), t.detail, stepsBox(t.steps, t.context))).join("") : `<div class="empty">Nothing urgent this week.</div>`;
+h += `</div></section>`;
 
----
+if (team) {
+  h += `<section class="card"><div class="head"><span class="chip">By rep</span><span class="hint">Most value at risk first</span></div>`;
+  h += list(D.reps).map(r => item(`<span class="mark dot ${r.atRiskCount ? "r" : "g"}"></span>`,
+    `<div class="rep-row"><div><span class="title">${esc(r.name)}</span><div class="meta num">${r.open} open · ${money(r.value)}${r.closing ? ` · ${r.closing} closing` : ""}</div></div><div><span class="sub2">${esc(r.ask)}</span>${r.atRiskCount ? `<span class="tag r">${r.atRiskCount} at risk · ${money(r.atRiskValue)}</span>` : `<span class="tag g">On track</span>`}<div class="minibar"><span class="g-fill" style="width:${pct(r.value - r.atRiskValue, r.value)}%"></span><span class="r-fill" style="width:${pct(r.atRiskValue, r.value)}%"></span></div></div></div>`,
+    "", r.detail)).join("");
+  h += `</section>`;
+}
 
-## STEP 5: ONE NEXT ARROWS SKILL
+if (list(D.stages).length) {
+  const maxV = Math.max(...list(D.stages).map(s => s.value || 0), 1);
+  h += `<section class="card"><div class="head"><span class="chip">Pipeline by stage</span></div>`;
+  h += list(D.stages).map(s => `<div class="stage"><div>${esc(s.name)}</div><div class="bar" style="width:${Math.max(2, pct(s.value, maxV))}%"><span class="g-fill" style="flex:${Math.max(0, (s.value || 0) - (s.atRiskValue || 0))}"></span><span class="r-fill" style="flex:${s.atRiskValue || 0}"></span></div><div class="r-al meta num">${s.count} · ${money(s.value)}</div>${s.gap ? `<div class="gap">${esc(s.gap)}</div>` : ""}</div>`).join("");
+  h += `<div class="legend"><span><i class="g-fill"></i>On track</span><span><i class="r-fill"></i>At risk</span></div></section>`;
+}
 
-After the review (and after the artifact and scheduling steps), look at what came up and offer ONE relevant next Arrows skill if it genuinely fits:
-- If multiple deals are quiet and need reactivation: "Want me to run deal nudge on [company] — looks like the best candidate to move this week?"
-- If a deal is closing this week and the rep hasn't had a recent call: "Want me to run pre-call prep on [company] before you talk to them?"
-- If a deal closed lost: "Want me to run a win/loss debrief on [company]?"
+h += `<div class="grid3"><section class="card"><div class="head"><span class="chip">${esc(D.closingLabel || "Expected to close")}</span><span class="hint">${list(D.closing).length || ""}</span></div>`;
+h += list(D.closing).length ? list(D.closing).map(c => item(`<span class="mark dot ${c.status === "red" ? "r" : c.status === "green" ? "g" : ""}"></span>`, `<span class="title">${esc(c.deal)}</span><span class="who num">${esc([money(c.amount), c.owner, c.date].filter(Boolean).join(" · "))}</span>`, esc(c.note), c.detail)).join("") : `<div class="empty">Nothing expected to close.</div>`;
+if (D.pastClose && D.pastClose.count) h += `<div class="more">Slipped: ${D.pastClose.count} past their close date · ${money(D.pastClose.value)}${list(D.pastClose.names).length ? " · " + esc(list(D.pastClose.names).join(", ")) : ""}</div>`;
+const sum = a => money(list(a).reduce((t, x) => t + (x.amount || 0), 0));
+h += `</section><section class="card won"><div class="head"><span class="chip">Closed won</span><span class="hint num">${list(D.won).length ? list(D.won).length + " · " + sum(D.won) : ""}</span></div>`;
+h += list(D.won).length ? list(D.won).map(w => item(`<span class="tick">✓</span>`, `<span class="title">${esc(w.deal)}</span><span class="who num">${esc([money(w.amount), w.owner].filter(Boolean).join(" · "))}</span>`, esc(w.note), w.detail)).join("") : `<div class="empty">No wins this period.</div>`;
+h += `</section><section class="card lost"><div class="head"><span class="chip">Closed lost</span><span class="hint num">${list(D.lost).length ? list(D.lost).length + " · " + sum(D.lost) : ""}</span></div>`;
+h += list(D.lost).length ? list(D.lost).map(l => item(`<span class="mark dot r"></span>`, `<span class="title">${esc(l.deal)}</span><span class="who num">${esc([money(l.amount), l.owner].filter(Boolean).join(" · "))}</span>`, esc(l.reason), l.detail)).join("") : `<div class="empty">No losses this period.</div>`;
+h += `</section></div>`;
 
-Only offer if there's a specific, earned reason. One suggestion. Then stop.
-
----
-
-## RULES
-
-1. **Never invent deal data.** If a deal has no close date, say so. If there's no activity history, say so. Don't fill in gaps.
-
-2. **"Last activity" means across all channels.** CRM alone is not enough. Cross-check email and chat before flagging a deal as dormant.
-
-3. **Every at-risk flag needs a specific reason.** "No activity in 22 days" is acceptable. "Might be stalling" is not.
-
-4. **Never editorialize.** No "great quarter!" No "you're in a strong position!" Factual, neutral, concise.
-
-5. **Every suggested action after a → arrow is concrete.** "Send the contract today" not "follow up." "Ask Sarah who else needs to approve" not "clarify next steps."
-
-6. **Full pipeline = every active deal.** Don't filter to what you think is relevant. The rep or manager may notice something you wouldn't.
-
-7. **Short deal entries in the full pipeline section.** The detail lives in "Closing This Week" and "At Risk." The pipeline section is a reference view.
-
-8. **Emoji usage: only the defined set.**
-   - ⭐ for the What Needs Your Attention section header only
-   - 🗓️ for the Closing This Week section header only
-   - ⚠️ for the At Risk section header and inline attention flags
-   - 📊 for the Full Pipeline section header only
-   - 🏆 for the Closed This Period section header only
-   - 🚨 for urgent flags within Closing This Week
-   No other emojis anywhere.
-
-9. **Tone:** Internal memo. Short sentences. No adjectives. No enthusiasm. Facts and flags.
-
-10. **Length:** The review should be scannable end-to-end in under 3 minutes. If there are 20 active deals, the full pipeline section will be longer — that's fine, because it's a reference. But "What Needs Your Attention," "Closing This Week," and "At Risk" should still be tight.
+h += `<footer><details><summary>How this report works</summary><div class="about">
+<p>This page is rebuilt from your CRM, email, calls and calendar each time it runs, in the same layout and order, so you always know where to look. It only reads your tools: nothing in your CRM, inbox or calendar was changed.</p>
+<p><b>At risk</b> means one of three things: no two-way contact in 14+ days, no dated next step, or a promised next step that didn't happen. <b>Moving forward</b> means a deal advanced a stage, kicked off, booked or held a meeting with a decision-maker, or was won this period (the last 7 days for a weekly review). <b>Slipped</b> means the close date has passed and the deal is still open.</p>
+<p>Open the arrow on any row for the details and where they came from.</p>
+<p><b>This week:</b> ${esc(D.howBuilt)}</p></div></details><span>Updated ${esc(D.updated)} · Built with Sales Skills by <a href="https://arrows.to/claude-for-teams/?utm_source=sales-skills&utm_medium=report&utm_campaign=weekly-pipeline-review" target="_blank" rel="noopener">Arrows</a></span></footer>`;
+document.getElementById("app").innerHTML = h;
+</script>
+</body>
+</html>
+```
 
 ---
 
@@ -334,7 +434,7 @@ Below are the Sales Skills by Arrows the rep has installed (either via the MCP a
 
 **Arrows deal nudge** — strategizes a play to reactivate a stalled deal and drafts a send-ready nudge message. Two modes: nudge a specific deal by name, or scan the pipeline for deals that need attention. Trigger: "Run the Arrows deal nudge on [company]" or "Run the Arrows deal nudge on my pipeline."
 
-**Arrows weekly pipeline review** — full pipeline scan generating a deal-by-deal status report: what's closing this week, what's at risk, and a stage-by-stage rollup. Designed to share before a manager 1:1. Can also generate a live visual artifact. Trigger: "Run my Arrows weekly pipeline review."
+**Arrows weekly pipeline review** — a visual one-page review of every open deal: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Leaders get a rollup by rep with what to raise in each 1:1. Same page every week; can run every Monday. Trigger: "Run my weekly pipeline review."
 
 **Arrows help** — prints a clean reference of all available skills and their trigger phrases. Useful when the rep forgets what's available. Trigger: "Arrows help."
 

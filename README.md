@@ -46,7 +46,7 @@ Setup takes about 5 to 10 minutes. Do it once, and the rest of the skills sound 
 | **Arrows pre-call prep** | Before a specific meeting, gives you what you need in 60 seconds: who you're meeting, what they want to solve, what happened last time, what to push on, what might go sideways, and open discovery questions. |
 | **Arrows post-call** | Right after a call, produces a follow-up email draft, a copyable CRM note, and relevant resources to send. Every fact comes from the actual call. |
 | **Arrows deal nudge** | Finds a stalled deal and drafts a specific play to reactivate it (send a resource, tap into something mentioned before, loop in a stakeholder, own a broken commitment). Scans your whole pipeline and surfaces candidates, or nudges a specific deal you name. |
-| **Arrows weekly pipeline review** | Full pipeline scan for your manager 1:1 or weekly planning: what's closing this week, what's at risk, and a deal-by-deal rollup grouped by stage. Can also generate a live visual you can share. |
+| **Arrows weekly pipeline review** | Your whole open pipeline on one shareable page, the same layout every week: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Sales leaders get a rollup by rep with what to raise in each 1:1. Can run itself every Monday. |
 | **Arrows help** | Prints a reference of every available Arrows skill and its trigger phrase. Useful when you forget what's installed or what to say. |
 
 ---
