@@ -8,6 +8,17 @@ Built by the team at [Arrows](https://arrows.to). If you use Claude, the easiest
 
 If these skills help you, star this repo so other sellers can find it.
 
+## Quick facts
+
+| | |
+|---|---|
+| **What it is** | 7 free AI skills for sales reps and sales leaders |
+| **Works in** | Claude (connector, plugin, or skill upload), ChatGPT, Microsoft Copilot, Google Gemini |
+| **Works with** | Any CRM, email, calendar, and call recorder your AI tool can connect to. No connection? Paste in a CSV export or your notes. |
+| **Price** | Free. No signup, no email gate. |
+| **License** | Apache 2.0 |
+| **Made by** | [Arrows](https://arrows.to) |
+
 ---
 
 ## What's a skill?
@@ -120,6 +131,10 @@ You can also invoke skills directly:
 
 ## Common questions
 
+### What are Claude skills for sales?
+
+Claude skills are instruction files that teach Claude to do a specific job the same way every time. Sales skills turn everyday sales work into one-line requests: "Run my Arrows daily brief" gets you today's calls, replies you owe, and pipeline alerts, using what's in your CRM, email, calendar, and call recordings. Sales Skills by Arrows is a free set of 7 of them.
+
 ### How do I use Claude for sales?
 
 Connect Claude to your sales tools (CRM, email, calendar, call recorder), then install these skills so it knows how to run real sales workflows instead of just answering questions. The full walkthrough: [How to set up Claude for sales in 15 minutes](https://arrows.to/guide/how-to-set-up-claude-for-sales-in-15-minutes). For what to connect, see [every sales tool that connects to Claude](https://arrows.to/resources/every-sales-tool-that-connects-to-claude-2026).
@@ -131,6 +146,14 @@ Same workflows, different install. Each skill in this repo is a plain text file.
 ### What's the difference between the connector and this repo?
 
 The [connector](https://skills.arrows.to) is for Claude: install once, every skill shows up automatically, and updates ship to you. This repo is the same skills as portable files for every other AI tool, or for Claude users whose company blocks custom connectors.
+
+### Does it work with my CRM?
+
+It works with any CRM your AI tool can connect to. In Claude, check the [connector directory](https://claude.ai/directory). If yours isn't there, export a CSV or paste in deal notes and the skills still run.
+
+### Is my deal data safe?
+
+The skills are instructions, not a pipe to us. Your CRM, email, and calls stay connected through your AI tool's own connectors, and the files in this repo don't send anything anywhere. If you use the Claude connector, Arrows only sees that a skill was run, not the contents of your deals. Check that your company's AI account is set so your data isn't used for training.
 
 ### Can my whole sales team use this?
 
