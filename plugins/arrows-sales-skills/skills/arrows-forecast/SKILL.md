@@ -13,7 +13,7 @@ It is about the CRM and the buyers, never about the people selling. A gap means 
 | Section | What's in it |
 |---|---|
 | Header | "[Company] objective forecast" (personal view: "[Name]'s objective forecast"), one line explaining the two numbers, a bar of commit / likely / possible / unlikely by value, and four numbers: deals dated this period in the CRM, what the CRM says, what the evidence says, and what's likely to slip (or the goal and coverage, when a goal is known) |
-| What will really close, and when | Every deal in the period, most likely first: the label, the buyer's own date when there is one, and the one thing the buyer hasn't done yet; open any deal for the evidence |
+| What will really close, and when | Every deal in the period, most likely first: the label, the buyer's own date when there is one, the one thing the buyer hasn't done yet, and the one move on the seller's side that would get it done; open any deal for the evidence |
 | CRM ahead of the evidence | Deals whose stage probability or close date is ahead of what the buyer has done, by money at stake, each with CRM % → evidence %, CRM date → evidence date, and the one fact behind it |
 | Further along than the CRM shows | Deals the evidence rates higher than the stage, with the buyer fact that earned it |
 | Likely to slip | Deals whose evidence date lands after the period, and the value that leaves the period with them |
@@ -99,6 +99,8 @@ Score each deal with the same rubric so the number is reproducible: the same evi
 
 **What the buyer hasn't done yet** (`blocker`, one per deal, under 8 words): the single thing that would move the deal to the next tier, in the buyer's terms. "No decision date from the buyer", "Budget holder not on a call", "No reply since Oct 1", "Paper process not started", "Security review not started". For a Commit deal with nothing missing, "Signature by [date]".
 
+**What would move it** (`move`, one per deal, under 12 words, starts with who): the one thing someone on the seller's side can do this week to get the buyer to do the blocker, grounded in the evidence (a date the buyer mentioned, a person they named, a call already on the calendar). "Kim: book a pricing call with Arisha and Madeline for the week of Oct 26", "Richard: ask George on Oct 21 to bring James to the next call". When nothing on the seller's side can move it, say so plainly: "Close out Oct 21 unless Mario replies", "Nothing until Matt replies; reopen then". This is the bonus the page earns its keep with: a deal with a low number and a clear move is good news, not bad.
+
 **Evidence close date.** Take the later of:
 1. The date the buyer gave, in their own words (not the CRM field), moved to the end of that month if they said "end of month", and so on. Record it as `buyerDate` with who said it and when ("Nov 7, CFO, Oct 10 email"); leave `buyerDate` null when no buyer gave one.
 2. The date the remaining steps could realistically finish, using typical time in stage from `## Pipeline stages` (or the CRM's average days in stage, or 14 days per remaining stage with nothing else), counted from today. Count the steps still ahead: paper process not started adds its usual time; no budget holder meeting adds a stage; a pilot or evaluation the buyer has deferred adds the deferral.
@@ -126,7 +128,7 @@ Never write "you" or "your" anywhere in `DATA`: use the person's first name, rep
 | `name`, `company` | The person's first name and their company, from the inputs, profile, CRM or email domain. A personal view is titled "Sam's objective forecast"; a team view (when `reps` has rows) is titled "Acme objective forecast", or "Sales team objective forecast" if the company isn't known. |
 | `period`, `periodEnd`, `view`, `pipeline`, `updated`, `crmLabel` | "Q4 2026" · "Dec 31" · "My deals" or "Team view · 3 owners" · the pipeline used · date and time · what the CRM number is ("stage probability" or "forecast category") |
 | `numbers` | `dealCount`, `noAmountCount`, `pipelineValue` (sum of amounts in the period), `crmValue`, `objectiveValue`, `goal` (null if unknown), `commitValue`, `likelyValue`, `possibleValue`, `unlikelyValue` (evidence value by label; these four sum to `objectiveValue`), `slipValue` (sum of the amounts of deals likely to slip; not in `objectiveValue`), `slipCount`. Plain numbers; the page formats money. |
-| `deals` | Every deal in the period (up to 120), most likely first, then earliest evidence date: `deal`, `amount` (null when none), `owner`, `stage`, `crmPct`, `objPct`, `crmDate`, `objDate`, `buyerDate` (the buyer's own date with who and when, or null), `label` ("commit", "likely", "possible", "unlikely", "none" for 0, "slip" for a deal leaving the period), `blocker` (what the buyer hasn't done yet, under 8 words), `why` (under 10 words, the one fact behind the score), `evidence`. |
+| `deals` | Every deal in the period (up to 120), most likely first, then earliest evidence date: `deal`, `amount` (null when none), `owner`, `stage`, `crmPct`, `objPct`, `crmDate`, `objDate`, `buyerDate` (the buyer's own date with who and when, or null), `label` ("commit", "likely", "possible", "unlikely", "none" for 0, "slip" for a deal leaving the period), `blocker` (what the buyer hasn't done yet, under 8 words), `move` (the one seller-side move that would get it done, under 12 words, starting with who), `why` (under 10 words, the one fact behind the score), `evidence`. |
 | `evidence` | What opens under the caret, on every deal: 2–5 lines, each a fact with its date and source, buyer-side first ("Oct 3 call: CFO said 'we'd sign this month if legal clears'", "Oct 9 email: security questionnaire returned", "Budget holder: not named in any call or email", "Cap: quiet 16 days → at most 25"). Name every cap that applied. Where a seller's note was the only source for a claim, say "note only, unconfirmed". |
 | `ahead` | Deals where the CRM % is above the evidence % (positive gap), biggest gap first, up to 6 (8 in a team view): the same fields as `deals`. |
 | `further` | Deals where the evidence % is at least 10 points above the CRM %, plus deals from the 30 days after the period with buyer evidence that could pull them in: the same fields as `deals`. Up to 6. |
@@ -153,7 +155,7 @@ Decisions this week:
 [Sources line: "Scored from calls, email and the CRM. Calendar not connected, so booked meetings came from CRM records."]
 ```
 
-"Move" is every deal likely to slip, with the evidence date. "Close out" is every deal at 0 for the period, and any deal whose close date has already passed with no buyer reply. "One buyer action" is the one or two deals closest to moving up a tier (a budget holder to get on a call, a date to ask for, paper to send) and who on the seller's side does it. Leave a line out if it's empty. Keep each line under 15 words; the page has the rest.
+"Move" is every deal likely to slip, with the evidence date. "Close out" is every deal at 0 for the period, and any deal whose close date has already passed with no buyer reply. "One buyer action" is the one or two deals closest to moving up a tier, taken from their `move` lines (a budget holder to get on a call, a date to ask for, paper to send) and who on the seller's side does it. Leave a line out if it's empty. Keep each line under 15 words; the page has the rest.
 
 In a team view, add one line per rep after the decisions with their 1:1 question ("Kim: Projectworks: is Oct 31 real with nothing booked? Move it to November?"), since that's usually what the leader came for.
 
@@ -194,7 +196,8 @@ Then one offer the person can accept with "yes," tied to what you found ("Want m
 - **No verdict on coverage.** Show pipeline against the goal; don't say whether 1.5x or 3x is right. Teams differ.
 - **No cheerleading.** If the evidence and the CRM agree, say "The CRM and the evidence agree within $X" and stop.
 - **Use their words.** Stage names, methodology terms and forecast categories come from their CRM and profile, not generic sales language.
-- **Scannable in 30 seconds.** The label, the buyer's date and what's missing on the row; the evidence under the caret.
+- **Scannable in 30 seconds.** The label, the buyer's date, what's missing and the move on the row; the evidence under the caret.
+- **Every low number comes with a move.** A deal at 10% with "Stephanie: one closing note to Jake; close out if no reply by Oct 23" is a decision made. A deal at 10% with nothing is just bad news. If there is truly no move, say "close it out"; that's a move too.
 - **Nothing saved with buyer details.** If you keep anything for a later comparison, keep it to counts and totals, with no buyer names or exact amounts.
 
 ## Report template
@@ -287,6 +290,8 @@ section[id]{scroll-margin-top:12px}
 .cmp .down{color:var(--red)}
 .need{color:var(--ink);font-size:13px}
 .need::before{content:"Still needed: ";color:var(--ink-50)}
+.move{color:var(--ink);font-size:13px}
+.move::before{content:"To move it: ";color:var(--ink-50)}
 .empty{font-size:13px;color:var(--ink-50);padding:6px 0}
 .rep-row{display:grid;grid-template-columns:190px 1fr;gap:12px}
 .more{font-size:12px;color:var(--ink-50);padding-top:10px;border-top:1px solid var(--line)}
@@ -375,7 +380,7 @@ const item = (mark, title, sub, box) => {
 };
 const dealItem = (d, markHtml) => item(markHtml || `<span class="mark dot ${lvl(d)}"></span>`,
   `<span class="title">${esc(d.deal)}</span><span class="who num">${esc([amt(d), d.owner, d.stage].filter(Boolean).join(" · "))}</span><span class="tag ${lvl(d)}">${labelText(d)}</span>${cmp(d)}`,
-  `${esc(d.why)}${d.blocker ? `<div class="need">${esc(d.blocker)}</div>` : ""}`, evidenceBox(d.evidence));
+  `${esc(d.why)}${d.blocker ? `<div class="need">${esc(d.blocker)}</div>` : ""}${d.move ? `<div class="move">${esc(d.move)}</div>` : ""}`, evidenceBox(d.evidence));
 const go = id => `href="#${id}" onclick="const t=document.getElementById('${id}');if(t){t.scrollIntoView({behavior:'smooth'});}return false;"`;
 const cols = items => items.length ? `<div class="cols">${items.join("")}</div>` : "";
 
@@ -393,7 +398,7 @@ h += `<div class="stats num">
 
 const ALL = list(D.deals), AH = list(D.ahead), FU = list(D.further), S = list(D.slip);
 
-h += `<section class="card" id="deals"><div class="head"><span class="chip">What will really close, and when</span><span class="hint">Most likely first · the buyer's own date when there is one · what the buyer still hasn't done · open a deal for the evidence</span></div>`;
+h += `<section class="card" id="deals"><div class="head"><span class="chip">What will really close, and when</span><span class="hint">Most likely first · the buyer's own date when there is one · what the buyer still hasn't done and the move that would get it done · open a deal for the evidence</span></div>`;
 h += ALL.length ? ALL.map(d => dealItem(d)).join("") : `<div class="empty">No open deals with a close date in ${esc(D.period)}.</div>`;
 h += `</section>`;
 
@@ -412,7 +417,7 @@ h += `</section>`;
 if (team) {
   const repBox = r => {
     const mine = ALL.filter(d => d.owner === r.name);
-    const lines = mine.map(d => `<li><span class="mark dot ${lvl(d)}"></span><span><b>${esc(d.deal)}</b> <span class="meta num">${esc([amt(d), d.stage].filter(Boolean).join(" · "))} · CRM ${P(d.crmPct)} → evidence ${P(d.objPct)}</span><br>${esc(d.blocker || d.why)}</span></li>`);
+    const lines = mine.map(d => `<li><span class="mark dot ${lvl(d)}"></span><span><b>${esc(d.deal)}</b> <span class="meta num">${esc([amt(d), d.stage].filter(Boolean).join(" · "))} · CRM ${P(d.crmPct)} → evidence ${P(d.objPct)}</span><br>${esc(d.blocker || d.why)}${d.move ? ` · <i>${esc(d.move)}</i>` : ""}</span></li>`);
     const extra = evidenceBox(r.detail);
     return lines.length || extra ? `<div class="detail">${lines.length ? `<ul class="dl">${lines.join("")}</ul>` : ""}${extra ? extra.replace('<div class="detail">', '<div class="ctx">') : ""}</div>` : "";
   };
@@ -438,7 +443,7 @@ h += `<footer><details><summary>How the forecast works</summary><div class="abou
 </table>
 <p><b>Caps.</b> No budget holder from buyer-side evidence: at most 40%. Quiet 14+ days: at most 25%. Close date moved twice: at most 40%. Competitor named with no stated preference: at most 60%. New deal with no call yet: at most 25%. Every cap that applied is listed in the deal's evidence.</p>
 <p><b>Dates.</b> The evidence close date is the later of the date the buyer gave and the date the remaining steps could finish at this team's usual pace. A deal whose evidence date lands after the period counts as likely to slip and adds nothing to this period's number, while the CRM number still counts it.</p>
-<p><b>Still needed</b> on each row is the one thing the buyer hasn't done that would move the deal up a tier.</p>
+<p><b>Still needed</b> on each row is the one thing the buyer hasn't done that would move the deal up a tier. <b>To move it</b> is the one thing on the seller's side that would get the buyer to do it, or a plain "close it out" when nothing would.</p>
 <p><b>This run:</b> ${esc(D.howBuilt)}</p></div></details><span>Updated ${esc(D.updated)} · Built with Sales Skills by <a href="https://arrows.to/claude-for-teams/?utm_source=sales-skills&utm_medium=report&utm_campaign=objective-forecast" target="_blank" rel="noopener">Arrows</a></span></footer>`;
 document.getElementById("app").innerHTML = h;
 </script>
