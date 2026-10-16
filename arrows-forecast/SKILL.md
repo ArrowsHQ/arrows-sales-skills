@@ -129,7 +129,7 @@ Never write "you" or "your" anywhere in `DATA`: use the person's first name, rep
 | `period`, `periodEnd`, `view`, `pipeline`, `updated`, `crmLabel` | "Q4 2026" · "Dec 31" · "My deals" or "Team view · 3 owners" · the pipeline used · date and time · what the CRM number is ("stage probability" or "forecast category") |
 | `numbers` | `dealCount`, `noAmountCount`, `pipelineValue` (sum of amounts in the period), `crmValue`, `objectiveValue`, `goal` (null if unknown), `commitValue`, `likelyValue`, `possibleValue`, `unlikelyValue` (evidence value by label; these four sum to `objectiveValue`), `slipValue` (sum of the amounts of deals likely to slip; not in `objectiveValue`), `slipCount`. Plain numbers; the page formats money. |
 | `deals` | Every deal in the period (up to 120), most likely first, then earliest evidence date: `deal`, `amount` (null when none), `owner`, `stage`, `crmPct`, `objPct`, `crmDate`, `objDate`, `buyerDate` (the buyer's own date with who and when, or null), `label` ("commit", "likely", "possible", "unlikely", "none" for 0, "slip" for a deal leaving the period), `blocker` (what the buyer hasn't done yet, under 8 words), `move` (the one seller-side move that would get it done, under 12 words, starting with who), `why` (under 10 words, the one fact behind the score), `evidence`. |
-| `evidence` | What opens under the caret, on every deal: 2–5 lines, each a fact with its date and source, buyer-side first ("Oct 3 call: CFO said 'we'd sign this month if legal clears'", "Oct 9 email: security questionnaire returned", "Budget holder: not named in any call or email", "Cap: quiet 16 days → at most 25"). Name every cap that applied. Where a seller's note was the only source for a claim, say "note only, unconfirmed". |
+| `evidence` | What opens under the caret, on every deal (the page puts `why` first, then these): 2–5 lines, each a fact with its date and source, buyer-side first ("Oct 3 call: CFO said 'we'd sign this month if legal clears'", "Oct 9 email: security questionnaire returned", "Budget holder: not named in any call or email", "Cap: quiet 16 days → at most 25"). Name every cap that applied. Where a seller's note was the only source for a claim, say "note only, unconfirmed". |
 | `ahead` | Deals where the CRM % is above the evidence % (positive gap), biggest gap first, up to 6 (8 in a team view): the same fields as `deals`. |
 | `further` | Deals where the evidence % is at least 10 points above the CRM %, plus deals from the 30 days after the period with buyer evidence that could pull them in: the same fields as `deals`. Up to 6. |
 | `slip` | Deals whose evidence date falls after `periodEnd`, largest amount first: the same fields as `deals`, `label: "slip"`. These deals also appear in `deals`. |
@@ -196,7 +196,7 @@ Then one offer the person can accept with "yes," tied to what you found ("Want m
 - **No verdict on coverage.** Show pipeline against the goal; don't say whether 1.5x or 3x is right. Teams differ.
 - **No cheerleading.** If the evidence and the CRM agree, say "The CRM and the evidence agree within $X" and stop.
 - **Use their words.** Stage names, methodology terms and forecast categories come from their CRM and profile, not generic sales language.
-- **Scannable in 30 seconds.** The label, the buyer's date, what's missing and the move on the row; the evidence under the caret.
+- **Scannable in 30 seconds.** The label, the numbers, what's missing and the move on the row; the reason and the evidence under the caret. Four short lines per deal, no more.
 - **Every low number comes with a move.** A deal at 10% with "Stephanie: one closing note to Jake; close out if no reply by Oct 23" is a decision made. A deal at 10% with nothing is just bad news. If there is truly no move, say "close it out"; that's a move too.
 - **Nothing saved with buyer details.** If you keep anything for a later comparison, keep it to counts and totals, with no buyer names or exact amounts.
 
@@ -288,10 +288,10 @@ section[id]{scroll-margin-top:12px}
 .cmp .arrow{color:var(--ink-30);margin:0 4px}
 .cmp .up{color:#127A3E}
 .cmp .down{color:var(--red)}
-.need{color:var(--ink);font-size:13px}
 .need::before{content:"Still needed: ";color:var(--ink-50)}
-.move{color:var(--ink);font-size:13px}
-.move::before{content:"To move it: ";color:var(--ink-50)}
+.need{color:var(--ink-70);font-size:12px}
+.move{display:inline-block;margin-top:7px;padding:6px 11px 6px 10px;border-radius:4px;background:var(--gold-soft);border-left:3px solid var(--gold);color:var(--ink);font-size:13px;font-weight:600;line-height:1.35}
+.move::before{content:"To move it";display:block;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gold-text);margin-bottom:2px}
 .empty{font-size:13px;color:var(--ink-50);padding:6px 0}
 .rep-row{display:grid;grid-template-columns:190px 1fr;gap:12px}
 .more{font-size:12px;color:var(--ink-50);padding-top:10px;border-top:1px solid var(--line)}
@@ -380,7 +380,7 @@ const item = (mark, title, sub, box) => {
 };
 const dealItem = (d, markHtml) => item(markHtml || `<span class="mark dot ${lvl(d)}"></span>`,
   `<span class="title">${esc(d.deal)}</span><span class="who num">${esc([amt(d), d.owner, d.stage].filter(Boolean).join(" · "))}</span><span class="tag ${lvl(d)}">${labelText(d)}</span>${cmp(d)}`,
-  `${esc(d.why)}${d.blocker ? `<div class="need">${esc(d.blocker)}</div>` : ""}${d.move ? `<div class="move">${esc(d.move)}</div>` : ""}`, evidenceBox(d.evidence));
+  `${d.blocker ? `<div class="need">${esc(d.blocker)}</div>` : esc(d.why)}${d.move ? `<div class="move">${esc(d.move)}</div>` : ""}`, evidenceBox(d.why ? [d.why, ...list(d.evidence)] : d.evidence));
 const go = id => `href="#${id}" onclick="const t=document.getElementById('${id}');if(t){t.scrollIntoView({behavior:'smooth'});}return false;"`;
 const cols = items => items.length ? `<div class="cols">${items.join("")}</div>` : "";
 
