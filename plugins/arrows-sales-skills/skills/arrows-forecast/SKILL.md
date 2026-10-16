@@ -1,10 +1,10 @@
 ---
 name: arrows-forecast
-description: "Objective forecast from Sales Skills by Arrows. A bystander's read of every deal expected to close this period: how likely it really is and when it will really close, judged only from what the buyer said and did on calls, in email and on the calendar, never from the CRM stage, its probability or its close date. Shows the CRM's number next to the evidence for every deal, what each buyer still hasn't done, the deals the CRM has ahead of the evidence, the deals further along than the CRM shows, the dates likely to slip, and a by-rep view for sales leaders of what's blocking each rep's deals. Evidence under every number. Read only. Comes as a shareable visual report, the same page every run. Use this whenever someone says 'Run my Arrows forecast', 'Run the Arrows objective forecast', 'forecast my pipeline', 'what's really going to close this quarter', 'what's actually going to close', 'give me an objective read on the pipeline', 'is this deal really at 70%', asks which deals will slip, how much of the pipeline is real, or wants an unbiased number before a forecast call or board update."
+description: "Objective forecast from Sales Skills by Arrows. A bystander's read of every deal the CRM has closing this month (or this quarter, when asked): how likely it really is and when it will really close, judged only from what the buyer said and did on calls, in email and on the calendar, never from the CRM stage, its probability or its close date. Shows the CRM's number next to the evidence for every deal, what each buyer still hasn't done, the deals the CRM has ahead of the evidence, the deals further along than the CRM shows, the dates likely to slip, and one question per rep for sales leaders. Leads with the decisions: which close dates to move, which deals to close out, which deal needs one buyer action this week. Evidence under every number. Read only. Comes as a shareable visual report, the same page every run. Use this whenever someone says 'Run my Arrows forecast', 'Run the Arrows objective forecast', 'forecast my pipeline', 'what's really going to close this month', 'what's really going to close this quarter', 'what's actually going to close', 'give me an objective read on the pipeline', 'is this deal really at 70%', asks which deals will slip, how much of the pipeline is real, or wants an unbiased number before a forecast call or board update."
 ---
 
 
-**Period:** this quarter (or the month or quarter the person names)
+**Period:** this month (or the month or quarter the person names)
 
 A CRM forecast is a stage probability and a close date someone typed in. This skill gives the other read: what a bystander who sat in on every call and read every email would say about each deal, how likely it is to close and when, judged only from what the buyer said and did. It shows that next to the CRM's number so the person can see where the pipeline is ahead of the evidence and where it's behind, deal by deal.
 
@@ -17,7 +17,7 @@ It is about the CRM and the buyers, never about the people selling. A gap means 
 | CRM ahead of the evidence | Deals whose stage probability or close date is ahead of what the buyer has done, by money at stake, each with CRM % → evidence %, CRM date → evidence date, and the one fact behind it |
 | Further along than the CRM shows | Deals the evidence rates higher than the stage, with the buyer fact that earned it |
 | Likely to slip | Deals whose evidence date lands after the period, and the value that leaves the period with them |
-| By rep (leaders) | Each rep's CRM total vs. the evidence, how many of their deals have a buyer-stated date, how many are missing the budget holder, how many are quiet, and one question for their 1:1; open a rep for their deals |
+| By rep (leaders) | Each rep's CRM total vs. the evidence and one question for their 1:1; open a rep for their deals |
 | How the forecast works | The rubric in plain words, so anyone can check a number |
 
 The default output is a visual report built from one fixed template (end of this skill), so it looks the same every run. A short summary goes in the chat alongside it.
@@ -29,7 +29,7 @@ Post a short progress line once at the top, then one line per source as it finis
 ```
 Sales Skills by Arrows · Objective forecast  ■■□□□  Reading your calls
 
-✓ CRM: 26 deals dated this quarter ($722k), 3 owners
+✓ CRM: 6 deals dated this month ($134k), 3 owners
 ✓ Calls: 40 calls on those deals in the last 60 days
 ✓ Email: checked 108 logged threads for buyer-side signals
 – Calendar: not connected (using CRM meeting dates)
@@ -54,7 +54,7 @@ There are two versions of the same report. Rep ("[Name]'s objective forecast"): 
 
 Use `scope` if given. Otherwise use `## About me`; failing that, match their email to a CRM owner (owns most open deals → rep; others own most and they own few → leader). Seeing everyone's deals proves nothing. Don't stop to ask; say in the report header which view you built ("Team view · 3 owners · Q4 2026").
 
-**Period.** The current quarter unless they name a month or quarter. Deals in scope are open deals with a CRM close date inside the period: that is what the CRM currently expects to close, and the whole report is a check on that expectation. Also pull open deals with a close date in the 30 days after the period: they're candidates for "Further along than the CRM shows" (a deal that could pull in) and are never counted in the forecast numbers.
+**Period.** The current month unless they name a quarter or another month. A month is small enough to read in one sitting and act on: a handful of deals, each with a decision attached. The quarter view is for when someone asks for it, usually before a quarterly forecast call, and it gets long. Deals in scope are open deals with a CRM close date inside the period: that is what the CRM currently expects to close, and the whole report is a check on that expectation. Also pull open deals with a close date in the 30 days after the period: they're candidates for "Further along than the CRM shows" (a deal that could pull in) and are never counted in the forecast numbers.
 
 **Goal.** Use the goal if they state one, or if the profile or CRM holds a quota or target for the period. Otherwise leave it out. Never invent a goal, and never judge pipeline coverage against an industry rule of thumb; show the coverage number and let them decide what it means.
 
@@ -113,7 +113,7 @@ If the evidence date falls after the period, the deal goes in "Likely to slip": 
 
 **The gap** for a deal = (CRM % − evidence %) × amount. "CRM ahead of the evidence" ranks positive gaps by size; "Further along than the CRM shows" lists negative gaps of 10 points or more.
 
-**By rep** (leaders): for each owner, the CRM value and evidence value of their deals in the period (slips at 0 on the evidence side), and three counts that say what's blocking: deals with a buyer-stated date, deals with no budget holder on a call or thread, deals with no buyer reply in 14+ days. No scores, labels or adjectives about the person; the counts and the 1:1 question do the work.
+**By rep** (leaders): for each owner, the CRM value and evidence value of their deals in the period (slips at 0 on the evidence side) and one question for the 1:1, about a specific deal and the decision it needs ("Projectworks: is Oct 31 real with nothing booked? Move it to November?"). No scores, labels, counts or adjectives about the person; the deals and the question do the work.
 
 ## Step 5: Build the visual report
 
@@ -131,7 +131,7 @@ Never write "you" or "your" anywhere in `DATA`: use the person's first name, rep
 | `ahead` | Deals where the CRM % is above the evidence % (positive gap), biggest gap first, up to 6 (8 in a team view): the same fields as `deals`. |
 | `further` | Deals where the evidence % is at least 10 points above the CRM %, plus deals from the 30 days after the period with buyer evidence that could pull them in: the same fields as `deals`. Up to 6. |
 | `slip` | Deals whose evidence date falls after `periodEnd`, largest amount first: the same fields as `deals`, `label: "slip"`. These deals also appear in `deals`. |
-| `reps` | Team view only, one row per owner with deals in the period, biggest CRM-vs-evidence difference first: `name`, `dealCount`, `crmValue`, `objValue`, `withBuyerDate`, `noBudgetHolder`, `quiet` (counts), `ask` (one question for the 1:1, under 15 words, about a specific deal), `detail` (optional, 1–3 lines). Opening a rep lists their deals automatically, matched by `owner`, so use the exact same owner names everywhere. Empty for a rep's own forecast. |
+| `reps` | Team view only, one row per owner with deals in the period, biggest CRM-vs-evidence difference first: `name`, `dealCount`, `crmValue`, `objValue`, `ask` (one question for the 1:1, under 20 words, about a specific deal and the decision it needs), `detail` (optional, 1–3 lines). Opening a rep lists their deals automatically, matched by `owner`, so use the exact same owner names everywhere. Empty for a rep's own forecast. |
 | `howBuilt` | One or two sentences, under 60 words: what you read, where the CRM number came from, any sampling, any source that was missing, and how many deals had no amount. |
 
 **Labels on the page.** "Commit" is 75 and up, "Likely" is 60, "Possible" is 25 to 40, "Unlikely" is 10, 0 shows as "Not this period", and a deal leaving the period shows "Likely to slip". The bar in the header splits the evidence value by those labels.
@@ -140,20 +140,22 @@ If you can't make an artifact here, save the filled template as an HTML file the
 
 ## Step 6: Reply in the chat
 
-Next to the report, keep the chat short:
+Lead with the decisions, not the numbers. The person opened the chat to decide something, and the page holds the detail.
 
 ```
-[N] deals dated [period] in the CRM, $[pipeline]. The CRM says $[CRM value] ([crmLabel]). The evidence says $[evidence value]: $[X] likely or better, $[Y] possible. [N] deals ($[Z]) will likely slip past [period end].
+[N] deals dated [period] in the CRM, $[pipeline]. The evidence says $[evidence value] will close. [N] deals ($[X]) will likely slip past [period end].
 
-Where the CRM is ahead of the evidence:
-1. [Deal] — CRM [C]%, evidence [E]%: [what the buyer hasn't done]
-2. [Deal] — CRM [C]%, evidence [E]%: [what the buyer hasn't done]
-3. [Deal] — CRM [C]%, evidence [E]%: [what the buyer hasn't done]
+Decisions this week:
+- Move: [Deal] to [evidence date] ([what the buyer hasn't done, under 8 words]); [Deal] to [date] (...)
+- Close out: [Deal] ([why, under 8 words]); [Deal] (...)
+- One buyer action: [Deal]: [the one thing that moves it up a tier, and who does it]
 
 [Sources line: "Scored from calls, email and the CRM. Calendar not connected, so booked meetings came from CRM records."]
 ```
 
-In a team view, add one line per rep after the top 3 with their counts and the 1:1 question ("Priya: 3 deals, 1 with a buyer date, 2 missing the budget holder. Ask: when does Elena get on a Northwind call?"), since that's usually what the leader came for.
+"Move" is every deal likely to slip, with the evidence date. "Close out" is every deal at 0 for the period, and any deal whose close date has already passed with no buyer reply. "One buyer action" is the one or two deals closest to moving up a tier (a budget holder to get on a call, a date to ask for, paper to send) and who on the seller's side does it. Leave a line out if it's empty. Keep each line under 15 words; the page has the rest.
+
+In a team view, add one line per rep after the decisions with their 1:1 question ("Kim: Projectworks: is Oct 31 real with nothing booked? Move it to November?"), since that's usually what the leader came for.
 
 The first time someone runs this forecast (no earlier report in the conversation or project), add one line: "You'll get this same page every time, in the same order. 'How the forecast works' at the bottom shows the rubric, so anyone can check a number."
 
@@ -287,8 +289,6 @@ section[id]{scroll-margin-top:12px}
 .need::before{content:"Still needed: ";color:var(--ink-50)}
 .empty{font-size:13px;color:var(--ink-50);padding:6px 0}
 .rep-row{display:grid;grid-template-columns:190px 1fr;gap:12px}
-.counts{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-70);margin-top:4px}
-.counts b{color:var(--ink)}
 .more{font-size:12px;color:var(--ink-50);padding-top:10px;border-top:1px solid var(--line)}
 .meta{font-size:12px;color:var(--ink-50)}
 .dl{list-style:none;padding-left:0!important;margin:0}
@@ -416,9 +416,9 @@ if (team) {
     const extra = evidenceBox(r.detail);
     return lines.length || extra ? `<div class="detail">${lines.length ? `<ul class="dl">${lines.join("")}</ul>` : ""}${extra ? extra.replace('<div class="detail">', '<div class="ctx">') : ""}</div>` : "";
   };
-  h += `<section class="card" id="by-rep"><div class="head"><span class="chip">By rep</span><span class="hint">Each rep's deals: CRM vs. evidence, and what the buyers haven't done yet · open a rep for their deals</span></div>`;
-  h += list(D.reps).map(r => item(`<span class="mark dot ${r.quiet ? "r" : r.noBudgetHolder ? "y" : "g"}"></span>`,
-      `<div class="rep-row"><div><span class="title">${esc(r.name)}</span><div class="meta num">${r.dealCount} deals · CRM ${money(r.crmValue)} · evidence ${money(r.objValue)}</div></div><div><span class="sub2">${esc(r.ask)}</span><div class="counts num"><span><b>${r.withBuyerDate ?? 0}</b> with a date from the buyer</span><span><b>${r.noBudgetHolder ?? 0}</b> missing the budget holder</span><span><b>${r.quiet ?? 0}</b> quiet 14+ days</span></div></div></div>`,
+  h += `<section class="card" id="by-rep"><div class="head"><span class="chip">By rep</span><span class="hint">Each rep's deals, CRM vs. evidence, and the question for their 1:1 · open a rep for their deals</span></div>`;
+  h += list(D.reps).map(r => item(`<span class="mark dot ${r.objValue < r.crmValue ? "y" : "g"}"></span>`,
+      `<div class="rep-row"><div><span class="title">${esc(r.name)}</span><div class="meta num">${r.dealCount} deals · CRM ${money(r.crmValue)} · evidence ${money(r.objValue)}</div></div><div><span class="sub2">${esc(r.ask)}</span></div></div>`,
       "", repBox(r))).join("");
   h += `</section>`;
 }
