@@ -80,12 +80,12 @@ Score each deal with the same rubric so the number is reproducible: the same evi
 | Objective % | Label | What the buyer has done |
 |---|---|---|
 | 90 | Commit | Contract or order form is with the buyer and the buyer (not the rep) named a signature date, or a verbal yes came from the economic buyer in their own words on a call or in writing, with paper in motion |
-| 75 | Commit | The economic buyer agreed to pricing or terms in writing or on a recorded call, and the buyer's paper process (legal, security, procurement) has started |
+| 75 | Commit | The economic buyer agreed to pricing or terms in writing or on a recorded call, and the buyer's paper process has started (the buyer asked for or received the contract, MSA or security questionnaire, or named their legal or procurement contact) |
 | 60 | Likely | The economic buyer has met with the seller, the buyer gave a decision date or process in their own words, and a next step is booked |
 | 40 | Possible | A champion is engaged and replying, at least two buyer contacts are involved, a next step is booked, but no economic buyer meeting and no buyer-stated date |
 | 25 | Possible | Active two-way contact, but single-threaded, or the timeline exists only in the rep's notes |
-| 10 | Unlikely | No buyer reply in 14+ days, no next step, or the close date has already moved twice |
-| 0 | Not this period | The buyer said next quarter, no budget, or chose someone else; or no buyer reply in 30+ days |
+| 10 | Unlikely | No buyer reply in 14+ days, or no next step |
+| 0 | Not this period | The buyer said there's no budget or chose someone else, or no buyer reply in 30+ days. (A buyer who named a date after the period is a slip, handled by the date rule below, and keeps the tier the rest of the evidence earns.) |
 
 **Caps,** applied after the tier, each one named in the evidence:
 - No economic buyer identified from buyer-side evidence: at most 40.
@@ -99,19 +99,19 @@ Score each deal with the same rubric so the number is reproducible: the same evi
 1. The date the buyer gave, in their own words (not the CRM field), moved to the end of that month if they said "end of month", and so on.
 2. The date the remaining steps could realistically finish, using typical time in stage from `## Pipeline stages` (or the CRM's average days in stage, or 14 days per remaining stage with nothing else). Count the steps still ahead: paper process not started adds its usual time; no economic buyer meeting adds a stage.
 
-If the objective date falls after the period, the deal goes in "Likely to slip" and its objective likelihood counts toward the period's forecast at the tier's value times nothing: it contributes 0 to this period's objective number, and its full objective value shows under slip. If the buyer gave no date and the deal is in the last third of the stages, use the second rule alone and say "no buyer date" in the evidence.
+If the objective date falls after the period, the deal goes in "Likely to slip": it contributes 0 to this period's objective number, and its full amount counts toward `slipValue` (the pipeline leaving the period). It keeps its tier and label, which say how likely it is to close in the period it slips into. If the buyer gave no date and the deal is in the last third of the stages, use the second rule alone and say "no buyer date" in the evidence.
 
 **Rep's number.** Use, in this order: the rep's forecast category or deal-level probability if the CRM has one; else the stage probability the CRM assigns; else the stage's position in the pipeline mapped onto the tiers above. Say which in `howBuilt`. The rep's date is the CRM close date.
 
-**Objective value** = amount × objective %. **Rep value** = amount × rep %. Sum each across the deals in the period for the header numbers. Slipped deals count in neither.
+**Objective value** = amount × objective %, summed over the deals in the period that aren't slipping (a slip contributes 0). **Rep value** = amount × rep %, summed over every deal in the period including the ones likely to slip, because that is the number the reps are carrying and the leader is comparing against. The difference between the two is the point of the header.
 
 **The gap** for a deal = (rep % − objective %) × amount. "Biggest gaps" ranks by its absolute value; a deal the rep rates too low is a gap too, and goes in "Upside" as well.
 
-**Per-rep calibration** (leaders): a rep's bias = value-weighted average of (rep % − objective %) across their deals in the period. Call it "runs 22 points hot" or "runs 8 points cold"; between −5 and +5 is "calibrated". Three or fewer deals: say "too few deals to judge" rather than labeling them.
+**Per-rep calibration** (leaders): a rep's bias = value-weighted average of (rep % − objective %) across every deal they have in the period, including the ones likely to slip (counted at 0 for this period, since a deal the rep carries at 80% that the buyer put in January is exactly the kind of gap this measures). Call it "runs 22 points hot" or "runs 8 points cold"; between −5 and +5 is "calibrated". One or two deals: say "too few deals to judge" rather than labeling them. Three or more is enough to show a direction, so label it.
 
 ## Step 5: Build the visual report
 
-Build the report from the template at the end of this skill, as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Use it on every run, including scheduled ones: people learn this page and orient around it, so the layout, sections and order never change. Don't restyle it, add or drop sections, or write your own HTML or a Markdown version in its place. If a field has nothing in it, leave it empty (`[]`, `null` or `""`) and the page handles it.
+Build the report from the template at the end of this skill, as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. The template is already tested, so don't rebuild it, re-verify it or render it before handing it over; the time goes into the scoring, not the page. Use it on every run, including scheduled ones: people learn this page and orient around it, so the layout, sections and order never change. Don't restyle it, add or drop sections, or write your own HTML or a Markdown version in its place. If a field has nothing in it, leave it empty (`[]`, `null` or `""`) and the page handles it.
 
 Never write "you" or "your" anywhere in `DATA`: use the person's first name, reps' first names, or "the team", because reports get forwarded. Only quoted text (a line from a call or email) may keep it. The chat reply can still speak to the person directly. Use the buyer's company name for each deal ("Northwind", not "Northwind - New Business Q4"). Keep every text field short; the report is for scanning.
 
@@ -119,7 +119,7 @@ Never write "you" or "your" anywhere in `DATA`: use the person's first name, rep
 |---|---|
 | `name`, `company` | The person's first name and their company, from the inputs, profile, CRM or email domain. A personal view is titled "Sam's objective forecast"; a team view (when `reps` has rows) is titled "Acme objective forecast", or "Sales team objective forecast" if the company isn't known. |
 | `period`, `periodEnd`, `view`, `pipeline`, `updated` | "Q4 2026" · "Dec 31" · "My deals" or "Team view · 5 reps" · the pipeline used · date and time |
-| `numbers` | `dealCount`, `pipelineValue` (sum of amounts in the period), `repValue`, `objectiveValue`, `goal` (null if unknown), `commitValue`, `likelyValue`, `possibleValue`, `unlikelyValue` (objective value by label; these four sum to `objectiveValue`), `slipValue` (objective value of deals likely to slip, not in `objectiveValue`), `slipCount`. Plain numbers; the page formats money. |
+| `numbers` | `dealCount`, `pipelineValue` (sum of amounts in the period), `repValue`, `objectiveValue`, `goal` (null if unknown), `commitValue`, `likelyValue`, `possibleValue`, `unlikelyValue` (objective value by label; these four sum to `objectiveValue`), `slipValue` (sum of the amounts of deals likely to slip; not in `objectiveValue`), `slipCount`. Plain numbers; the page formats money. |
 | `gaps` | The 5 biggest gaps (6 in a team view), largest absolute gap first: `deal`, `amount`, `owner` (team view), `stage`, `repPct`, `objPct`, `repDate`, `objDate`, `why` (under 12 words, the one fact behind the difference: "Economic buyer never on a call", "Buyer said 'early next year' Oct 2"), `evidence` |
 | `evidence` | What opens under the caret, on every deal: 2–5 lines, each a fact with its date and source, buyer-side first ("Oct 3 call: CFO said 'we'd sign this month if legal clears'", "Oct 9 email: security questionnaire returned", "Economic buyer: not named in any call or email", "Cap: quiet 16 days → at most 25"). Name every cap that applied. Where a rep note was the only source for a claim, say "rep note only, unconfirmed". |
 | `slip` | Deals whose objective date falls after `periodEnd`, largest amount first: `deal`, `amount`, `owner`, `repDate`, `objDate`, `why` (under 10 words), `evidence` |
@@ -167,7 +167,7 @@ Then one offer the person can accept with "yes," tied to what you found ("Want m
 
 **No calls connected:** score from email, calendar and CRM activity only, and say in `howBuilt` that buyer quotes from calls weren't available, so tiers that need a buyer's spoken words were judged from email alone.
 
-**Thin data:** fewer than 5 deals in the period, drop "Biggest gaps" and "By rep"; "Every deal" already shows everything. No amounts: count deals instead of value and leave money fields 0.
+**Thin data:** fewer than 5 deals in the period, leave `gaps` and `reps` empty; the page shows those sections with their empty state and "Every deal" already lists everything. No amounts: count deals instead of value and leave money fields 0.
 
 **A source fails partway:** retry once, then continue with what you have and say what's missing in the sources line. Base numbers only on what you read.
 
@@ -418,12 +418,12 @@ h += `<footer><details><summary>How the forecast works</summary><div class="abou
 <tr><td>60% Likely</td><td>Economic buyer met, buyer gave a decision date or process, next step booked</td></tr>
 <tr><td>40% Possible</td><td>Champion replying, two or more buyer contacts, next step booked, no economic buyer meeting</td></tr>
 <tr><td>25% Possible</td><td>Two-way contact, but single-threaded or the timeline is only in the rep's notes</td></tr>
-<tr><td>10% Unlikely</td><td>No buyer reply in 14+ days, no next step, or the close date moved twice</td></tr>
-<tr><td>0%</td><td>Buyer said next quarter, no budget, or chose someone else; or quiet 30+ days</td></tr>
+<tr><td>10% Unlikely</td><td>No buyer reply in 14+ days, or no next step</td></tr>
+<tr><td>0%</td><td>Buyer said no budget or chose someone else; or quiet 30+ days</td></tr>
 </table>
 <p><b>Caps.</b> No economic buyer from buyer-side evidence: at most 40%. Quiet 14+ days: at most 25%. Close date moved twice: at most 40%. Competitor named with no stated preference: at most 60%. New deal with no call yet: at most 25%. Every cap that applied is listed in the deal's evidence.</p>
-<p><b>Dates.</b> The objective close date is the later of the date the buyer gave and the date the remaining steps could finish at this team's usual pace. A deal whose objective date lands after the period counts as likely to slip and adds nothing to this period's number.</p>
-<p><b>Rep's number</b> is the forecast category or probability in the CRM, or the stage's probability. <b>Runs hot</b> or <b>cold</b> is a rep's value-weighted average gap between their number and the evidence.</p>
+<p><b>Dates.</b> The objective close date is the later of the date the buyer gave and the date the remaining steps could finish at this team's usual pace. A deal whose objective date lands after the period counts as likely to slip and adds nothing to this period's number, while the rep's number still counts it, so the gap between the two shows what's really leaving the quarter.</p>
+<p><b>Rep's number</b> is the forecast category or probability in the CRM, or the stage's probability. <b>Runs hot</b> or <b>cold</b> is a rep's value-weighted average gap between their number and the evidence across all their deals in the period, slips included.</p>
 <p><b>This run:</b> ${esc(D.howBuilt)}</p></div></details><span>Updated ${esc(D.updated)} · Built with Sales Skills by <a href="https://arrows.to/claude-for-teams/?utm_source=sales-skills&utm_medium=report&utm_campaign=objective-forecast" target="_blank" rel="noopener">Arrows</a></span></footer>`;
 document.getElementById("app").innerHTML = h;
 </script>
