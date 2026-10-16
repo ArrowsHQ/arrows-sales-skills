@@ -290,8 +290,8 @@ section[id]{scroll-margin-top:12px}
 .cmp .down{color:var(--red)}
 .need::before{content:"Still needed: ";color:var(--ink-50)}
 .need{color:var(--ink-70);font-size:12px}
-.move{display:inline-block;margin-top:7px;padding:6px 11px 6px 10px;border-radius:4px;background:var(--gold-soft);border-left:3px solid var(--gold);color:var(--ink);font-size:13px;font-weight:600;line-height:1.35}
-.move::before{content:"To move it";display:block;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gold-text);margin-bottom:2px}
+.move{display:block;margin-top:6px;padding:1px 0 1px 10px;border-left:2px solid var(--gold);color:var(--ink);font-size:13px;font-weight:600;line-height:1.4}
+.move::before{content:"To move it · ";font-weight:600;color:var(--ink-50)}
 .empty{font-size:13px;color:var(--ink-50);padding:6px 0}
 .rep-row{display:grid;grid-template-columns:190px 1fr;gap:12px}
 .more{font-size:12px;color:var(--ink-50);padding-top:10px;border-top:1px solid var(--line)}
