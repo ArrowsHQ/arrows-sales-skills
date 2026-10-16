@@ -12,7 +12,7 @@ If these skills help you, star this repo so other sellers can find it.
 
 | | |
 |---|---|
-| **What it is** | 7 free AI skills for sales reps and sales leaders |
+| **What it is** | 9 free AI skills for sales reps and sales leaders |
 | **Works in** | Claude (connector, plugin, or skill upload), ChatGPT, Microsoft Copilot, Google Gemini |
 | **Works with** | Any CRM, email, calendar, and call recorder your AI tool can connect to. No connection? Paste in a CSV export or your notes. |
 | **Price** | Free. No signup, no email gate. |
@@ -49,6 +49,7 @@ Setup takes about 5 to 10 minutes. Do it once, and the rest of the skills sound 
 | **Arrows weekly pipeline review** | Your whole open pipeline on one shareable page, the same layout every week: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Sales leaders get a rollup by rep with what to raise in each 1:1. Can run itself every Monday. |
 | **Arrows process gaps report** | Finds what's falling through the cracks, measured against your own sales process: money at risk, follow-ups you promised that never went out, deals with no next step, and the habits from your best deals that the rest aren't getting. The 3–5 moves for this week, a by-rep view for leaders, and a visual report you can share. |
 | **Arrows CRM guide and hygiene check** | Learns how your CRM and pipeline really work (how deals move, where they stall, which fields to update after each call) and saves it as a guide. Then checks your CRM against it, scores it, and suggests fixes from your calls and email. Nothing changes until you approve it. |
+| **Arrows objective forecast** | A bystander's read of every deal closing this quarter: how likely it really is and when it will really close, judged only from what the buyer said and did on calls and in email, never from the rep's opinion. Rep number next to the objective number on every deal, the biggest gaps, the deals likely to slip, and a rep-by-rep calibration for leaders (who runs hot, who runs cold). Read only, same rubric every time. |
 
 ---
 
@@ -58,7 +59,7 @@ Run setup once.
 
 Every morning, or whenever you need a pulse on your day, run your daily brief.
 
-Before a specific call, run pre-call prep on that meeting. Right after the call, run post-call. When a deal goes quiet, run deal nudge.
+Before a specific call, run pre-call prep on that meeting. Right after the call, run post-call. When a deal goes quiet, run deal nudge. Before a forecast call, run the objective forecast to see what the evidence says next to what the reps say.
 
 Each skill knows about the others. When you finish post-call, it offers to prep you for the next call with the same buyer. When you finish the daily brief, it can suggest running deal nudge on a deal that went dark. You don't have to remember which skill to run next. The tool tells you.
 
@@ -82,7 +83,7 @@ Done. Start a new chat and type "Build my sales profile" to begin.
 
 ### Or: add them as a Claude plugin
 
-This repo is also a Claude plugin marketplace. Adding the plugin installs all eight skills at once, and they update when this repo does.
+This repo is also a Claude plugin marketplace. Adding the plugin installs all nine skills at once, and they update when this repo does.
 
 - **Claude (web or desktop):** go to **Customize**, then **Plugins**, then **Add**, then **Add marketplace**, and enter `ArrowsHQ/arrows-sales-skills`. Then add the **Sales Skills by Arrows** plugin.
 - **Claude Code:** run `claude plugin marketplace add ArrowsHQ/arrows-sales-skills`, then `claude plugin install arrows-sales-skills@arrows`.
@@ -91,7 +92,7 @@ This repo is also a Claude plugin marketplace. Adding the plugin installs all ei
 
 If your company doesn't allow custom connectors, or you use ChatGPT, Copilot, Gemini, or another AI tool, you can download the skills directly and upload them.
 
-1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge, arrows-weekly-pipeline-review, arrows-process-gaps-report, arrows-crm-hygiene) each contain a SKILL.md file.
+1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge, arrows-weekly-pipeline-review, arrows-process-gaps-report, arrows-crm-hygiene, arrows-forecast) each contain a SKILL.md file.
 2. Click into the folder, then click on the SKILL.md file.
 3. Click the **Raw** button at the top right to see the plain text, or click **Download raw file** to save it.
 4. Upload it to your AI tool:
@@ -116,6 +117,7 @@ Once installed, trigger a skill by typing one of these phrases into your AI tool
 - **Weekly pipeline review:** "Run my Arrows weekly pipeline review"
 - **Process gaps report:** "Run my Arrows process gaps report" or "What's falling through the cracks?"
 - **CRM guide and hygiene check:** "Run my Arrows CRM hygiene check"
+- **Objective forecast:** "Run my Arrows forecast" or "What's really going to close this quarter?"
 
 You can also invoke skills directly:
 
@@ -128,6 +130,7 @@ You can also invoke skills directly:
 /arrows-weekly-pipeline-review
 /arrows-process-gaps-report
 /arrows-crm-hygiene
+/arrows-forecast
 ```
 
 ---
@@ -136,7 +139,7 @@ You can also invoke skills directly:
 
 ### What are Claude skills for sales?
 
-Claude skills are instruction files that teach Claude to do a specific job the same way every time. Sales skills turn everyday sales work into one-line requests: "Run my Arrows daily brief" gets you today's calls, replies you owe, and pipeline alerts, using what's in your CRM, email, calendar, and call recordings. Sales Skills by Arrows is a free set of 7 of them.
+Claude skills are instruction files that teach Claude to do a specific job the same way every time. Sales skills turn everyday sales work into one-line requests: "Run my Arrows daily brief" gets you today's calls, replies you owe, and pipeline alerts, using what's in your CRM, email, calendar, and call recordings. Sales Skills by Arrows is a free set of 9 of them.
 
 ### How do I use Claude for sales?
 
