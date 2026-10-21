@@ -3,7 +3,6 @@ name: arrows-forecast
 description: "Objective forecast from Sales Skills by Arrows. A bystander's read of every deal the CRM has closing this month (or this quarter, when asked): how likely it really is and when it will really close, judged only from what the buyer said and did on calls, in email and on the calendar, never from the CRM stage, its probability or its close date. Shows the CRM's number next to the evidence for every deal, what each buyer still hasn't done, the deals the CRM has ahead of the evidence, the deals further along than the CRM shows, the dates likely to slip, and one question per rep for sales leaders. Leads with the decisions: which close dates to move, which deals to close out, which deal needs one buyer action this week. Evidence under every number. Read only. Comes as a shareable visual report, the same page every run. Use this whenever someone says 'Run my Arrows forecast', 'Run the Arrows objective forecast', 'forecast my pipeline', 'what's really going to close this month', 'what's really going to close this quarter', 'what's actually going to close', 'give me an objective read on the pipeline', 'is this deal really at 70%', asks which deals will slip, how much of the pipeline is real, or wants an unbiased number before a forecast call or board update."
 ---
 
-
 **Period:** this month (or the month or quarter the person names)
 
 A CRM forecast is a stage probability and a close date someone typed in. This skill gives the other read: what a bystander who sat in on every call and read every email would say about each deal, how likely it is to close and when, judged only from what the buyer said and did. It shows that next to the CRM's number so the person can see where the pipeline is ahead of the evidence and where it's behind, deal by deal.
@@ -99,7 +98,7 @@ Score each deal with the same rubric so the number is reproducible: the same evi
 
 **What the buyer hasn't done yet** (`blocker`, one per deal, under 8 words): the single thing that would move the deal to the next tier, in the buyer's terms. "No decision date from the buyer", "Budget holder not on a call", "No reply since Oct 1", "Paper process not started", "Security review not started". For a Commit deal with nothing missing, "Signature by [date]".
 
-**What would move it** (`move`, one per deal, under 12 words, starts with who): the one thing someone on the seller's side can do this week to get the buyer to do the blocker, grounded in the evidence (a date the buyer mentioned, a person they named, a call already on the calendar). "Kim: book a pricing call with Arisha and Madeline for the week of Oct 26", "Richard: ask George on Oct 21 to bring James to the next call". When nothing on the seller's side can move it, say so plainly: "Close out Oct 21 unless Mario replies", "Nothing until Matt replies; reopen then". This is the bonus the page earns its keep with: a deal with a low number and a clear move is good news, not bad.
+**What would move it** (`move`, one per deal, under 12 words, starts with who): the one thing someone on the seller's side can do this week to get the buyer to do the blocker, grounded in the evidence (a date the buyer mentioned, a person they named, a call already on the calendar). "[Rep]: book a pricing call with [Champion] and [Economic buyer] for the week of [date]", "[Rep]: ask [Champion] on [date] to bring [Decision maker] to the next call". When nothing on the seller's side can move it, say so plainly: "Close out [date] unless [Buyer] replies", "Nothing until [Buyer] replies; reopen then". This is the bonus the page earns its keep with: a deal with a low number and a clear move is good news, not bad.
 
 **Evidence close date.** Take the later of:
 1. The date the buyer gave, in their own words (not the CRM field), moved to the end of that month if they said "end of month", and so on. Record it as `buyerDate` with who said it and when ("Nov 7, CFO, Oct 10 email"); leave `buyerDate` null when no buyer gave one.
@@ -115,7 +114,7 @@ If the evidence date falls after the period, the deal goes in "Likely to slip": 
 
 **The gap** for a deal = (CRM % − evidence %) × amount. "CRM ahead of the evidence" ranks positive gaps by size; "Further along than the CRM shows" lists negative gaps of 10 points or more.
 
-**By rep** (leaders): for each owner, the CRM value and evidence value of their deals in the period (slips at 0 on the evidence side) and one question for the 1:1, about a specific deal and the decision it needs ("Projectworks: is Oct 31 real with nothing booked? Move it to November?"). No scores, labels, counts or adjectives about the person; the deals and the question do the work.
+**By rep** (leaders): for each owner, the CRM value and evidence value of their deals in the period (slips at 0 on the evidence side) and one question for the 1:1, about a specific deal and the decision it needs ("[Company]: is [date] real with nothing booked? Move it to next month?"). No scores, labels, counts or adjectives about the person; the deals and the question do the work.
 
 ## Step 5: Build the visual report
 
@@ -157,7 +156,7 @@ Decisions this week:
 
 "Move" is every deal likely to slip, with the evidence date. "Close out" is every deal at 0 for the period, and any deal whose close date has already passed with no buyer reply. "One buyer action" is the one or two deals closest to moving up a tier, taken from their `move` lines (a budget holder to get on a call, a date to ask for, paper to send) and who on the seller's side does it. Leave a line out if it's empty. Keep each line under 15 words; the page has the rest.
 
-In a team view, add one line per rep after the decisions with their 1:1 question ("Kim: Projectworks: is Oct 31 real with nothing booked? Move it to November?"), since that's usually what the leader came for.
+In a team view, add one line per rep after the decisions with their 1:1 question ("[Rep]: [Company]: is [date] real with nothing booked? Move it to next month?"), since that's usually what the leader came for.
 
 The first time someone runs this forecast (no earlier report in the conversation or project), add one line: "You'll get this same page every time, in the same order. 'How the forecast works' at the bottom shows the rubric, so anyone can check a number."
 
@@ -197,7 +196,7 @@ Then one offer the person can accept with "yes," tied to what you found ("Want m
 - **No cheerleading.** If the evidence and the CRM agree, say "The CRM and the evidence agree within $X" and stop.
 - **Use their words.** Stage names, methodology terms and forecast categories come from their CRM and profile, not generic sales language.
 - **Scannable in 30 seconds.** The label, the numbers, what's missing and the move on the row; the reason and the evidence under the caret. Four short lines per deal, no more.
-- **Every low number comes with a move.** A deal at 10% with "Stephanie: one closing note to Jake; close out if no reply by Oct 23" is a decision made. A deal at 10% with nothing is just bad news. If there is truly no move, say "close it out"; that's a move too.
+- **Every low number comes with a move.** A deal at 10% with "[Rep]: one closing note to [Buyer]; close out if no reply by [date]" is a decision made. A deal at 10% with nothing is just bad news. If there is truly no move, say "close it out"; that's a move too.
 - **Nothing saved with buyer details.** If you keep anything for a later comparison, keep it to counts and totals, with no buyer names or exact amounts.
 
 ## Report template
@@ -221,7 +220,6 @@ Copy this exactly. Replace only the `DATA` object.
   --green:#1F8A4C; --green-soft:#E8F4EC;
   --red:#D33A24; --red-soft:#FCEAE6;
   --gold:#FEBC22; --gold-soft:#FFF4D6; --gold-text:#8A5A00;
-  --blue:#2F6FD1; --blue-soft:#E7EFFB;
   --display:'Plus Jakarta Sans','Segoe UI',sans-serif;
 }
 *{box-sizing:border-box}
@@ -231,22 +229,19 @@ body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 "Plus Jakar
 .chip{display:block;font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.2px;color:var(--ink)}
 .hero{background:#171614;color:#FFFFFF;position:relative;border-radius:4px;padding:20px 24px 18px}
 .hero h1{font-family:var(--display);font-feature-settings:"lnum","tnum";color:#FFFFFF;font-size:32px;line-height:1.12;letter-spacing:-.6px;font-weight:700;margin:0 0 4px;max-width:760px}
-.hero .sub{color:rgba(255,255,255,.75);font-size:15px;margin:0 0 6px}
-.hero .explain{color:rgba(255,255,255,.85);font-size:13px;margin:0 0 14px;max-width:760px}
+.hero .sub{color:rgba(255,255,255,.75);font-size:15px;margin:0 0 16px}
 .health{display:flex;height:10px;border-radius:2px;overflow:hidden;background:rgba(250,248,245,.15)}
 .g-fill{background:var(--green)}
-.b-fill{background:var(--blue)}
-.y-fill{background:var(--gold)}
 .r-fill{background:var(--red)}
-.hero .legend{color:rgba(255,255,255,.75)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:14px;border-top:1px solid rgba(250,248,245,.16)}
 .stat{padding:14px 12px 0 0}
 .stat+.stat{padding-left:16px;border-left:1px solid rgba(250,248,245,.16)}
 .stat .n{font-family:var(--display);font-feature-settings:"lnum","tnum";font-size:28px;font-weight:700;letter-spacing:-.5px}
 .stat .l{font-size:12px;color:rgba(255,255,255,.75)}
+.stat .key{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:1px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:20px 22px;margin-top:16px}
-.head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px;padding-bottom:10px;border-bottom:1px solid var(--line)}
-.hint{font-size:12px;color:var(--ink-50);text-align:right}
+.head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.hint{font-size:12px;color:var(--ink-50)}
 .item{border-top:1px solid var(--line)}
 .head + .item{border-top:0}
 .row{display:grid;grid-template-columns:26px 1fr 14px;gap:6px;padding:10px 0;align-items:start}
@@ -255,18 +250,16 @@ details.item summary::-webkit-details-marker{display:none}
 details.item summary .row::after{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink-30);border-bottom:1.5px solid var(--ink-30);transform:rotate(-45deg);margin-top:7px;transition:transform .15s}
 details.item[open] summary .row::after{transform:rotate(45deg)}
 details.item summary:hover .row::after{border-color:var(--ink-70)}
-.mark{font-weight:700;color:var(--ink-30);font-size:14px}
 .mark.dot::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ink-30);margin-top:6px}
-.mark.dot.g::before{background:var(--green)}
-.mark.dot.b::before{background:var(--blue)}
-.mark.dot.y::before{background:var(--gold)}
 .mark.dot.r::before{background:var(--red)}
+.mark.dot.g::before{background:var(--green)}
+.tick{width:16px;height:16px;border-radius:50%;background:var(--green);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
 .title{font-weight:600}
 .who{font-size:12px;color:var(--ink-50);font-weight:400;margin-left:6px}
 .sub2{font-size:13px;color:var(--ink-70)}
 .detail{margin:0 20px 12px 28px;padding:10px 12px;background:#F5F4F1;border-radius:6px;font-size:13px;color:var(--ink-70)}
 .detail ul,.detail ol{margin:0;padding-left:18px}
-.detail li+li{margin-top:3px}
+.detail ol li{color:var(--ink)}
 .detail .ctx{margin-top:8px;font-size:12px;color:var(--ink-50)}
 a.stat{display:block;color:inherit;text-decoration:none;cursor:pointer}
 a.stat:hover .l{text-decoration:underline;text-underline-offset:2px}
@@ -274,14 +267,45 @@ section[id]{scroll-margin-top:12px}
 .cols{display:grid;grid-template-columns:1fr 1fr}
 .cols > .item:nth-child(odd){padding-right:22px;border-right:1px solid var(--line)}
 .cols > .item:nth-child(even){padding-left:22px}
-.cols > .item:nth-child(-n+2){border-top:0}
 .num-badge{width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:-1px}
+.cols > .item:nth-child(-n+2){border-top:0}
+.detail li+li{margin-top:3px}
+.next{color:var(--ink);font-size:13px}
+.next::before{content:"→ ";color:var(--ink-30)}
+.qline{margin:3px 0 2px}
+.tag.r{background:var(--red-soft);color:var(--red)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.n{background:var(--chip);color:var(--ink-70)}
+.empty{font-size:13px;color:var(--ink-50);padding:6px 0}
+.rep-row{display:grid;grid-template-columns:190px 1fr;gap:12px}
+.minibar{display:flex;height:8px;border-radius:2px;overflow:hidden;background:var(--track);margin-top:6px;max-width:220px}
+.more{font-size:12px;color:var(--ink-50);padding-top:10px;border-top:1px solid var(--line)}
+.r-al{text-align:right}
+.meta{font-size:12px;color:var(--ink-50)}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:12px;color:var(--ink-50)}
+footer details summary{cursor:pointer}
+footer a{color:var(--ink-70);text-decoration:underline;text-underline-offset:2px}
+footer a:hover{color:var(--ink)}
+.about{max-width:680px;margin-top:6px;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:4px;color:var(--ink-70);font-size:13px}
+.about p{margin:0 0 8px}
+.about p:last-child{margin:0}
+.about b{color:var(--ink);font-weight:600}
+.tag.g{color:#127A3E!important}
+.y-fill{background:var(--gold)}
+.mark.dot.y::before{background:var(--gold)}
+.tag.y{background:var(--gold-soft);color:var(--gold-text)}
+:root{--blue:#2F6FD1; --blue-soft:#E7EFFB;}
+.hero .sub{color:rgba(255,255,255,.75);font-size:15px;margin:0 0 6px}
+.hero .explain{color:rgba(255,255,255,.85);font-size:13px;margin:0 0 14px;max-width:760px}
+.b-fill{background:var(--blue)}
+.hero .legend{color:rgba(255,255,255,.75)}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.hint{font-size:12px;color:var(--ink-50);text-align:right}
+.mark{font-weight:700;color:var(--ink-30);font-size:14px}
+.mark.dot.b::before{background:var(--blue)}
 .tag{display:inline-block;font-size:12px;font-weight:600;border-radius:2px;padding:1px 6px;white-space:nowrap;margin-left:6px}
 .tag.g{background:var(--green-soft);color:#127A3E}
 .tag.b{background:var(--blue-soft);color:var(--blue)}
-.tag.y{background:var(--gold-soft);color:var(--gold-text)}
-.tag.r{background:var(--red-soft);color:var(--red)}
-.tag.n{background:var(--chip);color:var(--ink-70)}
 .cmp{display:flex;gap:14px;flex-wrap:wrap;margin:3px 0 2px;font-size:13px}
 .cmp .k{color:var(--ink-50);font-size:12px}
 .cmp .v{font-weight:600}
@@ -292,22 +316,10 @@ section[id]{scroll-margin-top:12px}
 .need{color:var(--ink-70);font-size:12px}
 .move{display:block;margin-top:6px;padding:1px 0 1px 10px;border-left:2px solid var(--gold);color:var(--ink);font-size:13px;font-weight:600;line-height:1.4}
 .move::before{content:"To move it · ";font-weight:600;color:var(--ink-50)}
-.empty{font-size:13px;color:var(--ink-50);padding:6px 0}
-.rep-row{display:grid;grid-template-columns:190px 1fr;gap:12px}
-.more{font-size:12px;color:var(--ink-50);padding-top:10px;border-top:1px solid var(--line)}
-.meta{font-size:12px;color:var(--ink-50)}
 .dl{list-style:none;padding-left:0!important;margin:0}
 .dl li{display:grid;grid-template-columns:16px 1fr;gap:4px;color:var(--ink)}
 .legend{display:flex;gap:16px;font-size:12px;color:var(--ink-50);margin-top:10px;flex-wrap:wrap}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:12px;color:var(--ink-50)}
-footer details summary{cursor:pointer}
-footer a{color:var(--ink-70);text-decoration:underline;text-underline-offset:2px}
-footer a:hover{color:var(--ink)}
-.about{max-width:680px;margin-top:6px;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:4px;color:var(--ink-70);font-size:13px}
-.about p{margin:0 0 8px}
-.about p:last-child{margin:0}
-.about b{color:var(--ink);font-weight:600}
 .about table{border-collapse:collapse;margin:6px 0 8px;font-size:12px}
 .about td{padding:3px 10px 3px 0;vertical-align:top;border-top:1px solid var(--line)}
 .about td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
@@ -467,6 +479,8 @@ Before you start, look for their sales profile files in this project and use the
 - `arrows-how-i-work.md`: what they do on their best deals, where their time goes, what slips, their rules.
 - `arrows-how-we-work.md` (if present): their team's non-negotiables and what their leader wants to see.
 - `arrows-crm-guide.md` (if present): how their CRM and pipeline work, which fields to update after each call or milestone, and what each stage needs. Use it whenever you suggest CRM updates.
+- `arrows-sales-playbook.md` (if present): the team's playbook: what they sell and to whom, and the plays they run at each moment and in each situation (steps, owners, timing, what to say, when it's done). Follow its plays and check deals against them.
+- `arrows-win-loss.md` (if present): why the team wins and loses, from its closed deals: who wins, the moves that win, why deals are lost, and what to change this quarter. Use it when judging whether a deal looks like the wins or the losses.
 
 Look sections up by their `##` heading. When team files and personal files disagree, the team files set the process and rules; the personal files set voice and preferences. Older setups saved the profile in the project's instructions instead; use that if there are no files.
 
@@ -511,12 +525,16 @@ Below are the Sales Skills by Arrows the rep has installed (either via the MCP a
 **Arrows weekly pipeline review** — a visual one-page review of every open deal: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Leaders get a rollup by rep with what to raise in each 1:1. Same page every week; can run every Monday. Trigger: "Run my weekly pipeline review."
 **Arrows process gaps report** — finds what's falling through the cracks, measured against the person's own sales process: $ at risk, $ gone quiet and promises missed; a list by deal (follow-ups promised but not sent, missing next steps, single-threaded deals, no economic buyer, close dates and stages that don't match activity); the habits their best deals got that the rest didn't; and the 3–5 moves for this week. Leaders get a by-rep view. Visual report to share. Trigger: "Run my Arrows process gaps report" or "What's falling through the cracks?"
 **Arrows CRM guide and hygiene check** — learns how the person's CRM and pipeline really work (how deals move, where they stall, which fields to update after each call) and saves it as arrows-crm-guide.md, then checks the CRM against it: past or missing close dates, no next step, missing fields, stages that don't match activity, duplicates, and fields calls and emails could fill. Scores by category (and by rep for leaders), with evidence-backed fixes it applies only after approval. Trigger: "Run my Arrows CRM hygiene check."
+
+**Arrows win-loss analysis** — a deep read of closed deals that answers why the team wins and why it loses: win rate by segment, the 3–5 moves seen on wins and not on losses (counted on both sides), where and why deals really die compared with what the CRM says, who was missing from the buying group, which parts of the methodology predict a win, a rep comparison for leaders, and 3 things to change this quarter. A visual report to share; can save a short summary, arrows-win-loss.md. Trigger: "Run my Arrows win-loss analysis."
 **Arrows objective forecast** — a bystander's read of every deal the CRM has dated this period, scored only from what the buyer said and did on calls, in email and on the calendar: the evidence-based likelihood and close date next to the CRM's number, what each buyer still hasn't done, where the CRM is ahead of the evidence, deals further along than their stage shows, the deals likely to slip, and a by-rep view for leaders of what's blocking each rep's deals. Same rubric every time, evidence under every number, read only. Visual report to share. Trigger: "Run my Arrows forecast" or "what's really going to close this quarter?"
+
+**Arrows agentic playbook builder** — reads the whole pipeline in depth (deals, calls, email, docs) and writes down how the team runs its sales process: what we sell and why, who we sell to and who we don't, and the plays the team runs at each moment and in each situation (a demo booked, after a first call, when a CEO books, a competitor comes up, a deal goes quiet), each with steps, owners, timing and what to say. Shows it as a page to share and saves arrows-sales-playbook.md for any AI assistant; refreshes setup's team files. Usually run by a sales leader. Trigger: "Build my agentic playbook."
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.
 - One suggestion per tool run. Not a menu.
-- Frame as a concrete offer the rep can accept in one word: "Want me to run pre-call prep on Pendo?" Not "You could also consider pre-call prep."
+- Frame as a concrete offer the rep can accept in one word: "Want me to run pre-call prep on [company]?" Not "You could also consider pre-call prep."
 - Don't re-suggest a skill that was already run in this conversation.
 
 ---

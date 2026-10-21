@@ -50,7 +50,7 @@ Or say "skip" and I'll find your best wins myself.
 
 If they asked for something narrower (for example, "learn how I write"), say in one line that voice is one of four short files and the rest takes no extra effort from them, then continue.
 
-If they're already inside a project that has `arrows-*.md` team files, say so here ("I see your team's process files, so I'll focus on your voice and how you work.") and follow "Team files already in the project" under Special cases.
+If they're already inside a project that has `arrows-*.md` team files (or `arrows-sales-playbook.md`), say so here ("I see your team's process files, so I'll focus on your voice and how you work.") and follow "Team files already in the project" under Special cases.
 
 ## Step 2: Read everything
 
@@ -313,6 +313,8 @@ A CSV gets read like a CRM: owners, stages, amounts, close dates, won and lost. 
 
 ### Team files already in the project
 
+If `arrows-sales-playbook.md` is in the project, the team's process was already written down in depth by the playbook builder, and `arrows-sales-process.md` and `arrows-buyers-and-competitors.md` were refreshed from it (their first line says "Updated from the sales playbook"). Don't rebuild those two files or second-guess the playbook: read them, and build only `arrows-voice.md` and `arrows-how-i-work.md` (plus `arrows-how-we-work.md` for a leader who doesn't have one). If either team file is missing, build it from the playbook rather than from a fresh scan. In Step 3, show what you learned about their voice and deals, and say in one line that the team process comes from the playbook. Where the person's habits differ from the playbook, note it in their how-I-work file.
+
 If `arrows-sales-process.md`, `arrows-buyers-and-competitors.md` or `arrows-how-we-work.md` are already in the project, check the header line. If it names someone else as leader, the files came from this rep's leader: read them and don't rebuild them. If it names this person, it's a refresh: rebuild them. When a rep adds a leader's team files, tell them to delete their own earlier copies of `arrows-sales-process.md` and `arrows-buyers-and-competitors.md` first; the leader's files replace them. Focus the scan on the rep's own email, calls and deals: build `arrows-voice.md` and `arrows-how-i-work.md`, and in Step 3 show what you learned about the rep's voice and deals. Where the rep's habits differ from the team process, note it in their how-I-work file, not in the team files.
 
 ## Rules
@@ -339,6 +341,8 @@ Before you start, look for their sales profile files in this project and use the
 - `arrows-how-i-work.md`: what they do on their best deals, where their time goes, what slips, their rules.
 - `arrows-how-we-work.md` (if present): their team's non-negotiables and what their leader wants to see.
 - `arrows-crm-guide.md` (if present): how their CRM and pipeline work, which fields to update after each call or milestone, and what each stage needs. Use it whenever you suggest CRM updates.
+- `arrows-sales-playbook.md` (if present): the team's playbook: what they sell and to whom, and the plays they run at each moment and in each situation (steps, owners, timing, what to say, when it's done). Follow its plays and check deals against them.
+- `arrows-win-loss.md` (if present): why the team wins and loses, from its closed deals: who wins, the moves that win, why deals are lost, and what to change this quarter. Use it when judging whether a deal looks like the wins or the losses.
 
 Look sections up by their `##` heading. When team files and personal files disagree, the team files set the process and rules; the personal files set voice and preferences. Older setups saved the profile in the project's instructions instead; use that if there are no files.
 
@@ -383,12 +387,16 @@ Below are the Sales Skills by Arrows the rep has installed (either via the MCP a
 **Arrows weekly pipeline review** — a visual one-page review of every open deal: what's moving forward, what's at risk and why, what to do this week, and what's expected to close. Leaders get a rollup by rep with what to raise in each 1:1. Same page every week; can run every Monday. Trigger: "Run my weekly pipeline review."
 **Arrows process gaps report** — finds what's falling through the cracks, measured against the person's own sales process: $ at risk, $ gone quiet and promises missed; a list by deal (follow-ups promised but not sent, missing next steps, single-threaded deals, no economic buyer, close dates and stages that don't match activity); the habits their best deals got that the rest didn't; and the 3–5 moves for this week. Leaders get a by-rep view. Visual report to share. Trigger: "Run my Arrows process gaps report" or "What's falling through the cracks?"
 **Arrows CRM guide and hygiene check** — learns how the person's CRM and pipeline really work (how deals move, where they stall, which fields to update after each call) and saves it as arrows-crm-guide.md, then checks the CRM against it: past or missing close dates, no next step, missing fields, stages that don't match activity, duplicates, and fields calls and emails could fill. Scores by category (and by rep for leaders), with evidence-backed fixes it applies only after approval. Trigger: "Run my Arrows CRM hygiene check."
+
+**Arrows win-loss analysis** — a deep read of closed deals that answers why the team wins and why it loses: win rate by segment, the 3–5 moves seen on wins and not on losses (counted on both sides), where and why deals really die compared with what the CRM says, who was missing from the buying group, which parts of the methodology predict a win, a rep comparison for leaders, and 3 things to change this quarter. A visual report to share; can save a short summary, arrows-win-loss.md. Trigger: "Run my Arrows win-loss analysis."
 **Arrows objective forecast** — a bystander's read of every deal the CRM has dated this period, scored only from what the buyer said and did on calls, in email and on the calendar: the evidence-based likelihood and close date next to the CRM's number, what each buyer still hasn't done, where the CRM is ahead of the evidence, deals further along than their stage shows, the deals likely to slip, and a by-rep view for leaders of what's blocking each rep's deals. Same rubric every time, evidence under every number, read only. Visual report to share. Trigger: "Run my Arrows forecast" or "what's really going to close this quarter?"
+
+**Arrows agentic playbook builder** — reads the whole pipeline in depth (deals, calls, email, docs) and writes down how the team runs its sales process: what we sell and why, who we sell to and who we don't, and the plays the team runs at each moment and in each situation (a demo booked, after a first call, when a CEO books, a competitor comes up, a deal goes quiet), each with steps, owners, timing and what to say. Shows it as a page to share and saves arrows-sales-playbook.md for any AI assistant; refreshes setup's team files. Usually run by a sales leader. Trigger: "Build my agentic playbook."
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.
 - One suggestion per tool run. Not a menu.
-- Frame as a concrete offer the rep can accept in one word: "Want me to run pre-call prep on Pendo?" Not "You could also consider pre-call prep."
+- Frame as a concrete offer the rep can accept in one word: "Want me to run pre-call prep on [company]?" Not "You could also consider pre-call prep."
 - Don't re-suggest a skill that was already run in this conversation.
 
 ---

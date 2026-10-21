@@ -1,6 +1,6 @@
 # Sales Skills by Arrows
 
-Free sales skills for Claude, from the team at [Arrows](https://arrows.to). They turn Claude into a sales assistant that knows your deals: a daily brief, pre-call prep, post-call follow-ups, deal nudges, a weekly pipeline review, an objective forecast, and a sales playbook for your team.
+Free sales skills for Claude, from the team at [Arrows](https://arrows.to). They turn Claude into a sales assistant that knows your deals: a daily brief, pre-call prep, post-call follow-ups, deal nudges, and a weekly pipeline review.
 
 ## Use it
 
