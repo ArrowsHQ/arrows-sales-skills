@@ -50,12 +50,13 @@ Setup takes about 5 to 10 minutes. Do it once, and the rest of the skills sound 
 | **Arrows process gaps report** | Finds what's falling through the cracks, measured against your own sales process: money at risk, follow-ups you promised that never went out, deals with no next step, and the habits from your best deals that the rest aren't getting. The 3–5 moves for this week, a by-rep view for leaders, and a visual report you can share. |
 | **Arrows CRM guide and hygiene check** | Learns how your CRM and pipeline really work (how deals move, where they stall, which fields to update after each call) and saves it as a guide. Then checks your CRM against it, scores it, and suggests fixes from your calls and email. Nothing changes until you approve it. |
 | **Arrows objective forecast** | A bystander's read of every deal the CRM has dated this quarter: how likely it really is and when it will really close, judged only from what the buyer said and did on calls and in email, never from the stage or the CRM close date. The CRM's number next to the evidence on every deal, what each buyer still hasn't done, where the CRM is ahead of the evidence, the deals likely to slip, and a by-rep view for leaders of what's blocking each rep's deals. Read only, same rubric every time. |
+| **Arrows agentic playbook builder** | For sales leaders. Reads your whole pipeline in depth (deals, calls, email, docs) and writes down how your team runs its sales process: what you sell and why, who you sell to, and the plays you run at each moment and in each situation, like when a demo is booked, after a first call, when a CEO books or when a deal goes quiet. A page to share with your team, new hires or a consultant, and a file any AI assistant can follow. |
 
 ---
 
 ## How the skills work together
 
-Run setup once.
+Run setup once. Sales leaders can then run the agentic playbook builder: it writes down how the team runs its sales process, play by play, gives you a page to share and a file any AI tool can follow, and refreshes setup's team files with what it found.
 
 Every morning, or whenever you need a pulse on your day, run your daily brief.
 
@@ -83,7 +84,7 @@ Done. Start a new chat and type "Build my sales profile" to begin.
 
 ### Or: add them as a Claude plugin
 
-This repo is also a Claude plugin marketplace. Adding the plugin installs all nine skills at once, and they update when this repo does.
+This repo is also a Claude plugin marketplace. Adding the plugin installs all ten skills at once, and they update when this repo does.
 
 - **Claude (web or desktop):** go to **Customize**, then **Plugins**, then **Add**, then **Add marketplace**, and enter `ArrowsHQ/arrows-sales-skills`. Then add the **Sales Skills by Arrows** plugin.
 - **Claude Code:** run `claude plugin marketplace add ArrowsHQ/arrows-sales-skills`, then `claude plugin install arrows-sales-skills@arrows`.
@@ -92,7 +93,7 @@ This repo is also a Claude plugin marketplace. Adding the plugin installs all ni
 
 If your company doesn't allow custom connectors, or you use ChatGPT, Copilot, Gemini, or another AI tool, you can download the skills directly and upload them.
 
-1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge, arrows-weekly-pipeline-review, arrows-process-gaps-report, arrows-crm-hygiene, arrows-forecast) each contain a SKILL.md file.
+1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge, arrows-weekly-pipeline-review, arrows-process-gaps-report, arrows-crm-hygiene, arrows-forecast, arrows-agentic-playbook-builder) each contain a SKILL.md file.
 2. Click into the folder, then click on the SKILL.md file.
 3. Click the **Raw** button at the top right to see the plain text, or click **Download raw file** to save it.
 4. Upload it to your AI tool:
@@ -118,6 +119,7 @@ Once installed, trigger a skill by typing one of these phrases into your AI tool
 - **Process gaps report:** "Run my Arrows process gaps report" or "What's falling through the cracks?"
 - **CRM guide and hygiene check:** "Run my Arrows CRM hygiene check"
 - **Objective forecast:** "Run my Arrows forecast" or "What's really going to close this quarter?"
+- **Agentic playbook builder:** "Build my agentic playbook"
 
 You can also invoke skills directly:
 
@@ -131,6 +133,7 @@ You can also invoke skills directly:
 /arrows-process-gaps-report
 /arrows-crm-hygiene
 /arrows-forecast
+/arrows-agentic-playbook-builder
 ```
 
 ---
