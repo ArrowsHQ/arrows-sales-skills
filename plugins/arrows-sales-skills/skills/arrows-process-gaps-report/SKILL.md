@@ -44,7 +44,7 @@ Only live sales pipelines: skip onboarding, renewal or support pipelines unless 
 
 **The standard to measure against.** Gaps only mean something against a standard, so set it first and say which one you used (it goes in `measuredAgainst`).
 
-1. Their profile: stages and exit criteria (`## Pipeline stages`), methodology (`## Discovery and qualification`), rules (`## My rules`, `## Team rules`, `## Every rep, every deal`), best-deal moves and what slips.
+1. Their profile: stages and exit criteria (`## Pipeline stages`), methodology (`## Discovery and qualification`, or `arrows-methodology.md` if present: its `## By stage` says what each stage needs and `## How to check a deal` what counts as known), rules (`## My rules`, `## Team rules`, `## Every rep, every deal`), best-deal moves and what slips.
 2. With no profile, infer what you can from the CRM (stage names, required fields, methodology fields that exist) and fill the rest with this baseline:
    - Follow-up within 1 business day of every buyer call.
    - Every open deal has a next step with a date, and that date hasn't passed.
@@ -489,6 +489,7 @@ Before you start, look for their sales profile files in this project and use the
 - `arrows-how-we-work.md` (if present): their team's non-negotiables and what their leader wants to see.
 - `arrows-crm-guide.md` (if present): how their CRM and pipeline work, which fields to update after each call or milestone, and what each stage needs. Use it whenever you suggest CRM updates.
 - `arrows-sales-playbook.md` (if present): the team's playbook: what they sell and to whom, and the plays they run at each moment and in each situation (steps, owners, timing, what to say, when it's done). Follow its plays and check deals against them.
+- `arrows-methodology.md` (if present): the team's sales methodology (MEDDPICC, BANT, SPICED, their own): each element, what counts as proof, the CRM field that holds it, what has to be known by each stage, and the questions to ask. When it's there, it replaces the methodology in `## Discovery and qualification`: check deals against its `## By stage` and `## How to check a deal`, and suggest questions from `## Questions to ask`.
 - `arrows-win-loss.md` (if present): why the team wins and loses, from its closed deals: who wins, the moves that win, why deals are lost, and what to change this quarter. Use it when judging whether a deal looks like the wins or the losses.
 
 Look sections up by their `##` heading. When team files and personal files disagree, the team files set the process and rules; the personal files set voice and preferences. Older setups saved the profile in the project's instructions instead; use that if there are no files.
@@ -539,6 +540,8 @@ Below are the Sales Skills by Arrows the rep has installed (either via the MCP a
 **Arrows objective forecast** — a bystander's read of every deal the CRM has dated this period, scored only from what the buyer said and did on calls, in email and on the calendar: the evidence-based likelihood and close date next to the CRM's number, what each buyer still hasn't done, where the CRM is ahead of the evidence, deals further along than their stage shows, the deals likely to slip, and a by-rep view for leaders of what's blocking each rep's deals. Same rubric every time, evidence under every number, read only. Visual report to share. Trigger: "Run my Arrows forecast" or "what's really going to close this quarter?"
 
 **Arrows agentic playbook builder** — reads the whole pipeline in depth (deals, calls, email, docs) and writes down how the team runs its sales process: what we sell and why, who we sell to and who we don't, and the plays the team runs at each moment and in each situation (a demo booked, after a first call, when a CEO books, a competitor comes up, a deal goes quiet), each with steps, owners, timing and what to say. Shows it as a page to share and saves arrows-sales-playbook.md for any AI assistant; refreshes setup's team files. Usually run by a sales leader. Trigger: "Build my agentic playbook."
+
+**Arrows sales methodology** — puts the team's methodology into Claude (MEDDIC or MEDDPICC, BANT, SPICED, Challenger, Sandler or their own), or helps pick one: what each element means for the team, what counts as proof, which CRM field holds it, what each stage needs and the questions reps should ask, saved as arrows-methodology.md for every skill to check deals against. Then a visual check of the team against it: which wins followed it and which losses didn't, the win rate with and without it, how well each part gets done on open deals, deals moved ahead without what their stage needs, and a by-rep view for leaders. Usually run by a sales leader. Trigger: "Set up our sales methodology" or "How is my team doing against our methodology?"
 
 **Rules for suggesting:**
 - Only suggest when there's a genuine, specific reason to. Silence is fine.

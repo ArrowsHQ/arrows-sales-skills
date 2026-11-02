@@ -52,12 +52,13 @@ Setup takes about 5 to 10 minutes. Do it once, and the rest of the skills sound 
 | **Arrows win-loss analysis** | Reads your closed deals in depth and answers why you win and why you lose: which segments win, the moves that show up on wins and not on losses (counted on both sides), the real loss reasons compared with what the CRM says, who was missing from the buying group, and the 3 things to change this quarter. A page to share with your team. |
 | **Arrows objective forecast** | A bystander's read of every deal the CRM has dated this quarter: how likely it really is and when it will really close, judged only from what the buyer said and did on calls and in email, never from the stage or the CRM close date. The CRM's number next to the evidence on every deal, what each buyer still hasn't done, where the CRM is ahead of the evidence, the deals likely to slip, and a by-rep view for leaders of what's blocking each rep's deals. Read only, same rubric every time. |
 | **Arrows agentic playbook builder** | For sales leaders. Reads your whole pipeline in depth (deals, calls, email, docs) and writes down how your team runs its sales process: what you sell and why, who you sell to, and the plays you run at each moment and in each situation, like when a demo is booked, after a first call, when a CEO books or when a deal goes quiet. A page to share with your team, new hires or a consultant, and a file any AI assistant can follow. |
+| **Arrows sales methodology** | For sales leaders. Puts your methodology into Claude (MEDDPICC, BANT, SPICED, Challenger, Sandler or your own), or helps you pick one if you don't have one yet: what each stage needs, what counts as proof and what reps should ask, so every skill checks deals against it. Then shows how your team follows it: which wins followed it and which losses didn't, the win rate with and without it, and the open deals that are missing what their stage needs. |
 
 ---
 
 ## How the skills work together
 
-Run setup once. Sales leaders can then run the agentic playbook builder: it writes down how the team runs its sales process, play by play, gives you a page to share and a file any AI tool can follow, and refreshes setup's team files with what it found.
+Run setup once. Sales leaders can then run the agentic playbook builder: it writes down how the team runs its sales process, play by play, gives you a page to share and a file any AI tool can follow, and refreshes setup's team files with what it found. To get every deal checked against MEDDPICC, BANT, SPICED or your own process, run sales methodology setup; run it again any time to see how the team is following it.
 
 Every morning, or whenever you need a pulse on your day, run your daily brief.
 
@@ -85,7 +86,7 @@ Done. Start a new chat and type "Build my sales profile" to begin.
 
 ### Or: add them as a Claude plugin
 
-This repo is also a Claude plugin marketplace. Adding the plugin installs all 11 skills at once, and they update when this repo does.
+This repo is also a Claude plugin marketplace. Adding the plugin installs all 12 skills at once, and they update when this repo does.
 
 - **Claude (web or desktop):** go to **Customize**, then **Plugins**, then **Add**, then **Add marketplace**, and enter `ArrowsHQ/arrows-sales-skills`. Then add the **Sales Skills by Arrows** plugin.
 - **Claude Code:** run `claude plugin marketplace add ArrowsHQ/arrows-sales-skills`, then `claude plugin install arrows-sales-skills@arrows`.
@@ -94,7 +95,7 @@ This repo is also a Claude plugin marketplace. Adding the plugin installs all 11
 
 If your company doesn't allow custom connectors, or you use ChatGPT, Copilot, Gemini, or another AI tool, you can download the skills directly and upload them.
 
-1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge, arrows-weekly-pipeline-review, arrows-process-gaps-report, arrows-crm-hygiene, arrows-win-loss-analysis, arrows-forecast, arrows-agentic-playbook-builder) each contain a SKILL.md file.
+1. Pick a skill. The folders above this README (arrows-setup, arrows-daily-brief, arrows-pre-call-prep, arrows-post-call, arrows-deal-nudge, arrows-weekly-pipeline-review, arrows-process-gaps-report, arrows-crm-hygiene, arrows-win-loss-analysis, arrows-forecast, arrows-agentic-playbook-builder, arrows-sales-methodology) each contain a SKILL.md file.
 2. Click into the folder, then click on the SKILL.md file.
 3. Click the **Raw** button at the top right to see the plain text, or click **Download raw file** to save it.
 4. Upload it to your AI tool:
@@ -122,6 +123,7 @@ Once installed, trigger a skill by typing one of these phrases into your AI tool
 - **Win-loss analysis:** "Run my Arrows win-loss analysis" or "Why do we win and why do we lose?"
 - **Objective forecast:** "Run my Arrows forecast" or "What's really going to close this quarter?"
 - **Agentic playbook builder:** "Build my agentic playbook"
+- **Sales methodology:** "Set up our sales methodology" or "How is my team doing against our methodology?"
 
 You can also invoke skills directly:
 
@@ -137,6 +139,7 @@ You can also invoke skills directly:
 /arrows-win-loss-analysis
 /arrows-forecast
 /arrows-agentic-playbook-builder
+/arrows-sales-methodology
 ```
 
 ---
@@ -145,7 +148,7 @@ You can also invoke skills directly:
 
 ### What are Claude skills for sales?
 
-Claude skills are instruction files that teach Claude to do a specific job the same way every time. Sales skills turn everyday sales work into one-line requests: "Run my Arrows daily brief" gets you today's calls, replies you owe, and pipeline alerts, using what's in your CRM, email, calendar, and call recordings. Sales Skills by Arrows is a free set of 11 of them.
+Claude skills are instruction files that teach Claude to do a specific job the same way every time. Sales skills turn everyday sales work into one-line requests: "Run my Arrows daily brief" gets you today's calls, replies you owe, and pipeline alerts, using what's in your CRM, email, calendar, and call recordings. Sales Skills by Arrows is a free set of 12 of them.
 
 ### How do I use Claude for sales?
 
