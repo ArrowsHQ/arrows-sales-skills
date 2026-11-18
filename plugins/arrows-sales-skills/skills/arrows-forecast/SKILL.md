@@ -19,7 +19,7 @@ It is about the CRM and the buyers, never about the people selling. A gap means 
 | By rep (leaders) | Each rep's CRM total vs. the evidence and one question for their 1:1; open a rep for their deals |
 | How the forecast works | The rubric in plain words, so anyone can check a number |
 
-The default output is a visual report built from one fixed template (end of this skill), so it looks the same every run. A short summary goes in the chat alongside it.
+The default output is a visual report built from one fixed template (in `report-template.md`, next to this file), so it looks the same every run. A short summary goes in the chat alongside it.
 
 ## Progress
 
@@ -119,7 +119,7 @@ If the evidence date falls after the period, the deal goes in "Likely to slip": 
 
 ## Step 5: Build the visual report
 
-Build the report from the template at the end of this skill, as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. The template is already tested, so don't rebuild it, re-verify it or render it before handing it over; the time goes into the scoring, not the page. Use it on every run, including scheduled ones: people learn this page and orient around it, so the layout, sections and order never change. Don't restyle it, add or drop sections, or write your own HTML or a Markdown version in its place. If a field has nothing in it, leave it empty (`[]`, `null` or `""`) and the page handles it.
+Build the report from the template in `report-template.md` (in the same folder as this file), as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. The template is already tested, so don't rebuild it, re-verify it or render it before handing it over; the time goes into the scoring, not the page. Use it on every run, including scheduled ones: people learn this page and orient around it, so the layout, sections and order never change. Don't restyle it, add or drop sections, or write your own HTML or a Markdown version in its place. If a field has nothing in it, leave it empty (`[]`, `null` or `""`) and the page handles it.
 
 Never write "you" or "your" anywhere in `DATA`: use the person's first name, reps' first names, or "the team", because reports get forwarded. Only quoted text (a line from a call or email) may keep it. The chat reply can still speak to the person directly. Use the buyer's company name for each deal ("Northwind", not "Northwind - New Business Q4"). Keep every text field short; the report is for scanning.
 
@@ -200,7 +200,7 @@ Then one offer the person can accept with "yes," tied to what you found ("Want m
 
 ## Report template
 
-The report template for this skill is the file `report-template.html`, in the same folder as this SKILL.md. Before you build the report, read that whole file and use it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
+The report template for this skill is the file `report-template.md`, in the same folder as this SKILL.md. It holds the full HTML page in one code block. Before you build the report, read that whole file and use the HTML in it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
 
 ---
 

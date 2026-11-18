@@ -101,7 +101,7 @@ Drop any finding you can't back with counts; five true lines beat ten padded one
 
 ## Step 4: Build the visual report
 
-Build the report from the template under `## Report template` at the end of this skill, as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Every run looks the same, so anyone who has seen one knows where to look. Don't restyle it, add or drop sections, or write your own HTML. If a field has nothing in it, leave it empty (`[]`, `""` or 0) and the page hides that section or says there's nothing to show.
+Build the report from the template in `report-template.md` (in the same folder as this file), as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Every run looks the same, so anyone who has seen one knows where to look. Don't restyle it, add or drop sections, or write your own HTML. If a field has nothing in it, leave it empty (`[]`, `""` or 0) and the page hides that section or says there's nothing to show.
 
 Keep every text field short; the page is for scanning, and `detail` holds the evidence. Every count on the page must match your pass notes and pass 1 numbers. Detail lines can name the deals behind a count (company names only) so every number traces to real deals.
 
@@ -189,7 +189,7 @@ End with these, in this order, kept short:
 
 ## Report template
 
-The report template for this skill is the file `report-template.html`, in the same folder as this SKILL.md. Before you build the report, read that whole file and use it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
+The report template for this skill is the file `report-template.md`, in the same folder as this SKILL.md. It holds the full HTML page in one code block. Before you build the report, read that whole file and use the HTML in it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
 
 ---
 

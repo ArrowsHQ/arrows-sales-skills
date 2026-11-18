@@ -1,3 +1,8 @@
+# Report template
+
+This is the report page for the arrows-process-gaps-report skill, as one HTML page in the code block below. Copy the whole page in that code block exactly, and fill in only the data, as the skill's steps describe.
+
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -182,6 +187,7 @@ h += `<div class="stats num">
   <div class="stat"><div class="n">${N.open}</div><div class="l"><span class="key g-fill"></span>Open deals · ${money(N.value)} total · ${money(onTrackValue)} with no gaps</div></div>
 </div></section>`;
 
+
 h += `<section class="card" id="habits"><div class="head"><span class="chip">Habits: how often ${who} does what wins deals</span><span class="hint">The moves from the best deals, counted${manyReps ? " · open a habit for each rep" : ""}</span></div>`;
 const lvlOf = (d, t) => !t ? "" : d / t >= 0.8 ? "g" : d / t >= 0.5 ? "y" : "r";
 if (list(D.habits).length) {
@@ -228,6 +234,7 @@ h += `<section class="card"><div class="head"><span class="chip">What's working<
 h += list(D.goingWell).length ? cols(list(D.goingWell).map(g => item(`<span class="tick">✓</span>`, `<span class="title">${esc(g.what)}</span>`, esc(g.note), g.detail))) : `<div class="empty">Nothing to call out this week.</div>`;
 h += `</section>`;
 
+
 h += `<section class="card"><div class="head"><span class="chip">Deals with gaps, not at risk yet</span><span class="hint">Worth fixing before they slip</span></div>`;
 if (OG.length) {
   h += cols(OG.slice(0, cap).map(d => item(`<span class="mark dot y"></span>`, `<span class="title">${esc(d.deal)}</span><span class="who num">${meta(d)}</span>${tags(d.gaps, "y")}`, esc(d.why), d.detail)));
@@ -246,6 +253,7 @@ if (list(D.noDeal).length) {
 }
 h += `</section>`;
 
+
 h += `<footer><details><summary>How this report works</summary><div class="about">
 <p>This page is rebuilt from the CRM, email, calls and calendar each time it runs, in the same layout and order, so every section is always in the same place. It only reads those tools: nothing in the CRM, inboxes or calendars was changed.</p>
 <p><b>At risk</b> means one of four things: no two-way contact in 14+ days, no dated next step or booked meeting, a next-step date that passed, or a promise to the buyer that didn't go out. <b>Other gaps</b> are things the sales process expects that are missing (a second contact, the economic buyer, a close date or stage that doesn't match what happened, a call never logged) on deals that aren't at risk yet. A promise is <b>missed</b> only when every connected inbox and the CRM were checked; otherwise it says <b>couldn't confirm</b>. <b>Habits</b> count how often the moves from the best deals happened on the rest.</p>
@@ -256,3 +264,4 @@ document.getElementById("app").innerHTML = h;
 </script>
 </body>
 </html>
+```

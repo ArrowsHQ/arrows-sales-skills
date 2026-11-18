@@ -144,7 +144,7 @@ If a score is low mostly because of one rule in the guide ("2+ contacts from [St
 
 ## Step 4: Report
 
-The report is a visual page built from the fixed template under `## Report template` at the end of this file. Copy the template exactly and replace only the `DATA` object; don't restyle it, add or drop sections, or write your own HTML. Use it on every run, scheduled runs included, so the page looks the same every week and the person always knows where to look.
+The report is a visual page built from the fixed template in `report-template.md` (in the same folder as this file). Copy the template exactly and replace only the `DATA` object; don't restyle it, add or drop sections, or write your own HTML. Use it on every run, scheduled runs included, so the page looks the same every week and the person always knows where to look.
 
 Show it as an artifact. If artifacts aren't available, save the filled template as `crm-hygiene.html` and give the file. Only if the tool can't show or save HTML at all, give the same sections in the same order as short Markdown.
 
@@ -246,7 +246,7 @@ Make one closing offer they can accept with "yes", once per run: at the end of t
 
 ## Report template
 
-The report template for this skill is the file `report-template.html`, in the same folder as this SKILL.md. Before you build the report, read that whole file and use it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
+The report template for this skill is the file `report-template.md`, in the same folder as this SKILL.md. It holds the full HTML page in one code block. Before you build the report, read that whole file and use the HTML in it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
 
 ---
 

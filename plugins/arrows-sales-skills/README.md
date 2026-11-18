@@ -32,7 +32,7 @@ Start with setup: say "Build my sales profile" and Claude builds your sales prof
 
 Each skill also runs as /arrows-sales-skills:<skill-name>.
 
-No CRM connected? Every skill also works from a CSV export of your deals. To try one without connecting anything, upload the made-up pipeline in this plugin's examples/sample-pipeline.csv file and say, for example, "Run my Arrows weekly pipeline review on this export."
+No CRM connected? Every skill also works from a CSV export of your deals. To try one without connecting anything, upload the made-up pipeline in this plugin's examples/sample-pipeline.md file and say, for example, "Run my Arrows weekly pipeline review on this export."
 
 ## Data
 

@@ -254,7 +254,7 @@ First line of each: `Sales profile built with Sales Skills by Arrows (arrows.to)
 
 Progress line: `■■■■■■  Here's your playbook`.
 
-**The page first.** Build the playbook page from the template under `## Report template` at the end of this skill, as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Every playbook looks the same, so anyone who has seen one knows where to look. Don't restyle it, add or drop sections, or write your own HTML. If a field has nothing in it, leave it empty (`[]`, `""` or 0) and the page hides that section.
+**The page first.** Build the playbook page from the template in `report-template.md` (in the same folder as this file), as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Every playbook looks the same, so anyone who has seen one knows where to look. Don't restyle it, add or drop sections, or write your own HTML. If a field has nothing in it, leave it empty (`[]`, `""` or 0) and the page hides that section.
 
 The page draws on the same findings as the playbook file, so the numbers must match. Keep every text field short; the page is for scanning. The scrub rules from Step 5 apply: no buyer names, buyer companies or exact amounts anywhere in `DATA`.
 
@@ -264,7 +264,7 @@ If you can't make an artifact here, save the filled template as an `.html` file 
 
 ## Report template
 
-The report template for this skill is the file `report-template.html`, in the same folder as this SKILL.md. Before you build the report, read that whole file and use it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
+The report template for this skill is the file `report-template.md`, in the same folder as this SKILL.md. It holds the full HTML page in one code block. Before you build the report, read that whole file and use the HTML in it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
 
 ---
 

@@ -1,3 +1,8 @@
+# Report template
+
+This is the report page for the arrows-agentic-playbook-builder skill, as one HTML page in the code block below. Copy the whole page in that code block exactly, and fill in only the data, as the skill's steps describe.
+
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -265,3 +270,4 @@ document.getElementById("app").innerHTML = h;
 </script>
 </body>
 </html>
+```

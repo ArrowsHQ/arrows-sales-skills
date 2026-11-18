@@ -1,9 +1,14 @@
+# Report template
+
+This is the report page for the arrows-pre-call-prep skill, as one HTML page in the code block below. Copy the whole page in that code block exactly, and fill in only the data, as the skill's steps describe.
+
+```html
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daily brief</title>
+<title>Pre-call brief</title>
 <style>
 :root{
   color-scheme:light;
@@ -119,8 +124,8 @@ footer details p{max-width:640px;margin:6px 0 0}
   .stage .bar{grid-column:1/3}
   .stage .gap{grid-column:1/3;margin-top:0}
 }
-.row.t{grid-template-columns:52px 1fr 14px}
-.time{font-weight:700;font-size:13px;color:var(--ink);margin-top:1px}
+.hero .stat .n{font-size:22px}
+@media (max-width:720px){.hero .stat .n{font-size:18px}}
 </style>
 </head>
 <body>
@@ -129,21 +134,24 @@ footer details p{max-width:640px;margin:6px 0 0}
 /* Fill in DATA only. Leave everything else as is. */
 const DATA = {
   name: "[First name]",
-  company: "[Company, for the team view]",
-  date: "[Weekday, Month Day]",
-  view: "[My day | My day + team · N reps]",
+  company: "[Buyer company]",
+  when: "[Weekday Month Day · time · length]",
+  callNumber: "[Call N | First call]",
+  agenda: "",
+  theyWant: "",
+  deal: { stage: "", amount: null, close: "", owner: "" },
+  atRisk: "",
+  note: "",
   updated: "[date, time]",
-  numbers: { calls: 0, replies: 0, atRisk: 0, changes: 0 },
-  doFirst: [],
-  sinceYesterday: [],
-  atRisk: [],
-  closeOut: [],
-  calls: [],
-  otherMeetings: "",
-  replies: [],
-  team: [],
-  openTime: [],
-  howBuilt: "[What was read, any sampling, anything missing]"
+  numbers: { gaps: 0, owed: 0 },
+  want: [],
+  watch: [],
+  push: [],
+  people: [],
+  lastTime: [],
+  unknown: [],
+  words: [],
+  howBuilt: "[What was read, anything missing]"
 };
 
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -158,80 +166,49 @@ const stepsBox = (steps, context) => {
   if (!st.length && !context) return "";
   return `<div class="detail">${st.length ? `<ol>${st.map(x => `<li>${esc(x)}</li>`).join("")}</ol>` : ""}${context ? `<div class="ctx">${esc(context)}</div>` : ""}</div>`;
 };
-const item = (mark, title, sub, detail, box0, cls) => {
-  const body = `<div class="row${cls ? " " + cls : ""}">${mark}<div>${title}${sub ? `<div class="sub2">${sub}</div>` : ""}</div></div>`;
+const item = (mark, title, sub, detail, box0) => {
+  const body = `<div class="row">${mark}<div>${title}${sub ? `<div class="sub2">${sub}</div>` : ""}</div></div>`;
   const box = box0 || detailBox(detail);
   return box ? `<details class="item"><summary>${body}</summary>${box}</details>` : `<div class="item">${body}</div>`;
 };
-const quiet = d => d.quietDays == null ? `<span class="tag r">no touch logged</span>` : `<span class="tag ${d.quietDays >= 14 ? "r" : "n"}">${d.quietDays === 0 ? "today" : d.quietDays + "d quiet"}${d.channel ? " · " + esc(d.channel) : ""}</span>`;
-const kindMark = k => k === "good" ? `<span class="tick">✓</span>` : `<span class="mark dot ${k === "bad" ? "r" : ""}"></span>`;
-const D = DATA, N = D.numbers, team = list(D.team).length > 0;
-
+const src = s => s ? `<span class="who">${esc(s)}</span>` : "";
+const flagTag = f => !f ? "" : `<span class="tag ${f === "skeptic" ? "r" : f === "champion" ? "g" : "n"}">${esc(f)}</span>`;
+const D = DATA, N = D.numbers, dl = D.deal || {};
 const go = id => `href="#${id}" onclick="const t=document.getElementById('${id}');if(t){t.scrollIntoView({behavior:'smooth'});}return false;"`;
 const cols = items => items.length ? `<div class="cols">${items.join("")}</div>` : "";
-const AR = list(D.atRisk), cap = team ? 6 : 5;
+const card = (title, hint, body, empty, id) => `<section class="card"${id ? ` id="${id}"` : ""}><div class="head"><span class="chip">${title}</span><span class="hint">${hint || ""}</span></div>${body || `<div class="empty">${empty}</div>`}</section>`;
 
 let h = "";
-h += `<section class="hero"><h1>${team ? esc(D.company || "Sales team") + " daily brief" : esc(D.name) + "'s daily brief"}</h1><p class="sub">${esc([D.date, D.view].filter(Boolean).join(" · "))}</p>`;
+h += `<section class="hero"><h1>${esc(D.name)}'s pre-call brief: ${esc(D.company)}</h1><p class="sub">${esc([D.when, D.callNumber].filter(Boolean).join(" · "))}</p>`;
+if (D.agenda || D.theyWant) h += `<p class="sub">${D.agenda ? "Agenda: " + esc(D.agenda) : ""}${D.agenda && D.theyWant ? "<br>" : ""}${D.theyWant ? "They want: " + esc(D.theyWant) : ""}</p>`;
+if (D.note) h += `<p class="sub">${esc(D.note)}</p>`;
 h += `<div class="stats num">
-  <a class="stat" ${go("calls")}><div class="n">${N.calls}</div><div class="l">Sales calls today</div></a>
-  <a class="stat" ${go("replies")}><div class="n">${N.replies}</div><div class="l">Replies waiting</div></a>
-  <a class="stat" ${go("at-risk")}><div class="n">${N.atRisk}</div><div class="l"><span class="key r-fill"></span>Deals at risk</div></a>
-  <a class="stat" ${go("since")}><div class="n">${N.changes}</div><div class="l">New since yesterday</div></a>
-</div></section>`;
+  <div class="stat"><div class="n">${esc(dl.stage || "No deal")}</div><div class="l">${esc(dl.owner ? "Owner: " + dl.owner : "Stage")}</div></div>
+  <div class="stat"><div class="n">${money(dl.amount) || "–"}</div><div class="l">${esc(dl.close ? "Close " + dl.close : "Amount")}</div></div>
+  <a class="stat" ${go("unknown")}><div class="n">${N.gaps}</div><div class="l"><span class="key y-fill"></span>Still unknown</div></a>
+  <a class="stat" ${go("owed")}><div class="n">${N.owed}</div><div class="l">Open commitments</div></a>
+</div>${D.atRisk ? `<p class="sub" style="margin:14px 0 0"><span class="tag r" style="margin-left:0">At risk</span> ${esc(D.atRisk)}</p>` : ""}</section>`;
 
-h += `<section class="card" id="do-first"><div class="head"><span class="chip">Do first</span><span class="hint">Open any item for the steps</span></div>`;
-h += list(D.doFirst).length ? cols(list(D.doFirst).map((t, i) => item(`<span class="num-badge">${i + 1}</span>`, `<span class="title">${esc(t.deal)}</span><span class="who num">${esc([money(t.amount), t.owner].filter(Boolean).join(" · "))}</span><div>${esc(t.action)}</div>`, esc(t.why), null, stepsBox(t.steps, t.context) || detailBox(t.detail) || detailBox(t.why ? [t.why] : [])))) : `<div class="empty">Nothing urgent today.</div>`;
-h += `</section>`;
+h += card("What they want to solve", "", cols(list(D.want).map(w => item(`<span class="tick">✓</span>`, `<span class="title">${esc(w.point)}</span>${src(w.source)}`, w.quote ? "“" + esc(w.quote) + "”" : "", w.detail))), "Nothing stated by the buyer yet.");
+h += card("Watch out for", "", cols(list(D.watch).map(w => item(`<span class="mark dot r"></span>`, `<span class="title">${esc(w.risk)}</span>${src(w.source)}`, `<div class="next">${esc(w.handle)}</div>`, w.detail))), "No risks found for this call.");
 
-h += `<section class="card" id="since"><div class="head"><span class="chip">New since yesterday</span><span class="hint">Replies, stage moves, wins and losses</span></div>`;
-h += list(D.sinceYesterday).length ? cols(list(D.sinceYesterday).map(s => item(kindMark(s.kind), `<span class="title">${esc(s.deal)}</span><span class="who">${esc([money(s.amount), s.owner].filter(Boolean).join(" · "))}</span>`, esc(s.what), s.detail))) : `<div class="empty">Nothing changed since yesterday.</div>`;
-h += `</section>`;
+h += `<section class="card"><div class="head"><span class="chip">What to push for</span><span class="hint">Open any item for how</span></div><div class="cols">`;
+h += list(D.push).length ? list(D.push).map((p, i) => item(`<span class="num-badge">${i + 1}</span>`, `<span class="title">${esc(p.outcome)}</span>`, esc(p.why), null, stepsBox(p.steps, p.context) || detailBox(p.why ? [p.why] : []))).join("") : `<div class="empty">Not enough deal context for specific pushes.</div>`;
+h += `</div></section>`;
 
-h += `<section class="card" id="at-risk"><div class="head"><span class="chip">${team ? "Biggest at risk" : "At risk"}</span><span class="hint">${AR.length > cap || N.atRisk > cap ? `Top ${Math.min(cap, AR.length)} of ${Math.max(N.atRisk, AR.length)}` : ""}</span></div>`;
-if (AR.length) {
-  h += cols(AR.slice(0, cap).map(d => item(`<span class="mark dot r"></span>`,
-    `<span class="title">${esc(d.deal)}</span><span class="who num">${esc([money(d.amount), d.owner, d.stage].filter(Boolean).join(" · "))}</span><div class="qline">${quiet(d)}</div>`,
-    `${esc(d.why)}<div class="next">${esc(d.next)}</div>`, d.detail)));
-  const rest = AR.slice(cap);
-  if (rest.length) h += `<div class="more">${rest.length} more${team ? ", grouped by rep in Team below" : ": " + esc(rest.map(d => d.deal).join(", "))}</div>`;
-} else h += `<div class="empty">No deals at risk today.</div>`;
-if (list(D.closeOut).length) h += `<div class="more">Close out (${list(D.closeOut).length}, no activity in 60+ days): ${esc(list(D.closeOut).join(", "))}</div>`;
-h += `</section>`;
+h += card("Who's on the call", list(D.people).length || "", cols(list(D.people).map(p => item(`<span class="mark dot ${p.flag === "skeptic" ? "r" : p.flag === "champion" ? "g" : ""}"></span>`, `<span class="title">${esc(p.name)}</span><span class="who">${esc(p.title)}</span>${flagTag(p.flag)}`, `${esc(p.role)}${src(p.source)}`, p.detail))), "No attendee list found.", "people");
+h += card("Last time and what's owed", "", cols(list(D.lastTime).map(l => item(l.status === "done" ? `<span class="tick">✓</span>` : `<span class="mark dot ${l.status === "open" ? "y" : ""}"></span>`, `${esc(l.text)}${l.status === "open" ? `<span class="tag y">open</span>` : ""}${src(l.source)}`, "", l.detail))), "First call. No prior touchpoints.", "owed");
 
-if (team) {
-  const repBox = r => {
-    const mine = AR.filter(d => d.owner === r.name).map(d => [d.deal, money(d.amount), d.stage].filter(Boolean).join(" · ") + ": " + (d.why || ""));
-    return detailBox([...mine, ...(Array.isArray(r.detail) ? r.detail : r.detail ? [r.detail] : [])]);
-  };
-  h += `<section class="card" id="team"><div class="head"><span class="chip">Team</span><span class="hint">Most at risk first · open a rep for their deals</span></div>`;
-  h += list(D.team).map(r => item(`<span class="mark dot ${r.atRiskCount ? "r" : "g"}"></span>`,
-    `<div class="rep-row"><div><span class="title">${esc(r.name)}</span><div class="meta num">${r.closingCount || 0} closing this week</div></div><div><span class="sub2">${esc(r.ask)}</span>${r.atRiskCount ? `<span class="tag r">${r.atRiskCount} at risk</span>` : `<span class="tag g">On track</span>`}</div></div>`,
-    "", null, repBox(r))).join("");
-  h += `</section>`;
-}
-
-h += `<section class="card" id="calls"><div class="head"><span class="chip">Today's calls</span><span class="hint">${list(D.calls).length ? list(D.calls).length + " sales calls" : ""}</span></div>`;
-h += list(D.calls).length ? list(D.calls).map(c => item(`<span class="time num">${esc(c.time)}</span>`,
-  `<span class="title">${esc(c.company)}</span><span class="who">${esc(c.type)}</span><div class="meta">${esc(c.people)}</div><div class="meta num">${esc(c.deal)}</div>`,
-  `${esc(c.open)}${c.prep ? `<div class="next">${esc(c.prep)}</div>` : ""}`, c.detail, "", "t")).join("") : `<div class="empty">No sales calls today.</div>`;
-if (D.otherMeetings) h += `<div class="more">Also: ${esc(D.otherMeetings)}</div>`;
-h += `</section>`;
-
-h += `<section class="card" id="replies"><div class="head"><span class="chip">Replies waiting</span><span class="hint">${list(D.replies).length || ""}</span></div>`;
-h += list(D.replies).length ? cols(list(D.replies).map(r => item(`<span class="mark dot ${r.waitingDays >= 2 ? "r" : "y"}"></span>`, `<span class="title">${esc(r.name)}</span><span class="who">${esc([r.company, r.channel].filter(Boolean).join(" · "))}</span>`, `${esc(r.ask)} <span class="tag ${r.waitingDays >= 2 ? "r" : "y"}">${r.waitingDays === 0 ? "today" : r.waitingDays + "d waiting"}</span>`, r.detail))) : `<div class="empty">No buyer is waiting on a reply.</div>`;
-h += `</section>`;
-
-h += `<section class="card" id="open-time"><div class="head"><span class="chip">Open time</span></div>`;
-h += list(D.openTime).length ? cols(list(D.openTime).map(o => `<div class="item"><div class="row"><span class="mark dot g"></span><div><span class="title num">${esc(o.start)}–${esc(o.end)}</span><span class="who">${esc(o.length)}</span></div></div></div>`)) : `<div class="empty">No open blocks of 30+ minutes.</div>`;
-h += `</section>`;
+h += card("Still unknown", "", cols(list(D.unknown).map(u => item(`<span class="mark dot y"></span>`, `<span class="title">${esc(u.item)}</span>`, esc(u.why), u.detail))), "No open gaps for this stage.", "unknown");
+h += card("Their words", "", cols(list(D.words).map(w => item(`<span class="mark">“</span>`, `${esc(w.phrase)}${src(w.source)}`, "", ""))), "No direct quotes yet.");
 
 h += `<footer><details><summary>How this report works</summary><div class="about">
-<p>This page is rebuilt from the calendar, CRM, email and calls each time it runs, in the same layout and order, so every section is always in the same place. It only reads those tools: nothing in the CRM, inboxes or calendars was changed.</p>
-<p><b>New since yesterday</b> covers buyer replies, stage changes, wins, losses and signed contracts since the start of the previous working day. <b>At risk</b> means one of three things: no two-way contact in 14+ days, no dated next step, or a promised next step that didn't happen. <b>Slipped</b> means the close date has passed and the deal is still open. <b>Close out</b> names deals with no activity in 60+ days: close them with a reason or restart them. <b>Replies waiting</b> are buyers who wrote last and haven't heard back. <b>Today's calls</b> lists sales calls only; other meetings are on one line below them.</p>
-<p>Open the arrow on any row for the details and where they came from.</p>
-<p><b>Today:</b> ${esc(D.howBuilt)}</p></div></details><span>Updated ${esc(D.updated)} · Built with Sales Skills by <a href="https://skills.arrows.to" target="_blank" rel="noopener">Arrows</a></span></footer>`;
+<p>This page is rebuilt from the calendar, CRM, email and calls before each call, in the same layout and order, so every section is always in the same place. It only reads those tools: nothing in the CRM, inboxes or calendars was changed. It's for the seller, not the buyer.</p>
+<p><b>Still unknown</b> checks the deal against the team's own qualification method from the sales profile. <b>At risk</b> means no two-way contact in 14+ days, no dated next step, or a promised next step that didn't happen. <b>Champion</b>, <b>skeptic</b> and <b>decision maker</b> are only shown when a call or email backs them up.</p>
+<p>Every line names where it came from. Open the arrow on any row for more.</p>
+<p><b>This time:</b> ${esc(D.howBuilt)}</p></div></details><span>Updated ${esc(D.updated)} · Built with Sales Skills by <a href="https://skills.arrows.to" target="_blank" rel="noopener">Arrows</a></span></footer>`;
 document.getElementById("app").innerHTML = h;
 </script>
 </body>
 </html>
+```

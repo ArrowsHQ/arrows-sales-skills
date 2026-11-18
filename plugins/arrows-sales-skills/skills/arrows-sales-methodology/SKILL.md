@@ -167,7 +167,7 @@ Lost deals that followed the methodology matter: they show where the methodology
 
 ## Step 6: Show the report
 
-Fill in the report template at the end of this skill and show it as an artifact. Copy the template exactly and replace only the `DATA` object: don't restyle it, add or drop sections, or write your own HTML. If an artifact isn't possible, save the filled template as an `.html` file; only if neither works, give the same sections in the same order as short Markdown.
+Fill in the report template in `report-template.md` (in the same folder as this file) and show it as an artifact. Copy the template exactly and replace only the `DATA` object: don't restyle it, add or drop sections, or write your own HTML. If an artifact isn't possible, save the filled template as an `.html` file; only if neither works, give the same sections in the same order as short Markdown.
 
 **Title.** Team view: "[Company] methodology check". Rep's own deals: "[First name]'s methodology check".
 
@@ -243,7 +243,7 @@ Then, kept short:
 
 ## Report template
 
-The report template for this skill is the file `report-template.html`, in the same folder as this SKILL.md. Before you build the report, read that whole file and use it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
+The report template for this skill is the file `report-template.md`, in the same folder as this SKILL.md. It holds the full HTML page in one code block. Before you build the report, read that whole file and use the HTML in it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
 
 ---
 

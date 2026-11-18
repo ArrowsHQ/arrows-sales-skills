@@ -113,7 +113,7 @@ Only report a habit you could actually measure. If a habit can't be checked from
 
 ## Step 6: Build the visual report
 
-Build the report from the template under `## Report template` at the end of this skill, as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Use it on every run, including scheduled ones: people learn this page and know where to look each week, so the layout, sections and order never change. Don't restyle it, add or drop sections, or write your own HTML in its place. If a field has nothing in it, leave it empty (`[]`, `""` or 0) and the page handles it.
+Build the report from the template in `report-template.md` (in the same folder as this file), as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Use it on every run, including scheduled ones: people learn this page and know where to look each week, so the layout, sections and order never change. Don't restyle it, add or drop sections, or write your own HTML in its place. If a field has nothing in it, leave it empty (`[]`, `""` or 0) and the page handles it.
 
 Use the buyer's company name for each deal ("Northwind", not "Northwind - New Business Q3"). Keep every text field short: the page is for scanning, and the full story goes in `detail`.
 
@@ -202,7 +202,7 @@ End with these, in this order, kept short:
 
 ## Report template
 
-The report template for this skill is the file `report-template.html`, in the same folder as this SKILL.md. Before you build the report, read that whole file and use it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
+The report template for this skill is the file `report-template.md`, in the same folder as this SKILL.md. It holds the full HTML page in one code block. Before you build the report, read that whole file and use the HTML in it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
 
 ---
 

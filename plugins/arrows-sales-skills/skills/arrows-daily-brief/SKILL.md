@@ -42,7 +42,7 @@ Read everything before writing. Stay inside this budget so the brief finishes qu
 
 ## Step 3: Write the brief
 
-The brief is a report page with a fixed design. Copy the template under `## Report template` at the end of this file exactly and replace only the `DATA` object. Don't restyle it, add or drop sections, or write your own HTML: the person should find everything in the same place every morning, scheduled runs included. Empty lists show a short "nothing here" line, which is right on a quiet day.
+The brief is a report page with a fixed design. Copy the template in `report-template.md` (in the same folder as this file) exactly and replace only the `DATA` object. Don't restyle it, add or drop sections, or write your own HTML: the person should find everything in the same place every morning, scheduled runs included. Empty lists show a short "nothing here" line, which is right on a quiet day.
 
 Show it as an artifact. If you can't, save the filled template as `daily-brief.html` and share the file. Only if you can't show or save HTML at all, write the same sections in the same order as Markdown (below). On someone's first run, add one chat line: "You'll get the same page every morning; 'How this report works' at the bottom explains each section."
 
@@ -137,7 +137,7 @@ The chat message next to the page stays short, four lines at most: (1) what's mo
 
 ## Report template
 
-The report template for this skill is the file `report-template.html`, in the same folder as this SKILL.md. Before you build the report, read that whole file and use it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
+The report template for this skill is the file `report-template.md`, in the same folder as this SKILL.md. It holds the full HTML page in one code block. Before you build the report, read that whole file and use the HTML in it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
 
 ---
 

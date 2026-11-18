@@ -1,8 +1,0 @@
-deal,company,owner,stage,amount,close_date,created_date,last_activity,next_step,next_step_date,primary_contact,contact_title
-Platform rollout,Northwind Example,Rep A,Proposal,42000,2026-12-18,2026-09-02,2026-11-14,Pricing review call,2026-11-19,Contact One,VP of Sales
-Pilot expansion,Contoso Example,Rep A,Discovery,18000,2026-12-15,2026-10-01,2026-10-20,,,Contact Two,Sales Manager
-Annual renewal,Fabrikam Example,Rep B,Negotiation,65000,2026-11-10,2026-08-15,2026-11-12,Legal redlines,2026-11-18,Contact Three,CFO
-New team seats,Tailspin Example,Rep B,Demo,27000,2026-12-20,2026-10-12,2026-11-03,Follow-up demo,2026-11-05,Contact Four,Head of Revenue Operations
-Starter package,Wingtip Example,Rep A,Qualified,9000,2027-01-15,2026-11-10,2026-11-16,Intro call,2026-11-21,Contact Five,Founder
-Department license,Adventure Example,Rep B,Closed Won,31000,2026-10-30,2026-07-20,2026-10-30,,,Contact Six,VP of Sales
-Team trial,Litware Example,Rep A,Closed Lost,14000,2026-10-15,2026-08-01,2026-10-15,,,Contact Seven,Sales Director

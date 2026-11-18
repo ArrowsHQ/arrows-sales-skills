@@ -18,7 +18,7 @@ The whole open pipeline on one page, built to be read in 30 seconds and shared b
 | Expected to close | Every deal with a close date in the period, with its real state, plus deals that slipped past their date |
 | Closed won, closed lost | Each deal won and lost this period, wins as visible as losses |
 
-The default output is a visual report built from one fixed template (end of this skill), so it looks the same every week. A short summary goes in the chat alongside it.
+The default output is a visual report built from one fixed template (in `report-template.md`, next to this file), so it looks the same every week. A short summary goes in the chat alongside it.
 
 ## Step 1: Read the profile
 
@@ -71,7 +71,7 @@ Rank "What needs attention" by time sensitivity: a deal closing this week with a
 
 ## Step 5: Build the visual report
 
-Build the report from the template at the end of this skill, as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Use it on every run, including scheduled ones: people learn this page and orient around it each week, so the layout, sections and order never change. Don't restyle it, add or drop sections, or write your own HTML or a Markdown version in its place. If a field has nothing in it, leave it empty (`[]` or `""`) and the page handles it.
+Build the report from the template in `report-template.md` (in the same folder as this file), as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Use it on every run, including scheduled ones: people learn this page and orient around it each week, so the layout, sections and order never change. Don't restyle it, add or drop sections, or write your own HTML or a Markdown version in its place. If a field has nothing in it, leave it empty (`[]` or `""`) and the page handles it.
 
 Never write "you" or "your" anywhere in `DATA`: use the person's first name ("Dana owes the pricing email"), reps' first names, or "the team", because reports get forwarded and "you" means nothing to the next reader. Only quoted text (an email subject, a line from a call) may keep it. The chat reply can still speak to the person directly. Use the buyer's company name for each deal ("Northwind", not "Northwind - New Business Q3"). Keep every text field short. The report is for scanning, so the words in it are a few each, not sentences:
 
@@ -147,7 +147,7 @@ Then one offer the person can accept with "yes," tied to what you found ("Want m
 
 ## Report template
 
-The report template for this skill is the file `report-template.html`, in the same folder as this SKILL.md. Before you build the report, read that whole file and use it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
+The report template for this skill is the file `report-template.md`, in the same folder as this SKILL.md. It holds the full HTML page in one code block. Before you build the report, read that whole file and use the HTML in it exactly as the steps above describe: copy it as it is and fill in only the data. Don't restyle it, add or drop sections, or write your own HTML. If you can't open the file, say so in one line and use the Markdown version described above.
 
 ---
 
