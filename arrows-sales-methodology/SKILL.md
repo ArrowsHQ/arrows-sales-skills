@@ -264,10 +264,10 @@ Copy this exactly and replace only the `DATA` object.
   --green:#1F8A4C; --green-soft:#E8F4EC;
   --red:#D33A24; --red-soft:#FCEAE6;
   --gold:#FEBC22; --gold-soft:#FFF4D6; --gold-text:#8A5A00;
-  --display:'Plus Jakarta Sans','Segoe UI',sans-serif;
+  --display:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 "Plus Jakarta Sans","Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
 .wrap{max-width:960px;margin:0 auto;padding:16px 16px 40px}
 .num{font-variant-numeric:tabular-nums}
 .chip{display:block;font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.2px;color:var(--ink)}

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pre-call brief</title>
+<style>
+:root{
+  color-scheme:light;
+  --paper:#F7F6F3; --card:#FFFFFF; --ink:#171614; --ink-70:rgba(23,22,20,.7); --ink-50:rgba(23,22,20,.58); --ink-30:rgba(23,22,20,.3);
+  --line:#E9E8E4; --chip:#F3F2EF; --track:#ECEAE6;
+  --green:#1F8A4C; --green-soft:#E8F4EC;
+  --red:#D33A24; --red-soft:#FCEAE6;
+  --gold:#FEBC22; --gold-soft:#FFF4D6; --gold-text:#8A5A00;
+  --display:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:16px 16px 40px}
+.num{font-variant-numeric:tabular-nums}
+.chip{display:block;font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.2px;color:var(--ink)}
+.hero{background:#171614;color:#FFFFFF;position:relative;border-radius:4px;padding:20px 24px 18px}
+.hero h1{font-family:var(--display);font-feature-settings:"lnum","tnum";color:#FFFFFF;font-size:32px;line-height:1.12;letter-spacing:-.6px;font-weight:700;margin:0 0 4px;max-width:760px}
+.hero .sub{color:rgba(255,255,255,.75);font-size:15px;margin:0 0 16px}
+.health{display:flex;height:10px;border-radius:2px;overflow:hidden;background:rgba(250,248,245,.15)}
+.g-fill{background:var(--green)}
+.r-fill{background:var(--red)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:14px;border-top:1px solid rgba(250,248,245,.16)}
+.stat{padding:14px 12px 0 0}
+.stat+.stat{padding-left:16px;border-left:1px solid rgba(250,248,245,.16)}
+.stat .n{font-family:var(--display);font-feature-settings:"lnum","tnum";font-size:28px;font-weight:700;letter-spacing:-.5px}
+.stat .l{font-size:12px;color:rgba(255,255,255,.75)}
+.stat .key{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:20px 22px;margin-top:16px}
+.head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.hint{font-size:12px;color:var(--ink-50)}
+.item{border-top:1px solid var(--line)}
+.head + .item{border-top:0}
+.row{display:grid;grid-template-columns:26px 1fr 14px;gap:6px;padding:10px 0;align-items:start}
+details.item summary{list-style:none;cursor:pointer}
+details.item summary::-webkit-details-marker{display:none}
+details.item summary .row::after{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink-30);border-bottom:1.5px solid var(--ink-30);transform:rotate(-45deg);margin-top:7px;transition:transform .15s}
+details.item[open] summary .row::after{transform:rotate(45deg)}
+details.item summary:hover .row::after{border-color:var(--ink-70)}
+.mark.dot::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ink-30);margin-top:6px}
+.mark.dot.r::before{background:var(--red)}
+.mark.dot.g::before{background:var(--green)}
+.tick{width:16px;height:16px;border-radius:50%;background:var(--green);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.title{font-weight:600}
+.who{font-size:12px;color:var(--ink-50);font-weight:400;margin-left:6px}
+.sub2{font-size:13px;color:var(--ink-70)}
+.detail{margin:0 20px 12px 28px;padding:10px 12px;background:#F5F4F1;border-radius:6px;font-size:13px;color:var(--ink-70)}
+.detail ul,.detail ol{margin:0;padding-left:18px}
+.detail ol li{color:var(--ink)}
+.detail .ctx{margin-top:8px;font-size:12px;color:var(--ink-50)}
+a.stat{display:block;color:inherit;text-decoration:none;cursor:pointer}
+a.stat:hover .l{text-decoration:underline;text-underline-offset:2px}
+section[id]{scroll-margin-top:12px}
+.cols{display:grid;grid-template-columns:1fr 1fr}
+.cols > .item:nth-child(odd){padding-right:22px;border-right:1px solid var(--line)}
+.cols > .item:nth-child(even){padding-left:22px}
+.num-badge{width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:-1px}
+.cols > .item:nth-child(-n+2){border-top:0}
+.detail li+li{margin-top:3px}
+.next{color:var(--ink);font-size:13px}
+.next::before{content:"→ ";color:var(--ink-30)}
+.qline{margin:3px 0 2px}
+.tag.r{background:var(--red-soft);color:var(--red)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.n{background:var(--chip);color:var(--ink-70)}
+.empty{font-size:13px;color:var(--ink-50);padding:6px 0}
+.rep-row{display:grid;grid-template-columns:190px 1fr;gap:12px}
+.minibar{display:flex;height:8px;border-radius:2px;overflow:hidden;background:var(--track);margin-top:6px;max-width:220px}
+.more{font-size:12px;color:var(--ink-50);padding-top:10px;border-top:1px solid var(--line)}
+.r-al{text-align:right}
+.meta{font-size:12px;color:var(--ink-50)}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:12px;color:var(--ink-50)}
+footer details summary{cursor:pointer}
+footer a{color:var(--ink-70);text-decoration:underline;text-underline-offset:2px}
+footer a:hover{color:var(--ink)}
+.about{max-width:680px;margin-top:6px;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:4px;color:var(--ink-70);font-size:13px}
+.about p{margin:0 0 8px}
+.about p:last-child{margin:0}
+.about b{color:var(--ink);font-weight:600}
+.tag.g{color:#127A3E!important}
+.y-fill{background:var(--gold)}
+.mark.dot.y::before{background:var(--gold)}
+.tag.y{background:var(--gold-soft);color:var(--gold-text)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;align-items:start}
+.grid2 .card,.grid3 .card{margin-top:0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;align-items:start}
+.card.won{border-top:3px solid var(--green)}
+.card.lost{border-top:3px solid var(--red)}
+.card.won .head,.card.lost .head{border-bottom:0}
+.mark{font-weight:700;color:var(--ink-30);font-size:14px}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:2px;padding:1px 6px;white-space:nowrap;margin-left:6px}
+.qline .tag{margin-left:0}
+.stage{display:grid;grid-template-columns:170px 1fr 100px;gap:14px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.head + .stage{border-top:0}
+.stage .bar{display:flex;height:12px;border-radius:2px;overflow:hidden}
+.stage .gap{grid-column:2/4;font-size:12px;color:var(--ink-50);margin-top:-6px}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--ink-50);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+footer details p{max-width:640px;margin:6px 0 0}
+@media (max-width:720px){
+  .hero{padding:22px 18px 18px}
+  .hero h1{font-size:25px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat:nth-child(n+3){margin-top:10px}
+  .grid2,.grid3,.cols{grid-template-columns:1fr}
+  .cols > .item:nth-child(2){border-top:1px solid var(--line)}
+  .cols > .item:nth-child(odd){padding-right:0;border-right:0}
+  .cols > .item:nth-child(even){padding-left:0}
+  .card{padding:16px}
+  .detail{margin:0 0 12px 28px}
+  .rep-row{grid-template-columns:1fr;gap:4px}
+  .stage{grid-template-columns:1fr 90px}
+  .stage .bar{grid-column:1/3}
+  .stage .gap{grid-column:1/3;margin-top:0}
+}
+.hero .stat .n{font-size:22px}
+@media (max-width:720px){.hero .stat .n{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+/* Fill in DATA only. Leave everything else as is. */
+const DATA = {
+  name: "[First name]",
+  company: "[Buyer company]",
+  when: "[Weekday Month Day · time · length]",
+  callNumber: "[Call N | First call]",
+  agenda: "",
+  theyWant: "",
+  deal: { stage: "", amount: null, close: "", owner: "" },
+  atRisk: "",
+  note: "",
+  updated: "[date, time]",
+  numbers: { gaps: 0, owed: 0 },
+  want: [],
+  watch: [],
+  push: [],
+  people: [],
+  lastTime: [],
+  unknown: [],
+  words: [],
+  howBuilt: "[What was read, anything missing]"
+};
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const money = n => n == null || n === "" ? "" : n >= 1e6 ? "$" + (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M" : n >= 1e3 ? "$" + Math.round(n / 1e3) + "k" : "$" + n;
+const list = a => (a || []).filter(Boolean);
+const detailBox = d => {
+  const lines = Array.isArray(d) ? list(d) : d ? [d] : [];
+  return lines.length ? `<div class="detail"><ul>${lines.map(l => `<li>${esc(l)}</li>`).join("")}</ul></div>` : "";
+};
+const stepsBox = (steps, context) => {
+  const st = list(steps);
+  if (!st.length && !context) return "";
+  return `<div class="detail">${st.length ? `<ol>${st.map(x => `<li>${esc(x)}</li>`).join("")}</ol>` : ""}${context ? `<div class="ctx">${esc(context)}</div>` : ""}</div>`;
+};
+const item = (mark, title, sub, detail, box0) => {
+  const body = `<div class="row">${mark}<div>${title}${sub ? `<div class="sub2">${sub}</div>` : ""}</div></div>`;
+  const box = box0 || detailBox(detail);
+  return box ? `<details class="item"><summary>${body}</summary>${box}</details>` : `<div class="item">${body}</div>`;
+};
+const src = s => s ? `<span class="who">${esc(s)}</span>` : "";
+const flagTag = f => !f ? "" : `<span class="tag ${f === "skeptic" ? "r" : f === "champion" ? "g" : "n"}">${esc(f)}</span>`;
+const D = DATA, N = D.numbers, dl = D.deal || {};
+const go = id => `href="#${id}" onclick="const t=document.getElementById('${id}');if(t){t.scrollIntoView({behavior:'smooth'});}return false;"`;
+const cols = items => items.length ? `<div class="cols">${items.join("")}</div>` : "";
+const card = (title, hint, body, empty, id) => `<section class="card"${id ? ` id="${id}"` : ""}><div class="head"><span class="chip">${title}</span><span class="hint">${hint || ""}</span></div>${body || `<div class="empty">${empty}</div>`}</section>`;
+
+let h = "";
+h += `<section class="hero"><h1>${esc(D.name)}'s pre-call brief: ${esc(D.company)}</h1><p class="sub">${esc([D.when, D.callNumber].filter(Boolean).join(" · "))}</p>`;
+if (D.agenda || D.theyWant) h += `<p class="sub">${D.agenda ? "Agenda: " + esc(D.agenda) : ""}${D.agenda && D.theyWant ? "<br>" : ""}${D.theyWant ? "They want: " + esc(D.theyWant) : ""}</p>`;
+if (D.note) h += `<p class="sub">${esc(D.note)}</p>`;
+h += `<div class="stats num">
+  <div class="stat"><div class="n">${esc(dl.stage || "No deal")}</div><div class="l">${esc(dl.owner ? "Owner: " + dl.owner : "Stage")}</div></div>
+  <div class="stat"><div class="n">${money(dl.amount) || "–"}</div><div class="l">${esc(dl.close ? "Close " + dl.close : "Amount")}</div></div>
+  <a class="stat" ${go("unknown")}><div class="n">${N.gaps}</div><div class="l"><span class="key y-fill"></span>Still unknown</div></a>
+  <a class="stat" ${go("owed")}><div class="n">${N.owed}</div><div class="l">Open commitments</div></a>
+</div>${D.atRisk ? `<p class="sub" style="margin:14px 0 0"><span class="tag r" style="margin-left:0">At risk</span> ${esc(D.atRisk)}</p>` : ""}</section>`;
+
+h += card("What they want to solve", "", cols(list(D.want).map(w => item(`<span class="tick">✓</span>`, `<span class="title">${esc(w.point)}</span>${src(w.source)}`, w.quote ? "“" + esc(w.quote) + "”" : "", w.detail))), "Nothing stated by the buyer yet.");
+h += card("Watch out for", "", cols(list(D.watch).map(w => item(`<span class="mark dot r"></span>`, `<span class="title">${esc(w.risk)}</span>${src(w.source)}`, `<div class="next">${esc(w.handle)}</div>`, w.detail))), "No risks found for this call.");
+
+h += `<section class="card"><div class="head"><span class="chip">What to push for</span><span class="hint">Open any item for how</span></div><div class="cols">`;
+h += list(D.push).length ? list(D.push).map((p, i) => item(`<span class="num-badge">${i + 1}</span>`, `<span class="title">${esc(p.outcome)}</span>`, esc(p.why), null, stepsBox(p.steps, p.context) || detailBox(p.why ? [p.why] : []))).join("") : `<div class="empty">Not enough deal context for specific pushes.</div>`;
+h += `</div></section>`;
+
+h += card("Who's on the call", list(D.people).length || "", cols(list(D.people).map(p => item(`<span class="mark dot ${p.flag === "skeptic" ? "r" : p.flag === "champion" ? "g" : ""}"></span>`, `<span class="title">${esc(p.name)}</span><span class="who">${esc(p.title)}</span>${flagTag(p.flag)}`, `${esc(p.role)}${src(p.source)}`, p.detail))), "No attendee list found.", "people");
+h += card("Last time and what's owed", "", cols(list(D.lastTime).map(l => item(l.status === "done" ? `<span class="tick">✓</span>` : `<span class="mark dot ${l.status === "open" ? "y" : ""}"></span>`, `${esc(l.text)}${l.status === "open" ? `<span class="tag y">open</span>` : ""}${src(l.source)}`, "", l.detail))), "First call. No prior touchpoints.", "owed");
+
+h += card("Still unknown", "", cols(list(D.unknown).map(u => item(`<span class="mark dot y"></span>`, `<span class="title">${esc(u.item)}</span>`, esc(u.why), u.detail))), "No open gaps for this stage.", "unknown");
+h += card("Their words", "", cols(list(D.words).map(w => item(`<span class="mark">“</span>`, `${esc(w.phrase)}${src(w.source)}`, "", ""))), "No direct quotes yet.");
+
+h += `<footer><details><summary>How this report works</summary><div class="about">
+<p>This page is rebuilt from the calendar, CRM, email and calls before each call, in the same layout and order, so every section is always in the same place. It only reads those tools: nothing in the CRM, inboxes or calendars was changed. It's for the seller, not the buyer.</p>
+<p><b>Still unknown</b> checks the deal against the team's own qualification method from the sales profile. <b>At risk</b> means no two-way contact in 14+ days, no dated next step, or a promised next step that didn't happen. <b>Champion</b>, <b>skeptic</b> and <b>decision maker</b> are only shown when a call or email backs them up.</p>
+<p>Every line names where it came from. Open the arrow on any row for more.</p>
+<p><b>This time:</b> ${esc(D.howBuilt)}</p></div></details><span>Updated ${esc(D.updated)} · Built with Sales Skills by <a href="https://skills.arrows.to" target="_blank" rel="noopener">Arrows</a></span></footer>`;
+document.getElementById("app").innerHTML = h;
+</script>
+</body>
+</html>

@@ -3,7 +3,6 @@ name: arrows-setup
 description: "Setup for Sales Skills by Arrows. Reads the person's CRM, call recordings, email and calendar, then builds the sales profile every Sales Skill uses: their voice (how they write and talk, with real examples by situation), their sales process (stages, methodology, why they win and lose), their buyers and competitors, and how they work. Sales leaders also get team files their reps can add. About 5–10 minutes, two quick replies. Use this whenever someone says 'Build my sales profile', 'Refresh my sales profile' or 'Set up Sales Skills by Arrows', asks how to get Claude set up for themselves or their sales team, asks Claude to learn how they sell or write to buyers, wants the sales skills personalized to them or their team, or wants their team's sales process captured for Claude."
 ---
 
-
 Builds the profile that makes every Sales Skill write like this person and run deals the way their team does. Four files (five for sales leaders), built from their real data:
 
 | File | What's in it | Personal or team |

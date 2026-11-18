@@ -255,7 +255,15 @@ First line of each: `Sales profile built with Sales Skills by Arrows (arrows.to)
 
 Progress line: `■■■■■■  Here's your playbook`.
 
-**The page first.** Build the playbook page from the template under `## Report template
+**The page first.** Build the playbook page from the template under `## Report template` at the end of this skill, as an artifact (a page that opens beside the chat and can be shared), without asking first. Copy the template exactly and replace only the `DATA` object; the page draws itself from it. Every playbook looks the same, so anyone who has seen one knows where to look. Don't restyle it, add or drop sections, or write your own HTML. If a field has nothing in it, leave it empty (`[]`, `""` or 0) and the page hides that section.
+
+The page draws on the same findings as the playbook file, so the numbers must match. Keep every text field short; the page is for scanning. The scrub rules from Step 5 apply: no buyer names, buyer companies or exact amounts anywhere in `DATA`.
+
+**Never write "you" or "your" in `DATA`.** The page gets shared with the team and forwarded to managers. Use first names or "the team". Quoted words keep their wording: questions and lines the team uses on calls stay as they are said.
+
+If you can't make an artifact here, save the filled template as an `.html` file they can open. Only if you can't show or save HTML at all, give the same sections in the same order as short Markdown.
+
+## Report template
 
 Copy this exactly and replace only the `DATA` object.
 
@@ -276,10 +284,10 @@ Copy this exactly and replace only the `DATA` object.
   --green:#1F8A4C; --green-soft:#E8F4EC;
   --red:#D33A24; --red-soft:#FCEAE6;
   --gold:#FEBC22; --gold-soft:#FFF4D6; --gold-text:#8A5A00;
-  --display:'Plus Jakarta Sans','Segoe UI',sans-serif;
+  --display:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 "Plus Jakarta Sans","Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
 .wrap{max-width:960px;margin:0 auto;padding:16px 16px 40px}
 .num{font-variant-numeric:tabular-nums}
 .chip{display:block;font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.2px;color:var(--ink)}

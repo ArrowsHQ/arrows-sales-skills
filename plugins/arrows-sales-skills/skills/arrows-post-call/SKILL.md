@@ -3,7 +3,6 @@ name: arrows-post-call
 description: "Post-call from Sales Skills by Arrows. Run right after a sales call: finds your most recent call on its own, then drafts the follow-up email in your voice and the CRM update from what was said (next step, stage, competitors mentioned, follow-up tasks with dates) using your CRM's own field names. Nothing goes into the CRM until you approve the exact changes; without CRM write access you get a copy-paste version. Adds resources to send only when the buyer asked for something. Use whenever someone says 'Run my Arrows post-call', 'Run post-call on [company]', 'write the follow-up from my last call', 'update the CRM from that meeting', 'log my call', or wants a recap email, CRM notes or follow-up tasks after a meeting."
 ---
 
-
 What the person does right after hanging up, done for them:
 
 | Output | What's in it |
